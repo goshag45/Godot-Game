@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b04m0rkdrm4cb"]
+
+[ext_resource type="PackedScene" uid="uid://ymqi1casfysa" path="res://male_character_ps1-style.glb" id="1_ujhk0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6smwl"]
+
+[node name="Player" instance=ExtResource("1_ujhk0")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_6smwl")
