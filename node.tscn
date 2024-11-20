@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://txkplgsfsdnc"]
+
+[ext_resource type="Texture2D" uid="uid://dh16vcrcyd1u2" path="res://kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_56d3g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wtr31"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vm31o"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nu6f2"]
+material = SubResource("StandardMaterial3D_vm31o")
+size = Vector3(20, 1, 20)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olw8g"]
+panorama = ExtResource("1_56d3g")
+
+[sub_resource type="Sky" id="Sky_vfxxp"]
+sky_material = SubResource("PanoramaSkyMaterial_olw8g")
+
+[sub_resource type="Environment" id="Environment_rqqly"]
+background_mode = 2
+background_color = Color(0.585062, 0.585062, 0.585062, 1)
+sky = SubResource("Sky_vfxxp")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="Node" type="Node"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_wtr31")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_nu6f2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.5, -0.75, 0.433013, 0, 0.5, 0.866025, -0.866025, -0.433013, 0.25, 10, 10, 10)
+visible = false
+light_color = Color(0.775747, 0.670954, 0.509915, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rqqly")
