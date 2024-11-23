@@ -1,18 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://txkplgsfsdnc"]
+[gd_scene load_steps=8 format=3 uid="uid://txkplgsfsdnc"]
 
 [ext_resource type="Texture2D" uid="uid://dh16vcrcyd1u2" path="res://kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_56d3g"]
 [ext_resource type="PackedScene" uid="uid://b04m0rkdrm4cb" path="res://player.tscn" id="2_hksku"]
-[ext_resource type="Script" path="res://camera_controller.gd" id="3_3m7ft"]
 [ext_resource type="Script" path="res://player.gd" id="3_bkuro"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wtr31"]
-size = Vector3(20, 1, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vm31o"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_nu6f2"]
-material = SubResource("StandardMaterial3D_vm31o")
-size = Vector3(20, 1, 20)
+[ext_resource type="PackedScene" uid="uid://bt4uyk54cpqqj" path="res://Test Level.tscn" id="4_up5fb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olw8g"]
 panorama = ExtResource("1_56d3g")
@@ -29,29 +20,13 @@ ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="World" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_wtr31")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-mesh = SubResource("BoxMesh_nu6f2")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.5, -0.75, 0.433013, 0, 0.5, 0.866025, -0.866025, -0.433013, 0.25, 10, 10, 10)
-visible = false
-light_color = Color(0.775747, 0.670954, 0.509915, 1)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rqqly")
 
 [node name="Player" parent="." instance=ExtResource("2_hksku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.773812, 1.1239, 5.10443)
 script = ExtResource("3_bkuro")
 
-[node name="CameraController" type="Node3D" parent="." groups=["Player"]]
-script = ExtResource("3_3m7ft")
+[node name="Level" type="Node3D" parent="."]
 
-[node name="Camera3D" type="Camera3D" parent="CameraController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.07649, 10.342)
+[node name="Test Scene Container" parent="." instance=ExtResource("4_up5fb")]
