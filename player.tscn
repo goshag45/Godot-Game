@@ -13,6 +13,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.982355, 0)
 shape = SubResource("CapsuleShape3D_6smwl")
 
 [node name="Head" type="Node3D" parent="." index="2"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.75, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.77621, 0.121614)
 
 [node name="Camera3D" type="Camera3D" parent="Head" index="0"]
