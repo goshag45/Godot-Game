@@ -1,7 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt4uyk54cpqqj"]
+[gd_scene load_steps=10 format=3 uid="uid://bt4uyk54cpqqj"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4oi2n"]
-albedo_color = Color(1, 0.779175, 0.736297, 1)
+[ext_resource type="Texture2D" uid="uid://dh16vcrcyd1u2" path="res://kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_lul1m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3lm0"]
+albedo_color = Color(0.334594, 0.639596, 0.40586, 1)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3v57f"]
+panorama = ExtResource("1_lul1m")
+
+[sub_resource type="Sky" id="Sky_vfxxp"]
+sky_material = SubResource("PanoramaSkyMaterial_3v57f")
+
+[sub_resource type="Environment" id="Environment_sfmov"]
+background_mode = 2
+background_color = Color(0.585062, 0.585062, 0.585062, 1)
+sky = SubResource("Sky_vfxxp")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0gjd"]
+render_priority = 1
+albedo_color = Color(0.46297, 0.727103, 0.378589, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rwbt"]
 albedo_color = Color(0.462539, 0.674198, 0.644021, 1)
@@ -13,24 +32,40 @@ albedo_color = Color(0.601553, 0.419032, 0.642774, 1)
 albedo_color = Color(0.678456, 0.526561, 0.233814, 1)
 
 [node name="Test Level" type="CSGCombiner3D"]
+material_override = SubResource("StandardMaterial3D_h3lm0")
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sfmov")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D"]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, -0.5, 0)
-material_override = SubResource("StandardMaterial3D_4oi2n")
+material_override = SubResource("StandardMaterial3D_s0gjd")
+use_collision = true
 size = Vector3(7.28564, 1, 7.73828)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+[node name="Node3D2" type="Node3D" parent="."]
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 12.1352, 1.13217, 10.7812)
 material_override = SubResource("StandardMaterial3D_3rwbt")
+use_collision = true
 size = Vector3(3.47168, 1.43381, 3.59778)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+[node name="Node3D3" type="Node3D" parent="."]
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Node3D3"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 15.4462, 6.06305, 20.2988)
 material_override = SubResource("StandardMaterial3D_v6u3t")
+use_collision = true
 size = Vector3(1.4082, 6.36469, 1.56717)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+[node name="Node3D4" type="Node3D" parent="."]
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Node3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2226, 0.459394, 20.1612)
 material_override = SubResource("StandardMaterial3D_psspe")
+use_collision = true
 size = Vector3(6.31653, 1.35718, 5.06738)

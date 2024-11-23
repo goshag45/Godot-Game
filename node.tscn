@@ -1,27 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://txkplgsfsdnc"]
+[gd_scene load_steps=4 format=3 uid="uid://txkplgsfsdnc"]
 
-[ext_resource type="Texture2D" uid="uid://dh16vcrcyd1u2" path="res://kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_56d3g"]
 [ext_resource type="PackedScene" uid="uid://b04m0rkdrm4cb" path="res://player.tscn" id="2_hksku"]
 [ext_resource type="Script" path="res://player.gd" id="3_bkuro"]
 [ext_resource type="PackedScene" uid="uid://bt4uyk54cpqqj" path="res://Test Level.tscn" id="4_up5fb"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_olw8g"]
-panorama = ExtResource("1_56d3g")
-
-[sub_resource type="Sky" id="Sky_vfxxp"]
-sky_material = SubResource("PanoramaSkyMaterial_olw8g")
-
-[sub_resource type="Environment" id="Environment_rqqly"]
-background_mode = 2
-background_color = Color(0.585062, 0.585062, 0.585062, 1)
-sky = SubResource("Sky_vfxxp")
-ambient_light_source = 3
-ambient_light_color = Color(1, 1, 1, 1)
-
 [node name="World" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_rqqly")
 
 [node name="Player" parent="." instance=ExtResource("2_hksku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.773812, 1.1239, 5.10443)
@@ -29,4 +12,4 @@ script = ExtResource("3_bkuro")
 
 [node name="Level" type="Node3D" parent="."]
 
-[node name="Test Scene Container" parent="." instance=ExtResource("4_up5fb")]
+[node name="Test Scene Container" parent="Level" instance=ExtResource("4_up5fb")]

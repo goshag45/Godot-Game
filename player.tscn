@@ -3,11 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://ymqi1casfysa" path="res://male_character_ps1-style.glb" id="1_ujhk0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6smwl"]
+radius = 0.225678
+height = 1.97294
 
 [node name="Player" groups=["player"] instance=ExtResource("1_ujhk0")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.982355, 0)
 shape = SubResource("CapsuleShape3D_6smwl")
 
 [node name="Head" type="Node3D" parent="." index="2"]
