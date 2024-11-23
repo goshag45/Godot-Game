@@ -11,7 +11,7 @@ const BOB_FREQ = 2.0
 const BOB_AMP = 0.08
 var t_bob = 0.0
 
-const BASE_FOV = 75
+const BASE_FOV = 90
 const FOV_CHANGE = 1.5
 
 var gravity = 9.8
@@ -30,6 +30,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(90))
 
 func _physics_process(delta: float) -> void:
+	var deathbox = get_tree().get_first_node_in_group("deathbox")
+	
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -45,8 +48,10 @@ func _physics_process(delta: float) -> void:
 		var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
 		camera.fov = lerp(camera.fov, target_fov, delta * 2.0)
 	else:
+		var target_fov = 90.0
+		camera.fov = lerp(camera.fov, target_fov, delta * 2.0)
 		speed = WALK_SPEED
-
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "forward", "back")

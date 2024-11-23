@@ -1,22 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://bt4uyk54cpqqj"]
+[gd_scene load_steps=13 format=3 uid="uid://bt4uyk54cpqqj"]
 
-[ext_resource type="Texture2D" uid="uid://dh16vcrcyd1u2" path="res://kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_lul1m"]
+[ext_resource type="Script" path="res://test_level.gd" id="1_i16eh"]
+[ext_resource type="Texture2D" uid="uid://dh16vcrcyd1u2" path="res://art/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_lul1m"]
+[ext_resource type="PackedScene" uid="uid://ey3dv6gmxvdv" path="res://art/pine_tree_-_ps1_low_poly.glb" id="2_nge2g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3lm0"]
-albedo_color = Color(0.334594, 0.639596, 0.40586, 1)
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3v57f"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rtfbo"]
 panorama = ExtResource("1_lul1m")
 
-[sub_resource type="Sky" id="Sky_vfxxp"]
-sky_material = SubResource("PanoramaSkyMaterial_3v57f")
+[sub_resource type="Sky" id="Sky_xxil6"]
+sky_material = SubResource("PanoramaSkyMaterial_rtfbo")
 
-[sub_resource type="Environment" id="Environment_sfmov"]
+[sub_resource type="Environment" id="Environment_4c7uv"]
 background_mode = 2
-background_color = Color(0.585062, 0.585062, 0.585062, 1)
-sky = SubResource("Sky_vfxxp")
-ambient_light_source = 3
-ambient_light_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_xxil6")
+sky_rotation = Vector3(0, -3.20093, 0)
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0gjd"]
 render_priority = 1
@@ -31,12 +34,20 @@ albedo_color = Color(0.601553, 0.419032, 0.642774, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_psspe"]
 albedo_color = Color(0.678456, 0.526561, 0.233814, 1)
 
-[node name="Test Level" type="CSGCombiner3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3g2r"]
+albedo_color = Color(1, 1, 1, 0)
+
+[node name="Test Level" type="CSGCombiner3D" groups=["deathbox"]]
 material_override = SubResource("StandardMaterial3D_h3lm0")
 use_collision = true
+script = ExtResource("1_i16eh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_sfmov")
+environment = SubResource("Environment_4c7uv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Node3D" type="Node3D" parent="."]
 
@@ -71,3 +82,14 @@ use_collision = true
 size = Vector3(6.31653, 1.35718, 5.06738)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Tree" parent="." instance=ExtResource("2_nge2g")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 26.1855, 0, -26.1045)
+
+[node name="Tree2" parent="." instance=ExtResource("2_nge2g")]
+transform = Transform3D(0.4351, 0, -1.01029, 0, 1.1, 0, 1.01029, 0, 0.4351, 20.5547, 1.90735e-06, -29.1279)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+size = Vector3(150, 1, 150)
+material = SubResource("StandardMaterial3D_n3g2r")
