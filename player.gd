@@ -8,7 +8,7 @@ const SENSITIVITY = 0.0013
 
 #head bob stuff
 const BOB_FREQ = 2.0
-const BOB_AMP = 0.08
+const BOB_AMP = 0.04
 var t_bob = 0.0
 
 const BASE_FOV = 90
@@ -67,4 +67,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 4.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 4.0)
 
+	t_bob += delta * velocity.length() * float(is_on_floor())
+	camera.transform.origin = _headbob(t_bob)
+
 	move_and_slide()
+
+func _headbob(time):
+	var pos = Vector3.ZERO
+	pos.y = sin(time * BOB_FREQ) * BOB_AMP
+	pos.x = sin(time * BOB_FREQ / 2) * BOB_AMP
+	return pos
