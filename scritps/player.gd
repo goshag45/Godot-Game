@@ -23,21 +23,21 @@ var t_bob = 0.0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
+	
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		print("rotating")
 		player.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(90))
 
 
 func _physics_process(delta: float) -> void:
-	# FINISH KILLBOX CODE HERE
+	$Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera.global_transform = camera.global_transform
+	
+	# FINISH KILLBOX CODE HERE - maybe do this in world actually
 	var deathbox = get_tree().get_first_node_in_group("deathbox")
-
-	if Input.is_action_just_pressed("fire"):
-		print("shooted")
 
 	# Add the gravity.
 	if not is_on_floor():

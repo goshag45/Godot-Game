@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://bivh5hg55epm3"]
+
+[ext_resource type="PackedScene" uid="uid://bsafvk2nc535l" path="res://art/ps1_style_revolver.glb" id="1_lxikh"]
+
+[node name="ViewModelCamera" type="Camera3D"]
+fov = 35.0
+
+[node name="FPSRig" type="Node3D" parent="."]
+
+[node name="Revolver" parent="FPSRig" instance=ExtResource("1_lxikh")]
+transform = Transform3D(-0.1, 0, 8.74228e-09, 0, 0.1, 0, -8.74228e-09, 0, -0.1, 0.739111, -0.580509, -2.67714)
+
+[node name="Cylinder_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cylinder" index="0"]
+layers = 2
+
+[node name="Cube_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cube" index="0"]
+layers = 2
+
+[node name="Cube_001_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cube_001" index="0"]
+layers = 2
+
+[node name="Cube_002_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cube_002" index="0"]
+layers = 2
+
+[node name="Cube_003_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cube_003" index="0"]
+layers = 2
+
+[node name="Cylinder_002_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cylinder_002" index="0"]
+layers = 2
+
+[node name="Cube_004_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cube_004" index="0"]
+layers = 2
+
+[node name="Cylinder_003_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cylinder_003" index="0"]
+layers = 2
+
+[node name="Cube_005_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cube_005" index="0"]
+layers = 2
+
+[node name="Cylinder_001_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cylinder_001" index="0"]
+layers = 2
+
+[editable path="FPSRig/Revolver"]
