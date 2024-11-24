@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://b04m0rkdrm4cb"]
+[gd_scene load_steps=6 format=3 uid="uid://b04m0rkdrm4cb"]
 
 [ext_resource type="PackedScene" uid="uid://ymqi1casfysa" path="res://art/male_character_ps1-style.glb" id="1_ujhk0"]
+[ext_resource type="Script" path="res://scritps/canvas_layer.gd" id="2_nfnki"]
+[ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="3_tyvbu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6smwl"]
 radius = 0.225678
 height = 1.97294
+
+[sub_resource type="LabelSettings" id="LabelSettings_qdvu4"]
+font = ExtResource("3_tyvbu")
+font_size = 44
+font_color = Color(0.904786, 0, 0.0445938, 1)
 
 [node name="Player" groups=["player"] instance=ExtResource("1_ujhk0")]
 
@@ -18,3 +25,30 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.7
 [node name="Camera3D" type="Camera3D" parent="Head" index="0"]
 near = 0.045
 far = 5000.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
+script = ExtResource("2_nfnki")
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1440.0
+offset_bottom = 810.0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1212.0
+offset_top = 623.0
+offset_right = -52.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "AMMO"
+label_settings = SubResource("LabelSettings_qdvu4")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
