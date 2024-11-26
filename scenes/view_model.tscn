@@ -1,6 +1,68 @@
-[gd_scene load_steps=2 format=3 uid="uid://bivh5hg55epm3"]
+[gd_scene load_steps=5 format=3 uid="uid://bivh5hg55epm3"]
 
 [ext_resource type="PackedScene" uid="uid://bsafvk2nc535l" path="res://art/ps1_style_revolver.glb" id="1_lxikh"]
+
+[sub_resource type="Animation" id="Animation_jx40a"]
+resource_name = "shoot"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.2),
+"transitions": PackedFloat32Array(1, 1.7411, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2, -2), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, -3.14159, 3.14159), Vector3(-1.30177, -3.14159, 3.14159), Vector3(-1.5708, -3.14159, 3.14159)]
+}
+
+[sub_resource type="Animation" id="Animation_avgt0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.30177, -3.14159, 3.14159)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70e8g"]
+_data = {
+"RESET": SubResource("Animation_avgt0"),
+"shoot": SubResource("Animation_jx40a")
+}
 
 [node name="ViewModelCamera" type="Camera3D"]
 fov = 35.0
@@ -9,6 +71,9 @@ fov = 35.0
 
 [node name="Revolver" parent="FPSRig" instance=ExtResource("1_lxikh")]
 transform = Transform3D(-0.1, 0, 8.74228e-09, 0, 0.1, 0, -8.74228e-09, 0, -0.1, 0.739111, -0.580509, -2.67714)
+
+[node name="Sketchfab_model" parent="FPSRig/Revolver" index="0"]
+transform = Transform3D(1, 5.43123e-09, -4.01334e-08, 4.01334e-08, -0.265791, 0.964031, -5.43123e-09, -0.964031, -0.265791, 0, 0, 0)
 
 [node name="Cylinder_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cylinder" index="0"]
 layers = 2
@@ -39,5 +104,10 @@ layers = 2
 
 [node name="Cylinder_001_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cylinder_001" index="0"]
 layers = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FPSRig/Revolver"]
+libraries = {
+"": SubResource("AnimationLibrary_70e8g")
+}
 
 [editable path="FPSRig/Revolver"]
