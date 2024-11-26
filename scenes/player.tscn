@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://b04m0rkdrm4cb"]
 
 [ext_resource type="PackedScene" uid="uid://ymqi1casfysa" path="res://art/male_character_ps1-style.glb" id="1_ujhk0"]
-[ext_resource type="Script" path="res://scritps/player.gd" id="2_kooth"]
-[ext_resource type="Script" path="res://scritps/canvas_layer.gd" id="2_nfnki"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_kooth"]
+[ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="2_nfnki"]
 [ext_resource type="PackedScene" uid="uid://bivh5hg55epm3" path="res://scenes/view_model.tscn" id="2_rpm7w"]
 [ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="3_tyvbu"]
 

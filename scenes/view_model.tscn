@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bivh5hg55epm3"]
+[gd_scene load_steps=6 format=3 uid="uid://bivh5hg55epm3"]
 
+[ext_resource type="Script" path="res://scripts/view_model.gd" id="1_by405"]
 [ext_resource type="PackedScene" uid="uid://bsafvk2nc535l" path="res://art/ps1_style_revolver.glb" id="1_lxikh"]
 
 [sub_resource type="Animation" id="Animation_jx40a"]
@@ -66,6 +67,7 @@ _data = {
 
 [node name="ViewModelCamera" type="Camera3D"]
 fov = 35.0
+script = ExtResource("1_by405")
 
 [node name="FPSRig" type="Node3D" parent="."]
 
@@ -109,5 +111,9 @@ layers = 2
 libraries = {
 "": SubResource("AnimationLibrary_70e8g")
 }
+
+[node name="RayCast3D" type="RayCast3D" parent="FPSRig/Revolver"]
+transform = Transform3D(10, 0, -5.68434e-13, 0, 10, 0, 5.68434e-13, 0, 10, 1.43051e-06, 1.90133, 16.7114)
+target_position = Vector3(0, 0, -1)
 
 [editable path="FPSRig/Revolver"]

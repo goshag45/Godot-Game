@@ -16,10 +16,15 @@ const BOB_FREQ = 2.0
 const BOB_AMP = 0.04
 var t_bob = 0.0
 
+var bullet = load("res://scenes/bullet.tscn")
+var instance
+
 # References
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var player = $"."
+@onready var gun_anim = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/AnimationPlayer
+@onready var gun_barrel = $FPSRig/Revolver/RayCast3D
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -35,9 +40,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	$Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera.global_transform = camera.global_transform
-	
-	# FINISH KILLBOX CODE HERE - maybe do this in world actually
-	var deathbox = get_tree().get_first_node_in_group("deathbox")
+
 
 	# Add the gravity.
 	if not is_on_floor():
@@ -75,6 +78,17 @@ func _physics_process(delta: float) -> void:
 
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
+
+	if Input.is_action_pressed("fire"):
+		if !gun_anim.is_playing():
+			gun_anim.play("shoot")
+			instance = bullet.instantiate()
+			print(gun_barrel)
+			#instance.position = gun_barrel.global_position
+			#instance.transform.basis = gun_barrel.global_transform.basis
+			#get_parent().add_child(instance)
+	
+	
 
 	move_and_slide()
 
