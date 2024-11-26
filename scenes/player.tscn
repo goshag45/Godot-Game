@@ -71,3 +71,6 @@ label_settings = SubResource("LabelSettings_qdvu4")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[editable path="Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera"]
+[editable path="Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver"]

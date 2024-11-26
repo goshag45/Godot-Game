@@ -24,7 +24,8 @@ var instance
 @onready var camera = $Head/Camera3D
 @onready var player = $"."
 @onready var gun_anim = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/AnimationPlayer
-@onready var gun_barrel = $FPSRig/Revolver/RayCast3D
+@onready var gun_barrel = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/gun_barrel
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -83,12 +84,9 @@ func _physics_process(delta: float) -> void:
 		if !gun_anim.is_playing():
 			gun_anim.play("shoot")
 			instance = bullet.instantiate()
-			print(gun_barrel)
-			#instance.position = gun_barrel.global_position
-			#instance.transform.basis = gun_barrel.global_transform.basis
-			#get_parent().add_child(instance)
-	
-	
+			instance.position = gun_barrel.global_position
+			instance.transform.basis = gun_barrel.global_transform.basis
+			get_parent().add_child(instance)
 
 	move_and_slide()
 

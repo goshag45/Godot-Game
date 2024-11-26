@@ -112,8 +112,8 @@ libraries = {
 "": SubResource("AnimationLibrary_70e8g")
 }
 
-[node name="RayCast3D" type="RayCast3D" parent="FPSRig/Revolver"]
-transform = Transform3D(10, 0, -5.68434e-13, 0, 10, 0, 5.68434e-13, 0, 10, 1.43051e-06, 1.90133, 16.7114)
+[node name="gun_barrel" type="RayCast3D" parent="FPSRig/Revolver"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 4.76837e-07, 1.90133, 6.71136)
 target_position = Vector3(0, 0, -1)
 
 [editable path="FPSRig/Revolver"]
