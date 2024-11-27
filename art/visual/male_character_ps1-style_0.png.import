@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bom6awbdk67y8"
-path.s3tc="res://.godot/imported/pine_tree_-_ps1_low_poly_0.png-1e05b518ba9e4f5a1d74374a9221c491.s3tc.ctex"
+uid="uid://dltcqo344b7xn"
+path.s3tc="res://.godot/imported/male_character_ps1-style_0.png-3003b7036c704d9775b84ae039fc624c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "49cfa65700e182db746df62da2281c52"
+"md5": "677d71896be9adf6e0fca981f6b8a876"
 }
 
 [deps]
 
-source_file="res://art/pine_tree_-_ps1_low_poly_0.png"
-dest_files=["res://.godot/imported/pine_tree_-_ps1_low_poly_0.png-1e05b518ba9e4f5a1d74374a9221c491.s3tc.ctex"]
+source_file="res://art/visual/male_character_ps1-style_0.png"
+dest_files=["res://.godot/imported/male_character_ps1-style_0.png-3003b7036c704d9775b84ae039fc624c.s3tc.ctex"]
 
 [params]
 

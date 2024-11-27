@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bt4uyk54cpqqj"]
 
-[ext_resource type="Texture2D" uid="uid://dh16vcrcyd1u2" path="res://art/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_lul1m"]
-[ext_resource type="PackedScene" uid="uid://ey3dv6gmxvdv" path="res://art/pine_tree_-_ps1_low_poly.glb" id="2_nge2g"]
+[ext_resource type="Texture2D" uid="uid://dh16vcrcyd1u2" path="res://art/visual/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_lul1m"]
+[ext_resource type="PackedScene" uid="uid://ey3dv6gmxvdv" path="res://art/visual/pine_tree_-_ps1_low_poly.glb" id="2_nge2g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3lm0"]
 transparency = 1

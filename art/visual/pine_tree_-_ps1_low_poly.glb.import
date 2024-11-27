@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bsafvk2nc535l"
-path="res://.godot/imported/ps1_style_revolver.glb-d274899e68d7f897ef4ac6f86d99c7e6.scn"
+uid="uid://ey3dv6gmxvdv"
+path="res://.godot/imported/pine_tree_-_ps1_low_poly.glb-2af91284741dc6b562f7e8b94737bb4d.scn"
 
 [deps]
 
-source_file="res://art/ps1_style_revolver.glb"
-dest_files=["res://.godot/imported/ps1_style_revolver.glb-d274899e68d7f897ef4ac6f86d99c7e6.scn"]
+source_file="res://art/visual/pine_tree_-_ps1_low_poly.glb"
+dest_files=["res://.godot/imported/pine_tree_-_ps1_low_poly.glb-2af91284741dc6b562f7e8b94737bb4d.scn"]
 
 [params]
 

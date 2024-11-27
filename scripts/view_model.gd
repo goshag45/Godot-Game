@@ -1,6 +1,6 @@
 extends Camera3D
 
-@onready var gun_barrel = $FPSRig/Revolver/RayCast3D
+@onready var gun_barrel = $FPSRig/Revolver/gun_barrel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
