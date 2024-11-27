@@ -82,7 +82,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_pressed("fire"):
 		if !gun_anim.is_playing():
-			gun_anim.play("shoot")
+			gun_anim.play("shoot_revolver")
 			instance = bullet.instantiate()
 			instance.position = gun_barrel.global_position
 			instance.transform.basis = gun_barrel.global_transform.basis
