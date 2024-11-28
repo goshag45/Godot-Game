@@ -41,7 +41,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	$Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera.global_transform = camera.global_transform
 
-
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv1850xotwfxt"]
+[gd_scene load_steps=9 format=3 uid="uid://bv1850xotwfxt"]
 
 [ext_resource type="PackedScene" uid="uid://ymqi1casfysa" path="res://art/visual/male_character_ps1-style.glb" id="1_ujhk0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_kooth"]
@@ -14,6 +14,10 @@ height = 1.97294
 font = ExtResource("3_tyvbu")
 font_size = 44
 font_color = Color(0.904786, 0, 0.0445938, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lkoow"]
+font = ExtResource("3_tyvbu")
+font_size = 32
 
 [node name="Player" instance=ExtResource("1_ujhk0")]
 script = ExtResource("2_kooth")
@@ -46,8 +50,6 @@ handle_input_locally = false
 render_target_update_mode = 4
 
 [node name="ViewModelCamera" parent="Head/Camera3D/SubViewportContainer/SubViewport" index="0" instance=ExtResource("2_rpm7w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89, 0)
-cull_mask = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
 script = ExtResource("2_nfnki")
@@ -76,5 +78,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[editable path="Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera"]
-[editable path="Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver"]
+[node name="FPS" type="Label" parent="CanvasLayer/Control" index="1"]
+layout_mode = 0
+offset_right = 127.0
+offset_bottom = 95.0
+label_settings = SubResource("LabelSettings_lkoow")

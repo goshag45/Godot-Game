@@ -66,13 +66,15 @@ _data = {
 }
 
 [node name="ViewModelCamera" type="Camera3D"]
-fov = 35.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+cull_mask = 2
+fov = 50.0
 script = ExtResource("1_by405")
 
 [node name="FPSRig" type="Node3D" parent="."]
 
 [node name="Revolver" parent="FPSRig" instance=ExtResource("1_lxikh")]
-transform = Transform3D(-0.1, -2.53518e-07, 9.17733e-13, 0, -3.61999e-07, -0.1, 2.53518e-07, -0.1, 3.61999e-07, 0.739111, -0.580509, -2.67714)
+transform = Transform3D(-0.05, -1.26759e-07, 4.58867e-13, 0, -1.81e-07, -0.05, 1.26759e-07, -0.05, 1.81e-07, 0.739111, -0.580509, -2.67714)
 
 [node name="Sketchfab_model" parent="FPSRig/Revolver" index="0"]
 transform = Transform3D(1, 1.50996e-07, -8.74228e-08, 1.50996e-07, -1, 0, -8.74228e-08, -1.32005e-14, -1, 0, 0, -0.422)
@@ -108,7 +110,7 @@ layers = 2
 layers = 2
 
 [node name="gun_barrel" type="RayCast3D" parent="FPSRig/Revolver"]
-transform = Transform3D(-10, 8.74228e-07, -1.13687e-13, 5.68434e-14, -4.37114e-07, -10, -8.74228e-07, -10, 4.37114e-07, -4.76837e-07, 1.90133, -2.31123)
+transform = Transform3D(-10, 8.74228e-07, -1.81899e-12, 1.81899e-12, -4.37114e-07, -10, -8.74228e-07, -10, 4.37114e-07, 1.19209e-05, -3.20177, -2.31123)
 target_position = Vector3(0, 0, -1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FPSRig/Revolver"]

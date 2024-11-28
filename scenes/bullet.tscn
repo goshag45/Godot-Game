@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcsy38as1byfi"]
+[gd_scene load_steps=7 format=3 uid="uid://dcsy38as1byfi"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_hct78"]
 
@@ -11,6 +11,21 @@ emission_enabled = true
 emission = Color(1, 0.0885552, 0.245837, 1)
 emission_energy_multiplier = 3.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ppux3"]
+direction = Vector3(0, 0, 1)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iy83t"]
+albedo_color = Color(0.844693, 0.74449, 0.0579974, 1)
+emission_enabled = true
+emission = Color(1, 0.163828, 0.201158, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_tnmen"]
+material = SubResource("StandardMaterial3D_iy83t")
+size = Vector3(0.04, 0.04, 0.04)
+
 [node name="Bullet" type="Node3D"]
 script = ExtResource("1_hct78")
 
@@ -20,3 +35,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tf6yh")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -1)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_ppux3")
+draw_pass_1 = SubResource("BoxMesh_tnmen")

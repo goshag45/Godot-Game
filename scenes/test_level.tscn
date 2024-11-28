@@ -98,7 +98,7 @@ size = Vector3(6.31653, 1.35718, 5.06738)
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 26.1855, 0, -26.1045)
 
 [node name="Tree2" parent="." instance=ExtResource("2_nge2g")]
-transform = Transform3D(0.4351, 0, -1.01029, 0, 1.1, 0, 1.01029, 0, 0.4351, 20.5547, 1.90735e-06, -29.1279)
+transform = Transform3D(0.4351, 0, -1.01029, 0, 1.1, 0, 1.01029, 0, 0.4351, -2.4453, 1.90735e-06, -29.1279)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
