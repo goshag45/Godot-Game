@@ -1,6 +1,7 @@
 extends Camera3D
 
 @onready var gun_barrel = $FPSRig/Revolver/gun_barrel
+var revolver_gunshot = preload("res://art/revolver_gunshot.mp3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

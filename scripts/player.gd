@@ -26,7 +26,6 @@ var instance
 @onready var gun_anim = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/AnimationPlayer
 @onready var gun_barrel = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/gun_barrel
 
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
@@ -87,6 +86,15 @@ func _physics_process(delta: float) -> void:
 			instance.position = gun_barrel.global_position
 			instance.transform.basis = gun_barrel.global_transform.basis
 			get_parent().add_child(instance)
+
+	if Input.is_action_just_pressed("fire"):
+		var weapon_audio = AudioStreamPlayer3D.new()
+		weapon_audio.stream = load("res://art/revolver_gunshot.mp3")
+		weapon_audio.position = player.global_position
+		add_child(weapon_audio)
+		weapon_audio.play()
+		await weapon_audio.finished
+		weapon_audio.queue_free()
 
 	move_and_slide()
 
