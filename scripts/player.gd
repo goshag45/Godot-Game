@@ -90,7 +90,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire"):
 		var weapon_audio = AudioStreamPlayer3D.new()
 		weapon_audio.stream = load("res://art/revolver_gunshot.mp3")
-		weapon_audio.position = player.global_position
+		weapon_audio.position = gun_barrel.position
 		add_child(weapon_audio)
 		weapon_audio.play()
 		await weapon_audio.finished
