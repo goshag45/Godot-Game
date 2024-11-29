@@ -90,6 +90,7 @@ func _physics_process(delta: float) -> void:
 		var weapon_audio = AudioStreamPlayer3D.new()
 		weapon_audio.stream = load("res://art/revolver_gunshot.mp3")
 		weapon_audio.position = gun_barrel.position
+		weapon_audio.set_volume_db(-6.0)
 		add_child(weapon_audio)
 		weapon_audio.play()
 		await weapon_audio.finished
