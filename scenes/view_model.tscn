@@ -3,7 +3,36 @@
 [ext_resource type="Script" path="res://scripts/view_model.gd" id="1_by405"]
 [ext_resource type="PackedScene" uid="uid://bsafvk2nc535l" path="res://art/visual/ps1_style_revolver.glb" id="1_lxikh"]
 
-[sub_resource type="Animation" id="Animation_ntftd"]
+[sub_resource type="Animation" id="Animation_ngu52"]
+resource_name = "shoot_revolver"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.487475, -0.580509, -1.46909), Vector3(0.487, -0.5, -1), Vector3(0.487475, -0.580509, -1.46909)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5708, -3.14159, 0), Vector3(1.0472, -3.14159, 0), Vector3(1.5708, -3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d0wnr"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -15,7 +44,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.739111, -0.580509, -2.67714)]
+"values": [Vector3(0.487475, -0.580509, -1.46909)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -30,39 +59,10 @@ tracks/1/keys = {
 "values": [Vector3(1.5708, -3.14159, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_w8710"]
-resource_name = "shoot_revolver"
-length = 0.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.02, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.739111, -0.580509, -2.67714), Vector3(0.739, -0.2, -2.2), Vector3(0.739111, -0.580509, -2.67714)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.02, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(1.5708, -3.14159, 0), Vector3(0.872665, -3.14159, 0), Vector3(1.5708, -3.14159, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfsek"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wni3g"]
 _data = {
-"RESET": SubResource("Animation_ntftd"),
-"shoot_revolver": SubResource("Animation_w8710")
+"RESET": SubResource("Animation_d0wnr"),
+"shoot_revolver": SubResource("Animation_ngu52")
 }
 
 [node name="ViewModelCamera" type="Camera3D"]
@@ -74,7 +74,7 @@ script = ExtResource("1_by405")
 [node name="FPSRig" type="Node3D" parent="."]
 
 [node name="Revolver" parent="FPSRig" instance=ExtResource("1_lxikh")]
-transform = Transform3D(-0.05, -1.26759e-07, 4.58867e-13, 0, -1.81e-07, -0.05, 1.26759e-07, -0.05, 1.81e-07, 0.739111, -0.580509, -2.67714)
+transform = Transform3D(-0.05, -1.26759e-07, 5.54082e-15, 0, -2.18557e-09, -0.05, 1.26759e-07, -0.05, 2.18557e-09, 0.487475, -0.580509, -1.46909)
 
 [node name="Sketchfab_model" parent="FPSRig/Revolver" index="0"]
 transform = Transform3D(1, 1.50996e-07, -8.74228e-08, 1.50996e-07, -1, 0, -8.74228e-08, -1.32005e-14, -1, 0, 0, -0.422)
@@ -110,12 +110,12 @@ layers = 2
 layers = 2
 
 [node name="gun_barrel" type="RayCast3D" parent="FPSRig/Revolver"]
-transform = Transform3D(-10, 8.74228e-07, -1.81899e-12, 1.81899e-12, -4.37114e-07, -10, -8.74228e-07, -10, 4.37114e-07, 1.19209e-05, -3.20177, -2.31123)
+transform = Transform3D(-10, 8.74228e-07, -3.63798e-12, 1.81899e-12, -4.37114e-07, -10, -8.74228e-07, -10, 4.37114e-07, 1.14441e-05, -3.19524, -2.31123)
 target_position = Vector3(0, 0, -1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FPSRig/Revolver"]
 libraries = {
-"": SubResource("AnimationLibrary_vfsek")
+"": SubResource("AnimationLibrary_wni3g")
 }
 
 [editable path="FPSRig/Revolver"]
