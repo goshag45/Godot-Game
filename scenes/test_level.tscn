@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bt4uyk54cpqqj"]
 
-[ext_resource type="Texture2D" uid="uid://dh16vcrcyd1u2" path="res://art/visual/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_lul1m"]
+[ext_resource type="Texture2D" uid="uid://7kaduesnbh4w" path="res://art/visual/SkySkybox.png" id="1_88e8n"]
 [ext_resource type="PackedScene" uid="uid://ey3dv6gmxvdv" path="res://art/visual/pine_tree_-_ps1_low_poly.glb" id="2_nge2g"]
 [ext_resource type="AudioStream" uid="uid://cvpjxgsbylkcu" path="res://art/unatco_conversation.mp3" id="3_07ppg"]
 
@@ -17,14 +17,13 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rtfbo"]
-panorama = ExtResource("1_lul1m")
+panorama = ExtResource("1_88e8n")
 
 [sub_resource type="Sky" id="Sky_xxil6"]
 sky_material = SubResource("PanoramaSkyMaterial_rtfbo")
 
 [sub_resource type="Environment" id="Environment_4c7uv"]
 background_mode = 2
-background_energy_multiplier = 0.4
 sky = SubResource("Sky_xxil6")
 sky_rotation = Vector3(0, -3.20093, 0)
 tonemap_mode = 2
