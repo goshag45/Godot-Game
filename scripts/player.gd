@@ -78,15 +78,14 @@ func _physics_process(delta: float) -> void:
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 
-	if Input.is_action_pressed("fire"):
+	if Input.is_action_just_pressed("fire"):
 		if !gun_anim.is_playing():
 			gun_anim.play("shoot_revolver")
 			instance = bullet.instantiate()
 			instance.position = gun_barrel.global_position
 			instance.transform.basis = gun_barrel.global_transform.basis
 			get_parent().add_child(instance)
-
-	if Input.is_action_just_pressed("fire"):
+		
 		var weapon_audio = AudioStreamPlayer3D.new()
 		weapon_audio.stream = load("res://art/revolver_gunshot.mp3")
 		weapon_audio.position = gun_barrel.position
