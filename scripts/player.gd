@@ -27,6 +27,7 @@ var direction = Vector3()
 @onready var player = $"."
 @onready var gun_anim = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/AnimationPlayer
 @onready var gun_barrel = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/gun_barrel
+@onready var player_walk_animation = $Sketchfab_model/hero_fbx/RootNode/rig/Object_4/Skeleton3D/AnimationPlayer
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -84,6 +85,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 4.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 4.0)
+	
+	#while Input.is_action_pressed("forward") or Input.is_action_pressed("back"):
+		#print(delta)
+		#if !player_walk_animation.is_playing():
+			#player_walk_animation.play("player_walk")
 
 	# head bobbin
 	t_bob += delta * velocity.length() * float(is_on_floor())
@@ -106,9 +112,7 @@ func _physics_process(delta: float) -> void:
 		await weapon_audio.finished
 		weapon_audio.queue_free()
 
-
-func _process(delta):	
-	# absolutely HORRIBLE fix for jittery edges
+func _process(_delta):
 	move_and_slide()
 
 func _headbob(time):

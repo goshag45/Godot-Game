@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://cntcml45idub5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7jvyp"]
+sky_top_color = Color(0.485678, 0.677518, 0.808542, 1)
+sky_horizon_color = Color(0.67142, 0.71163, 0.735386, 1)
+ground_horizon_color = Color(0.67142, 0.71163, 0.735386, 1)
+
+[sub_resource type="Sky" id="Sky_q2h0s"]
+sky_material = SubResource("ProceduralSkyMaterial_7jvyp")
+
+[sub_resource type="Environment" id="Environment_dnhew"]
+background_mode = 2
+sky = SubResource("Sky_q2h0s")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8f7ff"]
+size = Vector2(30, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_035mw"]
+albedo_color = Color(0.369784, 0.241915, 0.125252, 1)
+
+[node name="Level 1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dnhew")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 6, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_8f7ff")
+surface_material_override/0 = SubResource("StandardMaterial3D_035mw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016, 0.5, -8.314)
+size = Vector3(30, 1, 13.372)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002, 0.5, 8.286)
+size = Vector3(30, 1, 13.4188)
+
+[node name="bridge" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.120351, 1.11253, -0.0274017)
+size = Vector3(3.74757, 0.460327, 1.5199)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="outside" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6, -10)
+radius = 3.0
+height = 10.0
+sides = 20
+
+[node name="hole" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6, -10)
+operation = 2
+radius = 2.5
+height = 10.1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, -8.19638, 3, -8.17115)
+operation = 2
+size = Vector3(1, 2, 0.526123)
