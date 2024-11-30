@@ -19,6 +19,8 @@ var t_bob = 0.0
 var bullet = load("res://scenes/bullet.tscn")
 var instance
 
+var direction = Vector3()
+
 # References
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
@@ -104,6 +106,9 @@ func _physics_process(delta: float) -> void:
 		await weapon_audio.finished
 		weapon_audio.queue_free()
 
+
+func _process(delta):	
+	# absolutely HORRIBLE fix for jittery edges
 	move_and_slide()
 
 func _headbob(time):
