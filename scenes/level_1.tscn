@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=15 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dkwkn4gdkxgkv" path="res://art/visual/wall_cobblestone_cracks_64px.png" id="1_87s75"]
 [ext_resource type="Texture2D" uid="uid://cjod4vucs8bga" path="res://art/test.png" id="2_7mtd5"]
@@ -26,7 +26,7 @@ albedo_color = Color(0.369784, 0.241915, 0.125252, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njqon"]
 albedo_texture = ExtResource("1_87s75")
-uv1_scale = Vector3(18, 10, 10)
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s1wn"]
 albedo_color = Color(0.355314, 0.355314, 0.355314, 1)
@@ -114,74 +114,105 @@ shader_parameter/FoamGlowIntensity = 0.0
 shader_parameter/water_texture1 = ExtResource("2_7mtd5")
 shader_parameter/water_texture2 = ExtResource("2_7mtd5")
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_jmq4b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5hre3"]
+size = Vector3(30, 1.49207, 14)
+
 [node name="Level 1" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dnhew")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.707107, -0.664463, -0.241845, 0, -0.34202, 0.939693, -0.707107, -0.664463, -0.241845, 0, 12.98, 0)
+transform = Transform3D(0.707107, -0.664463, -0.241845, 0, -0.34202, 0.939693, -0.707107, -0.664463, -0.241845, 0, 10.274, 0)
 shadow_enabled = true
 shadow_blur = 4.0
 
 [node name="plane" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 mesh = SubResource("PlaneMesh_8f7ff")
 surface_material_override/0 = SubResource("StandardMaterial3D_035mw")
 
-[node name="ground1" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016, 0.5, -8.314)
-size = Vector3(30, 1, 13.372)
-
-[node name="ground2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002, 0.826233, 8.286)
-size = Vector3(30, 1.65247, 13.4188)
-
 [node name="bridge" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.120351, 1.11253, -0.0274017)
-size = Vector3(3.74757, 0.460327, 1.5199)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.120351, 4.11253, -0.751642)
+size = Vector3(5.19605, 0.460327, 1.5199)
 
 [node name="tube" type="CSGCombiner3D" parent="."]
 
 [node name="outside" type="CSGCylinder3D" parent="tube"]
-transform = Transform3D(-0.269189, 0, 0.963087, 0, 1, 0, -0.963087, 0, -0.269189, -10, 6, -10)
+transform = Transform3D(-0.269189, 0, 0.963087, 0, 1, 0, -0.963087, 0, -0.269189, -10, 9, -10)
 radius = 3.0
 height = 10.0
 sides = 20
 material = SubResource("StandardMaterial3D_njqon")
 
 [node name="hole" type="CSGCylinder3D" parent="tube"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 6, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 9, -10)
 operation = 2
 radius = 2.5
 height = 10.1
 
 [node name="door" type="CSGBox3D" parent="tube"]
-transform = Transform3D(1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, -8.19638, 3, -8.17115)
+transform = Transform3D(1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, -8.19638, 6, -8.17115)
 operation = 2
 size = Vector3(1, 2, 0.526123)
 
 [node name="platform" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.15836, 10, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.15836, 13, -10)
 size = Vector3(4, 0.5, 4)
 material = SubResource("StandardMaterial3D_7s1wn")
 
 [node name="tunnel" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.137616, 0)
 
 [node name="outside" type="CSGBox3D" parent="tunnel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 10)
-size = Vector3(15, 3, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029541, 6, 10)
+size = Vector3(14.9409, 3, 4)
 
 [node name="inside" type="CSGBox3D" parent="tunnel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.88004, 9.90552)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.88004, 9.90552)
 operation = 2
 size = Vector3(15, 2.52679, 3.25049)
 
 [node name="door" type="CSGBox3D" parent="tunnel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 8.13405)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 8.13405)
 operation = 2
 size = Vector3(2, 2, 0.337097)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="river_water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0979671, 3.5, -0.774899)
 mesh = SubResource("QuadMesh_qcccd")
 surface_material_override/0 = SubResource("ShaderMaterial_i45fs")
+
+[node name="ground_low" type="StaticBody3D" parent="."]
+
+[node name="ground1" type="MeshInstance3D" parent="ground_low"]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 6, 0, 4, -9)
+mesh = SubResource("PlaneMesh_jmq4b")
+skeleton = NodePath("../..")
+
+[node name="riverwall1" type="MeshInstance3D" parent="ground_low"]
+transform = Transform3D(-15, 1.50996e-07, -6.60024e-15, 0, -4.37114e-08, -1, -2.26494e-06, -1, 4.37114e-08, 0, 3.5, 1)
+mesh = SubResource("PlaneMesh_jmq4b")
+skeleton = NodePath("../..")
+
+[node name="ground_collision_box" type="CollisionShape3D" parent="ground_low"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -9)
+shape = SubResource("BoxShape3D_5hre3")
+
+[node name="ground_high" type="StaticBody3D" parent="."]
+
+[node name="ground2" type="MeshInstance3D" parent="ground_high"]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 7, 0, 4.5, 8)
+mesh = SubResource("PlaneMesh_jmq4b")
+skeleton = NodePath("../..")
+
+[node name="riverwall2" type="MeshInstance3D" parent="ground_high"]
+transform = Transform3D(15, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 0, 3.5, -3)
+mesh = SubResource("PlaneMesh_jmq4b")
+skeleton = NodePath("../..")
+
+[node name="ground_collision_box" type="CollisionShape3D" parent="ground_high"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 8)
+shape = SubResource("BoxShape3D_5hre3")
