@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=16 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/grey_brick.tres" id="1_ar1ye"]
 [ext_resource type="Texture2D" uid="uid://cjod4vucs8bga" path="res://art/test.png" id="2_7mtd5"]
+[ext_resource type="Texture2D" uid="uid://7gbnkjgfsh2b" path="res://art/gravel_ground.png" id="3_m58l7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7jvyp"]
 sky_top_color = Color(0.485678, 0.677518, 0.808542, 1)
@@ -105,10 +106,20 @@ shader_parameter/FoamGlowIntensity = 0.0
 shader_parameter/water_texture1 = ExtResource("2_7mtd5")
 shader_parameter/water_texture2 = ExtResource("2_7mtd5")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_jmq4b"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paac7"]
+albedo_texture = ExtResource("3_m58l7")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_drwop"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_paac7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5hre3"]
 size = Vector3(30, 1.49207, 14.0079)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jmq4b"]
+resource_local_to_scene = true
 
 [node name="Level 1" type="Node3D"]
 
@@ -181,7 +192,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_i45fs")
 
 [node name="ground1" type="MeshInstance3D" parent="ground_low"]
 transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 6, 0, 4, -9)
-mesh = SubResource("PlaneMesh_jmq4b")
+mesh = SubResource("PlaneMesh_drwop")
 skeleton = NodePath("../..")
 
 [node name="ground_collision_box" type="CollisionShape3D" parent="ground_low"]
