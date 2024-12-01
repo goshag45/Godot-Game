@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2rd41d1c2b5g"
-path.s3tc="res://.godot/imported/city_rooftop_night_skybox_0.png-33897d3692ac5e19b86de5340401bfa8.s3tc.ctex"
+uid="uid://7gbnkjgfsh2b"
+path.s3tc="res://.godot/imported/gravel_ground.png-e15c7d01824b50b4cb0b0b620c78df14.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "daf6155c80df8ef7f7ee478dac83b81c"
-}
 
 [deps]
 
-source_file="res://art/visual/city_rooftop_night_skybox_0.png"
-dest_files=["res://.godot/imported/city_rooftop_night_skybox_0.png-33897d3692ac5e19b86de5340401bfa8.s3tc.ctex"]
+source_file="res://art/gravel_ground.png"
+dest_files=["res://.godot/imported/gravel_ground.png-e15c7d01824b50b4cb0b0b620c78df14.s3tc.ctex"]
 
 [params]
 

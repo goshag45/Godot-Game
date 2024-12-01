@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=13 format=3 uid="uid://cntcml45idub5"]
 
-[ext_resource type="Texture2D" uid="uid://dkwkn4gdkxgkv" path="res://art/visual/wall_cobblestone_cracks_64px.png" id="1_87s75"]
+[ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/grey_brick.tres" id="1_ar1ye"]
 [ext_resource type="Texture2D" uid="uid://cjod4vucs8bga" path="res://art/test.png" id="2_7mtd5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7jvyp"]
@@ -24,15 +24,6 @@ size = Vector2(30, 30)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_035mw"]
 albedo_color = Color(0.369784, 0.241915, 0.125252, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njqon"]
-albedo_texture = ExtResource("1_87s75")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s1wn"]
-albedo_color = Color(0.355314, 0.355314, 0.355314, 1)
-metallic = 1.0
-roughness = 0.0
-
 [sub_resource type="QuadMesh" id="QuadMesh_qcccd"]
 size = Vector2(30, 5)
 subdivide_width = 10
@@ -47,8 +38,8 @@ uniform vec3 albedo : source_color;
 uniform sampler2D water_texture1;
 uniform sampler2D water_texture2;
 uniform sampler2D noise_texture;
-uniform vec2 scroll_speed1 = vec2(0.05, 0.0);
-uniform vec2 scroll_speed2 = vec2(-0.03, 0.0);
+uniform vec2 scroll_speed1 = vec2(0.7, 0.0);
+uniform vec2 scroll_speed2 = vec2(0.5, 0.0);
 uniform float blend_factor = 0.5;
 uniform vec2 scale1 = vec2(30.0, 5.0);
 uniform vec2 scale2 = vec2(30.0, 5.0);
@@ -56,7 +47,7 @@ uniform float wave_strength = 1.0;
 uniform float wave_scale = 0.02;
 uniform int pixelation_level = 64;
 uniform float FoamSize = 0.5;
-uniform sampler2D DepthTexture : hint_depth_texture; 
+uniform sampler2D DepthTexture : hint_depth_texture;
 uniform float WaterOpacity = 1.0;
 uniform float FoamGlowIntensity = 0.5;
 
@@ -88,7 +79,7 @@ void fragment() {
     float foamOpacity = 1.0 - foamEffect;
     float foamEffectRounded = round(foamOpacity);
     float finalOpacity = foamEffectRounded + WaterOpacity;
-	
+
     ALBEDO = blended_water_color.rgb * albedo;
     ALPHA = finalOpacity;
     EMISSION = vec3(foamEffectRounded) * FoamGlowIntensity;
@@ -100,11 +91,11 @@ void fragment() {
 render_priority = 0
 shader = SubResource("Shader_21v2o")
 shader_parameter/albedo = Color(1, 1, 1, 0.380392)
-shader_parameter/scroll_speed1 = Vector2(-0.5, 0)
+shader_parameter/scroll_speed1 = Vector2(-0.5, 0.2)
 shader_parameter/scroll_speed2 = Vector2(-0.7, 0)
 shader_parameter/blend_factor = 0.5
-shader_parameter/scale1 = Vector2(1, 1)
-shader_parameter/scale2 = Vector2(1, 1)
+shader_parameter/scale1 = Vector2(30, 5)
+shader_parameter/scale2 = Vector2(30, 5)
 shader_parameter/wave_strength = 0.15
 shader_parameter/wave_scale = 1.0
 shader_parameter/pixelation_level = 64
@@ -117,7 +108,7 @@ shader_parameter/water_texture2 = ExtResource("2_7mtd5")
 [sub_resource type="PlaneMesh" id="PlaneMesh_jmq4b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5hre3"]
-size = Vector3(30, 1.49207, 14)
+size = Vector3(30, 1.49207, 14.0079)
 
 [node name="Level 1" type="Node3D"]
 
@@ -135,8 +126,8 @@ mesh = SubResource("PlaneMesh_8f7ff")
 surface_material_override/0 = SubResource("StandardMaterial3D_035mw")
 
 [node name="bridge" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.120351, 4.11253, -0.751642)
-size = Vector3(5.19605, 0.460327, 1.5199)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.561686, 4.11253, -0.751642)
+size = Vector3(5.19605, 0.460327, 2.88397)
 
 [node name="tube" type="CSGCombiner3D" parent="."]
 
@@ -145,23 +136,21 @@ transform = Transform3D(-0.269189, 0, 0.963087, 0, 1, 0, -0.963087, 0, -0.269189
 radius = 3.0
 height = 10.0
 sides = 20
-material = SubResource("StandardMaterial3D_njqon")
+material = ExtResource("1_ar1ye")
 
 [node name="hole" type="CSGCylinder3D" parent="tube"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 9, -10)
 operation = 2
 radius = 2.5
 height = 10.1
+sides = 20
+material = ExtResource("1_ar1ye")
 
 [node name="door" type="CSGBox3D" parent="tube"]
 transform = Transform3D(1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, -8.19638, 6, -8.17115)
 operation = 2
 size = Vector3(1, 2, 0.526123)
-
-[node name="platform" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.15836, 13, -10)
-size = Vector3(4, 0.5, 4)
-material = SubResource("StandardMaterial3D_7s1wn")
+material = ExtResource("1_ar1ye")
 
 [node name="tunnel" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.137616, 0)
@@ -169,16 +158,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.137616, 0)
 [node name="outside" type="CSGBox3D" parent="tunnel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029541, 6, 10)
 size = Vector3(14.9409, 3, 4)
+material = ExtResource("1_ar1ye")
 
 [node name="inside" type="CSGBox3D" parent="tunnel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.88004, 9.90552)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.88004, 9.99926)
 operation = 2
 size = Vector3(15, 2.52679, 3.25049)
+material = ExtResource("1_ar1ye")
 
 [node name="door" type="CSGBox3D" parent="tunnel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 8.13405)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 8.25382)
 operation = 2
-size = Vector3(2, 2, 0.337097)
+size = Vector3(2, 2, 0.57663)
+material = ExtResource("1_ar1ye")
 
 [node name="river_water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0979671, 3.5, -0.774899)
@@ -192,14 +184,14 @@ transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 6, 0, 4, -9)
 mesh = SubResource("PlaneMesh_jmq4b")
 skeleton = NodePath("../..")
 
+[node name="ground_collision_box" type="CollisionShape3D" parent="ground_low"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -8.99603)
+shape = SubResource("BoxShape3D_5hre3")
+
 [node name="riverwall1" type="MeshInstance3D" parent="ground_low"]
-transform = Transform3D(-15, 1.50996e-07, -6.60024e-15, 0, -4.37114e-08, -1, -2.26494e-06, -1, 4.37114e-08, 0, 3.5, 1)
+transform = Transform3D(-15, 1.50996e-07, -4.95018e-15, 0, -4.37114e-08, -0.75, -2.26494e-06, -1, 3.27835e-08, 0, 3.75, 1)
 mesh = SubResource("PlaneMesh_jmq4b")
 skeleton = NodePath("../..")
-
-[node name="ground_collision_box" type="CollisionShape3D" parent="ground_low"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -9)
-shape = SubResource("BoxShape3D_5hre3")
 
 [node name="ground_high" type="StaticBody3D" parent="."]
 

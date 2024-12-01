@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d0bo6x2boikj5"
-path="res://.godot/imported/city_rooftop_night_skybox.glb-f75ec29330f95ebc4824faec1eda0233.scn"
+path="res://.godot/imported/city_rooftop_night_skybox.glb-aeb8c8e9846f18408b7631e3396826c6.scn"
 
 [deps]
 
-source_file="res://art/visual/city_rooftop_night_skybox.glb"
-dest_files=["res://.godot/imported/city_rooftop_night_skybox.glb-f75ec29330f95ebc4824faec1eda0233.scn"]
+source_file="res://art/visual/models/city_rooftop_night_skybox.glb"
+dest_files=["res://.godot/imported/city_rooftop_night_skybox.glb-aeb8c8e9846f18408b7631e3396826c6.scn"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dltcqo344b7xn"
-path.s3tc="res://.godot/imported/male_character_ps1-style_0.png-3003b7036c704d9775b84ae039fc624c.s3tc.ctex"
+path.s3tc="res://.godot/imported/male_character_ps1-style_0.png-20a515bf3fe4356dd5de67b6144b3be7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://art/visual/male_character_ps1-style_0.png"
-dest_files=["res://.godot/imported/male_character_ps1-style_0.png-3003b7036c704d9775b84ae039fc624c.s3tc.ctex"]
+source_file="res://art/visual/models/male_character_ps1-style_0.png"
+dest_files=["res://.godot/imported/male_character_ps1-style_0.png-20a515bf3fe4356dd5de67b6144b3be7.s3tc.ctex"]
 
 [params]
 

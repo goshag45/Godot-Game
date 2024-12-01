@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl2i8h0qctm5i"
-path.s3tc="res://.godot/imported/ps1_style_revolver_0.png-9236555d41ddfc00851666928eb4526b.s3tc.ctex"
+uid="uid://bom6awbdk67y8"
+path.s3tc="res://.godot/imported/pine_tree_-_ps1_low_poly_0.png-16516c9cebf6933afdc9c9d09afff67e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "c58eba207b7e4f3e1ae450e4798264e2"
+"md5": "49cfa65700e182db746df62da2281c52"
 }
 
 [deps]
 
-source_file="res://art/visual/ps1_style_revolver_0.png"
-dest_files=["res://.godot/imported/ps1_style_revolver_0.png-9236555d41ddfc00851666928eb4526b.s3tc.ctex"]
+source_file="res://art/visual/models/pine_tree_-_ps1_low_poly_0.png"
+dest_files=["res://.godot/imported/pine_tree_-_ps1_low_poly_0.png-16516c9cebf6933afdc9c9d09afff67e.s3tc.ctex"]
 
 [params]
 

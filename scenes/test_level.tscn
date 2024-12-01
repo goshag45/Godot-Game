@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=4 uid="uid://bt4uyk54cpqqj"]
 
 [ext_resource type="Texture2D" uid="uid://dh16vcrcyd1u2" path="res://art/visual/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_lul1m"]
-[ext_resource type="PackedScene" uid="uid://ey3dv6gmxvdv" path="res://art/visual/pine_tree_-_ps1_low_poly.glb" id="2_nge2g"]
+[ext_resource type="PackedScene" uid="uid://ey3dv6gmxvdv" path="res://art/visual/models/pine_tree_-_ps1_low_poly.glb" id="2_nge2g"]
 [ext_resource type="AudioStream" uid="uid://cvpjxgsbylkcu" path="res://art/unatco_conversation.mp3" id="3_07ppg"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="4_dk63q"]
 [ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="5_7uesr"]

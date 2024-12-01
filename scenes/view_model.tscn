@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bivh5hg55epm3"]
 
 [ext_resource type="Script" path="res://scripts/view_model.gd" id="1_by405"]
-[ext_resource type="PackedScene" uid="uid://bsafvk2nc535l" path="res://art/visual/ps1_style_revolver.glb" id="1_lxikh"]
+[ext_resource type="PackedScene" uid="uid://bsafvk2nc535l" path="res://art/visual/models/ps1_style_revolver.glb" id="1_lxikh"]
 
 [sub_resource type="Animation" id="Animation_d0wnr"]
 length = 0.001

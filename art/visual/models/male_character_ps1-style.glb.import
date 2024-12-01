@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ey3dv6gmxvdv"
-path="res://.godot/imported/pine_tree_-_ps1_low_poly.glb-2af91284741dc6b562f7e8b94737bb4d.scn"
+uid="uid://ymqi1casfysa"
+path="res://.godot/imported/male_character_ps1-style.glb-b01fec59564b77fa9a7e32fb98dd313a.scn"
 
 [deps]
 
-source_file="res://art/visual/pine_tree_-_ps1_low_poly.glb"
-dest_files=["res://.godot/imported/pine_tree_-_ps1_low_poly.glb-2af91284741dc6b562f7e8b94737bb4d.scn"]
+source_file="res://art/visual/models/male_character_ps1-style.glb"
+dest_files=["res://.godot/imported/male_character_ps1-style.glb-b01fec59564b77fa9a7e32fb98dd313a.scn"]
 
 [params]
 
-nodes/root_type=""
-nodes/root_name=""
+nodes/root_type="CharacterBody3D"
+nodes/root_name="Player"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -26,7 +26,7 @@ meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
-animation/fps=30
+animation/fps=60.0
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
