@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=21 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/grey_brick.tres" id="1_ar1ye"]
@@ -22,7 +22,8 @@ glow_enabled = true
 size = Vector2(30, 30)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_035mw"]
-albedo_color = Color(0.369784, 0.241915, 0.125252, 1)
+albedo_texture = ExtResource("3_m58l7")
+uv1_triplanar = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_qcccd"]
 size = Vector2(30, 5)
@@ -100,10 +101,18 @@ shader_parameter/wave_strength = 0.15
 shader_parameter/wave_scale = 1.0
 shader_parameter/pixelation_level = 64
 shader_parameter/FoamSize = 0.0
-shader_parameter/WaterOpacity = 0.5
+shader_parameter/WaterOpacity = 0.7
 shader_parameter/FoamGlowIntensity = 0.0
 shader_parameter/water_texture1 = ExtResource("2_7mtd5")
 shader_parameter/water_texture2 = ExtResource("2_7mtd5")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lh31c"]
+size = Vector2(10.5, 2)
+orientation = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q7qg7"]
+size = Vector2(30, 2)
+orientation = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paac7"]
 albedo_texture = ExtResource("3_m58l7")
@@ -120,10 +129,15 @@ size = Vector3(30, 1, 12)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jmq4b"]
 resource_local_to_scene = true
+lightmap_size_hint = Vector2i(12, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5hre3"]
 resource_local_to_scene = true
 size = Vector3(30, 1.49207, 14.0079)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4k314"]
+size = Vector2(30, 4)
+orientation = 0
 
 [node name="Level 1" type="Node3D"]
 
@@ -132,6 +146,7 @@ environment = SubResource("Environment_yx501")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.664463, -0.241845, 0, -0.34202, 0.939693, -0.707107, -0.664463, -0.241845, 0, 10.274, 0)
+light_color = Color(1, 1, 0.858824, 1)
 shadow_enabled = true
 shadow_blur = 4.0
 
@@ -143,6 +158,19 @@ surface_material_override/0 = SubResource("StandardMaterial3D_035mw")
 [node name="bridge" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.561686, 4.11253, -0.751642)
 size = Vector3(5.19605, 0.460327, 2.88397)
+
+[node name="river_water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0979671, 3.5, -0.774899)
+mesh = SubResource("QuadMesh_qcccd")
+surface_material_override/0 = SubResource("ShaderMaterial_i45fs")
+
+[node name="wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.33397, -15, 5.5, 8)
+mesh = SubResource("PlaneMesh_lh31c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5.5, 14.986)
+mesh = SubResource("PlaneMesh_q7qg7")
 
 [node name="tube" type="CSGCombiner3D" parent="."]
 
@@ -162,9 +190,9 @@ sides = 20
 material = ExtResource("1_ar1ye")
 
 [node name="door" type="CSGBox3D" parent="tube"]
-transform = Transform3D(1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, -8.19638, 6, -8.17115)
+transform = Transform3D(1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, -8.19638, 5.00146, -8.17115)
 operation = 2
-size = Vector3(1, 2, 0.526123)
+size = Vector3(1, 1, 0.526)
 material = ExtResource("1_ar1ye")
 
 [node name="tunnel" type="CSGCombiner3D" parent="."]
@@ -186,11 +214,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 8.25382)
 operation = 2
 size = Vector3(2, 2, 0.57663)
 material = ExtResource("1_ar1ye")
-
-[node name="river_water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0979671, 3.5, -0.774899)
-mesh = SubResource("QuadMesh_qcccd")
-surface_material_override/0 = SubResource("ShaderMaterial_i45fs")
 
 [node name="ground_low" type="StaticBody3D" parent="."]
 
@@ -223,3 +246,7 @@ skeleton = NodePath("../..")
 [node name="ground_collision_box" type="CollisionShape3D" parent="ground_high"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 8)
 shape = SubResource("BoxShape3D_5hre3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 5, -15)
+mesh = SubResource("PlaneMesh_4k314")
