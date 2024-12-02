@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bt4uyk54cpqqj"]
+[gd_scene load_steps=24 format=4 uid="uid://bt4uyk54cpqqj"]
 
 [ext_resource type="Texture2D" uid="uid://dh16vcrcyd1u2" path="res://art/visual/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_lul1m"]
 [ext_resource type="PackedScene" uid="uid://ey3dv6gmxvdv" path="res://art/visual/models/pine_tree_-_ps1_low_poly.glb" id="2_nge2g"]
@@ -104,6 +104,18 @@ buffer = PackedFloat32Array(-0.897503, 0, 0.441007, -4.41427, 0, 1, 0, 0, -0.441
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vby78"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_kl61m"]
+size = Vector2(9, 7)
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6buiy"]
+transparency = 1
+albedo_color = Color(0.968627, 0, 0.988235, 0.682353)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjqc6"]
+transparency = 1
+albedo_color = Color(0.968627, 0, 0.988235, 0.592157)
+
 [node name="Test Level" type="Node3D" groups=["deathbox"]]
 script = SubResource("GDScript_7thbr")
 
@@ -193,7 +205,7 @@ sgt_follow_normal = false
 metadata/SimpleGrassTextured = "2.0.5"
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.71374, 0, -0.700411, 0, 1, 0, 0.700411, 0, 0.71374, 8.08831, 0.983035, -0.60912)
+transform = Transform3D(0.71374, 0, -0.700411, 0, 1, 0, 0.700411, 0, 0.71374, 13.0883, 2.98304, 8.33007)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_ce8w2")
@@ -201,3 +213,13 @@ shape = SubResource("CapsuleShape3D_ce8w2")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D"]
 mesh = SubResource("CapsuleMesh_vby78")
 skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 9.01, 3.365, -3)
+mesh = SubResource("PlaneMesh_kl61m")
+surface_material_override/0 = SubResource("StandardMaterial3D_6buiy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 9, 3.314, -3.01)
+mesh = SubResource("PlaneMesh_kl61m")
+surface_material_override/0 = SubResource("StandardMaterial3D_gjqc6")

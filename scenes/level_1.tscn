@@ -190,9 +190,9 @@ sides = 20
 material = ExtResource("1_ar1ye")
 
 [node name="door" type="CSGBox3D" parent="tube"]
-transform = Transform3D(1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, -8.19638, 5.00146, -8.17115)
+transform = Transform3D(1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, -8.19638, 4.96093, -8.17115)
 operation = 2
-size = Vector3(1, 1, 0.526)
+size = Vector3(1, 1.04053, 0.526)
 material = ExtResource("1_ar1ye")
 
 [node name="tunnel" type="CSGCombiner3D" parent="."]
