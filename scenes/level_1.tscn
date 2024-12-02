@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=23 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/grey_brick.tres" id="1_ar1ye"]
 [ext_resource type="Texture2D" uid="uid://cjod4vucs8bga" path="res://art/test.png" id="2_7mtd5"]
 [ext_resource type="Texture2D" uid="uid://7gbnkjgfsh2b" path="res://art/gravel_ground.png" id="3_m58l7"]
+[ext_resource type="AudioStream" uid="uid://cvpjxgsbylkcu" path="res://art/unatco_conversation.mp3" id="5_ds4yb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1ukm2"]
 panorama = ExtResource("1_6aing")
@@ -17,13 +18,6 @@ sky = SubResource("Sky_iiw7d")
 tonemap_mode = 2
 ssao_enabled = true
 glow_enabled = true
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_8f7ff"]
-size = Vector2(30, 30)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_035mw"]
-albedo_texture = ExtResource("3_m58l7")
-uv1_triplanar = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_qcccd"]
 size = Vector2(30, 5)
@@ -139,7 +133,18 @@ size = Vector3(30, 1.49207, 14.0079)
 size = Vector2(30, 4)
 orientation = 0
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_8f7ff"]
+size = Vector2(30, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_035mw"]
+albedo_texture = ExtResource("3_m58l7")
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8axul"]
+size = Vector3(30, 1, 6)
+
 [node name="Level 1" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -10, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yx501")
@@ -150,13 +155,9 @@ light_color = Color(1, 1, 0.858824, 1)
 shadow_enabled = true
 shadow_blur = 4.0
 
-[node name="plane" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-mesh = SubResource("PlaneMesh_8f7ff")
-surface_material_override/0 = SubResource("StandardMaterial3D_035mw")
-
 [node name="bridge" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.561686, 4.11253, -0.751642)
+use_collision = true
 size = Vector3(5.19605, 0.460327, 2.88397)
 
 [node name="river_water" type="MeshInstance3D" parent="."]
@@ -173,6 +174,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5.5
 mesh = SubResource("PlaneMesh_q7qg7")
 
 [node name="tube" type="CSGCombiner3D" parent="."]
+use_collision = true
 
 [node name="outside" type="CSGCylinder3D" parent="tube"]
 transform = Transform3D(-0.269189, 0, 0.963087, 0, 1, 0, -0.963087, 0, -0.269189, -10, 9, -10)
@@ -197,6 +199,7 @@ material = ExtResource("1_ar1ye")
 
 [node name="tunnel" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.137616, 0)
+use_collision = true
 
 [node name="outside" type="CSGBox3D" parent="tunnel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029541, 6, 10)
@@ -250,3 +253,20 @@ shape = SubResource("BoxShape3D_5hre3")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 5, -15)
 mesh = SubResource("PlaneMesh_4k314")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ds4yb")
+volume_db = -20.0
+autoplay = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="plane" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("PlaneMesh_8f7ff")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_035mw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -1)
+shape = SubResource("BoxShape3D_8axul")

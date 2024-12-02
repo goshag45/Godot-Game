@@ -32,8 +32,8 @@ var direction = Vector3()
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
-	
-	
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		player.rotate_y(-event.relative.x * SENSITIVITY)
@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+
 	# Align viewmodel rig camera with head camera
 	$Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera.global_transform = camera.global_transform
 
@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
-		
+
 	# Handle Sprint.
 	if Input.is_action_pressed("sprint"):
 		speed = sprint_speed
@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 		var target_fov = 90.0
 		camera.fov = lerp(camera.fov, target_fov, delta * 2.0)
 		speed = walk_speed
-	
+
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "forward", "back")
@@ -85,11 +85,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 4.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 4.0)
-	
-	#while Input.is_action_pressed("forward") or Input.is_action_pressed("back"):
-		#print(delta)
-		#if !player_walk_animation.is_playing():
-			#player_walk_animation.play("player_walk")
 
 	# head bobbin
 	t_bob += delta * velocity.length() * float(is_on_floor())
@@ -111,6 +106,19 @@ func _physics_process(delta: float) -> void:
 		weapon_audio.play()
 		await weapon_audio.finished
 		weapon_audio.queue_free()
+
+	for index in range(get_slide_collision_count()):
+		# We get one of the collisions with the player
+		var collision = get_slide_collision(index)
+
+		# If the collision is with ground
+		if collision.get_collider() == null:
+			continue
+
+		# If the collider is with a mob
+		if collision.get_collider().is_in_group("portal1_2"):
+			print("collided")
+			get_tree().change_scene_to_file("res://scenes/level_1.tscn")
 
 func _process(_delta):
 	move_and_slide()

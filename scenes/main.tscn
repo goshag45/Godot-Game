@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://txkplgsfsdnc"]
 
+[ext_resource type="PackedScene" uid="uid://cntcml45idub5" path="res://scenes/level_1.tscn" id="1_lakjr"]
 [ext_resource type="PackedScene" uid="uid://bv1850xotwfxt" path="res://scenes/player.tscn" id="2_snnme"]
-[ext_resource type="PackedScene" uid="uid://bt4uyk54cpqqj" path="res://scenes/test_level.tscn" id="4_0j5hl"]
 
 [sub_resource type="GDScript" id="GDScript_5f5jw"]
 
@@ -10,6 +10,6 @@ script = SubResource("GDScript_5f5jw")
 
 [node name="Level" type="Node3D" parent="."]
 
-[node name="Test Level" parent="Level" instance=ExtResource("4_0j5hl")]
+[node name="Level 1" parent="Level" instance=ExtResource("1_lakjr")]
 
 [node name="Player" parent="." instance=ExtResource("2_snnme")]

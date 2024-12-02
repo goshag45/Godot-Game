@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bt4uyk54cpqqj"]
+[gd_scene load_steps=25 format=4 uid="uid://bt4uyk54cpqqj"]
 
 [ext_resource type="Texture2D" uid="uid://dh16vcrcyd1u2" path="res://art/visual/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_lul1m"]
 [ext_resource type="PackedScene" uid="uid://ey3dv6gmxvdv" path="res://art/visual/models/pine_tree_-_ps1_low_poly.glb" id="2_nge2g"]
@@ -112,6 +112,9 @@ orientation = 0
 transparency = 1
 albedo_color = Color(0.968627, 0, 0.988235, 0.682353)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_y6cvx"]
+size = Vector3(8.68764, 7.23729, 0.12207)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjqc6"]
 transparency = 1
 albedo_color = Color(0.968627, 0, 0.988235, 0.592157)
@@ -214,12 +217,20 @@ shape = SubResource("CapsuleShape3D_ce8w2")
 mesh = SubResource("CapsuleMesh_vby78")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Portal" type="Area3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Portal"]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 9.01, 3.365, -3)
 mesh = SubResource("PlaneMesh_kl61m")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_6buiy")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portal" groups=["portal1_2"]]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 8.88762, 3.47723, -2.86543)
+shape = SubResource("BoxShape3D_y6cvx")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Portal"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 9, 3.314, -3.01)
 mesh = SubResource("PlaneMesh_kl61m")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_gjqc6")
