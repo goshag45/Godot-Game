@@ -90,7 +90,7 @@ func _physics_process(delta: float) -> void:
 	camera.transform.origin = _headbob(t_bob)
 
 	if Input.is_action_just_pressed("fire"):
-		_shoot_revolver()
+		_shoot_gun("Revolver")
 
 	for index in range(get_slide_collision_count()):
 		# We get one of the collisions with the player
@@ -114,20 +114,25 @@ func _headbob(time):
 	pos.x = sin(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
 
-func _shoot_revolver():
-	if !revolver_anim.is_playing():
-		revolver_anim.play("shoot_revolver")
-		instance = bullet.instantiate()
-		instance.position = revolver_barrel.global_position
-		instance.transform.basis = revolver_barrel.global_transform.basis
-		get_parent().add_child(instance)
-		
-	var revolver_shoot = AudioStreamPlayer3D.new()
-	revolver_shoot.stream = load("res://audio/revolver_gunshot.mp3")
-	revolver_shoot.position = revolver_barrel.position
-	revolver_shoot.set_volume_db(-6.0)
-	add_child(revolver_shoot)
-	revolver_shoot.bus = &"SFX"
-	revolver_shoot.play()
-	await revolver_shoot.finished
-	revolver_shoot.queue_free()
+#func _shoot_revolver():
+	#if !revolver_anim.is_playing():
+		#revolver_anim.play("shoot_revolver")
+		#instance = bullet.instantiate()
+		#instance.position = revolver_barrel.global_position
+		#instance.transform.basis = revolver_barrel.global_transform.basis
+		#get_parent().add_child(instance)
+		#
+	#var revolver_shoot = AudioStreamPlayer3D.new()
+	#revolver_shoot.stream = load("res://audio/revolver_gunshot.mp3")
+	#revolver_shoot.position = revolver_barrel.position
+	#revolver_shoot.set_volume_db(-6.0)
+	#add_child(revolver_shoot)
+	#revolver_shoot.bus = &"SFX"
+	#revolver_shoot.play()
+	#await revolver_shoot.finished
+	#revolver_shoot.queue_free()
+
+func _shoot_gun(gun):
+	match gun:
+		"Revolver":
+			$Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver._shoot()
