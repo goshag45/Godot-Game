@@ -2,12 +2,12 @@ extends Node3D
 
 @onready var revolver_anim = $AnimationPlayer
 @onready var revolver_barrel = $gun_barrel
+@onready var revolver = $"."
 
 @export var revolver_gunshot = preload("res://audio/revolver_gunshot.mp3")
 @export var mag_size = 6
 
 var bullet = load("res://scenes/bullet.tscn")
-var instance
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,12 +18,13 @@ func _process(delta: float) -> void:
 	pass
 
 func _shoot():
+	mag_size -= 1
+	
 	if !revolver_anim.is_playing():
 		revolver_anim.play("shoot_revolver")
-		instance = bullet.instantiate()
-		instance.global_position = revolver_barrel.global_position
-		instance.transform.basis = revolver_barrel.global_transform.basis
-		get_parent().add_child(instance)
+		var bullet_instance = bullet.instantiate()
+		get_parent().add_child(bullet_instance)
+		bullet_instance.global_position = revolver.global_position
 		
 	var revolver_shoot = AudioStreamPlayer3D.new()
 	revolver_shoot.stream = load("res://audio/revolver_gunshot.mp3")

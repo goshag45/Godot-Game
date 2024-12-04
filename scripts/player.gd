@@ -92,7 +92,6 @@ func _physics_process(delta: float) -> void:
 	camera.transform.origin = _headbob(t_bob)
 
 	if Input.is_action_just_pressed("fire"):
-		print("_____")
 		_shoot_gun("Revolver")
 
 func _process(_delta):

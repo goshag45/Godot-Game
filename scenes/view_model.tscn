@@ -123,7 +123,7 @@ layers = 2
 layers = 2
 
 [node name="gun_barrel" type="RayCast3D" parent="FPSRig/Revolver"]
-transform = Transform3D(-10, 8.74228e-07, -3.63798e-12, 1.81899e-12, -4.37114e-07, -10, -8.74228e-07, -10, 4.37114e-07, 1.14441e-05, -3.19524, -2.31123)
+transform = Transform3D(-10, 8.74228e-07, -5.45697e-12, 5.45697e-12, -4.37114e-07, -10, -8.74228e-07, -10, 4.37114e-07, 6.67572e-06, -1.34002, -2.31123)
 target_position = Vector3(0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FPSRig/Revolver"]
