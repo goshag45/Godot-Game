@@ -90,22 +90,11 @@ func _physics_process(delta: float) -> void:
 	camera.transform.origin = _headbob(t_bob)
 
 	if Input.is_action_just_pressed("fire"):
+		print("_____")
 		_shoot_gun("Revolver")
 
-	for index in range(get_slide_collision_count()):
-		# We get one of the collisions with the player
-		var collision = get_slide_collision(index)
-
-		# If the collision is with ground
-		if collision.get_collider() == null:
-			continue
-
-		# If the collider is with a mob
-		if collision.get_collider().is_in_group("portal1_2"):
-			print("collided")
-			get_tree().change_scene_to_file("res://scenes/level_1.tscn")
-
 func _process(_delta):
+	# this is cooked
 	move_and_slide()
 
 func _headbob(time):

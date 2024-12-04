@@ -88,6 +88,8 @@ script = SubResource("GDScript_t6hqw")
 [node name="Revolver" parent="FPSRig" instance=ExtResource("1_lxikh")]
 transform = Transform3D(-0.05, -1.26759e-07, 4.58867e-13, 0, -1.81e-07, -0.05, 1.26759e-07, -0.05, 1.81e-07, 0.487475, -0.580509, -1.46909)
 script = ExtResource("3_uvdn6")
+revolver_gunshot = null
+mag_size = null
 
 [node name="Sketchfab_model" parent="FPSRig/Revolver" index="0"]
 transform = Transform3D(1, 1.50996e-07, -8.74228e-08, 1.50996e-07, -1, 0, -8.74228e-08, -1.32005e-14, -1, 0, 0, -0.422)

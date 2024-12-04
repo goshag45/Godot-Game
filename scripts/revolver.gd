@@ -21,7 +21,7 @@ func _shoot():
 	if !revolver_anim.is_playing():
 		revolver_anim.play("shoot_revolver")
 		instance = bullet.instantiate()
-		instance.position = revolver_barrel.global_position
+		instance.global_position = revolver_barrel.global_position
 		instance.transform.basis = revolver_barrel.global_transform.basis
 		get_parent().add_child(instance)
 		
