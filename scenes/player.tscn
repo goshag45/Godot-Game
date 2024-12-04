@@ -1115,3 +1115,6 @@ layout_mode = 0
 offset_right = 127.0
 offset_bottom = 95.0
 label_settings = SubResource("LabelSettings_lkoow")
+
+[editable path="Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera"]
+[editable path="Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver"]

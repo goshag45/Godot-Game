@@ -1,19 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bivh5hg55epm3"]
 
+[ext_resource type="Script" path="res://scripts/view_model.gd" id="1_by405"]
 [ext_resource type="PackedScene" uid="uid://bsafvk2nc535l" path="res://art/visual/models/ps1_style_revolver.glb" id="1_lxikh"]
-[ext_resource type="Script" path="res://scripts/revolver.gd" id="3_uvdn6"]
-
-[sub_resource type="GDScript" id="GDScript_t6hqw"]
-script/source = "extends Camera3D
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
+[ext_resource type="AudioStream" uid="uid://jc5n11v24hov" path="res://audio/revolver_gunshot.mp3" id="3_q8mps"]
 
 [sub_resource type="Animation" id="Animation_d0wnr"]
 length = 0.001
@@ -81,13 +70,12 @@ _data = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 cull_mask = 2
 fov = 50.0
-script = SubResource("GDScript_t6hqw")
+script = ExtResource("1_by405")
 
 [node name="FPSRig" type="Node3D" parent="."]
 
 [node name="Revolver" parent="FPSRig" instance=ExtResource("1_lxikh")]
 transform = Transform3D(-0.05, -1.26759e-07, 4.58867e-13, 0, -1.81e-07, -0.05, 1.26759e-07, -0.05, 1.81e-07, 0.487475, -0.580509, -1.46909)
-script = ExtResource("3_uvdn6")
 
 [node name="Sketchfab_model" parent="FPSRig/Revolver" index="0"]
 transform = Transform3D(1, 1.50996e-07, -8.74228e-08, 1.50996e-07, -1, 0, -8.74228e-08, -1.32005e-14, -1, 0, 0, -0.422)
@@ -130,5 +118,10 @@ target_position = Vector3(0, 0, -1)
 libraries = {
 "": SubResource("AnimationLibrary_wni3g")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FPSRig/Revolver"]
+stream = ExtResource("3_q8mps")
+volume_db = -6.0
+bus = &"SFX"
 
 [editable path="FPSRig/Revolver"]

@@ -25,21 +25,20 @@ var direction = Vector3()
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var player = $"."
-@onready var gun_anim = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/AnimationPlayer
-@onready var gun_barrel = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/gun_barrel
 @onready var player_walk_animation = $Sketchfab_model/hero_fbx/RootNode/rig/Object_4/Skeleton3D/AnimationPlayer
+# Revolver weapon stuff
+@onready var revolver_anim = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/AnimationPlayer
+@onready var revolver_barrel = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/gun_barrel
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		player.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(90))
-
 
 func _physics_process(delta: float) -> void:
 	# press escape to show mouse
@@ -91,21 +90,7 @@ func _physics_process(delta: float) -> void:
 	camera.transform.origin = _headbob(t_bob)
 
 	if Input.is_action_just_pressed("fire"):
-		if !gun_anim.is_playing():
-			gun_anim.play("shoot_revolver")
-			instance = bullet.instantiate()
-			instance.position = gun_barrel.global_position
-			instance.transform.basis = gun_barrel.global_transform.basis
-			get_parent().add_child(instance)
-		
-		var weapon_audio = AudioStreamPlayer3D.new()
-		weapon_audio.stream = load("res://art/revolver_gunshot.mp3")
-		weapon_audio.position = gun_barrel.position
-		weapon_audio.set_volume_db(-6.0)
-		add_child(weapon_audio)
-		weapon_audio.play()
-		await weapon_audio.finished
-		weapon_audio.queue_free()
+		_shoot_revolver()
 
 	for index in range(get_slide_collision_count()):
 		# We get one of the collisions with the player
@@ -128,3 +113,21 @@ func _headbob(time):
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = sin(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+
+func _shoot_revolver():
+	if !revolver_anim.is_playing():
+		revolver_anim.play("shoot_revolver")
+		instance = bullet.instantiate()
+		instance.position = revolver_barrel.global_position
+		instance.transform.basis = revolver_barrel.global_transform.basis
+		get_parent().add_child(instance)
+		
+	var revolver_shoot = AudioStreamPlayer3D.new()
+	revolver_shoot.stream = load("res://audio/revolver_gunshot.mp3")
+	revolver_shoot.position = revolver_barrel.position
+	revolver_shoot.set_volume_db(-6.0)
+	add_child(revolver_shoot)
+	revolver_shoot.bus = &"SFX"
+	revolver_shoot.play()
+	await revolver_shoot.finished
+	revolver_shoot.queue_free()

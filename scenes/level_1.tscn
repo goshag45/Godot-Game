@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/grey_brick.tres" id="1_ar1ye"]
 [ext_resource type="Texture2D" uid="uid://cjod4vucs8bga" path="res://art/test.png" id="2_7mtd5"]
 [ext_resource type="Texture2D" uid="uid://7gbnkjgfsh2b" path="res://art/gravel_ground.png" id="3_m58l7"]
-[ext_resource type="AudioStream" uid="uid://cvpjxgsbylkcu" path="res://art/unatco_conversation.mp3" id="5_ds4yb"]
+[ext_resource type="AudioStream" uid="uid://cvpjxgsbylkcu" path="res://audio/unatco_conversation.mp3" id="5_ds4yb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1ukm2"]
 panorama = ExtResource("1_6aing")
@@ -258,8 +258,9 @@ mesh = SubResource("PlaneMesh_4k314")
 stream = ExtResource("5_ds4yb")
 volume_db = -20.0
 autoplay = true
+bus = &"Music"
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="StaticBody3D" parent="."]
 
 [node name="plane" type="MeshInstance3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
