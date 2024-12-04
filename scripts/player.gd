@@ -26,9 +26,11 @@ var direction = Vector3()
 @onready var camera = $Head/Camera3D
 @onready var player = $"."
 @onready var player_walk_animation = $Sketchfab_model/hero_fbx/RootNode/rig/Object_4/Skeleton3D/AnimationPlayer
+@onready var viewmodel_camera = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera
 # Revolver weapon stuff
 @onready var revolver_anim = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/AnimationPlayer
 @onready var revolver_barrel = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/gun_barrel
+@onready var revolver = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -49,7 +51,7 @@ func _physics_process(delta: float) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	# Align viewmodel rig camera with head camera
-	$Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera.global_transform = camera.global_transform
+	viewmodel_camera.global_transform = camera.global_transform
 
 	# Add the gravity.
 	if not is_on_floor():
@@ -124,4 +126,4 @@ func _headbob(time):
 func _shoot_gun(gun):
 	match gun:
 		"Revolver":
-			$Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver._shoot()
+			revolver._shoot()
