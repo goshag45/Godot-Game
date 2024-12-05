@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 # VARIABLES
+@export_category("Player Stats")
 @export var SENSITIVITY = 0.0013
-var speed
 @export var walk_speed = 5.0
 @export var sprint_speed = 8.0
 @export var jump_velocity = 4.5
@@ -10,6 +10,7 @@ var speed
 @export var fov_scale = 1.5
 @export var gravity = 9.8
 @export var ammo_revolver = 6
+@export var speed = walk_speed
 
 #head bob stuff
 const BOB_FREQ = 2.0
