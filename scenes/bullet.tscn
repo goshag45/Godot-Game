@@ -27,6 +27,7 @@ material = SubResource("StandardMaterial3D_iy83t")
 size = Vector3(0.04, 0.04, 0.04)
 
 [node name="Bullet" type="Node3D"]
+top_level = true
 script = ExtResource("1_hct78")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
