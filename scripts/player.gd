@@ -16,9 +16,6 @@ const BOB_FREQ = 2.0
 const BOB_AMP = 0.04
 var t_bob = 0.0
 
-var bullet = load("res://scenes/bullet.tscn")
-var instance
-
 var direction = Vector3()
 
 # References
@@ -27,10 +24,8 @@ var direction = Vector3()
 @onready var player = $"."
 @onready var player_walk_animation = $Sketchfab_model/hero_fbx/RootNode/rig/Object_4/Skeleton3D/AnimationPlayer
 @onready var viewmodel_camera = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera
-# Revolver weapon stuff
-@onready var revolver_anim = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/AnimationPlayer
-@onready var revolver_barrel = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver/gun_barrel
 @onready var revolver = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -103,24 +98,6 @@ func _headbob(time):
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = sin(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
-
-#func _shoot_revolver():
-	#if !revolver_anim.is_playing():
-		#revolver_anim.play("shoot_revolver")
-		#instance = bullet.instantiate()
-		#instance.position = revolver_barrel.global_position
-		#instance.transform.basis = revolver_barrel.global_transform.basis
-		#get_parent().add_child(instance)
-		#
-	#var revolver_shoot = AudioStreamPlayer3D.new()
-	#revolver_shoot.stream = load("res://audio/revolver_gunshot.mp3")
-	#revolver_shoot.position = revolver_barrel.position
-	#revolver_shoot.set_volume_db(-6.0)
-	#add_child(revolver_shoot)
-	#revolver_shoot.bus = &"SFX"
-	#revolver_shoot.play()
-	#await revolver_shoot.finished
-	#revolver_shoot.queue_free()
 
 func _shoot_gun(gun):
 	match gun:

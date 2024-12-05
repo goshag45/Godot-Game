@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://k5r4dq5pg4cv"]
+
+[ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="1_hxwnm"]
+[ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="2_u8e3c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xtde"]
+font = ExtResource("2_u8e3c")
+font_size = 44
+font_color = Color(0.904786, 0, 0.0445938, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lkoow"]
+font = ExtResource("2_u8e3c")
+font_size = 32
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_hxwnm")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1440.0
+offset_bottom = 810.0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1212.0
+offset_top = 623.0
+offset_right = -52.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "AMMO"
+label_settings = SubResource("LabelSettings_3xtde")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="FPS" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 127.0
+offset_bottom = 95.0
+label_settings = SubResource("LabelSettings_lkoow")

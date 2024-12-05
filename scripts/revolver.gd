@@ -25,8 +25,11 @@ func _shoot():
 		var bullet_instance = bullet.instantiate()
 		get_parent().add_child(bullet_instance)
 		bullet_instance.global_position = revolver_barrel.global_position
-		bullet_instance.transform.basis = revolver_barrel.global_transform.basis
+		bullet_instance.global_rotation = revolver_barrel.global_rotation
 
+	_play_shoot_audio()
+
+func _play_shoot_audio():
 	var revolver_shoot = AudioStreamPlayer3D.new()
 	revolver_shoot.stream = load("res://audio/revolver_gunshot.mp3")
 	revolver_shoot.position = revolver_barrel.position

@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bv1850xotwfxt"]
+[gd_scene load_steps=10 format=3 uid="uid://bv1850xotwfxt"]
 
 [ext_resource type="PackedScene" uid="uid://ymqi1casfysa" path="res://art/visual/models/male_character_ps1-style.glb" id="1_ujhk0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_kooth"]
-[ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="2_nfnki"]
 [ext_resource type="PackedScene" uid="uid://bivh5hg55epm3" path="res://scenes/view_model.tscn" id="2_rpm7w"]
-[ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="3_tyvbu"]
+[ext_resource type="PackedScene" uid="uid://k5r4dq5pg4cv" path="res://scenes/gui.tscn" id="4_cds5j"]
 
 [sub_resource type="Animation" id="Animation_sjhwu"]
 length = 0.001
@@ -952,15 +951,6 @@ _data = {
 radius = 0.225678
 height = 1.97294
 
-[sub_resource type="LabelSettings" id="LabelSettings_3xtde"]
-font = ExtResource("3_tyvbu")
-font_size = 44
-font_color = Color(0.904786, 0, 0.0445938, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_lkoow"]
-font = ExtResource("3_tyvbu")
-font_size = 32
-
 [node name="Player" instance=ExtResource("1_ujhk0")]
 script = ExtResource("2_kooth")
 
@@ -1083,38 +1073,7 @@ render_target_update_mode = 4
 
 [node name="ViewModelCamera" parent="Head/Camera3D/SubViewportContainer/SubViewport" index="0" instance=ExtResource("2_rpm7w")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
-script = ExtResource("2_nfnki")
-
-[node name="Control" type="Control" parent="CanvasLayer" index="0"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1440.0
-offset_bottom = 810.0
-mouse_filter = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/Control" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1212.0
-offset_top = 623.0
-offset_right = -52.0
-offset_bottom = -37.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "AMMO"
-label_settings = SubResource("LabelSettings_3xtde")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="FPS" type="Label" parent="CanvasLayer/Control" index="1"]
-layout_mode = 0
-offset_right = 127.0
-offset_bottom = 95.0
-label_settings = SubResource("LabelSettings_lkoow")
+[node name="CanvasLayer" parent="." index="3" instance=ExtResource("4_cds5j")]
 
 [editable path="Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera"]
 [editable path="Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver"]
