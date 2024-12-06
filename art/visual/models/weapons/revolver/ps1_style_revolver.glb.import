@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d0bo6x2boikj5"
-path="res://.godot/imported/city_rooftop_night_skybox.glb-aeb8c8e9846f18408b7631e3396826c6.scn"
+uid="uid://bsafvk2nc535l"
+path="res://.godot/imported/ps1_style_revolver.glb-46bd557eef1cf783822acf2ecf9ad145.scn"
 
 [deps]
 
-source_file="res://art/visual/models/city_rooftop_night_skybox.glb"
-dest_files=["res://.godot/imported/city_rooftop_night_skybox.glb-aeb8c8e9846f18408b7631e3396826c6.scn"]
+source_file="res://art/visual/models/weapons/revolver/ps1_style_revolver.glb"
+dest_files=["res://.godot/imported/ps1_style_revolver.glb-46bd557eef1cf783822acf2ecf9ad145.scn"]
 
 [params]
 

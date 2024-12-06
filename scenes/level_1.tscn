@@ -1,9 +1,9 @@
 [gd_scene load_steps=23 format=3 uid="uid://cntcml45idub5"]
 
-[ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/skybleak.jpg" id="1_6aing"]
-[ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/grey_brick.tres" id="1_ar1ye"]
-[ext_resource type="Texture2D" uid="uid://cjod4vucs8bga" path="res://art/test.png" id="2_7mtd5"]
-[ext_resource type="Texture2D" uid="uid://7gbnkjgfsh2b" path="res://art/gravel_ground.png" id="3_m58l7"]
+[ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/visual/textures/skybleak.jpg" id="1_6aing"]
+[ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="1_ar1ye"]
+[ext_resource type="Texture2D" uid="uid://cjod4vucs8bga" path="res://art/visual/textures/test.png" id="2_7mtd5"]
+[ext_resource type="Texture2D" uid="uid://7gbnkjgfsh2b" path="res://art/visual/textures/gravel_ground.png" id="3_m58l7"]
 [ext_resource type="AudioStream" uid="uid://cvpjxgsbylkcu" path="res://audio/unatco_conversation.mp3" id="5_ds4yb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1ukm2"]

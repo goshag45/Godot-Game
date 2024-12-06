@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bv1850xotwfxt"]
 
-[ext_resource type="PackedScene" uid="uid://ymqi1casfysa" path="res://art/visual/models/male_character_ps1-style.glb" id="1_ujhk0"]
+[ext_resource type="PackedScene" uid="uid://ymqi1casfysa" path="res://art/visual/models/characters/male_character_ps1-style.glb" id="1_ujhk0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_kooth"]
 [ext_resource type="PackedScene" uid="uid://bivh5hg55epm3" path="res://scenes/view_model.tscn" id="2_rpm7w"]
 [ext_resource type="PackedScene" uid="uid://k5r4dq5pg4cv" path="res://scenes/gui.tscn" id="4_cds5j"]
@@ -1076,4 +1076,5 @@ render_target_update_mode = 4
 [node name="CanvasLayer" parent="." index="3" instance=ExtResource("4_cds5j")]
 
 [editable path="Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera"]
-[editable path="Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver"]
+[editable path="Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg"]
+[editable path="CanvasLayer"]

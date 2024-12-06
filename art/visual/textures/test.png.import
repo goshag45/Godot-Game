@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crriutushpuat"
-path.s3tc="res://.godot/imported/snipface.png-fd7bf7521a19fe7bd8143c9459663399.s3tc.ctex"
+uid="uid://cjod4vucs8bga"
+path.s3tc="res://.godot/imported/test.png-2d43bedad5c3f01a42e61524570a651e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/visual/snipface.png"
-dest_files=["res://.godot/imported/snipface.png-fd7bf7521a19fe7bd8143c9459663399.s3tc.ctex"]
+source_file="res://art/visual/textures/test.png"
+dest_files=["res://.godot/imported/test.png-2d43bedad5c3f01a42e61524570a651e.s3tc.ctex"]
 
 [params]
 

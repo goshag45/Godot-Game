@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh16vcrcyd1u2"
-path.bptc="res://.godot/imported/kloofendal_48d_partly_cloudy_puresky_4k.exr-8989dbb1ee4acf9d1f1a3ee04b010dc9.bptc.ctex"
+uid="uid://crriutushpuat"
+path.s3tc="res://.godot/imported/snipface.png-ee12c25aa74540456738c3a92babf6b9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/visual/kloofendal_48d_partly_cloudy_puresky_4k.exr"
-dest_files=["res://.godot/imported/kloofendal_48d_partly_cloudy_puresky_4k.exr-8989dbb1ee4acf9d1f1a3ee04b010dc9.bptc.ctex"]
+source_file="res://art/visual/textures/snipface.png"
+dest_files=["res://.godot/imported/snipface.png-ee12c25aa74540456738c3a92babf6b9.s3tc.ctex"]
 
 [params]
 

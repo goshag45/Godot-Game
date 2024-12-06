@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dltcqo344b7xn"
-path.s3tc="res://.godot/imported/male_character_ps1-style_0.png-20a515bf3fe4356dd5de67b6144b3be7.s3tc.ctex"
+uid="uid://7gbnkjgfsh2b"
+path.s3tc="res://.godot/imported/gravel_ground.png-d5b77c4f580b4a8c08c9b63cee8b4b9c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "677d71896be9adf6e0fca981f6b8a876"
-}
 
 [deps]
 
-source_file="res://art/visual/models/male_character_ps1-style_0.png"
-dest_files=["res://.godot/imported/male_character_ps1-style_0.png-20a515bf3fe4356dd5de67b6144b3be7.s3tc.ctex"]
+source_file="res://art/visual/textures/gravel_ground.png"
+dest_files=["res://.godot/imported/gravel_ground.png-d5b77c4f580b4a8c08c9b63cee8b4b9c.s3tc.ctex"]
 
 [params]
 

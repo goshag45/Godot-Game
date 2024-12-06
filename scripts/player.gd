@@ -88,7 +88,8 @@ func _physics_process(delta: float) -> void:
 	camera.transform.origin = _headbob(t_bob)
 
 	if Input.is_action_just_pressed("fire"):
-		_shoot_gun("Revolver")
+		#_shoot_gun("Revolver")
+		pass
 
 func _process(_delta):
 	# this is cooked

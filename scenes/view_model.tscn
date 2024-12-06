@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bivh5hg55epm3"]
+[gd_scene load_steps=3 format=3 uid="uid://bivh5hg55epm3"]
 
-[ext_resource type="PackedScene" uid="uid://bsafvk2nc535l" path="res://art/visual/models/ps1_style_revolver.glb" id="1_lxikh"]
-[ext_resource type="Script" path="res://scripts/revolver.gd" id="3_uvdn6"]
+[ext_resource type="PackedScene" uid="uid://lho0typtmcug" path="res://scenes/weapons/smg.tscn" id="3_xam3p"]
 
 [sub_resource type="GDScript" id="GDScript_t6hqw"]
 script/source = "extends Camera3D
@@ -15,68 +14,6 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[sub_resource type="Animation" id="Animation_d0wnr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.487475, -0.580509, -1.46909)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.5708, -3.14159, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ngu52"]
-resource_name = "shoot_revolver"
-length = 0.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.03, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.487475, -0.580509, -1.46909), Vector3(0.487, -0.5, -1), Vector3(0.487475, -0.580509, -1.46909)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.03, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(1.5708, -3.14159, 0), Vector3(1.0472, -3.14159, 0), Vector3(1.5708, -3.14159, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wni3g"]
-_data = {
-"RESET": SubResource("Animation_d0wnr"),
-"shoot_revolver": SubResource("Animation_ngu52")
-}
-
 [node name="ViewModelCamera" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 cull_mask = 2
@@ -85,50 +22,7 @@ script = SubResource("GDScript_t6hqw")
 
 [node name="FPSRig" type="Node3D" parent="."]
 
-[node name="Revolver" parent="FPSRig" instance=ExtResource("1_lxikh")]
-transform = Transform3D(-0.05, -1.26759e-07, 4.58867e-13, 0, -1.81e-07, -0.05, 1.26759e-07, -0.05, 1.81e-07, 0.487475, -0.580509, -1.46909)
-script = ExtResource("3_uvdn6")
+[node name="smg" parent="FPSRig" instance=ExtResource("3_xam3p")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.324713, -0.334745, -0.652972)
 
-[node name="Sketchfab_model" parent="FPSRig/Revolver" index="0"]
-transform = Transform3D(1, 1.50996e-07, -8.74228e-08, 1.50996e-07, -1, 0, -8.74228e-08, -1.32005e-14, -1, 0, 0, -0.422)
-
-[node name="Cylinder_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cylinder" index="0"]
-layers = 2
-
-[node name="Cube_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cube" index="0"]
-layers = 2
-
-[node name="Cube_001_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cube_001" index="0"]
-layers = 2
-
-[node name="Cube_002_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cube_002" index="0"]
-layers = 2
-
-[node name="Cube_003_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cube_003" index="0"]
-layers = 2
-
-[node name="Cylinder_002_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cylinder_002" index="0"]
-layers = 2
-
-[node name="Cube_004_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cube_004" index="0"]
-layers = 2
-
-[node name="Cylinder_003_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cylinder_003" index="0"]
-layers = 2
-
-[node name="Cube_005_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cube_005" index="0"]
-layers = 2
-
-[node name="Cylinder_001_Material_0" parent="FPSRig/Revolver/Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode/Cylinder_001" index="0"]
-layers = 2
-
-[node name="gun_barrel" type="RayCast3D" parent="FPSRig/Revolver"]
-transform = Transform3D(-10, 8.74228e-07, -5.45697e-12, 5.45697e-12, -4.37114e-07, -10, -8.74228e-07, -10, 4.37114e-07, 6.67572e-06, -1.34002, -2.31123)
-target_position = Vector3(0, 0, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FPSRig/Revolver"]
-libraries = {
-"": SubResource("AnimationLibrary_wni3g")
-}
-
-[editable path="FPSRig/Revolver"]
+[editable path="FPSRig/smg"]

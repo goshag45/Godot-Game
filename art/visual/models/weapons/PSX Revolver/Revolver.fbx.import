@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ymqi1casfysa"
-path="res://.godot/imported/male_character_ps1-style.glb-b01fec59564b77fa9a7e32fb98dd313a.scn"
+uid="uid://5j7wigynldpx"
+path="res://.godot/imported/Revolver.fbx-3b15608bd87149ad440ad5c1f554be50.scn"
 
 [deps]
 
-source_file="res://art/visual/models/male_character_ps1-style.glb"
-dest_files=["res://.godot/imported/male_character_ps1-style.glb-b01fec59564b77fa9a7e32fb98dd313a.scn"]
+source_file="res://art/visual/models/weapons/PSX Revolver/Revolver.fbx"
+dest_files=["res://.godot/imported/Revolver.fbx-3b15608bd87149ad440ad5c1f554be50.scn"]
 
 [params]
 
-nodes/root_type="CharacterBody3D"
-nodes/root_name="Player"
+nodes/root_type=""
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -26,11 +26,12 @@ meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
-animation/fps=60.0
-animation/trimming=false
+animation/fps=30
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-gltf/naming_version=1
-gltf/embedded_image_handling=1
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjod4vucs8bga"
-path.s3tc="res://.godot/imported/test.png-c68b6207bc3234c33bde1d2a4de01933.s3tc.ctex"
+uid="uid://dkwkn4gdkxgkv"
+path.s3tc="res://.godot/imported/wall_cobblestone_cracks_64px.png-e5010d4d0abcf3db9163f51343f37d59.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/test.png"
-dest_files=["res://.godot/imported/test.png-c68b6207bc3234c33bde1d2a4de01933.s3tc.ctex"]
+source_file="res://art/visual/textures/wall_cobblestone_cracks_64px.png"
+dest_files=["res://.godot/imported/wall_cobblestone_cracks_64px.png-e5010d4d0abcf3db9163f51343f37d59.s3tc.ctex"]
 
 [params]
 
