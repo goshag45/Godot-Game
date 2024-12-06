@@ -70,7 +70,7 @@ angle_min = -720.0
 angle_max = 720.0
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_xs8rd")
-color = Color(1, 0.141176, 0, 1)
+color = Color(1, 0.576471, 0, 1)
 color_ramp = SubResource("GradientTexture1D_d5xkg")
 emission_curve = SubResource("CurveTexture_hjusb")
 
@@ -93,8 +93,7 @@ material = SubResource("StandardMaterial3D_23vpa")
 
 [sub_resource type="Animation" id="Animation_vniw1"]
 resource_name = "smg_shoot"
-length = 0.07
-loop_mode = 1
+length = 0.1
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -103,7 +102,7 @@ tracks/0/path = NodePath("model:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.01, 0.06, 0.07),
+"times": PackedFloat32Array(0, 0.01, 0.07, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0.04), Vector3(0, 0, -0.05), Vector3(0, 0, 0)]
@@ -115,7 +114,7 @@ tracks/1/path = NodePath("model:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.01, 0.06, 0.07),
+"times": PackedFloat32Array(0, 0.01, 0.07, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-1.5708, 0, 0), Vector3(-1.53589, 0, 0), Vector3(-1.58825, 0, 0), Vector3(-1.5708, 0, 0)]
@@ -165,6 +164,7 @@ skeleton = NodePath("")
 
 [node name="muzzle_flash" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.635766, -4.07458)
+layers = 2
 emitting = false
 amount = 1
 lifetime = 0.1

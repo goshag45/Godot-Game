@@ -23,10 +23,8 @@ var direction = Vector3()
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var player = $"."
-@onready var player_walk_animation = $Sketchfab_model/hero_fbx/RootNode/rig/Object_4/Skeleton3D/AnimationPlayer
 @onready var viewmodel_camera = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera
-@onready var revolver = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/Revolver
-
+@onready var smg = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -87,9 +85,9 @@ func _physics_process(delta: float) -> void:
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 
-	if Input.is_action_just_pressed("fire"):
-		#_shoot_gun("Revolver")
-		pass
+	#if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire"):
+		_shoot_gun("Smg")
 
 func _process(_delta):
 	# this is cooked
@@ -104,4 +102,6 @@ func _headbob(time):
 func _shoot_gun(gun):
 	match gun:
 		"Revolver":
-			revolver._shoot()
+			pass
+		"Smg":
+			smg._shoot()
