@@ -29,6 +29,16 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/simplegrasstextured/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://art/": "yellow",
+"res://audio/": "blue",
+"res://scenes/": "red",
+"res://scripts/": "green"
+}
+
 [input]
 
 ui_accept={
