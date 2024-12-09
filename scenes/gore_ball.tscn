@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3l7mcrwxuwko"]
+[gd_scene load_steps=8 format=3 uid="uid://b3l7mcrwxuwko"]
 
 [ext_resource type="Texture2D" uid="uid://010tocmlpv7d" path="res://art/visual/gore_ball/gore_texture.png" id="1_8uafp"]
 
@@ -92,6 +92,15 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/texture_albedo = ExtResource("1_8uafp")
 
+[sub_resource type="Animation" id="Animation_3ubnk"]
+resource_name = "gore_ball_jump"
+length = 2.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l04st"]
+_data = {
+"gore_ball_jump": SubResource("Animation_3ubnk")
+}
+
 [node name="gore_ball" type="CharacterBody3D"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
@@ -103,3 +112,8 @@ shape = SubResource("ConvexPolygonShape3D_eyn3c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("SphereMesh_0o8mj")
 surface_material_override/0 = SubResource("ShaderMaterial_qcxjf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l04st")
+}

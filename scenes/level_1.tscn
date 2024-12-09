@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=24 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/visual/textures/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="1_ar1ye"]
@@ -131,6 +131,11 @@ size = Vector3(30, 1, 12)
 resource_local_to_scene = true
 lightmap_size_hint = Vector2i(12, 12)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54awe"]
+albedo_texture = ExtResource("3_m58l7")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_5hre3"]
 resource_local_to_scene = true
 size = Vector3(30, 1.49207, 14.0079)
@@ -246,6 +251,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 7, 0, 4.5, 8)
 mesh = SubResource("PlaneMesh_jmq4b")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_54awe")
 
 [node name="riverwall2" type="MeshInstance3D" parent="ground_high"]
 transform = Transform3D(15, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 0, 3.5, -3)
@@ -277,3 +283,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_035mw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -1)
 shape = SubResource("BoxShape3D_8axul")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(-0.5, 4.37114e-08, 0, 1.91069e-15, 2.18557e-08, -0.5, -4.37114e-08, -0.5, -2.18557e-08, -0.015922, 6.8156, 10.0573)
+light_energy = 3.0
