@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3l7mcrwxuwko"]
+[gd_scene load_steps=9 format=3 uid="uid://b3l7mcrwxuwko"]
 
 [ext_resource type="Texture2D" uid="uid://010tocmlpv7d" path="res://art/visual/gore_ball/gore_texture.png" id="1_8uafp"]
 
@@ -94,10 +94,39 @@ shader_parameter/texture_albedo = ExtResource("1_8uafp")
 
 [sub_resource type="Animation" id="Animation_3ubnk"]
 resource_name = "gore_ball_jump"
-length = 2.0
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5, 0.966667),
+"transitions": PackedFloat32Array(0.435276, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3ic4i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l04st"]
 _data = {
+"RESET": SubResource("Animation_3ic4i"),
 "gore_ball_jump": SubResource("Animation_3ubnk")
 }
 
