@@ -87,7 +87,7 @@ func _physics_process(delta: float) -> void:
 	camera.transform.origin = _headbob(t_bob)
 
 	#if Input.is_action_just_pressed("fire"):
-	if Input.is_action_pressed("fire"):
+	if Input.is_action_just_pressed("fire"):
 		_shoot_gun("Smg")
 		if aim_ray.is_colliding():
 			var target = aim_ray.get_collider()
