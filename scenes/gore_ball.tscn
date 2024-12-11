@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3l7mcrwxuwko"]
+[gd_scene load_steps=7 format=3 uid="uid://b3l7mcrwxuwko"]
 
 [ext_resource type="Texture2D" uid="uid://010tocmlpv7d" path="res://art/visual/gore_ball/gore_texture.png" id="1_8uafp"]
 [ext_resource type="Script" path="res://scripts/gore_ball.gd" id="1_61dgt"]
@@ -93,58 +93,16 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/texture_albedo = ExtResource("1_8uafp")
 
-[sub_resource type="Animation" id="Animation_3ubnk"]
-resource_name = "gore_ball_jump"
-length = 1.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.5, 0.966667),
-"transitions": PackedFloat32Array(0.435276, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_3ic4i"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_l04st"]
-_data = {
-"RESET": SubResource("Animation_3ic4i"),
-"gore_ball_jump": SubResource("Animation_3ubnk")
-}
-
 [node name="gore_ball" type="CharacterBody3D" groups=["enemy"]]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 script = ExtResource("1_61dgt")
+health = 100
 
-[node name="hitbox" type="CollisionShape3D" parent="."]
+[node name="hitbox" type="CollisionShape3D" parent="." groups=["enemy"]]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.5, 0)
 shape = SubResource("ConvexPolygonShape3D_eyn3c")
 
-[node name="skin" type="MeshInstance3D" parent="."]
+[node name="skin" type="MeshInstance3D" parent="." groups=["enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("SphereMesh_0o8mj")
 surface_material_override/0 = SubResource("ShaderMaterial_qcxjf")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_l04st")
-}

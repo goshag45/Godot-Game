@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://txkplgsfsdnc"]
+[gd_scene load_steps=5 format=3 uid="uid://txkplgsfsdnc"]
 
 [ext_resource type="PackedScene" uid="uid://cntcml45idub5" path="res://scenes/level_1.tscn" id="1_lakjr"]
 [ext_resource type="PackedScene" uid="uid://bv1850xotwfxt" path="res://scenes/player.tscn" id="2_snnme"]
+[ext_resource type="PackedScene" uid="uid://b3l7mcrwxuwko" path="res://scenes/gore_ball.tscn" id="3_51on1"]
 
 [sub_resource type="GDScript" id="GDScript_5f5jw"]
 
@@ -14,3 +15,6 @@ script = SubResource("GDScript_5f5jw")
 
 [node name="Player" parent="." instance=ExtResource("2_snnme")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19209e-07, 0)
+
+[node name="gore_ball" parent="." instance=ExtResource("3_51on1")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, -13.1979)

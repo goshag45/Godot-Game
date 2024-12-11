@@ -25,6 +25,7 @@ var direction = Vector3()
 @onready var player = $"."
 @onready var viewmodel_camera = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera
 @onready var smg = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg
+@onready var aim_ray = $Head/aim_ray
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -88,6 +89,10 @@ func _physics_process(delta: float) -> void:
 	#if Input.is_action_just_pressed("fire"):
 	if Input.is_action_pressed("fire"):
 		_shoot_gun("Smg")
+		if aim_ray.is_colliding():
+			var target = aim_ray.get_collider()
+			if target != null && target.is_in_group("enemy"):
+				target.health -= smg.damage
 
 func _process(_delta):
 	# this is cooked

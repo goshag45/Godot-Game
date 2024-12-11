@@ -2,6 +2,7 @@ extends Node3D
 
 @export var revolver_gunshot = preload("res://audio/smg_shot.mp3")
 @export var mag_size = 60
+@export var damage = 20
 
 @onready var anim_shoot = $AnimationPlayer
 @onready var smg_mesh = $model
