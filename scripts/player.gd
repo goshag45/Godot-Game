@@ -24,6 +24,7 @@ var direction = Vector3()
 @onready var camera = $Head/Camera3D
 @onready var player = $"."
 @onready var viewmodel_camera = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera
+@onready var fps_rig = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig
 @onready var smg = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg
 @onready var aim_ray = $Head/aim_ray
 
@@ -88,7 +89,8 @@ func _physics_process(delta: float) -> void:
 
 	#if Input.is_action_just_pressed("fire"):
 	if Input.is_action_just_pressed("fire"):
-		_shoot_gun("Smg")
+		var current_weapon = fps_rig.get_child(0).name
+		_shoot_gun(current_weapon)
 		if aim_ray.is_colliding():
 			var target = aim_ray.get_collider()
 			if target != null && target.is_in_group("enemy"):
@@ -106,7 +108,7 @@ func _headbob(time):
 
 func _shoot_gun(gun):
 	match gun:
-		"Revolver":
+		"revolver":
 			pass
-		"Smg":
+		"smg":
 			smg._shoot()
