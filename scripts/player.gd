@@ -12,11 +12,6 @@ extends CharacterBody3D
 @export var ammo_revolver = 6
 @export var speed = walk_speed
 
-#head bob stuff
-const BOB_FREQ = 2.0
-const BOB_AMP = 0.04
-var t_bob = 0.0
-
 var direction = Vector3()
 
 # References
@@ -82,10 +77,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 4.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 4.0)
 
-	# head bobbin
-	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = _headbob(t_bob)
-
 	#if Input.is_action_just_pressed("fire"):
 	if Input.is_action_just_pressed("fire"):
 		_shoot_gun("Smg")
@@ -97,12 +88,6 @@ func _physics_process(delta: float) -> void:
 func _process(_delta):
 	# this is cooked
 	move_and_slide()
-
-func _headbob(time):
-	var pos = Vector3.ZERO
-	pos.y = sin(time * BOB_FREQ) * BOB_AMP
-	pos.x = sin(time * BOB_FREQ / 2) * BOB_AMP
-	return pos
 
 func _shoot_gun(gun):
 	match gun:
