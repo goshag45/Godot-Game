@@ -79,21 +79,20 @@ func _physics_process(delta: float) -> void:
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 4.0)
 
 	#if Input.is_action_just_pressed("fire"):
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire"):
 		var current_weapon = fps_rig.get_child(0).name
-		_shoot_gun(current_weapon)
+		var target
 		if aim_ray.is_colliding():
-			var target = aim_ray.get_collider()
-			if target != null && target.is_in_group("enemy"):
-				target.health -= smg.damage
+			target = aim_ray.get_collider()
+		_shoot_gun(current_weapon, target)
 
 func _process(_delta):
 	# this is cooked
 	move_and_slide()
 
-func _shoot_gun(gun):
+func _shoot_gun(gun, target):
 	match gun:
 		"revolver":
 			pass
 		"smg":
-			smg._shoot()
+			smg._shoot(target)

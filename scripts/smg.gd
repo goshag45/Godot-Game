@@ -4,7 +4,7 @@ extends Node3D
 @export var mag_size = 60
 @export var damage = 20
 
-@onready var anim_shoot = $AnimationPlayer
+@onready var anim_shoot = $animation
 @onready var smg_mesh = $model
 @onready var muzzle_flash = $muzzle_flash
 
@@ -16,12 +16,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _shoot():
+func _shoot(target):
 	if !anim_shoot.is_playing():
 		mag_size -= 1
 		anim_shoot.play("smg_shoot")
 		_play_shoot_audio()
 		muzzle_flash.emitting = true
+		if target != null && target.is_in_group("enemy"):
+			target.health -= damage
 
 func _play_shoot_audio():
 	var shoot_sound = AudioStreamPlayer.new()
