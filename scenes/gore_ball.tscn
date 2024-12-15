@@ -106,3 +106,5 @@ shape = SubResource("ConvexPolygonShape3D_eyn3c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("SphereMesh_0o8mj")
 surface_material_override/0 = SubResource("ShaderMaterial_qcxjf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
