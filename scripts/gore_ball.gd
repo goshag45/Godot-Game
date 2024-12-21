@@ -5,20 +5,20 @@ extends CharacterBody3D
 @export var speed = 4.0
 
 @onready var nav_agent = $NavigationAgent3D
-
-var player = null
+@onready var player = get_tree().get_first_node_in_group("player")
 
 func _ready():
-	player = get_node(player_path)
+	pass
 
 func _physics_process(delta: float) -> void:
 	pass
 
 func _process(delta):
+	print(player)
 	if health <= 0:
 		queue_free()
-	#velocity = Vector3.ZERO
-	#nav_agent.set_target_position(player.global_position.origin)
-	#var next_nav_point = nav_agent.get_next_path_position()
-	#velocity = (next_nav_point - global_transform.origin).normalized() * speed
-	#move_and_slide()
+	velocity = Vector3.ZERO
+	nav_agent.set_target_position(player.global_position)
+	var next_nav_point = nav_agent.get_next_path_position()
+	velocity = (next_nav_point - global_transform.origin).normalized() * speed
+	move_and_slide()
