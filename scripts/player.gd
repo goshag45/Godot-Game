@@ -78,13 +78,21 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 4.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 4.0)
 
+	var current_weapon = fps_rig.get_child(0)
+	var weapon_name = current_weapon.name
+	var target
+	var weapon_animation = current_weapon.get_child(2)
+	print(weapon_animation)
+
 	#if Input.is_action_just_pressed("fire"):
 	if Input.is_action_pressed("fire"):
-		var current_weapon = fps_rig.get_child(0).name
-		var target
 		if aim_ray.is_colliding():
 			target = aim_ray.get_collider()
-		_shoot_gun(current_weapon, target)
+		_shoot_gun(weapon_name, target)
+
+	if Input.is_action_just_pressed("reload"):
+		weapon_animation.play("reload")
+		current_weapon._reload()
 
 func _process(_delta):
 	# this is cooked
