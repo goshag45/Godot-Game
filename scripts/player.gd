@@ -21,7 +21,7 @@ var direction = Vector3()
 @onready var viewmodel_camera = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera
 @onready var fps_rig = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig
 @onready var smg = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg
-@onready var aim_ray = $Head/aim_ray
+@onready var aim_ray = $Head/Camera3D/aim_ray
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
