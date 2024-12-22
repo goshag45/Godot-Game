@@ -31,7 +31,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		player.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(90))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _physics_process(delta: float) -> void:
 	# press escape to show mouse
@@ -47,10 +47,12 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		if Input.is_action_just_pressed("jump"):
+			jump()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
+		jump()
 
 	# Handle Sprint.
 	if Input.is_action_pressed("sprint"):
@@ -82,7 +84,6 @@ func _physics_process(delta: float) -> void:
 	var weapon_name = current_weapon.name
 	var target
 	var weapon_animation = current_weapon.get_child(2)
-	print(weapon_animation)
 
 	#if Input.is_action_just_pressed("fire"):
 	if Input.is_action_pressed("fire"):
@@ -104,3 +105,6 @@ func _shoot_gun(gun, target):
 			pass
 		"smg":
 			smg._shoot(target)
+
+func jump():
+	velocity.y = jump_velocity
