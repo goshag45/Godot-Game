@@ -34,12 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _physics_process(delta: float) -> void:
-	# press escape to show mouse
-	if Input.is_action_just_pressed("escape"):
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	_escape_mouse()
 
 	# Align viewmodel rig camera with head camera
 	viewmodel_camera.global_transform = camera.global_transform
@@ -47,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		# allow for infinite jump
 		if Input.is_action_just_pressed("jump"):
 			jump()
 
@@ -66,7 +62,6 @@ func _physics_process(delta: float) -> void:
 		speed = walk_speed
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "forward", "back")
 	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
@@ -84,12 +79,14 @@ func _physics_process(delta: float) -> void:
 	var weapon_name = current_weapon.name
 	var target
 	var weapon_animation = current_weapon.get_child(2)
+	var hit_point = aim_ray.get_collision_point()
 
 	#if Input.is_action_just_pressed("fire"):
 	if Input.is_action_pressed("fire"):
 		if aim_ray.is_colliding():
 			target = aim_ray.get_collider()
-		_shoot_gun(weapon_name, target)
+		print(hit_point)
+		_shoot_gun(weapon_name, target, hit_point, aim_ray)
 
 	if Input.is_action_just_pressed("reload"):
 		weapon_animation.play("reload")
@@ -99,12 +96,20 @@ func _process(_delta):
 	# this is cooked
 	move_and_slide()
 
-func _shoot_gun(gun, target):
+func _shoot_gun(gun, target, hit_point, aim_ray):
 	match gun:
 		"revolver":
 			pass
 		"smg":
-			smg._shoot(target)
+			smg._shoot(target, hit_point, aim_ray)
 
 func jump():
 	velocity.y = jump_velocity
+
+func _escape_mouse():
+	# press escape to show mouse
+	if Input.is_action_just_pressed("escape"):
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
