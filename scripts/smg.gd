@@ -26,8 +26,8 @@ func _shoot(target, hit_point, aim_ray):
 		_play_shoot_audio()
 		muzzle_flash.emitting = true
 		if target != null && target.is_in_group("enemy"):
-			_emit_blood_splatter(hit_point, smg.global_position, aim_ray)
 			target.health -= damage
+		_emit_blood_splatter(hit_point, smg_mesh.global_position, aim_ray)
 
 func _play_shoot_audio():
 	var shoot_sound = AudioStreamPlayer.new()

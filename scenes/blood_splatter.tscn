@@ -15,7 +15,7 @@ point_count = 2
 curve = SubResource("Curve_fjpxi")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_owu83"]
-direction = Vector3(0, 0, -1)
+direction = Vector3(0, 0, 1)
 spread = 15.0
 initial_velocity_min = 6.0
 initial_velocity_max = 8.0

@@ -37,11 +37,8 @@ render_target_update_mode = 4
 
 [node name="ViewModelCamera" parent="Head/Camera3D/SubViewportContainer/SubViewport" instance=ExtResource("2_rpm7w")]
 
-[node name="model" parent="Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg" index="0"]
-transform = Transform3D(1, 0, 0, 0, -3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 0, 0)
-
 [node name="aim_ray" type="RayCast3D" parent="Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.811379)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.526215)
 target_position = Vector3(0, -200, 0)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_cds5j")]

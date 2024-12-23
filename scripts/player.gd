@@ -85,7 +85,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("fire"):
 		if aim_ray.is_colliding():
 			target = aim_ray.get_collider()
-		print(hit_point)
 		_shoot_gun(weapon_name, target, hit_point, aim_ray)
 
 	if Input.is_action_just_pressed("reload"):
