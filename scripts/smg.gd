@@ -15,8 +15,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if magazine <= 0:
-		_reload()
+	# this stops blood splatter emission currently
+	#if magazine <= 0:
+		#_reload()
 	pass
 
 func _shoot(target, hit_point, aim_ray):

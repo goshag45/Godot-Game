@@ -10,6 +10,7 @@ points = PackedVector3Array(0.457871, 0.198079, 0.0157824, -0.48874, -0.0916874,
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4hnq"]
 albedo_texture = ExtResource("1_8uafp")
+roughness = 0.2
 uv1_triplanar = true
 
 [node name="gore_ball" type="CharacterBody3D" groups=["enemy"]]

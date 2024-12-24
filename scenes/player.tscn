@@ -24,7 +24,7 @@ near = 0.045
 far = 5000.0
 
 [node name="aim_ray" type="RayCast3D" parent="Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.526215)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -200, 0)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Head/Camera3D"]
