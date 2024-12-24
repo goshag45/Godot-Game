@@ -22,8 +22,8 @@ initial_velocity_max = 8.0
 scale_curve = SubResource("CurveTexture_btktr")
 
 [sub_resource type="SphereMesh" id="SphereMesh_4yy5d"]
-radius = 0.04
-height = 0.08
+radius = 0.08
+height = 0.16
 
 [node name="BloodSplatter" type="GPUParticles3D"]
 material_override = SubResource("StandardMaterial3D_fol11")

@@ -24,25 +24,17 @@ func _shoot(target, hit_point, aim_ray):
 	if !animation.is_playing():
 		magazine -= 1
 		animation.play("smg_shoot")
-		_play_shoot_audio()
+		_play_audio("smg_shot")
 		muzzle_flash.emitting = true
 		if target != null && target.is_in_group("enemy"):
 			target.health -= damage
-		_emit_blood_splatter(hit_point, smg.global_position, aim_ray)
-
-func _play_shoot_audio():
-	var shoot_sound = AudioStreamPlayer.new()
-	shoot_sound.stream = load("res://audio/smg_shot.mp3")
-	add_child(shoot_sound)
-	shoot_sound.bus = &"SFX"
-	shoot_sound.play()
-	await shoot_sound.finished
-	shoot_sound.queue_free()
+			_emit_blood_splatter(hit_point, smg.global_position, aim_ray)
 
 func _reload():
 	animation.play("reload")
 	#play reload audio
 	magazine = 60
+	_play_audio("reload")
 
 func _emit_blood_splatter(hit_pos, gun_pos, aim_ray):
 	var blood_splatter_instance = blood_splatter.instantiate()
@@ -50,6 +42,15 @@ func _emit_blood_splatter(hit_pos, gun_pos, aim_ray):
 	blood_splatter_instance.global_position = hit_pos
 	blood_splatter_instance.look_at(gun_pos)
 	blood_splatter_instance.emitting = true
+
+func _play_audio(name: String):
+	var sound = AudioStreamPlayer.new()
+	sound.stream = load("res://audio/" + name + ".mp3")
+	add_child(sound)
+	sound.bus = &"SFX"
+	sound.play()
+	await sound.finished
+	sound.queue_free()
 
 func _draw_bullet_decals():
 	pass
