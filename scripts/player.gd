@@ -97,10 +97,10 @@ func _process(_delta):
 
 func _shoot_gun(gun, target, hit_point, aim_ray):
 	match gun:
-		"revolver":
-			pass
 		"smg":
 			smg._shoot(target, hit_point, aim_ray)
+		"revolver":
+			pass
 
 func jump():
 	velocity.y = jump_velocity
