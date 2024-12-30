@@ -28,6 +28,7 @@ func _ready():
 	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
 
 func _unhandled_input(event: InputEvent) -> void:
+#func handle_mouse_camera(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		player.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
@@ -88,10 +89,13 @@ func _physics_process(delta: float) -> void:
 		if aim_ray.is_colliding():
 			target = aim_ray.get_collider()
 		_shoot_gun(weapon_name, target, hit_point, aim_ray)
+	
+	move_and_slide()
 
 func _process(_delta):
 	# this is cooked
-	move_and_slide()
+	pass
+	
 
 func _shoot_gun(gun, target, hit_point, aim_ray):
 	match gun:

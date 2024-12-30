@@ -31,10 +31,12 @@ func _shoot(target, hit_point, aim_ray):
 			_emit_blood_splatter(hit_point, smg.global_position, aim_ray)
 
 func _reload():
+	#if !animation.is_playing():
+	# you can spam the reload audio for now - not major issue
+	_play_audio("reload")
 	animation.play("reload")
 	#play reload audio
 	magazine = 60
-	_play_audio("reload")
 
 func _emit_blood_splatter(hit_pos, gun_pos, aim_ray):
 	var blood_splatter_instance = blood_splatter.instantiate()
