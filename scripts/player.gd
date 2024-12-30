@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "forward", "back")
-	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
 		if direction:
 			velocity.x = direction.x * speed
@@ -88,7 +88,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("fire"):
 		if aim_ray.is_colliding():
 			target = aim_ray.get_collider()
-		_shoot_gun(weapon_name, target, hit_point, aim_ray)
+		_shoot_gun(weapon_name, target, hit_point)
 	
 	move_and_slide()
 
@@ -97,10 +97,10 @@ func _process(_delta):
 	pass
 	
 
-func _shoot_gun(gun, target, hit_point, aim_ray):
+func _shoot_gun(gun, target, hit_point):
 	match gun:
 		"smg":
-			smg._shoot(target, hit_point, aim_ray)
+			smg._shoot(target, hit_point)
 		"revolver":
 			pass
 

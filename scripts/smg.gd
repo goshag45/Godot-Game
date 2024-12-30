@@ -14,13 +14,13 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# this stops blood splatter emission currently
 	#if magazine <= 0:
 		#_reload()
 	pass
 
-func _shoot(target, hit_point, aim_ray):
+func _shoot(target, hit_point):
 	if !animation.is_playing():
 		magazine -= 1
 		animation.play("smg_shoot")
@@ -28,7 +28,7 @@ func _shoot(target, hit_point, aim_ray):
 		muzzle_flash.emitting = true
 		if target != null && target.is_in_group("enemy"):
 			target.health -= damage
-			_emit_blood_splatter(hit_point, smg.global_position, aim_ray)
+			_emit_blood_splatter(hit_point, smg.global_position)
 
 func _reload():
 	#if !animation.is_playing():
@@ -38,16 +38,16 @@ func _reload():
 	#play reload audio
 	magazine = 60
 
-func _emit_blood_splatter(hit_pos, gun_pos, aim_ray):
+func _emit_blood_splatter(hit_pos, gun_pos):
 	var blood_splatter_instance = blood_splatter.instantiate()
 	add_child(blood_splatter_instance)
 	blood_splatter_instance.global_position = hit_pos
 	blood_splatter_instance.look_at(gun_pos)
 	blood_splatter_instance.emitting = true
 
-func _play_audio(name: String):
+func _play_audio(sound_name: String):
 	var sound = AudioStreamPlayer.new()
-	sound.stream = load("res://audio/" + name + ".mp3")
+	sound.stream = load("res://audio/" + sound_name + ".mp3")
 	add_child(sound)
 	sound.bus = &"SFX"
 	sound.play()

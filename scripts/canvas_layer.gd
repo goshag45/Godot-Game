@@ -9,6 +9,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	ammo_counter.text = str(player_weapon.magazine)
 	fps_counter.text = str("FPS %d" % Engine.get_frames_per_second())
