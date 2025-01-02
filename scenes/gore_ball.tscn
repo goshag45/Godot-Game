@@ -16,7 +16,7 @@ uv1_triplanar = true
 [node name="gore_ball" type="CharacterBody3D" groups=["enemy"]]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 script = ExtResource("1_61dgt")
-health = 10000
+health = 200
 
 [node name="hitbox" type="CollisionShape3D" parent="." groups=["enemy"]]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.5, 0)

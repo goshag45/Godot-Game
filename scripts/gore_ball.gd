@@ -8,7 +8,9 @@ extends CharacterBody3D
 @onready var player = get_tree().get_first_node_in_group("player")
 
 func _ready():
-	pass
+	# quick fix to pause physics for a frame to wait for navigation server to work
+	set_physics_process(false)
+	call_deferred("setup")
 
 func _physics_process(_delta: float) -> void:
 	velocity = Vector3.ZERO
@@ -21,3 +23,7 @@ func _physics_process(_delta: float) -> void:
 func _process(_delta):
 	if health <= 0:
 		queue_free()
+
+func setup():
+	await get_tree().physics_frame
+	set_physics_process(true)
