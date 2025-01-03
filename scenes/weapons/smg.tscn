@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://lho0typtmcug"]
+[gd_scene load_steps=21 format=4 uid="uid://lho0typtmcug"]
 
 [ext_resource type="Script" path="res://scripts/smg.gd" id="1_2iled"]
 [ext_resource type="Texture2D" uid="uid://5ne5hrmmlqg6" path="res://art/visual/models/weapons/smg/luty_low_poly_ps1_0.png" id="2_ixb5l"]
@@ -176,11 +176,17 @@ tracks/1/keys = {
 "values": [Vector3(-1.5708, 0, 0), Vector3(-1.53589, 0, 0), Vector3(-1.58825, 0, 0), Vector3(-1.5708, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_yqaur"]
+resource_name = "weapon_bob"
+length = 0.4
+loop_mode = 1
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j2gj3"]
 _data = {
 "RESET": SubResource("Animation_1er6t"),
 "reload": SubResource("Animation_sa3dv"),
-"smg_shoot": SubResource("Animation_vniw1")
+"smg_shoot": SubResource("Animation_vniw1"),
+"weapon_bob": SubResource("Animation_yqaur")
 }
 
 [node name="smg" type="Node3D"]

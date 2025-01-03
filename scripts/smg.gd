@@ -16,8 +16,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# this stops blood splatter emission currently
-	#if magazine <= 0:
-		#_reload()
+	if magazine <= 0:
+		_reload()
 	pass
 
 func _shoot(target, hit_point):
@@ -35,7 +35,6 @@ func _reload():
 	# you can spam the reload audio for now - not major issue
 	_play_audio("reload")
 	animation.play("reload")
-	#play reload audio
 	magazine = 60
 
 func _emit_blood_splatter(hit_pos, gun_pos):
