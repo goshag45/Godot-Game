@@ -13,8 +13,9 @@ roughness = 0.2
 uv1_triplanar = true
 
 [node name="gore_ball" type="RigidBody3D" groups=["enemy"]]
+mass = 0.2
 script = ExtResource("1_61dgt")
-health = 10000
+health = 200
 
 [node name="hitbox" type="CollisionShape3D" parent="." groups=["enemy"]]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5, 0)
