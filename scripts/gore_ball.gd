@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends RigidBody3D
 
 @export var health = 100
 @export var player_path  : NodePath #NEED TO REFERENCE PLAYER SOMEHOW
@@ -13,11 +13,8 @@ func _ready():
 	call_deferred("setup")
 
 func _physics_process(_delta: float) -> void:
-	velocity = Vector3.ZERO
 	nav_agent.set_target_position(player.global_position)
 	var next_nav_point = nav_agent.get_next_path_position()
-	velocity = (next_nav_point - global_transform.origin).normalized() * speed
-	move_and_slide()
 	pass
 
 func _process(_delta):

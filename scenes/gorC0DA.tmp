@@ -14,14 +14,14 @@ uv1_triplanar = true
 
 [node name="gore_ball" type="RigidBody3D" groups=["enemy"]]
 script = ExtResource("1_61dgt")
-health = 10000
+health = 200
 
 [node name="hitbox" type="CollisionShape3D" parent="." groups=["enemy"]]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5, 0)
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_dkjwh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("SphereMesh_kp4s4")
 surface_material_override/0 = SubResource("StandardMaterial3D_g4hnq")
 

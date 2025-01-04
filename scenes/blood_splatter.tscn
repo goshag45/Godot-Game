@@ -22,13 +22,13 @@ initial_velocity_max = 12.0
 scale_curve = SubResource("CurveTexture_btktr")
 
 [sub_resource type="SphereMesh" id="SphereMesh_4yy5d"]
-radius = 0.1
-height = 0.2
+radius = 0.04
+height = 0.08
 
 [node name="BloodSplatter" type="GPUParticles3D"]
 material_override = SubResource("StandardMaterial3D_fol11")
 emitting = false
-amount = 20
+amount = 12
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_owu83")
