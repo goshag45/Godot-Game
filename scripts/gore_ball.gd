@@ -9,6 +9,7 @@ extends RigidBody3D
 
 @onready var nav_agent = $NavigationAgent3D
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var audio_component = $audio_component
 
 func _ready():
 	# quick fix to pause physics for a frame to wait for navigation server to work
@@ -41,8 +42,13 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta):
 	if health <= 0:
-		queue_free()
+		die()
 
 func setup():
 	await get_tree().physics_frame
 	set_physics_process(true)
+
+func die():
+	# cant make the audio work kill me
+	#audio_component._play_audio_sfx("blood_squelch")
+	queue_free()

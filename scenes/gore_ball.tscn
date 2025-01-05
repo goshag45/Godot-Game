@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3l7mcrwxuwko"]
+[gd_scene load_steps=7 format=3 uid="uid://b3l7mcrwxuwko"]
 
 [ext_resource type="Texture2D" uid="uid://010tocmlpv7d" path="res://art/visual/gore_ball/gore_texture.png" id="1_8uafp"]
 [ext_resource type="Script" path="res://scripts/gore_ball.gd" id="1_61dgt"]
+[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio_component.tscn" id="3_wkq4f"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dkjwh"]
 
@@ -27,3 +28,5 @@ mesh = SubResource("SphereMesh_kp4s4")
 surface_material_override/0 = SubResource("StandardMaterial3D_g4hnq")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="audio_component" parent="." instance=ExtResource("3_wkq4f")]
