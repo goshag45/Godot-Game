@@ -1,6 +1,7 @@
 extends Node3D
 
-@export var magazine = 60
+var magazine = 20
+@export var magazine_capacity = 20
 @export var damage = 20
 
 @onready var smg = $"."
@@ -32,11 +33,10 @@ func _shoot(target, hit_point):
 			_emit_blood_splatter(hit_point, smg.global_position)
 
 func _reload():
-	#if !animation.is_playing():
 	# you can spam the reload audio for now - not major issue
 	audio_component._play_audio_sfx("reload")
 	animation.play("reload")
-	magazine = 60
+	magazine = magazine_capacity
 
 func _emit_blood_splatter(hit_pos, gun_pos):
 	var blood_splatter_instance = blood_splatter.instantiate()
