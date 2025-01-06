@@ -33,12 +33,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		player.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		print("Camera Rotation X:", rad_to_deg(camera.rotation.x))
+
 
 func _physics_process(delta: float) -> void:
 	_escape_mouse()
-
-	# Align viewmodel rig camera with head camera
-	viewmodel_camera.global_transform = camera.global_transform
 
 	# Add the gravity.
 	if not is_on_floor():
