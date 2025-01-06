@@ -16,16 +16,16 @@ var direction = Vector3()
 
 # References
 @onready var head = $Head
-@onready var camera = $Head/Camera3D
+@onready var camera = $Head/firstperson_camera
 @onready var player = $"."
-@onready var viewmodel_camera = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera
-@onready var fps_rig = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig
-@onready var smg = $Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg
-@onready var aim_ray = $Head/Camera3D/aim_ray
+@onready var viewmodel_camera = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera
+@onready var fps_rig = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig
+@onready var smg = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg
+@onready var aim_ray = $Head/firstperson_camera/aim_ray
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
+	$Head/firstperson_camera/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
 
 func _unhandled_input(event: InputEvent) -> void:
 #func handle_mouse_camera(event: InputEvent) -> void:

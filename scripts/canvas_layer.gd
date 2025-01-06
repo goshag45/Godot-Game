@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var player_weapon = $"../Head/Camera3D/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg"
+@onready var player_weapon = $"../Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg"
 @onready var ammo_counter = $Control/Label
 @onready var fps_counter = $Control/FPS
 
