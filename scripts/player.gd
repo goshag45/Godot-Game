@@ -22,18 +22,18 @@ var direction = Vector3()
 @onready var fps_rig = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig
 @onready var smg = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg
 @onready var aim_ray = $Head/firstperson_camera/aim_ray
+@onready var weapon_viewport = $Head/firstperson_camera/SubViewportContainer/SubViewport
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$Head/firstperson_camera/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
+	weapon_viewport.size = DisplayServer.window_get_size()
 
-func _unhandled_input(event: InputEvent) -> void:
-#func handle_mouse_camera(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		player.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-		print("Camera Rotation X:", rad_to_deg(camera.rotation.x))
+#func _unhandled_input(event: InputEvent) -> void:
+##func handle_mouse_camera(event: InputEvent) -> void:
+	#if event is InputEventMouseMotion:
+		#player.rotate_y(-event.relative.x * SENSITIVITY)
+		#camera.rotate_x(-event.relative.y * SENSITIVITY)
+		#camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 
 func _physics_process(delta: float) -> void:
