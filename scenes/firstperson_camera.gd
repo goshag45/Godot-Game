@@ -1,32 +1,3 @@
-#extends Camera3D
-##https://www.youtube.com/watch?v=gL0iibY6-Fg
-#@export var follow_target: NodePath
-#
-#@onready var player = $"../.."
-#@onready var camera = $"."
-#
-#var target : Node3D
-#var update = false
-#var gt_prev : Transform3D
-#var gt_current : Transform3D
-#
-#func _unhandled_input(event: InputEvent) -> void:
-##func handle_mouse_camera(event: InputEvent) -> void:
-	#if event is InputEventMouseMotion:
-		#player.rotate_y(-event.relative.x * player.SENSITIVITY)
-		#camera.rotate_x(-event.relative.y * player.SENSITIVITY)
-		#camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-#
-#func _ready():
-	#pass
-#
-#func _process(_delta):
-	#pass
-#
-#func _physics_process(_delta):
-	#pass
-
-#--------------------------------------------------------------------------------------------------#
 extends Camera3D
 
 @export var follow_target: NodePath  # The target to follow (e.g., the player)
