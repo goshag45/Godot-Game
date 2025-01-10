@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsyohgrfl3bfn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu4pj"]
+albedo_color = Color(0.539216, 0.443392, 0.273319, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_el6sp"]
+material = SubResource("StandardMaterial3D_hu4pj")
+size = Vector3(0.3, 1, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_13jnl"]
+size = Vector3(0.3, 1, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4h84l"]
+albedo_color = Color(0.987907, 0, 0.252963, 1)
+metallic = 0.5
+roughness = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cmngd"]
+material = SubResource("StandardMaterial3D_4h84l")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5o3cp"]
+height = 0.1
+radius = 0.1
+
+[node name="interactable_button_1" type="StaticBody3D"]
+
+[node name="platform_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_el6sp")
+
+[node name="platform_collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_13jnl")
+
+[node name="button_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_cmngd")
+
+[node name="button_collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_5o3cp")
