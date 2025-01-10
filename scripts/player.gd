@@ -28,14 +28,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	weapon_viewport.size = DisplayServer.window_get_size()
 
-#func _unhandled_input(event: InputEvent) -> void:
-##func handle_mouse_camera(event: InputEvent) -> void:
-	#if event is InputEventMouseMotion:
-		#player.rotate_y(-event.relative.x * SENSITIVITY)
-		#camera.rotate_x(-event.relative.y * SENSITIVITY)
-		#camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-
-
 func _physics_process(delta: float) -> void:
 	_escape_mouse()
 

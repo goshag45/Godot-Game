@@ -17,6 +17,7 @@ uv1_triplanar = true
 mass = 0.2
 script = ExtResource("1_61dgt")
 health = 200
+max_speed = 6.0
 
 [node name="hitbox" type="CollisionShape3D" parent="." groups=["enemy"]]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5, 0)
