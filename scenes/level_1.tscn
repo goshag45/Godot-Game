@@ -257,10 +257,10 @@ light_energy = 3.0
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_h58nv")
 
-[node name="bridge" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.561686, 4.11253, -0.751642)
+[node name="bridge" type="CSGPolygon3D" parent="NavigationRegion3D"]
+transform = Transform3D(-4.37114e-08, 0, -2.02166, 0, 1, 0, 1, 0, -8.83695e-08, -1.58885, 4.11253, -0.751642)
 use_collision = true
-size = Vector3(5.19605, 0.460327, 2.88397)
+polygon = PackedVector2Array(-2.32849, -0.246654, -2.25045, -0.113565, 1.77934, 0.377018, 1.76676, -0.2912)
 
 [node name="ground_low" type="StaticBody3D" parent="NavigationRegion3D"]
 
