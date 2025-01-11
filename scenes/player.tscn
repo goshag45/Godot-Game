@@ -1,13 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bv1850xotwfxt"]
+[gd_scene load_steps=8 format=3 uid="uid://bv1850xotwfxt"]
 
 [ext_resource type="Script" path="res://scenes/firstperson_camera.gd" id="2_hj430"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_kooth"]
 [ext_resource type="PackedScene" uid="uid://bivh5hg55epm3" path="res://scenes/view_model.tscn" id="2_rpm7w"]
 [ext_resource type="PackedScene" uid="uid://k5r4dq5pg4cv" path="res://scenes/gui.tscn" id="4_cds5j"]
+[ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="5_3ib0s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_engiy"]
 radius = 0.225678
 height = 1.97294
+
+[sub_resource type="LabelSettings" id="LabelSettings_ehpod"]
+font = ExtResource("5_3ib0s")
+font_size = 40
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("2_kooth")
@@ -46,10 +53,31 @@ render_target_update_mode = 4
 
 [node name="ViewModelCamera" parent="Head/firstperson_camera/SubViewportContainer/SubViewport" instance=ExtResource("2_rpm7w")]
 
-[node name="model" parent="Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg" index="0"]
-transform = Transform3D(1, 0, 0, 0, -3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 0, 0)
+[node name="interact_ray" type="RayCast3D" parent="Head/firstperson_camera"]
+target_position = Vector3(0, 0, -3)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_cds5j")]
+
+[node name="FPS" parent="CanvasLayer/Control" index="1"]
+layout_mode = 1
+offset_right = 304.0
+text = "0"
+
+[node name="interactable_message" type="Label" parent="CanvasLayer/Control" index="2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -241.0
+offset_right = 190.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "press e to interact"
+label_settings = SubResource("LabelSettings_ehpod")
 
 [editable path="Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera"]
 [editable path="Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg"]

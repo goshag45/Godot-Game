@@ -15,7 +15,7 @@ script = SubResource("GDScript_5f5jw")
 [node name="Level 1" parent="Level" instance=ExtResource("1_lakjr")]
 
 [node name="Player" parent="." instance=ExtResource("2_snnme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.994383, 0)
 
 [node name="gore_ball" parent="." instance=ExtResource("3_51on1")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -1, -13.198)
