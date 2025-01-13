@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=4 uid="uid://deeo20ak7dxee"]
+
+[ext_resource type="Texture2D" uid="uid://d3gcgun6vfqwi" path="res://art/visual/models/psx_style_chain_fence_1.png" id="1_13guq"]
+[ext_resource type="Texture2D" uid="uid://dddc652ddtawm" path="res://art/visual/models/psx_style_chain_fence_0.png" id="2_864tc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7ja3"]
+resource_name = "TexturesCom_MetalVarious0026_1_seamless_S"
+transparency = 4
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_13guq")
+texture_filter = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1q1ow"]
+_surfaces = [{
+"aabb": AABB(-1.33777, 0.00859714, 0.153392, 2.6767, 1e-05, 1.27647),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"name": "TexturesCom_MetalVarious0026_1_seamless_S",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAA//8AAAAAAAAAAAAA//8AAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4xrg0"]
+resource_name = "Sketchfab_Scene_Object_2"
+_surfaces = [{
+"aabb": AABB(-1.33777, 0.00859714, 0.153392, 2.6767, 1e-05, 1.27647),
+"attribute_data": PackedByteArray("//9IgP////9DfkiAQ37//w=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
+"material": SubResource("StandardMaterial3D_k7ja3"),
+"name": "TexturesCom_MetalVarious0026_1_seamless_S",
+"primitive": 3,
+"uv_scale": Vector4(1.97936, 3.99767, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAP//qir//wAA//+qKgAAAAAAAKoq//8AAAAAqiqqqqqqqqqqqqmqqqqqqqqq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1q1ow")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xja5g"]
+resource_name = "rusted_pipe"
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("2_864tc")
+texture_filter = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_iuh8x"]
+_surfaces = [{
+"aabb": AABB(-1.34726, -0.0109538, -0.123216, 2.69568, 0.0400001, 1.66716),
+"format": 34896613377,
+"index_count": 132,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAFAAMAAgAEAAUABAAHAAUABAAGAAcABgAJAAcABgAIAAkACAALAAkACAAKAAsACgABAAsACgAAAAEADAAPAA0ADAAOAA8ADgARAA8ADgAQABEAEAATABEAEAASABMAEgAVABMAEgAUABUAFAAXABUAFAAWABcAFgANABcAFgAMAA0AGAAbABoAGAAZABsAGgAdABwAGgAbAB0AHAAfAB4AHAAdAB8AHgAhACAAHgAfACEAIAAjACIAIAAhACMAIgAZABgAIgAjABkAEwAVABcAFwANABMADQARABMADQAPABEAHwAdABsAGwAZAB8AGQAhAB8AGQAjACEA"),
+"name": "rusted_pipe",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("Ov3Q67PuAAC9AdDrs+4AADr9Zbbs8AAAvQFltuzwAAA6/Y1L7PAAAL0BjUvs8AAAOv0iFrPuAAC9ASIWs+4AADr9jUt77AAAvQGNS3vsAAA6/WW2e+wAAL0BZbZ77AAAWf7+/wAAAABZ/v////8AAP///78AAAAA////v///AAD///8/AAAAAP///z///wAAWf4AAAAAAABZ/gAA//8AALT8/z8AAAAAtPz/P///AAC0/P+/AAAAALT8/7///wAApQH+/wAAAAClAf////8AAAAA/78AAAAAAAD/v///AAAAAP8/AAAAAAAA/z///wAApQEAAAAAAAClAQAA//8AAEoD/z8AAAAASgP/P///AABKA/+/AAAAAEoD/7///wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_u5vfg"]
+resource_name = "Sketchfab_Scene_Object_3"
+_surfaces = [{
+"aabb": AABB(-1.34726, -0.0109538, -0.123216, 2.69568, 0.0400001, 1.66716),
+"attribute_data": PackedByteArray("//9MH///TB8AAEwfAABMH/7/CRn+/wkZAAAJGQAACRn+/8cS/v/HEgAAxxIAAMcS/v+EDP7/hAwAAIQMAACEDP7/Qgb+/0IGAABCBgAAQgb+/wAA//+OJQAAAAAAAI4lAAAMaQAADGkpoQxp9wCIjCmhDGkAAIxwAACMcOYCiIwpoYxwKaGMcAAAC3gAAAt43QMKhimhDHgpoQx4AACNUgAAi38poY1S5gKLfymhi38AAAxaAAAMWimhDFopoQxa9wCLfwAAjGEAAIxhKaGMYSmhjGEAAAqGKaENPCmhDTwAAA081QSIjAAADTwpoY1DKaGNQwAAjUMAAI1D3QMKhimhDUspoQ1LAAANSwAADUvVBIt/KKGNUiihjiUAAI1SxAaLfwAAjiUpoQ4tKaEOLbsHCoYAAA4tAAAOLSmhjjQpoY40xAaIjAAAjjQAAI40"),
+"format": 34896613399,
+"index_count": 132,
+"index_data": PackedByteArray("AQAGAAMAAQAEAAYABQALAAcABQAJAAsACAAPAAoACAANAA8ADAATAA4ADAARABMAEAAWABIAEAAUABYAFQACABcAFQAAAAIAGQAgABwAGQAdACAAHgAmACEAHgAjACYAIgArACUAIgAoACsAJwAvACkAJwAtAC8ALAAzAC4ALAAxADMAMgAaADQAMgAYABoANgA+ADwANgA4AD4AOwBCAEAAOwA9AEIAQQBHAEUAQQBDAEcARgBNAEoARgBJAE0ASwBTAFAASwBOAFMATwA6ADcATwBSADoAKgAwADUANQAbACoAGwAkACoAGwAfACQASABEAD8APwA5AEgAOQBMAEgAOQBRAEwA"),
+"material": SubResource("StandardMaterial3D_xja5g"),
+"name": "rusted_pipe",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 84,
+"vertex_data": PackedByteArray("Ov3Q67Puqio6/dDrs+5UVb0B0Ouz7qoqvQHQ67PuVFU6/WW27PBUVTr9Zbbs8P5/vQFltuzwVFW9AWW27PD+fzr9jUvs8FRVOv2NS+zw/n+9AY1L7PBUVb0BjUvs8P5/Ov0iFrPuqio6/SIWs+5UVb0BIhaz7qoqvQEiFrPuVFU6/Y1Le+wAADr9jUt77KoqvQGNS3vsAAC9AY1Le+yqKjr9ZbZ77AAAOv1ltnvsqiq9AWW2e+wAAL0BZbZ77KoqWf7+/wAAtDVZ/v7/AAByHVn+/////7Q1Wf7/////qmpZ/v////9yHf///78AAHId////vwAAAAD///+///+qav///7///3Id////v///AAD///8/AAByHf///z8AAAAA////P///qmr///8///9yHf///z///wAAWf4AAAAAtDVZ/gAAAAByHVn+AAD//7Q1Wf4AAP//qmpZ/gAA//9yHbT8/z8AAP8/tPz/PwAAtDW0/P8/////P7T8/z///7Q1tPz/P///qmq0/P+/AAD/P7T8/78AALQ1tPz/v////z+0/P+///+0NbT8/7///6pqpQH+/wAAch2lAf7/AAC0NaUB/////3IdpQH/////qmqlAf////+0NQAA/78AAAAAAAD/vwAAch0AAP+///8AAAAA/7///3IdAAD/v///qmoAAP8/AAAAAAAA/z8AAHIdAAD/P///AAAAAP8///9yHQAA/z///6pqpQEAAAAAch2lAQAAAAC0NaUBAAD//3IdpQEAAP//qmqlAQAA//+0NUoD/z8AALQ1SgP/PwAA/z9KA/8///+qakoD/z///7Q1SgP/P////z9KA/+/AAC0NUoD/78AAP8/SgP/v///qmpKA/+///+0NUoD/7////8/////f////3////9/////f////3//f///////f/9///8AAP9//3///wAA/3//f///AAD/fwAA/38AAP9/AAD/f////38AAP9//v//fwAA/3////9/////f/7//3////9/S6Jmu6mxq5xLoma7/3//f6mxq5ypsauc/7//f/9//3+psauc/7//f6wcVc7/v/9//3//f6wcVc7/v/9/Zzuy3awcVc5nO7Ld/3//f6wcVc7/f///Zzuy3f9///9nO7Ld/3//f/9///9Loma7/3///0uiZrv/f/9/UuOpMZfETCJS46kx/3//f5fETCL/P/9/UuOpMf8//39S46kx/3//f/8//39VTlNj/z//f1VOU2P/f/9/VU5TY7NdmERVTlNj/3//f7NdmESzXZhE/38AAP9//3+zXZhE/38AAJfETCL/fwAA/3//f5fETCL/fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_iuh8x")
+
+[node name="chain_fence" type="Node3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 0, 0, 0)
+
+[node name="chain" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_4xrg0")
+skeleton = NodePath("")
+
+[node name="frame" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_u5vfg")
+skeleton = NodePath("")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=26 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/visual/textures/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="1_ar1ye"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://7gbnkjgfsh2b" path="res://art/visual/textures/gravel_ground.png" id="3_m58l7"]
 [ext_resource type="AudioStream" uid="uid://cvpjxgsbylkcu" path="res://audio/unatco_conversation.mp3" id="5_ds4yb"]
 [ext_resource type="PackedScene" uid="uid://dsyohgrfl3bfn" path="res://scenes/interactable_button_1.tscn" id="7_ldgy1"]
+[ext_resource type="PackedScene" uid="uid://deeo20ak7dxee" path="res://scenes/chain_fence.tscn" id="8_jss31"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1ukm2"]
 panorama = ExtResource("1_6aing")
@@ -286,3 +287,38 @@ shape = SubResource("CylinderShape3D_iehip")
 
 [node name="spawn_balls_button" parent="." instance=ExtResource("7_ldgy1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0617, 4.0248, 1.24565)
+
+[node name="fenceline" type="Node3D" parent="."]
+
+[node name="chain_fence" parent="fenceline" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 13.4005)
+
+[node name="chain_fence2" parent="fenceline" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 10.7257)
+
+[node name="chain_fence3" parent="fenceline" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 8.06015)
+
+[node name="chain_fence4" parent="fenceline" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 5.38727)
+
+[node name="chain_fence5" parent="fenceline" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 2.71788)
+
+[node name="fenceline2" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.0301, 0.00620651, 0.0824795)
+
+[node name="chain_fence" parent="fenceline2" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 13.4005)
+
+[node name="chain_fence2" parent="fenceline2" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 10.7257)
+
+[node name="chain_fence3" parent="fenceline2" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 8.06015)
+
+[node name="chain_fence4" parent="fenceline2" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 5.38727)
+
+[node name="chain_fence5" parent="fenceline2" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 2.71788)
