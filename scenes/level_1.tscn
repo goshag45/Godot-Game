@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=25 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/visual/textures/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="1_ar1ye"]
@@ -108,18 +108,6 @@ shader_parameter/FoamGlowIntensity = 0.0
 shader_parameter/water_texture1 = ExtResource("2_7mtd5")
 shader_parameter/water_texture2 = ExtResource("2_7mtd5")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_lh31c"]
-size = Vector2(10.5, 2)
-orientation = 0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_q7qg7"]
-size = Vector2(30, 2)
-orientation = 0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_4k314"]
-size = Vector2(30, 4)
-orientation = 0
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_8f7ff"]
 size = Vector2(30, 30)
 
@@ -188,14 +176,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0979671, 3.5, -0.774899)
 mesh = SubResource("QuadMesh_qcccd")
 surface_material_override/0 = SubResource("ShaderMaterial_i45fs")
 
-[node name="wall" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.33397, -15, 5.5, 8)
-mesh = SubResource("PlaneMesh_lh31c")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5.5, 14.986)
-mesh = SubResource("PlaneMesh_q7qg7")
-
 [node name="tube" type="CSGCombiner3D" parent="."]
 use_collision = true
 
@@ -240,10 +220,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 8.25382)
 operation = 2
 size = Vector3(2, 2, 0.57663)
 material = ExtResource("1_ar1ye")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 5, -15)
-mesh = SubResource("PlaneMesh_4k314")
 
 [node name="Area3D" type="StaticBody3D" parent="."]
 
