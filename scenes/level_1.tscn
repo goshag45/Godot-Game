@@ -322,3 +322,24 @@ transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.650
 
 [node name="chain_fence5" parent="fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 2.71788)
+
+[node name="chain_fence6" parent="fenceline2" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 26.7537)
+
+[node name="chain_fence11" parent="fenceline2" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 29.4235)
+
+[node name="chain_fence12" parent="fenceline2" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 29.4235)
+
+[node name="chain_fence7" parent="fenceline2" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 24.0789)
+
+[node name="chain_fence8" parent="fenceline2" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 21.4134)
+
+[node name="chain_fence9" parent="fenceline2" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 18.7405)
+
+[node name="chain_fence10" parent="fenceline2" instance=ExtResource("8_jss31")]
+transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 16.0711)
