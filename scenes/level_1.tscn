@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=28 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/visual/textures/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="1_ar1ye"]
@@ -153,6 +153,12 @@ size = Vector3(30, 1.49207, 14.0079)
 height = 0.1
 radius = 2.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1u5or"]
+size = Vector3(0.1, 2, 13.3499)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1pw1t"]
+size = Vector3(0.1, 2, 29.3297)
+
 [node name="Level 1" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -10, 0)
 script = ExtResource("1_oatpt")
@@ -288,7 +294,7 @@ shape = SubResource("CylinderShape3D_iehip")
 [node name="spawn_balls_button" parent="." instance=ExtResource("7_ldgy1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0617, 4.0248, 1.24565)
 
-[node name="fenceline" type="Node3D" parent="."]
+[node name="fenceline" type="StaticBody3D" parent="."]
 
 [node name="chain_fence" parent="fenceline" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 13.4005)
@@ -305,7 +311,11 @@ transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.650
 [node name="chain_fence5" parent="fenceline" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 2.71788)
 
-[node name="fenceline2" type="Node3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fenceline"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6433, 5.01575, 8.05124)
+shape = SubResource("BoxShape3D_1u5or")
+
+[node name="fenceline2" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.0301, 0.00620651, 0.0824795)
 
 [node name="chain_fence" parent="fenceline2" instance=ExtResource("8_jss31")]
@@ -343,3 +353,7 @@ transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.650
 
 [node name="chain_fence10" parent="fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 16.0711)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fenceline2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.688, 5.00226, 16.0826)
+shape = SubResource("BoxShape3D_1pw1t")
