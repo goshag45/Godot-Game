@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=29 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/visual/textures/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="1_ar1ye"]
@@ -158,6 +158,9 @@ size = Vector3(0.1, 2, 13.3499)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1pw1t"]
 size = Vector3(0.1, 2, 29.3297)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q3fim"]
+size = Vector3(60, 10, 60)
 
 [node name="Level 1" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -10, 0)
@@ -357,3 +360,9 @@ transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.650
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fenceline2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.688, 5.00226, 16.0826)
 shape = SubResource("BoxShape3D_1pw1t")
+
+[node name="deathbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+
+[node name="deathbox_collision" type="CollisionShape3D" parent="deathbox"]
+shape = SubResource("BoxShape3D_q3fim")
