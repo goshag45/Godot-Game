@@ -23,6 +23,7 @@ var direction = Vector3()
 @onready var smg = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg
 @onready var aim_ray = $Head/firstperson_camera/aim_ray
 @onready var weapon_viewport = $Head/firstperson_camera/SubViewportContainer/SubViewport
+@onready var hitbox = $player_hitbox
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

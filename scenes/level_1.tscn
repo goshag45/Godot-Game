@@ -364,5 +364,5 @@ shape = SubResource("BoxShape3D_1pw1t")
 [node name="deathbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 
-[node name="deathbox_collision" type="CollisionShape3D" parent="deathbox"]
+[node name="deathbox_collision" type="CollisionShape3D" parent="deathbox" groups=["deathbox"]]
 shape = SubResource("BoxShape3D_q3fim")

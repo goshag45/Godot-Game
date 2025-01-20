@@ -11,3 +11,6 @@ func _process(delta: float) -> void:
 
 func spawn_gore_ball():
 	pass
+
+func _on_deathbox_area_entered(area: Area3D) -> void:
+	pass # Replace with function body.
