@@ -106,3 +106,7 @@ func _escape_mouse():
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _on_deathbox_body_entered(body: Node3D) -> void:
+	print("test")
+	pass # Replace with function body.
