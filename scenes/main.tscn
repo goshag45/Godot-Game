@@ -1,11 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://txkplgsfsdnc"]
 
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_cgmu7"]
 [ext_resource type="PackedScene" uid="uid://cntcml45idub5" path="res://scenes/level_1.tscn" id="1_lakjr"]
 [ext_resource type="Texture2D" uid="uid://7gbnkjgfsh2b" path="res://art/visual/textures/gravel_ground.png" id="2_c6voj"]
 [ext_resource type="PackedScene" uid="uid://bv1850xotwfxt" path="res://scenes/player.tscn" id="2_snnme"]
 [ext_resource type="PackedScene" uid="uid://b3l7mcrwxuwko" path="res://scenes/gore_ball.tscn" id="3_51on1"]
-
-[sub_resource type="GDScript" id="GDScript_5f5jw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paac7"]
 albedo_texture = ExtResource("2_c6voj")
@@ -29,7 +28,7 @@ resource_local_to_scene = true
 size = Vector3(30, 1.49207, 14.0079)
 
 [node name="World" type="Node3D"]
-script = SubResource("GDScript_5f5jw")
+script = ExtResource("1_cgmu7")
 
 [node name="Level" type="Node3D" parent="."]
 
