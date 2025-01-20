@@ -10,11 +10,11 @@ func _ready() -> void:
 func _setup_deathbox_signal() -> void:
 	# Safely locate the deathbox node after the scene is loaded
 	deathbox = get_tree().get_first_node_in_group("deathbox")
-	if deathbox:
-		deathbox.area_entered.connect(_on_deathbox_area_entered)
-		print("connected")
-	else:
-		print("Error: Deathbox node not found")
+	#if deathbox:
+		#deathbox.area_entered.connect(_on_deathbox_area_entered)
+		#print(deathbox)
+	#else:
+		#print("Error: Deathbox node not found")
 
 func _on_deathbox_area_entered(area: Area3D) -> void:
 	print("entered")

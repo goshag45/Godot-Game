@@ -61,4 +61,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -13.198)
 [node name="gore_ball2" parent="." instance=ExtResource("3_51on1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.686, -1, -13.198)
 
+[connection signal="area_entered" from="Level/Level 1/deathbox" to="." method="_on_deathbox_area_entered"]
+
 [editable path="Level/Level 1"]
