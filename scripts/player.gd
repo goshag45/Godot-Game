@@ -2,7 +2,9 @@ extends CharacterBody3D
 
 # VARIABLES
 @export_category("Player Stats")
-@export var SENSITIVITY = 0.0013
+@export var sensitivity_input = 1.3
+#weird calc - stupid
+var SENSITIVITY = sensitivity_input/1000
 @export var walk_speed = 5.0
 @export var sprint_speed = 8.0
 @export var jump_velocity = 4.5
@@ -11,6 +13,7 @@ extends CharacterBody3D
 @export var gravity = 9.8
 @export var ammo_revolver = 6
 @export var speed = walk_speed
+@export var health = 100
 
 var direction = Vector3()
 
@@ -108,5 +111,8 @@ func _escape_mouse():
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _on_deathbox_body_entered(body: Node3D) -> void:
-	queue_free()
+	die()
 	pass # Replace with function body.
+
+func die():
+	pass
