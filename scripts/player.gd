@@ -88,7 +88,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta):
-	# this is cooked
+	if health <= 0:
+		die()
 	pass
 	
 
