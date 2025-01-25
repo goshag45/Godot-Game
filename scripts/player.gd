@@ -91,7 +91,6 @@ func _process(_delta):
 	if health <= 0:
 		die()
 	pass
-	
 
 func _shoot_gun(gun, target, hit_point):
 	match gun:

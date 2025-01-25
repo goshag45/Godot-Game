@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctpufg7bblye0"]
+
+[ext_resource type="Texture2D" uid="uid://crriutushpuat" path="res://art/visual/textures/snipface.png" id="1_f2iaq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tl8t0"]
+albedo_texture = ExtResource("1_f2iaq")
+uv1_scale = Vector3(2.5, 2.5, 2.5)
+uv1_offset = Vector3(0.5, 0.5, 0)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_jptqe"]
+material = SubResource("StandardMaterial3D_tl8t0")
+size = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n47gn"]
+radius = 0.3
+height = 1.6
+
+[sub_resource type="TorusMesh" id="TorusMesh_0bgy4"]
+outer_radius = 0.4
+
+[node name="Node3D" type="Node3D"]
+
+[node name="head" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+mesh = SubResource("BoxMesh_jptqe")
+
+[node name="body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("CapsuleMesh_n47gn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06974, 0)
+mesh = SubResource("TorusMesh_0bgy4")
