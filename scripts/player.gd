@@ -116,4 +116,6 @@ func _on_deathbox_body_entered(body: Node3D) -> void:
 	pass # Replace with function body.
 
 func die():
+	var spawn_location = Vector3(0,-1,7)
+	player.global_position = spawn_location
 	pass
