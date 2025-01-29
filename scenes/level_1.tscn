@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=31 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/visual/textures/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="1_ar1ye"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dsyohgrfl3bfn" path="res://scenes/interactable_button_1.tscn" id="7_ldgy1"]
 [ext_resource type="PackedScene" uid="uid://deeo20ak7dxee" path="res://scenes/chain_fence.tscn" id="8_jss31"]
 [ext_resource type="Script" path="res://scripts/deathbox.gd" id="9_kcvus"]
+[ext_resource type="PackedScene" uid="uid://ctpufg7bblye0" path="res://scenes/thedavy.tscn" id="10_0nhif"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1ukm2"]
 panorama = ExtResource("1_6aing")
@@ -368,3 +369,6 @@ script = ExtResource("9_kcvus")
 
 [node name="deathbox_collision" type="CollisionShape3D" parent="deathbox"]
 shape = SubResource("BoxShape3D_q3fim")
+
+[node name="thedavy" parent="." instance=ExtResource("10_0nhif")]
+transform = Transform3D(-0.43675, 0, -0.243412, 0, 0.5, 0, 0.243412, 0, -0.43675, 3.68058, 4.49604, 7.38068)

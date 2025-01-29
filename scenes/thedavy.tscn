@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctpufg7bblye0"]
+
+[ext_resource type="Texture2D" uid="uid://crriutushpuat" path="res://art/visual/textures/snipface.png" id="1_ydj5c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tl8t0"]
+albedo_texture = ExtResource("1_ydj5c")
+uv1_scale = Vector3(2.5, 2.5, 2.5)
+uv1_offset = Vector3(0.5, 0.5, 0)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_jptqe"]
+material = SubResource("StandardMaterial3D_tl8t0")
+size = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n47gn"]
+radius = 0.3
+height = 1.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bp1iw"]
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.1
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.05
+refraction_scale = 0.02
+
+[sub_resource type="TorusMesh" id="TorusMesh_0bgy4"]
+inner_radius = 0.6
+outer_radius = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odklo"]
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.1
+
+[node name="thedavy" type="Node3D"]
+
+[node name="head" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73898, 0)
+mesh = SubResource("BoxMesh_jptqe")
+
+[node name="body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("CapsuleMesh_n47gn")
+surface_material_override/0 = SubResource("StandardMaterial3D_bp1iw")
+
+[node name="the" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 1.33365, -0.0583284)
+mesh = SubResource("TorusMesh_0bgy4")
+surface_material_override/0 = SubResource("StandardMaterial3D_odklo")
