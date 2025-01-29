@@ -16,8 +16,8 @@ func _setup_deathbox_signal() -> void:
 	#else:
 		#print("Error: Deathbox node not found")
 
-func _on_deathbox_area_entered(area: Area3D) -> void:
+func _on_deathbox_area_entered(_area: Area3D) -> void:
 	print("entered")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

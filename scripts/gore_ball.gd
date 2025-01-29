@@ -18,7 +18,7 @@ func _ready():
 	call_deferred("setup")
 	nav_agent.target_position = player.global_position
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if nav_agent and player:
 		# Update the target position for pathfinding
 		nav_agent.target_position = player.global_transform.origin

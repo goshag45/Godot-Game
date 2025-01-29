@@ -110,7 +110,7 @@ func _escape_mouse():
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _on_deathbox_body_entered(body: Node3D) -> void:
+func _on_deathbox_body_entered(_body: Node3D) -> void:
 	die()
 	pass # Replace with function body.
 
