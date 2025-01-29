@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctpufg7bblye0"]
+[gd_scene load_steps=10 format=3 uid="uid://ctpufg7bblye0"]
 
 [ext_resource type="Texture2D" uid="uid://crriutushpuat" path="res://art/visual/textures/snipface.png" id="1_ydj5c"]
 
@@ -11,6 +11,14 @@ uv1_triplanar = true
 [sub_resource type="BoxMesh" id="BoxMesh_jptqe"]
 material = SubResource("StandardMaterial3D_tl8t0")
 size = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vatis"]
+size = Vector3(0.41, 0.41, 0.41)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bswrn"]
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.1
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_n47gn"]
 radius = 0.3
@@ -38,6 +46,11 @@ roughness = 0.1
 [node name="head" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73898, 0)
 mesh = SubResource("BoxMesh_jptqe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00163472, 0, -0.00729359)
+mesh = SubResource("BoxMesh_vatis")
+surface_material_override/0 = SubResource("StandardMaterial3D_bswrn")
 
 [node name="body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
