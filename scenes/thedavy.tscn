@@ -1,6 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctpufg7bblye0"]
+[gd_scene load_steps=13 format=3 uid="uid://ctpufg7bblye0"]
 
+[ext_resource type="Script" path="res://scripts/thedavy.gd" id="1_q2ggk"]
 [ext_resource type="Texture2D" uid="uid://crriutushpuat" path="res://art/visual/textures/snipface.png" id="1_ydj5c"]
+[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio_component.tscn" id="3_3c37e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tl8t0"]
 albedo_texture = ExtResource("1_ydj5c")
@@ -41,13 +43,16 @@ metallic = 1.0
 metallic_specular = 1.0
 roughness = 0.1
 
-[node name="thedavy" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0veg4"]
+
+[node name="thedavy" type="CharacterBody3D" groups=["interactable_press"]]
+script = ExtResource("1_q2ggk")
 
 [node name="head" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73898, 0)
 mesh = SubResource("BoxMesh_jptqe")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="head"]
+[node name="head2" type="MeshInstance3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00163472, 0, -0.00729359)
 mesh = SubResource("BoxMesh_vatis")
 surface_material_override/0 = SubResource("StandardMaterial3D_bswrn")
@@ -61,3 +66,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_bp1iw")
 transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 1.33365, -0.0583284)
 mesh = SubResource("TorusMesh_0bgy4")
 surface_material_override/0 = SubResource("StandardMaterial3D_odklo")
+
+[node name="hitbox" type="CollisionShape3D" parent="." groups=["interactable_press"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_0veg4")
+
+[node name="audio_component" parent="." instance=ExtResource("3_3c37e")]
