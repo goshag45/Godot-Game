@@ -26,7 +26,7 @@ func _shoot(target, hit_point):
 	if !animation.is_playing():
 		magazine -= 1
 		animation.play("smg_shoot")
-		audio_component._play_audio_sfx("smg_shot")
+		audio_component._play_audio_sfx("smg_shot", 3)
 		muzzle_flash.emitting = true
 		if target != null && target.is_in_group("enemy"):
 			target.health -= damage
@@ -34,7 +34,7 @@ func _shoot(target, hit_point):
 
 func _reload():
 	# you can spam the reload audio for now - not major issue
-	audio_component._play_audio_sfx("reload")
+	audio_component._play_audio_sfx("reload", 3)
 	animation.play("reload")
 	magazine = magazine_capacity
 

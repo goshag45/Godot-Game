@@ -12,6 +12,6 @@ func _process(_delta: float) -> void:
 	pass
 
 func interact():
-	audio_component._play_audio_sfx("icanseeyou")
+	audio_component._play_audio_sfx("icanseeyou", 10.0)
 	talk.emit()
 	pass

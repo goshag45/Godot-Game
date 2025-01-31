@@ -57,5 +57,5 @@ func setup():
 
 func die():
 	# cant make the audio work kill me
-	audio_component._play_audio_sfx("blood_squelch")
+	audio_component._play_audio_sfx("blood_squelch", 3)
 	queue_free()
