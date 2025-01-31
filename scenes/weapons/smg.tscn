@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/smg.gd" id="1_2iled"]
 [ext_resource type="Texture2D" uid="uid://5ne5hrmmlqg6" path="res://art/visual/models/weapons/smg/luty_low_poly_ps1_0.png" id="2_ixb5l"]
 [ext_resource type="Texture2D" uid="uid://b8n5vabkjilqo" path="res://art/visual/textures/muzzle_06.png" id="3_2yypb"]
-[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio_component.tscn" id="4_mmgfe"]
+[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio component/audio_component.tscn" id="4_mmgfe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ntu7n"]
 resource_name = "Material"
