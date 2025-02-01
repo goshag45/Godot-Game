@@ -9,7 +9,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("fire"):
+		dialogue_component.hide()
 
 func _showdialogue(_text: String):
 	text.text = _text
