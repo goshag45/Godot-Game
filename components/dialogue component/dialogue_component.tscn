@@ -21,8 +21,7 @@ script = ExtResource("1_0p32x")
 
 [node name="box" type="ColorRect" parent="."]
 z_index = 1
-layout_mode = 1
-anchors_preset = 8
+layout_mode = 2
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -36,7 +35,7 @@ grow_vertical = 2
 color = Color(0, 0.618023, 0.14073, 0.419608)
 
 [node name="text" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 2
 offset_left = 504.0
 offset_top = 444.0
 offset_right = 939.0
