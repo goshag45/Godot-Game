@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@onready var thedavy = $"."
 @onready var audio_component = $audio_component
 @onready var dialogue_component = $dialogue_component
 
@@ -10,6 +11,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	thedavy.rotate_y(_delta)
 	pass
 
 func interact():
