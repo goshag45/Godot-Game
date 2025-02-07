@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@onready var player = null
 @onready var thedavy = $"."
 @onready var audio_component = $audio_component
 @onready var dialogue_component = $dialogue_component
@@ -7,11 +8,17 @@ extends CharacterBody3D
 signal talk()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var players = get_tree().get_nodes_in_group("player")
+	if players == null:
+		print("Player node not found!")
+	else:
+		player = players[0]
+		print(player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	thedavy.rotate_y(_delta)
+	if player:
+		thedavy.look_at(player.global_position)
 	pass
 
 func interact():
