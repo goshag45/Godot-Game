@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://txkplgsfsdnc"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_cgmu7"]
+[ext_resource type="PackedScene" uid="uid://cntcml45idub5" path="res://scenes/level_1.tscn" id="1_lakjr"]
+[ext_resource type="Texture2D" uid="uid://7gbnkjgfsh2b" path="res://art/visual/textures/gravel_ground.png" id="2_c6voj"]
+[ext_resource type="PackedScene" uid="uid://bv1850xotwfxt" path="res://scenes/player.tscn" id="2_snnme"]
+[ext_resource type="PackedScene" uid="uid://b3l7mcrwxuwko" path="res://scenes/gore_ball.tscn" id="3_51on1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paac7"]
+albedo_texture = ExtResource("2_c6voj")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jbk6t"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_paac7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7w1m4"]
+resource_local_to_scene = true
+size = Vector3(30, 1, 12)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ykcrx"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(12, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ripbn"]
+resource_local_to_scene = true
+size = Vector3(30, 1.49207, 14.0079)
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_cgmu7")
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="Level 1" parent="Level" instance=ExtResource("1_lakjr")]
+
+[node name="ground1" parent="Level/Level 1/NavigationRegion3D/ground_low" index="0"]
+mesh = SubResource("PlaneMesh_jbk6t")
+
+[node name="ground_collision_box" parent="Level/Level 1/NavigationRegion3D/ground_low" index="1"]
+shape = SubResource("BoxShape3D_7w1m4")
+
+[node name="riverwall1" parent="Level/Level 1/NavigationRegion3D/ground_low" index="2"]
+mesh = SubResource("PlaneMesh_ykcrx")
+
+[node name="ground2" parent="Level/Level 1/NavigationRegion3D/ground_high" index="0"]
+mesh = SubResource("PlaneMesh_ykcrx")
+
+[node name="riverwall2" parent="Level/Level 1/NavigationRegion3D/ground_high" index="1"]
+mesh = SubResource("PlaneMesh_ykcrx")
+
+[node name="ground_collision_box" parent="Level/Level 1/NavigationRegion3D/ground_high" index="2"]
+shape = SubResource("BoxShape3D_ripbn")
+
+[node name="Player" parent="." instance=ExtResource("2_snnme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 7)
+
+[node name="model" parent="Player/Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg" index="0"]
+transform = Transform3D(1, 0, 0, 0, -3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 0, 0)
+
+[node name="gore_ball" parent="." instance=ExtResource("3_51on1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -13.198)
+
+[node name="gore_ball2" parent="." instance=ExtResource("3_51on1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.686, -1, -13.198)
+
+[connection signal="body_entered" from="Level/Level 1/deathbox" to="Player" method="_on_deathbox_body_entered"]
+
+[editable path="Level/Level 1"]
+[editable path="Player"]
+[editable path="Player/Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera"]
+[editable path="Player/Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg"]
+[editable path="Player/CanvasLayer"]
