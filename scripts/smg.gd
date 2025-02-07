@@ -27,7 +27,7 @@ func _shoot(target, hit_point):
 		magazine -= 1
 		animation.play("smg_shoot")
 		audio_component._play_audio_sfx("smg_shot", 3)
-		muzzle_flash.emitting = true
+		#muzzle_flash.emitting = true
 		if target != null && target.is_in_group("enemy"):
 			target.health -= damage
 			_emit_blood_splatter(hit_point, smg.global_position)
