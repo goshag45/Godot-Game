@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8hevdfqxmd4g"]
+[gd_scene load_steps=4 format=3 uid="uid://b8hevdfqxmd4g"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_yl20b"]
+[ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="1_dc8by"]
 
-[node name="pause_menu" type="PanelContainer"]
+[sub_resource type="LabelSettings" id="LabelSettings_bis18"]
+font = ExtResource("1_dc8by")
+
+[sub_resource type="LabelSettings" id="LabelSettings_y5087"]
+font = ExtResource("1_dc8by")
+
+[node name="pause_menu" type="Control"]
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -16,17 +23,51 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="options" type="VBoxContainer" parent="."]
+[node name="play" type="Button" parent="."]
 layout_mode = 2
-size_flags_horizontal = 4
-alignment = 1
-
-[node name="play" type="Button" parent="options"]
-layout_mode = 2
-text = "return to game"
-icon = SubResource("ViewportTexture_yl20b")
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 121.0
+offset_top = 53.0
+offset_right = -115.0
+offset_bottom = -107.0
 alignment = 0
 
-[node name="exit" type="Button" parent="options"]
+[node name="play_label" type="Label" parent="play"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -8.5
+offset_right = 16.0
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "play"
+label_settings = SubResource("LabelSettings_bis18")
+
+[node name="exit" type="Button" parent="."]
 layout_mode = 2
+offset_left = 121.0
+offset_top = 74.0
+offset_right = 167.0
+offset_bottom = 94.0
+
+[node name="exit_label" type="Label" parent="exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -8.5
+offset_right = 16.0
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "exit"
+label_settings = SubResource("LabelSettings_y5087")
