@@ -33,8 +33,6 @@ func _ready():
 	weapon_viewport.size = DisplayServer.window_get_size()
 
 func _physics_process(delta: float) -> void:
-	_escape_mouse()
-
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -101,14 +99,6 @@ func _shoot_gun(gun, target, hit_point):
 
 func jump():
 	velocity.y = jump_velocity
-
-func _escape_mouse():
-	# press escape to show mouse
-	if Input.is_action_just_pressed("escape"):
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _on_deathbox_body_entered(_body: Node3D) -> void:
 	die()
