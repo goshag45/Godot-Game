@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8hevdfqxmd4g"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yl20b"]
+
+[node name="pause_menu" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -92.0
+offset_right = 141.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="options" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="play" type="Button" parent="options"]
+layout_mode = 2
+text = "return to game"
+icon = SubResource("ViewportTexture_yl20b")
+alignment = 0
+
+[node name="exit" type="Button" parent="options"]
+layout_mode = 2
+text = "exit"

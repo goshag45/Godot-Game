@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://k5r4dq5pg4cv" path="res://scenes/gui.tscn" id="4_cds5j"]
 [ext_resource type="Script" path="res://scripts/interact_ray.gd" id="4_fmml5"]
 [ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="5_3ib0s"]
-[ext_resource type="Script" path="res://scripts/input_controller.gd" id="7_mnvam"]
+[ext_resource type="Script" path="res://components/input/input_controller.gd" id="7_mnvam"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_engiy"]
 radius = 0.225678
@@ -61,12 +61,7 @@ script = ExtResource("4_fmml5")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_cds5j")]
 
-[node name="FPS" parent="CanvasLayer/Control" index="1"]
-layout_mode = 1
-offset_right = 304.0
-text = "0"
-
-[node name="interactable_message" type="Label" parent="CanvasLayer/Control" index="2"]
+[node name="interactable_message" type="Label" parent="CanvasLayer/in_game_gui" index="3"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

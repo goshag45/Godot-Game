@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 @onready var player_weapon = $"../Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg"
-@onready var ammo_counter = $Control/Label
-@onready var fps_counter = $Control/FPS
+@onready var ammo_counter = $in_game_gui/Label
+@onready var fps_counter = $in_game_gui/FPS
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
