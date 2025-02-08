@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bv1850xotwfxt"]
+[gd_scene load_steps=11 format=3 uid="uid://bv1850xotwfxt"]
 
 [ext_resource type="Script" path="res://scripts/firstperson_camera.gd" id="2_hj430"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_kooth"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/interact_ray.gd" id="4_fmml5"]
 [ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="5_3ib0s"]
 [ext_resource type="Script" path="res://components/input/input_controller.gd" id="7_mnvam"]
+[ext_resource type="PackedScene" uid="uid://b8hevdfqxmd4g" path="res://scenes/gui/pause_menu.tscn" id="8_baet5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_engiy"]
 radius = 0.225678
@@ -80,6 +81,9 @@ label_settings = SubResource("LabelSettings_ehpod")
 [node name="input_controller" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("7_mnvam")
+
+[node name="pause_menu" parent="." instance=ExtResource("8_baet5")]
+visible = false
 
 [editable path="Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera"]
 [editable path="Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg"]

@@ -1,73 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8hevdfqxmd4g"]
+[gd_scene load_steps=2 format=3 uid="uid://b8hevdfqxmd4g"]
 
-[ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="1_dc8by"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_bis18"]
-font = ExtResource("1_dc8by")
-
-[sub_resource type="LabelSettings" id="LabelSettings_y5087"]
-font = ExtResource("1_dc8by")
+[ext_resource type="Theme" uid="uid://cjxmnb0h8hje7" path="res://art/visual/theme1.tres" id="1_kq6m3"]
 
 [node name="pause_menu" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -141.0
-offset_top = -92.0
-offset_right = 141.0
-offset_bottom = 87.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="play" type="Button" parent="."]
-layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 121.0
-offset_top = 53.0
-offset_right = -115.0
-offset_bottom = -107.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = 5.0
+offset_right = 54.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kq6m3")
+text = "game"
 alignment = 0
 
-[node name="play_label" type="Label" parent="play"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -8.5
-offset_right = 16.0
-offset_bottom = 8.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "play"
-label_settings = SubResource("LabelSettings_bis18")
-
 [node name="exit" type="Button" parent="."]
-layout_mode = 2
-offset_left = 121.0
-offset_top = 74.0
-offset_right = 167.0
-offset_bottom = 94.0
-
-[node name="exit_label" type="Label" parent="exit"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -8.5
-offset_right = 16.0
-offset_bottom = 8.5
+offset_left = -54.0
+offset_top = 72.0
+offset_right = 54.0
+offset_bottom = 132.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_kq6m3")
 text = "exit"
-label_settings = SubResource("LabelSettings_y5087")
