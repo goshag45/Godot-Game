@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8hevdfqxmd4g"]
+[gd_scene load_steps=3 format=3 uid="uid://b8hevdfqxmd4g"]
 
 [ext_resource type="Theme" uid="uid://cjxmnb0h8hje7" path="res://art/visual/theme1.tres" id="1_kq6m3"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_n3n3g"]
 
 [node name="pause_menu" type="Control"]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+script = ExtResource("1_n3n3g")
 
 [node name="play" type="Button" parent="."]
 layout_mode = 1
@@ -43,3 +46,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_kq6m3")
 text = "exit"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
