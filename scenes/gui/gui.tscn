@@ -17,11 +17,13 @@ font_size = 32
 script = ExtResource("1_hxwnm")
 
 [node name="in_game_gui" type="Control" parent="."]
+process_mode = 1
+z_index = -1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1440.0
 offset_bottom = 760.0
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="in_game_gui"]
 layout_mode = 1

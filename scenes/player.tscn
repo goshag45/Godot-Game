@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/firstperson_camera.gd" id="2_hj430"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_kooth"]
 [ext_resource type="PackedScene" uid="uid://bivh5hg55epm3" path="res://scenes/view_model.tscn" id="2_rpm7w"]
-[ext_resource type="PackedScene" uid="uid://k5r4dq5pg4cv" path="res://scenes/gui.tscn" id="4_cds5j"]
+[ext_resource type="PackedScene" uid="uid://k5r4dq5pg4cv" path="res://scenes/gui/gui.tscn" id="4_cds5j"]
 [ext_resource type="Script" path="res://scripts/interact_ray.gd" id="4_fmml5"]
 [ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="5_3ib0s"]
 [ext_resource type="Script" path="res://components/input/input_controller.gd" id="7_mnvam"]
@@ -79,6 +79,7 @@ text = "press e to interact"
 label_settings = SubResource("LabelSettings_ehpod")
 
 [node name="input_controller" type="Node" parent="."]
+process_mode = 3
 script = ExtResource("7_mnvam")
 
 [node name="pause_menu" parent="." instance=ExtResource("8_baet5")]

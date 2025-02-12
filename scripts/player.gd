@@ -86,6 +86,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta):
+	if get_tree().paused:
+		return  # Prevent player input while paused
 	if health <= 0:
 		die()
 	pass
