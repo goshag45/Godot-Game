@@ -65,6 +65,7 @@ script = ExtResource("4_fmml5")
 [node name="CanvasLayer" parent="." instance=ExtResource("4_cds5j")]
 
 [node name="interactable_message" type="Label" parent="CanvasLayer/in_game_gui" index="3"]
+process_mode = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
