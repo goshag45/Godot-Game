@@ -8,9 +8,13 @@ func ready():
 	pass
 	
 func _on_play_pressed() -> void:
-	input_controller._pause_game()
-	pass # Replace with function body.
+	_unpause_game()
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
-	pass # Replace with function body.
+
+func _unpause_game():
+	input_controller._pause_game()
+	pause_menu.hide()
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
