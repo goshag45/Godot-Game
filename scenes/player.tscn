@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bv1850xotwfxt"]
+[gd_scene load_steps=11 format=3 uid="uid://bv1850xotwfxt"]
 
 [ext_resource type="Script" path="res://scripts/firstperson_camera.gd" id="2_hj430"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_kooth"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://k5r4dq5pg4cv" path="res://scenes/gui/gui.tscn" id="4_cds5j"]
 [ext_resource type="Script" path="res://scripts/interact_ray.gd" id="4_fmml5"]
 [ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="5_3ib0s"]
+[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio component/audio_component.tscn" id="8_38bwj"]
 [ext_resource type="PackedScene" uid="uid://b8hevdfqxmd4g" path="res://scenes/gui/pause_menu.tscn" id="8_baet5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_engiy"]
@@ -83,6 +84,8 @@ label_settings = SubResource("LabelSettings_ehpod")
 
 [node name="pause_menu" parent="." instance=ExtResource("8_baet5")]
 visible = false
+
+[node name="audio_component" parent="." instance=ExtResource("8_38bwj")]
 
 [editable path="Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera"]
 [editable path="Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg"]

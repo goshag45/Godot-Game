@@ -27,6 +27,7 @@ var direction = Vector3()
 @onready var aim_ray = $Head/firstperson_camera/aim_ray
 @onready var weapon_viewport = $Head/firstperson_camera/SubViewportContainer/SubViewport
 @onready var hitbox = $player_hitbox
+@onready var audio_component = $audio_component
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -38,11 +39,13 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		# allow for infinite jump
 		if Input.is_action_just_pressed("jump"):
+			audio_component._play_audio_sfx("jump1", 6)
 			jump()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jump()
+		audio_component._play_audio_sfx("jump1", 6)
 
 	# Handle Sprint.
 	if Input.is_action_pressed("sprint"):
