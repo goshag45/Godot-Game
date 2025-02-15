@@ -49,6 +49,7 @@ offset_bottom = 95.0
 label_settings = SubResource("LabelSettings_lkoow")
 
 [node name="crosshair" type="TextureRect" parent="in_game_gui"]
+z_index = -1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
