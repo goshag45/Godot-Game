@@ -9,3 +9,6 @@ func _play_audio_sfx(sound_name: String, volume: float):
 	sound.play()
 	await sound.finished
 	sound.queue_free()
+
+func _play_random_sfx(sound_array: Array, volume: float):
+	pass

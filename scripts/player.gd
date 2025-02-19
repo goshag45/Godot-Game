@@ -16,6 +16,7 @@ var SENSITIVITY = sensitivity_input/1000
 @export var health = 100
 
 var direction = Vector3()
+var jump_sounds = ["jump1", "jump2", "jump3"]
 
 # References
 @onready var head = $Head
@@ -39,13 +40,13 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		# allow for infinite jump
 		if Input.is_action_just_pressed("jump"):
-			audio_component._play_audio_sfx("jump1", 6)
+			audio_component._play_random_sfx(jump_sounds, 6)
 			jump()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jump()
-		audio_component._play_audio_sfx("jump1", 6)
+		audio_component._play_random_sfx(jump_sounds, 6)
 
 	# Handle Sprint.
 	if Input.is_action_pressed("sprint"):
