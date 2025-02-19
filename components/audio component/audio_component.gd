@@ -11,4 +11,12 @@ func _play_audio_sfx(sound_name: String, volume: float):
 	sound.queue_free()
 
 func _play_random_sfx(sound_array: Array, volume: float):
-	pass
+	var sound = AudioStreamPlayer.new()
+	var random_sound = sound_array.pick_random()
+	sound.stream = load("res://audio/" + random_sound + ".mp3")
+	sound.volume_db =  linear_to_db(volume)
+	get_tree().root.add_child(sound)
+	sound.bus = &"SFX"
+	sound.play()
+	await sound.finished
+	sound.queue_free()

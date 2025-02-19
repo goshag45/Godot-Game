@@ -26,7 +26,7 @@ func _shoot(target, hit_point):
 	if !animation.is_playing():
 		magazine -= 1
 		animation.play("smg_shoot")
-		audio_component._play_audio_sfx("smg_shot", 3)
+		audio_component._play_audio_sfx("smg_shot", 1)
 		if target != null && target.is_in_group("enemy"):
 			target.health -= damage
 			_emit_blood_splatter(hit_point, smg.global_position)
