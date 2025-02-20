@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=33 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/visual/textures/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="1_ar1ye"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://deeo20ak7dxee" path="res://scenes/chain_fence.tscn" id="8_jss31"]
 [ext_resource type="Script" path="res://scripts/deathbox.gd" id="9_kcvus"]
 [ext_resource type="PackedScene" uid="uid://ctpufg7bblye0" path="res://scenes/thedavy.tscn" id="10_0nhif"]
+[ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="11_bicek"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1ukm2"]
 panorama = ExtResource("1_6aing")
@@ -163,6 +164,9 @@ size = Vector3(0.1, 2, 29.3297)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q3fim"]
 size = Vector3(60, 10, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vp178"]
+size = Vector3(0.463745, 1, 0.470093)
 
 [node name="Level 1" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -10, 0)
@@ -372,3 +376,10 @@ shape = SubResource("BoxShape3D_q3fim")
 
 [node name="thedavy" parent="." instance=ExtResource("10_0nhif")]
 transform = Transform3D(-0.43675, 0, -0.243412, 0, 0.5, 0, 0.243412, 0, -0.43675, 3.68058, 4.49604, 7.38068)
+
+[node name="computa" parent="." instance=ExtResource("11_bicek")]
+transform = Transform3D(-1.26187, 0, -3.79575, 0, 4, 0, 3.79575, 0, -1.26187, 12.9974, 4.49604, 3.42851)
+
+[node name="monitor" type="CollisionShape3D" parent="computa"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00189131, 0, -0.0012846)
+shape = SubResource("BoxShape3D_vp178")
