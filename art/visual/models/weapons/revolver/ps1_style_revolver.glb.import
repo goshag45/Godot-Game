@@ -31,6 +31,12 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Sketchfab_model/c51b2e2988584defaea31370e4e94f80_fbx/RootNode": {
+"import/skip_import": false
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
