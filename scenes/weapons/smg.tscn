@@ -1,8 +1,8 @@
-[gd_scene load_steps=22 format=4 uid="uid://lho0typtmcug"]
+[gd_scene load_steps=13 format=4 uid="uid://lho0typtmcug"]
 
 [ext_resource type="Script" path="res://scripts/smg.gd" id="1_2iled"]
 [ext_resource type="Texture2D" uid="uid://5ne5hrmmlqg6" path="res://art/visual/models/weapons/smg/luty_low_poly_ps1_0.png" id="2_ixb5l"]
-[ext_resource type="Texture2D" uid="uid://b8n5vabkjilqo" path="res://art/visual/textures/muzzle_06.png" id="3_2yypb"]
+[ext_resource type="PackedScene" uid="uid://bbff2rt6j18q4" path="res://scenes/weapons/muzzle_flash.tscn" id="3_8npx7"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio component/audio_component.tscn" id="4_mmgfe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ntu7n"]
@@ -42,55 +42,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8wilt")
-
-[sub_resource type="Gradient" id="Gradient_3jxdu"]
-offsets = PackedFloat32Array(0, 0.517454, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.517454, 0.517454, 0.517454, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_d5xkg"]
-gradient = SubResource("Gradient_3jxdu")
-
-[sub_resource type="Curve" id="Curve_qeg3c"]
-max_value = 25.0
-_data = [Vector2(0, 25), 0.0, 0.0, 0, 0]
-point_count = 1
-
-[sub_resource type="CurveTexture" id="CurveTexture_hjusb"]
-curve = SubResource("Curve_qeg3c")
-
-[sub_resource type="Curve" id="Curve_xqrs0"]
-max_value = 0.6
-_data = [Vector2(0, 0.6), 0.0, 0.0, 0, 0, Vector2(0.500971, 0.6), 0.0, 0.0, 0, 0, Vector2(1, 0.6), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_xs8rd"]
-curve = SubResource("Curve_xqrs0")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_81ik7"]
-angle_min = -720.0
-angle_max = 720.0
-gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_xs8rd")
-color = Color(1, 0.576471, 0, 1)
-color_ramp = SubResource("GradientTexture1D_d5xkg")
-emission_curve = SubResource("CurveTexture_hjusb")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23vpa"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 0, 1)
-albedo_texture = ExtResource("3_2yypb")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-proximity_fade_enabled = true
-proximity_fade_distance = 0.1
-
-[sub_resource type="QuadMesh" id="QuadMesh_f52fa"]
-material = SubResource("StandardMaterial3D_23vpa")
 
 [sub_resource type="Animation" id="Animation_1er6t"]
 length = 0.001
@@ -224,18 +175,7 @@ layers = 2
 mesh = SubResource("ArrayMesh_bapo5")
 skeleton = NodePath("")
 
-[node name="muzzle_flash" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.635766, -4.07458)
-layers = 2
-emitting = false
-amount = 1
-lifetime = 0.1
-one_shot = true
-randomness = 1.0
-fixed_fps = 60
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_81ik7")
-draw_pass_1 = SubResource("QuadMesh_f52fa")
+[node name="muzzle_flash" parent="." instance=ExtResource("3_8npx7")]
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {

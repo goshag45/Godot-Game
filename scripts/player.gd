@@ -92,9 +92,9 @@ func _physics_process(delta: float) -> void:
 		current_weapon._reload()
 
 	var weapon_name = current_weapon.name
-	var target
 	var hit_point = aim_ray.get_collision_point()
 	if Input.is_action_pressed("fire"):
+		var target
 		if aim_ray.is_colliding():
 			target = aim_ray.get_collider()
 		_shoot_gun(weapon_name, target, hit_point)
