@@ -15,24 +15,28 @@ var SENSITIVITY = sensitivity_input/1000
 @export var speed = walk_speed
 @export var health = 100
 
-var direction = Vector3()
-var jump_sounds = ["jump1", "jump2", "jump3"]
-
 # References
 @onready var head = $Head
 @onready var camera = $Head/firstperson_camera
 @onready var player = $"."
 @onready var viewmodel_camera = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera
 @onready var fps_rig = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig
-@onready var smg = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg
 @onready var aim_ray = $Head/firstperson_camera/aim_ray
 @onready var weapon_viewport = $Head/firstperson_camera/SubViewportContainer/SubViewport
 @onready var hitbox = $player_hitbox
 @onready var audio_component = $audio_component
+# WEAPONS
+@onready var smg = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg
+@onready var revolver = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/revolver
+
+@onready var current_weapon = smg
+var direction = Vector3()
+var jump_sounds = ["jump1", "jump2", "jump3"]
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	weapon_viewport.size = DisplayServer.window_get_size()
+	current_weapon.show()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -73,7 +77,15 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 4.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 4.0)
 
-	var current_weapon = fps_rig.get_child(0)
+	if (Input.is_action_just_pressed("num1")):
+		current_weapon.hide()
+		current_weapon = smg
+		smg.show()
+	if (Input.is_action_just_pressed("num2")):
+		current_weapon.hide()
+		current_weapon = revolver
+		revolver.show()
+
 	var weapon_animation = current_weapon.get_child(2)
 	if Input.is_action_just_pressed("reload"):
 		weapon_animation.play("reload")
