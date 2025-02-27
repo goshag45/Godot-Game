@@ -37,10 +37,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
+stretch_shrink = 2
 
 [node name="sub_viewport_container" type="SubViewport" parent="viewport_container"]
 handle_input_locally = false
-size = Vector2i(1920, 1080)
+size = Vector2i(960, 540)
 render_target_update_mode = 4
 
 [node name="Level" type="Node3D" parent="viewport_container/sub_viewport_container"]
