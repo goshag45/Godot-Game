@@ -3,6 +3,7 @@ extends Node3D
 var deathbox: Area3D = null
 
 func _ready() -> void:
+	get_window().size = Vector2i(1280, 960)
 	#get_tree().change_scene_to_file("res://scenes/level_1.tscn")
 	# Wait for the new scene to load before trying to find the deathbox
 	call_deferred("_setup_deathbox_signal")

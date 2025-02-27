@@ -4,7 +4,7 @@ extends Control
 @onready var input_controller = $input_controller
 
 func ready():
-	set_process_input(true) 
+	set_process_input(true)
 	pass
 	
 func _on_play_pressed() -> void:
@@ -19,3 +19,7 @@ func _unpause_game():
 	pause_menu.hide()
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _input(event):
+	if event is InputEventMouseButton and event.pressed:
+		print("Clicked at:", event.position)
