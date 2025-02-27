@@ -2,7 +2,7 @@ extends CanvasLayer
 
 #@onready var player_weapon = $"../Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg"
 @onready var player = $"../"
-@onready var ammo_counter = $in_game_gui/Label
+@onready var ammo_counter = $in_game_gui/ammo
 @onready var fps_counter = $in_game_gui/FPS
 
 # Called when the node enters the scene tree for the first time.

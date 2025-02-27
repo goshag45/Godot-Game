@@ -20,22 +20,24 @@ script = ExtResource("1_hxwnm")
 process_mode = 1
 z_index = -1
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1440.0
-offset_bottom = 760.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="in_game_gui"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1260.0
-offset_top = 615.0
-offset_right = -4.0
-offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="ammo" type="Label" parent="in_game_gui"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.839
+anchor_top = 0.813
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.119873
+offset_top = -0.0400391
+grow_horizontal = 0
+grow_vertical = 0
 text = "AMMO"
 label_settings = SubResource("LabelSettings_3xtde")
 horizontal_alignment = 1

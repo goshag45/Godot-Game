@@ -30,44 +30,54 @@ size = Vector3(30, 1.49207, 14.0079)
 [node name="World" type="Node3D"]
 script = ExtResource("1_cgmu7")
 
-[node name="Level" type="Node3D" parent="."]
+[node name="viewport_container" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
 
-[node name="Level 1" parent="Level" instance=ExtResource("1_lakjr")]
+[node name="sub_viewport_container" type="SubViewport" parent="viewport_container"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
 
-[node name="ground1" parent="Level/Level 1/NavigationRegion3D/ground_low" index="0"]
+[node name="Level" type="Node3D" parent="viewport_container/sub_viewport_container"]
+
+[node name="Level 1" parent="viewport_container/sub_viewport_container/Level" instance=ExtResource("1_lakjr")]
+
+[node name="ground1" parent="viewport_container/sub_viewport_container/Level/Level 1/NavigationRegion3D/ground_low" index="0"]
 mesh = SubResource("PlaneMesh_jbk6t")
 
-[node name="ground_collision_box" parent="Level/Level 1/NavigationRegion3D/ground_low" index="1"]
+[node name="ground_collision_box" parent="viewport_container/sub_viewport_container/Level/Level 1/NavigationRegion3D/ground_low" index="1"]
 shape = SubResource("BoxShape3D_7w1m4")
 
-[node name="riverwall1" parent="Level/Level 1/NavigationRegion3D/ground_low" index="2"]
+[node name="riverwall1" parent="viewport_container/sub_viewport_container/Level/Level 1/NavigationRegion3D/ground_low" index="2"]
 mesh = SubResource("PlaneMesh_ykcrx")
 
-[node name="ground2" parent="Level/Level 1/NavigationRegion3D/ground_high" index="0"]
+[node name="ground2" parent="viewport_container/sub_viewport_container/Level/Level 1/NavigationRegion3D/ground_high" index="0"]
 mesh = SubResource("PlaneMesh_ykcrx")
 
-[node name="riverwall2" parent="Level/Level 1/NavigationRegion3D/ground_high" index="1"]
+[node name="riverwall2" parent="viewport_container/sub_viewport_container/Level/Level 1/NavigationRegion3D/ground_high" index="1"]
 mesh = SubResource("PlaneMesh_ykcrx")
 
-[node name="ground_collision_box" parent="Level/Level 1/NavigationRegion3D/ground_high" index="2"]
+[node name="ground_collision_box" parent="viewport_container/sub_viewport_container/Level/Level 1/NavigationRegion3D/ground_high" index="2"]
 shape = SubResource("BoxShape3D_ripbn")
 
-[node name="Player" parent="." instance=ExtResource("2_snnme")]
+[node name="Player" parent="viewport_container/sub_viewport_container" instance=ExtResource("2_snnme")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 7)
 
-[node name="model" parent="Player/Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg" index="0"]
-transform = Transform3D(1, 0, 0, 0, -3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 0, 0)
-
-[node name="gore_ball" parent="." instance=ExtResource("3_51on1")]
+[node name="gore_ball" parent="viewport_container/sub_viewport_container" instance=ExtResource("3_51on1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -13.198)
 
-[node name="gore_ball2" parent="." instance=ExtResource("3_51on1")]
+[node name="gore_ball2" parent="viewport_container/sub_viewport_container" instance=ExtResource("3_51on1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.686, -1, -13.198)
 
-[connection signal="body_entered" from="Level/Level 1/deathbox" to="Player" method="_on_deathbox_body_entered"]
+[connection signal="body_entered" from="viewport_container/sub_viewport_container/Level/Level 1/deathbox" to="viewport_container/sub_viewport_container/Player" method="_on_deathbox_body_entered"]
 
-[editable path="Level/Level 1"]
-[editable path="Player"]
-[editable path="Player/Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera"]
-[editable path="Player/Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg"]
-[editable path="Player/CanvasLayer"]
+[editable path="viewport_container/sub_viewport_container/Level/Level 1"]
+[editable path="viewport_container/sub_viewport_container/Player"]
+[editable path="viewport_container/sub_viewport_container/Player/Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera"]
+[editable path="viewport_container/sub_viewport_container/Player/Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg"]
+[editable path="viewport_container/sub_viewport_container/Player/CanvasLayer"]
