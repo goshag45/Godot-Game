@@ -1,6 +1,6 @@
 extends RayCast3D
 
-@onready var interact_popup = $"../../../CanvasLayer/in_game_gui/interactable_message"
+@onready var interact_popup = $"../../../gui_layer/in_game_gui/interactable_message"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
