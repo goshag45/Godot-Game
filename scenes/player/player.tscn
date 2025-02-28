@@ -1,23 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv1850xotwfxt"]
+[gd_scene load_steps=9 format=3 uid="uid://bv1850xotwfxt"]
 
 [ext_resource type="Script" path="res://scripts/firstperson_camera.gd" id="2_hj430"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_kooth"]
-[ext_resource type="PackedScene" uid="uid://bivh5hg55epm3" path="res://scenes/view_model.tscn" id="2_rpm7w"]
+[ext_resource type="PackedScene" uid="uid://bivh5hg55epm3" path="res://scenes/player/view_model.tscn" id="2_rpm7w"]
 [ext_resource type="PackedScene" uid="uid://k5r4dq5pg4cv" path="res://scenes/gui/gui.tscn" id="4_cds5j"]
 [ext_resource type="Script" path="res://scripts/interact_ray.gd" id="4_fmml5"]
-[ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="5_3ib0s"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio component/audio_component.tscn" id="8_38bwj"]
 [ext_resource type="PackedScene" uid="uid://b8hevdfqxmd4g" path="res://scenes/gui/pause_menu.tscn" id="8_baet5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_engiy"]
 radius = 0.225678
 height = 1.97294
-
-[sub_resource type="LabelSettings" id="LabelSettings_ehpod"]
-font = ExtResource("5_3ib0s")
-font_size = 40
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("2_kooth")
@@ -43,19 +36,29 @@ follow_target = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -200, 0)
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Head/firstperson_camera"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="sub_viewport_container" type="SubViewportContainer" parent="Head/firstperson_camera"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="Head/firstperson_camera/SubViewportContainer"]
+[node name="sub_viewport" type="SubViewport" parent="Head/firstperson_camera/sub_viewport_container"]
 transparent_bg = true
 handle_input_locally = false
+size = Vector2i(640, 480)
+size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="ViewModelCamera" parent="Head/firstperson_camera/SubViewportContainer/SubViewport" instance=ExtResource("2_rpm7w")]
+[node name="ViewModelCamera" parent="Head/firstperson_camera/sub_viewport_container/sub_viewport" instance=ExtResource("2_rpm7w")]
 
 [node name="interact_ray" type="RayCast3D" parent="Head/firstperson_camera"]
 target_position = Vector3(0, 0, -3)
@@ -63,28 +66,11 @@ script = ExtResource("4_fmml5")
 
 [node name="gui_layer" parent="." instance=ExtResource("4_cds5j")]
 
-[node name="interactable_message" type="Label" parent="gui_layer/in_game_gui" index="3"]
-process_mode = 1
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -193.0
-offset_top = -125.0
-offset_right = 187.0
-offset_bottom = -84.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "press e to interact"
-label_settings = SubResource("LabelSettings_ehpod")
-
 [node name="pause_menu" parent="." instance=ExtResource("8_baet5")]
 visible = false
 
 [node name="audio_component" parent="." instance=ExtResource("8_38bwj")]
 
-[editable path="Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera"]
-[editable path="Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg"]
+[editable path="Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera"]
+[editable path="Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera/FPSRig/smg"]
 [editable path="gui_layer"]

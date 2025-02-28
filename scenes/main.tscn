@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_cgmu7"]
 [ext_resource type="PackedScene" uid="uid://cntcml45idub5" path="res://scenes/level_1.tscn" id="1_lakjr"]
 [ext_resource type="Texture2D" uid="uid://7gbnkjgfsh2b" path="res://art/visual/textures/gravel_ground.png" id="2_c6voj"]
-[ext_resource type="PackedScene" uid="uid://bv1850xotwfxt" path="res://scenes/player.tscn" id="2_snnme"]
-[ext_resource type="PackedScene" uid="uid://b3l7mcrwxuwko" path="res://scenes/gore_ball.tscn" id="3_51on1"]
+[ext_resource type="PackedScene" uid="uid://bv1850xotwfxt" path="res://scenes/player/player.tscn" id="2_snnme"]
+[ext_resource type="PackedScene" uid="uid://b3l7mcrwxuwko" path="res://scenes/npc/gore_ball.tscn" id="3_51on1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paac7"]
 albedo_texture = ExtResource("2_c6voj")
@@ -65,6 +65,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.686, -1, -13.198)
 
 [editable path="Level/Level 1"]
 [editable path="Player"]
-[editable path="Player/Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera"]
-[editable path="Player/Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg"]
-[editable path="Player/CanvasLayer"]
+[editable path="Player/Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera"]
+[editable path="Player/Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera/FPSRig/smg"]
+[editable path="Player/gui_layer"]

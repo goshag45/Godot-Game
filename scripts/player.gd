@@ -19,15 +19,15 @@ var SENSITIVITY = sensitivity_input/1000
 @onready var head = $Head
 @onready var camera = $Head/firstperson_camera
 @onready var player = $"."
-@onready var viewmodel_camera = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera
-@onready var fps_rig = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig
+@onready var viewmodel_camera = $Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera
+@onready var fps_rig = $Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera/FPSRig
 @onready var aim_ray = $Head/firstperson_camera/aim_ray
-@onready var weapon_viewport = $Head/firstperson_camera/SubViewportContainer/SubViewport
+@onready var weapon_viewport = $Head/firstperson_camera/sub_viewport_container/sub_viewport
 @onready var hitbox = $player_hitbox
 @onready var audio_component = $audio_component
 # WEAPONS
-@onready var smg = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/smg
-@onready var revolver = $Head/firstperson_camera/SubViewportContainer/SubViewport/ViewModelCamera/FPSRig/revolver
+@onready var smg = $Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera/FPSRig/smg
+@onready var revolver = $Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera/FPSRig/revolver
 
 @onready var current_weapon = smg
 var direction = Vector3()
