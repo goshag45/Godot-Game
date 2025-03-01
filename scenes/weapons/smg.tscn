@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://lho0typtmcug"]
+[gd_scene load_steps=15 format=4 uid="uid://lho0typtmcug"]
 
 [ext_resource type="Script" path="res://scripts/smg.gd" id="1_2iled"]
 [ext_resource type="Texture2D" uid="uid://5ne5hrmmlqg6" path="res://art/visual/models/weapons/smg/luty_low_poly_ps1_0.png" id="2_ixb5l"]
 [ext_resource type="PackedScene" uid="uid://bbff2rt6j18q4" path="res://scenes/weapons/muzzle_flash.tscn" id="3_8npx7"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio component/audio_component.tscn" id="4_mmgfe"]
+[ext_resource type="PackedScene" uid="uid://cse5l4fku82hu" path="res://components/hitscan weapon component/hitscan_weapon_component.tscn" id="5_p3xak"]
+[ext_resource type="Script" path="res://components/hitscan weapon component/hitscan_weapon_component.gd" id="6_3iboc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ntu7n"]
 resource_name = "Material"
@@ -183,3 +185,6 @@ libraries = {
 }
 
 [node name="audio_component" parent="." instance=ExtResource("4_mmgfe")]
+
+[node name="hitscan_weapon_component" parent="." instance=ExtResource("5_p3xak")]
+script = ExtResource("6_3iboc")
