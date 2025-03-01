@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bivh5hg55epm3" path="res://scenes/player/view_model.tscn" id="2_rpm7w"]
 [ext_resource type="PackedScene" uid="uid://k5r4dq5pg4cv" path="res://scenes/gui/gui.tscn" id="4_cds5j"]
 [ext_resource type="Script" path="res://scripts/interact_ray.gd" id="4_fmml5"]
-[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio component/audio_component.tscn" id="8_38bwj"]
+[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="8_38bwj"]
 [ext_resource type="PackedScene" uid="uid://b8hevdfqxmd4g" path="res://scenes/gui/pause_menu.tscn" id="8_baet5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_engiy"]
@@ -68,6 +68,8 @@ script = ExtResource("4_fmml5")
 visible = false
 
 [node name="audio_component" parent="." instance=ExtResource("8_38bwj")]
+
+[node name="player_weapon_component" type="Node3D" parent="."]
 
 [editable path="Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera"]
 [editable path="Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera/FPSRig/smg"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cse5l4fku82hu"]
+
+[ext_resource type="Script" path="res://components/hitscan weapon/hitscan_weapon_component.gd" id="1_rhgb1"]
+
+[node name="hitscan_weapon_component" type="Node3D"]
+script = ExtResource("1_rhgb1")

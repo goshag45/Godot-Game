@@ -4,13 +4,16 @@ extends Node3D
 @onready var animation = $"../animation"
 @onready var audio_component = $"../audio_component"
 
-var magazine = weapon.magazine
-var magazine_capacity = weapon.magazine_capacity
-var damage = weapon.damage
+var magazine = 0
+var magazine_capacity = 0
+var damage = 0
 
 var blood_splatter = preload("res://scenes/blood_splatter.tscn")
 
 func _ready() -> void:
+	magazine = weapon.magazine_capacity
+	magazine_capacity = weapon.magazine_capacity
+	damage = weapon.damage
 	pass 
 
 func _process(delta: float) -> void:

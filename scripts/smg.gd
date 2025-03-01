@@ -1,6 +1,5 @@
 extends Node3D
 
-var magazine = 20
 @export var magazine_capacity = 20
 @export var damage = 20
 

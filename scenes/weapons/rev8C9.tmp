@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=4 uid="uid://c8ubmcas7d8y3"]
+[gd_scene load_steps=27 format=4 uid="uid://c8ubmcas7d8y3"]
 
 [ext_resource type="Script" path="res://scripts/revolver.gd" id="1_tbasm"]
 [ext_resource type="Texture2D" uid="uid://dl2i8h0qctm5i" path="res://art/visual/models/weapons/revolver/ps1_style_revolver_0.png" id="1_xwbb7"]
-[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="2_1nupf"]
+[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio component/audio_component.tscn" id="2_1nupf"]
 [ext_resource type="PackedScene" uid="uid://bbff2rt6j18q4" path="res://scenes/weapons/muzzle_flash.tscn" id="3_bjt34"]
+[ext_resource type="PackedScene" uid="uid://cse5l4fku82hu" path="res://components/hitscan weapon component/hitscan_weapon_component.tscn" id="5_i17lw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8i4gx"]
 resource_name = "Material"
@@ -448,3 +449,5 @@ transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 2.84217e
 
 [node name="audio_component" parent="." instance=ExtResource("2_1nupf")]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0)
+
+[node name="hitscan_weapon_component" parent="." instance=ExtResource("5_i17lw")]
