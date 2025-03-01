@@ -1,15 +1,16 @@
 extends Node3D
 
-@onready var aim_ray = $Head/firstperson_camera/aim_ray
+@onready var player = $".."
+@onready var aim_ray = $"../Head/firstperson_camera/aim_ray"
 
 # WEAPONS
-@onready var smg = $Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera/FPSRig/smg
-@onready var revolver = $Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera/FPSRig/revolver
+@onready var smg = $"../Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera/FPSRig/smg"
+@onready var revolver = $"../Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera/FPSRig/revolver"
 
 @onready var current_weapon = smg
 
 func _ready() -> void:
-	pass
+	current_weapon.show()
 
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("num1")):
@@ -24,7 +25,7 @@ func _process(delta: float) -> void:
 	var weapon_animation = current_weapon.get_child(2)
 	if Input.is_action_just_pressed("reload"):
 		weapon_animation.play("reload")
-		current_weapon._reload()
+		current_weapon.get_node("hitscan_weapon_component")._reload()
 
 	var weapon_name = current_weapon.name
 	var hit_point = aim_ray.get_collision_point()
@@ -32,11 +33,4 @@ func _process(delta: float) -> void:
 		var target
 		if aim_ray.is_colliding():
 			target = aim_ray.get_collider()
-		_shoot_gun(weapon_name, target, hit_point)
-
-func _shoot_gun(gun, target, hit_point):
-	match gun:
-		"smg":
-			smg._shoot(target, hit_point)
-		"revolver":
-			pass
+		player.get_node("player_weapon_component").current_weapon.get_node("hitscan_weapon_component")._shoot(target, hit_point)

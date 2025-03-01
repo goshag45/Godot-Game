@@ -8,5 +8,5 @@ func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
-	ammo_counter.text = str(player.current_weapon.get_node("hitscan_weapon_component").magazine)
+	ammo_counter.text = str(player.get_node("player_weapon_component").current_weapon.get_node("hitscan_weapon_component").magazine)
 	fps_counter.text = str("FPS %d" % Engine.get_frames_per_second())
