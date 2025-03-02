@@ -167,7 +167,6 @@ _data = {
 }
 
 [node name="smg" type="Node3D"]
-visible = false
 script = ExtResource("1_2iled")
 
 [node name="model" type="MeshInstance3D" parent="."]
