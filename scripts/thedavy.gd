@@ -14,7 +14,6 @@ func _ready() -> void:
 		print("Player node not found!")
 	else:
 		player = players[0]
-		print(player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
