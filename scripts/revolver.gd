@@ -6,6 +6,7 @@ extends Node3D
 @export var fire_mode = 1
 @export var shoot_sound = "revolver_shoot"
 @export var reload = "reload"
+@export var shoot_volume = 5
 
 func _ready() -> void:
 	pass

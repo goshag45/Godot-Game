@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://dmldk7selunry"
+uid="uid://cdmk4n2eh73c2"
 path="res://.godot/imported/revolver_shoot.mp3-994d30127ffdbfa6bce4fe6e2ceeb039.mp3str"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/revolver_shoot.mp3-994d30127ffdbfa6bce4fe6e2c
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
