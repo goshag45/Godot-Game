@@ -425,9 +425,10 @@ _data = {
 
 [node name="revolver" type="Node3D"]
 transform = Transform3D(-0.035, 0, -3.0598e-09, 0, 0.035, 0, 3.0598e-09, 0, -0.035, 0, 0, 0)
+visible = false
 script = ExtResource("1_tbasm")
 
-[node name="model" type="Node3D" parent="."]
+[node name="model" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Cylinder" type="Node3D" parent="model"]
@@ -521,7 +522,7 @@ mesh = SubResource("ArrayMesh_gdv3f")
 skeleton = NodePath("")
 
 [node name="muzzle_flash" parent="." instance=ExtResource("3_bjt34")]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 2.84217e-14, 0.635766, -4.07458)
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, -1.00874e-06, 1.94052, 7.46402)
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {
