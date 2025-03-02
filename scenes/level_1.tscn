@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=35 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/visual/textures/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="1_ar1ye"]
@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://dsyohgrfl3bfn" path="res://scenes/interactable_button_1.tscn" id="7_ldgy1"]
 [ext_resource type="PackedScene" uid="uid://deeo20ak7dxee" path="res://scenes/chain_fence.tscn" id="8_jss31"]
 [ext_resource type="Script" path="res://scripts/deathbox.gd" id="9_kcvus"]
+[ext_resource type="PackedScene" uid="uid://bemr1hg184ot3" path="res://components/dialogue/dialogue_component.tscn" id="9_vytkr"]
 [ext_resource type="PackedScene" uid="uid://ctpufg7bblye0" path="res://scenes/npc/thedavy.tscn" id="10_0nhif"]
 [ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="11_bicek"]
+[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="12_vqqr7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1ukm2"]
 panorama = ExtResource("1_6aing")
@@ -172,7 +174,7 @@ size = Vector3(0.463745, 1, 0.470093)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -10, 0)
 script = ExtResource("1_oatpt")
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+[node name="music_audio_stream" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ds4yb")
 volume_db = -20.0
 autoplay = true
@@ -302,6 +304,11 @@ shape = SubResource("CylinderShape3D_iehip")
 
 [node name="spawn_balls_button" parent="." instance=ExtResource("7_ldgy1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0617, 4.0248, 1.24565)
+
+[node name="audio_component" parent="spawn_balls_button" instance=ExtResource("12_vqqr7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0617, -4.0248, -1.24565)
+
+[node name="dialogue_component" parent="spawn_balls_button" instance=ExtResource("9_vytkr")]
 
 [node name="fenceline" type="StaticBody3D" parent="."]
 

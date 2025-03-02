@@ -24,5 +24,5 @@ func _process(_delta: float) -> void:
 
 func interact():
 	audio_component._play_audio_sfx("icanseeyou", 10.0)
-	dialogue_component._showdialogue("i can see you")
+	dialogue_component._show_dialogue("i can see you")
 	talk.emit()
