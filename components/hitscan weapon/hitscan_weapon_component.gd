@@ -16,9 +16,8 @@ func _ready() -> void:
 	magazine_capacity = weapon.magazine_capacity
 	damage = weapon.damage
 	shoot_sound = weapon.shoot_sound
-	pass 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if magazine <= 0:
 		_reload()
 

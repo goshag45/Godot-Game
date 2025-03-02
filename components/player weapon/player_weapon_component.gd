@@ -8,15 +8,14 @@ extends Node3D
 @onready var revolver = $"../Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera/FPSRig/revolver"
 
 @onready var current_weapon = smg
-# 1 = semi auto
-# 2 = full auto
-var fire_mode = 1
 
 func _ready() -> void:
 	current_weapon.show()
 
-func _process(delta: float) -> void:
-	fire_mode = current_weapon.fire_mode
+func _process(_delta: float) -> void:
+	# 1 = semi auto
+	# 2 = full auto
+	var fire_mode = current_weapon.fire_mode
 
 	if (Input.is_action_just_pressed("num1")):
 		current_weapon.hide()
@@ -32,7 +31,6 @@ func _process(delta: float) -> void:
 		weapon_animation.play("reload")
 		current_weapon.get_node("hitscan_weapon_component")._reload()
 
-	var weapon_name = current_weapon.name
 	var hit_point = aim_ray.get_collision_point()
 	
 	shoot(fire_mode, hit_point)

@@ -5,7 +5,7 @@ extends Node
 var is_paused : bool = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_pause_game()
 
 func _pause_game():

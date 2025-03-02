@@ -30,7 +30,6 @@ var jump_sounds = ["jump1", "jump2", "jump3"]
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	weapon_viewport.size = DisplayServer.window_get_size()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
