@@ -4,6 +4,8 @@ extends Node3D
 @export var magazine_capacity = 20
 @export var damage = 20
 @export var fire_mode = 2
+@export var shoot_sound = "smg_shoot"
+@export var reload = "reload"
 
 func _ready() -> void:
 	pass

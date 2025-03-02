@@ -7,6 +7,7 @@ extends Node3D
 var magazine = 0
 var magazine_capacity = 0
 var damage = 0
+var shoot_sound
 
 var blood_splatter = preload("res://scenes/blood_splatter.tscn")
 
@@ -14,6 +15,7 @@ func _ready() -> void:
 	magazine = weapon.magazine_capacity
 	magazine_capacity = weapon.magazine_capacity
 	damage = weapon.damage
+	shoot_sound = weapon.shoot_sound
 	pass 
 
 func _process(delta: float) -> void:
@@ -24,8 +26,8 @@ func _process(delta: float) -> void:
 func _shoot(target, hit_point):
 	if !animation.is_playing():
 		magazine -= 1
-		animation.play("smg_shoot")
-		audio_component._play_audio_sfx("smg_shoot", 1)
+		animation.play(shoot_sound)
+		audio_component._play_audio_sfx(shoot_sound, 1)
 		if target != null && target.is_in_group("enemy"):
 			target.health -= damage
 			_emit_blood_splatter(hit_point, weapon.global_position)
