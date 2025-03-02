@@ -176,6 +176,7 @@ mesh = SubResource("ArrayMesh_bapo5")
 skeleton = NodePath("")
 
 [node name="muzzle_flash" parent="." instance=ExtResource("3_8npx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.587589, -4.02537)
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {

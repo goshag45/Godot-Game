@@ -369,6 +369,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(-1.5708, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("muzzle_flash:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_821jk"]
 resource_name = "reload"
@@ -399,7 +411,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.02, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"transitions": PackedFloat32Array(1, 0.594604, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 1, -1), Vector3(0, 0, 0)]
 }
@@ -411,9 +423,21 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.02, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"transitions": PackedFloat32Array(1, 0.420448, 1),
 "update": 0,
 "values": [Vector3(-1.5708, 0, 0), Vector3(-2.18166, 0, 0), Vector3(-1.5708, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("muzzle_flash:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.02),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k4a86"]
@@ -425,7 +449,6 @@ _data = {
 
 [node name="revolver" type="Node3D"]
 transform = Transform3D(-0.035, 0, -3.0598e-09, 0, 0.035, 0, 3.0598e-09, 0, -0.035, 0, 0, 0)
-visible = false
 script = ExtResource("1_tbasm")
 
 [node name="model" type="MeshInstance3D" parent="."]
@@ -522,7 +545,7 @@ mesh = SubResource("ArrayMesh_gdv3f")
 skeleton = NodePath("")
 
 [node name="muzzle_flash" parent="." instance=ExtResource("3_bjt34")]
-transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, -1.00874e-06, 1.94052, 7.46402)
+transform = Transform3D(5, 0, -1.7053e-13, 0, 5, 0, 1.7053e-13, 0, 5, -1.05299e-06, 1.94052, 7.97013)
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {

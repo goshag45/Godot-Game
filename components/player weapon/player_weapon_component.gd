@@ -37,6 +37,8 @@ func _process(delta: float) -> void:
 	
 	shoot(fire_mode, hit_point)
 
+
+# im sure i can clean this up
 func shoot(fire_mode, hit_point):
 	if (fire_mode == 1):
 		if Input.is_action_just_pressed("fire"):

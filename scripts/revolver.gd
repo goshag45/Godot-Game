@@ -9,6 +9,7 @@ extends Node3D
 @export var shoot_volume = 5
 
 func _ready() -> void:
+	$".".hide()
 	pass
 
 func _process(delta: float) -> void:

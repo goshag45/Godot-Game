@@ -52,7 +52,7 @@ proximity_fade_distance = 0.1
 material = SubResource("StandardMaterial3D_23vpa")
 
 [node name="muzzle_flash" type="GPUParticles3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.635766, -4.07458)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 layers = 2
 emitting = false
 amount = 1
