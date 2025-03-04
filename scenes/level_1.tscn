@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/visual/textures/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="1_ar1ye"]
-[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_oatpt"]
+[ext_resource type="Script" uid="uid://2l872mymunlv" path="res://scripts/level_1.gd" id="1_oatpt"]
 [ext_resource type="Texture2D" uid="uid://cjod4vucs8bga" path="res://art/visual/textures/test.png" id="2_7mtd5"]
 [ext_resource type="Texture2D" uid="uid://7gbnkjgfsh2b" path="res://art/visual/textures/gravel_ground.png" id="3_m58l7"]
 [ext_resource type="AudioStream" uid="uid://cvpjxgsbylkcu" path="res://audio/unatco_conversation.mp3" id="5_ds4yb"]
 [ext_resource type="PackedScene" uid="uid://dsyohgrfl3bfn" path="res://scenes/interactable_button_1.tscn" id="7_ldgy1"]
 [ext_resource type="PackedScene" uid="uid://deeo20ak7dxee" path="res://scenes/chain_fence.tscn" id="8_jss31"]
-[ext_resource type="Script" path="res://scripts/deathbox.gd" id="9_kcvus"]
+[ext_resource type="Script" uid="uid://nymyub5bhm5k" path="res://scripts/deathbox.gd" id="9_kcvus"]
 [ext_resource type="PackedScene" uid="uid://bemr1hg184ot3" path="res://components/dialogue/dialogue_component.tscn" id="9_vytkr"]
 [ext_resource type="PackedScene" uid="uid://ctpufg7bblye0" path="res://scenes/npc/thedavy.tscn" id="10_0nhif"]
 [ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="11_bicek"]
@@ -100,6 +100,8 @@ void fragment() {
 render_priority = 0
 shader = SubResource("Shader_21v2o")
 shader_parameter/albedo = Color(1, 1, 1, 0.380392)
+shader_parameter/water_texture1 = ExtResource("2_7mtd5")
+shader_parameter/water_texture2 = ExtResource("2_7mtd5")
 shader_parameter/scroll_speed1 = Vector2(-0.5, 0.2)
 shader_parameter/scroll_speed2 = Vector2(-0.7, 0)
 shader_parameter/blend_factor = 0.5
@@ -111,8 +113,6 @@ shader_parameter/pixelation_level = 64
 shader_parameter/FoamSize = 0.0
 shader_parameter/WaterOpacity = 0.7
 shader_parameter/FoamGlowIntensity = 0.0
-shader_parameter/water_texture1 = ExtResource("2_7mtd5")
-shader_parameter/water_texture2 = ExtResource("2_7mtd5")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8f7ff"]
 size = Vector2(30, 30)

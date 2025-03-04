@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=4 uid="uid://c8ubmcas7d8y3"]
 
-[ext_resource type="Script" path="res://scripts/revolver.gd" id="1_tbasm"]
+[ext_resource type="Script" uid="uid://b3qhdijqiw7pu" path="res://scripts/revolver.gd" id="1_tbasm"]
 [ext_resource type="Texture2D" uid="uid://dl2i8h0qctm5i" path="res://art/visual/models/weapons/revolver/ps1_style_revolver_0.png" id="1_xwbb7"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="2_1nupf"]
 [ext_resource type="PackedScene" uid="uid://bbff2rt6j18q4" path="res://scenes/weapons/muzzle_flash.tscn" id="3_bjt34"]
@@ -442,9 +442,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k4a86"]
 _data = {
-"RESET": SubResource("Animation_ngj3n"),
-"reload": SubResource("Animation_821jk"),
-"revolver_shoot": SubResource("Animation_as0g5")
+&"RESET": SubResource("Animation_ngj3n"),
+&"reload": SubResource("Animation_821jk"),
+&"revolver_shoot": SubResource("Animation_as0g5")
 }
 
 [node name="revolver" type="Node3D"]
@@ -549,7 +549,7 @@ transform = Transform3D(5, 0, -1.7053e-13, 0, 5, 0, 1.7053e-13, 0, 5, -1.05299e-
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_k4a86")
+&"": SubResource("AnimationLibrary_k4a86")
 }
 
 [node name="audio_component" parent="." instance=ExtResource("2_1nupf")]

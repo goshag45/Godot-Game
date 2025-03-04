@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://lho0typtmcug"]
 
-[ext_resource type="Script" path="res://scripts/smg.gd" id="1_2iled"]
+[ext_resource type="Script" uid="uid://8duot2gtwlpp" path="res://scripts/smg.gd" id="1_2iled"]
 [ext_resource type="Texture2D" uid="uid://5ne5hrmmlqg6" path="res://art/visual/models/weapons/smg/luty_low_poly_ps1_0.png" id="2_ixb5l"]
 [ext_resource type="PackedScene" uid="uid://bbff2rt6j18q4" path="res://scenes/weapons/muzzle_flash.tscn" id="3_8npx7"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="4_mmgfe"]
@@ -160,10 +160,10 @@ loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j2gj3"]
 _data = {
-"RESET": SubResource("Animation_1er6t"),
-"reload": SubResource("Animation_sa3dv"),
-"smg_shoot": SubResource("Animation_vniw1"),
-"weapon_bob": SubResource("Animation_yqaur")
+&"RESET": SubResource("Animation_1er6t"),
+&"reload": SubResource("Animation_sa3dv"),
+&"smg_shoot": SubResource("Animation_vniw1"),
+&"weapon_bob": SubResource("Animation_yqaur")
 }
 
 [node name="smg" type="Node3D"]
@@ -180,7 +180,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.587589, -4.02537)
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_j2gj3")
+&"": SubResource("AnimationLibrary_j2gj3")
 }
 
 [node name="audio_component" parent="." instance=ExtResource("4_mmgfe")]
