@@ -3,25 +3,29 @@ extends Control
 @onready var dialogue_component = $"."
 @onready var text = $text
 
+signal dialogue_open
+
 func _ready() -> void:
-	dialogue_component.hide()
-	pass 
+	_hide_dialogue()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("fire"):
-		dialogue_component.hide()
+	if Input.is_action_just_pressed("fire") or Input.is_action_just_pressed("interact"):
+		_hide_dialogue()
 
 func _show_dialogue(_text: String):
+	global_dialogue.is_dialogue_open = true
 	text.text = _text
 	dialogue_component.show()
 
 func _show_dialogue_timeout(_text: String, duration: float):
+	global_dialogue.is_dialogue_open = true
 	text.text = _text
 	dialogue_component.show()
 	await wait(duration)
-	dialogue_component.hide()
+	_hide_dialogue()
 
 func _hide_dialogue():
+	global_dialogue.is_dialogue_open = false
 	dialogue_component.hide()
 
 func wait(seconds: float) -> void:

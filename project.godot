@@ -18,6 +18,7 @@ config/icon="res://art/experience.PNG"
 [autoload]
 
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
+global_dialogue="*res://components/dialogue/global_dialogue.gd"
 
 [display]
 
