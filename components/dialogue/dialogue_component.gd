@@ -3,8 +3,6 @@ extends Control
 @onready var dialogue_component = $"."
 @onready var text = $text
 
-signal dialogue_open
-
 func _ready() -> void:
 	_hide_dialogue()
 
