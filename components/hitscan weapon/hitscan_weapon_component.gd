@@ -36,12 +36,31 @@ func _reload():
 	animation.play("reload")
 	magazine = magazine_capacity
 
+#func _emit_blood_splatter(hit_pos, gun_pos):
+	#var blood_splatter_instance = blood_splatter.instantiate()
+	#var node = get_tree().current_scene
+	#add_child(blood_splatter_instance)
+	#blood_splatter_instance.position = hit_pos
+	#blood_splatter_instance.look_at(gun_pos)
+	#blood_splatter_instance.emitting = true
+
 func _emit_blood_splatter(hit_pos, gun_pos):
 	var blood_splatter_instance = blood_splatter.instantiate()
-	add_child(blood_splatter_instance)
+
+	# Add to world
+	var world_node = get_tree().current_scene
+	world_node.add_child(blood_splatter_instance)
+	var player = get_tree().get_nodes_in_group("aim_ray")[0]
+
+	# Correct positioning
 	blood_splatter_instance.global_position = hit_pos
-	blood_splatter_instance.look_at(gun_pos)
+
+	# Set blood splatter's rotation to face opposite the bullet's direction
+	blood_splatter_instance.look_at(player.global_position)
+	
+	# Enable emission
 	blood_splatter_instance.emitting = true
+
 
 func _draw_bullet_decals():
 	pass
