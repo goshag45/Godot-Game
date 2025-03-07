@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://n4j1ug0lm3xm"]
+[gd_scene load_steps=3 format=3 uid="uid://n4j1ug0lm3xm"]
 
 [ext_resource type="Theme" uid="uid://cjxmnb0h8hje7" path="res://art/visual/theme1.tres" id="1_6ts8v"]
+[ext_resource type="Script" uid="uid://crb783cgp4j4v" path="res://components/start_menu/start_menu.gd" id="1_s3lks"]
 
 [node name="start_menu" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_s3lks")
 
 [node name="play" type="Button" parent="."]
 layout_mode = 1
@@ -41,3 +43,7 @@ offset_right = 295.0
 offset_bottom = 432.0
 theme = ExtResource("1_6ts8v")
 text = "quit"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
