@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=36 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/visual/textures/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="1_ar1ye"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ctpufg7bblye0" path="res://scenes/npc/thedavy.tscn" id="10_0nhif"]
 [ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="11_bicek"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="12_vqqr7"]
+[ext_resource type="PackedScene" uid="uid://bv1850xotwfxt" path="res://scenes/player/player.tscn" id="14_2aecg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1ukm2"]
 panorama = ExtResource("1_6aing")
@@ -390,3 +391,6 @@ transform = Transform3D(-1.26187, 0, -3.79575, 0, 4, 0, 3.79575, 0, -1.26187, 12
 [node name="monitor" type="CollisionShape3D" parent="computa"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00189131, 0, -0.0012846)
 shape = SubResource("BoxShape3D_vp178")
+
+[node name="Player" parent="." instance=ExtResource("14_2aecg")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 4.5, 0)

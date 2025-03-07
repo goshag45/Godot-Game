@@ -28,7 +28,7 @@ func _shoot(target, hit_point):
 		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume)
 		if target != null && target.is_in_group("enemy"):
 			target.health -= damage
-			_emit_blood_splatter(hit_point, weapon.global_position)
+			_emit_blood_splatter(hit_point)
 
 func _reload():
 	# you can spam the reload audio for now - not major issue
@@ -36,7 +36,7 @@ func _reload():
 	animation.play("reload")
 	magazine = magazine_capacity
 
-func _emit_blood_splatter(hit_pos, gun_pos):
+func _emit_blood_splatter(hit_pos):
 	var blood_splatter_instance = blood_splatter.instantiate()
 
 	# Add to world
