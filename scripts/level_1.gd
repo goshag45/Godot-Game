@@ -1,7 +1,7 @@
 extends Node3D
 
-@onready var spawn_button = $spawn_balls_button
-@onready var spawn_location = $spawn_area/spawn_collision_area
+@onready var spawn_button = $world/spawn_balls_button
+@onready var spawn_location = $world/spawn_area/spawn_collision_area
 
 #var deathbox = get_tree().get_first_node_in_group("deathbox")
 var gore_ball = preload("res://scenes/npc/gore_ball.tscn")

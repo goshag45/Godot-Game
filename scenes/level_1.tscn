@@ -172,40 +172,46 @@ size = Vector3(60, 10, 60)
 size = Vector3(0.463745, 1, 0.470093)
 
 [node name="Level 1" type="Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -10, 0)
 script = ExtResource("1_oatpt")
 
-[node name="music_audio_stream" type="AudioStreamPlayer" parent="."]
+[node name="Player" parent="." instance=ExtResource("14_2aecg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+
+[node name="world" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -10, 0)
+
+[node name="music_audio_stream" type="AudioStreamPlayer" parent="world"]
 stream = ExtResource("5_ds4yb")
 volume_db = -20.0
 autoplay = true
 bus = &"Music"
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="world"]
 environment = SubResource("Environment_yx501")
 
-[node name="sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.707107, -0.664463, -0.241845, 0, -0.34202, 0.939693, -0.707107, -0.664463, -0.241845, 0, 10.274, 0)
+[node name="sun" type="DirectionalLight3D" parent="world"]
+transform = Transform3D(0.707107, -0.664463, -0.241845, -2.99003e-08, -0.34202, 0.939693, -0.707107, -0.664463, -0.241845, 0, 10.274, 0)
 light_color = Color(1, 1, 0.858824, 1)
 shadow_enabled = true
 shadow_blur = 4.0
 
-[node name="river_water" type="MeshInstance3D" parent="."]
+[node name="river_water" type="MeshInstance3D" parent="world"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0979671, 3.5, -0.774899)
 mesh = SubResource("QuadMesh_qcccd")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_i45fs")
 
-[node name="tube" type="CSGCombiner3D" parent="."]
+[node name="tube" type="CSGCombiner3D" parent="world"]
 use_collision = true
 
-[node name="outside" type="CSGCylinder3D" parent="tube"]
+[node name="outside" type="CSGCylinder3D" parent="world/tube"]
 transform = Transform3D(-0.269189, 0, 0.963087, 0, 1, 0, -0.963087, 0, -0.269189, -10, 9, -10)
 radius = 3.0
 height = 10.0
 sides = 20
 material = ExtResource("1_ar1ye")
 
-[node name="hole" type="CSGCylinder3D" parent="tube"]
+[node name="hole" type="CSGCylinder3D" parent="world/tube"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 9, -10)
 operation = 2
 radius = 2.5
@@ -213,184 +219,181 @@ height = 10.1
 sides = 20
 material = ExtResource("1_ar1ye")
 
-[node name="door" type="CSGBox3D" parent="tube"]
+[node name="door" type="CSGBox3D" parent="world/tube"]
 transform = Transform3D(1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, -8.19638, 4.96093, -8.17115)
 operation = 2
 size = Vector3(1, 1.04053, 0.526)
 material = ExtResource("1_ar1ye")
 
-[node name="tunnel" type="CSGCombiner3D" parent="."]
+[node name="tunnel" type="CSGCombiner3D" parent="world"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.137616, 0)
 use_collision = true
 
-[node name="outside" type="CSGBox3D" parent="tunnel"]
+[node name="outside" type="CSGBox3D" parent="world/tunnel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029541, 6, 10)
 size = Vector3(14.9409, 3, 4)
 material = ExtResource("1_ar1ye")
 
-[node name="inside" type="CSGBox3D" parent="tunnel"]
+[node name="inside" type="CSGBox3D" parent="world/tunnel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.88004, 9.99926)
 operation = 2
 size = Vector3(15, 2.52679, 3.25049)
 material = ExtResource("1_ar1ye")
 
-[node name="door" type="CSGBox3D" parent="tunnel"]
+[node name="door" type="CSGBox3D" parent="world/tunnel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 8.25382)
 operation = 2
 size = Vector3(2, 2, 0.57663)
 material = ExtResource("1_ar1ye")
 
-[node name="Area3D" type="StaticBody3D" parent="."]
+[node name="Area3D" type="StaticBody3D" parent="world"]
 
-[node name="plane" type="MeshInstance3D" parent="Area3D"]
+[node name="plane" type="MeshInstance3D" parent="world/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 mesh = SubResource("PlaneMesh_8f7ff")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_035mw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -1)
 shape = SubResource("BoxShape3D_8axul")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="world"]
 transform = Transform3D(-1, 1.50996e-07, -6.60024e-15, 0, -4.37114e-08, -1, -1.50996e-07, -1, 4.37114e-08, -0.015922, 6.8156, 10.0573)
 light_energy = 3.0
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="world"]
 navigation_mesh = SubResource("NavigationMesh_h58nv")
 
-[node name="bridge" type="CSGPolygon3D" parent="NavigationRegion3D"]
+[node name="bridge" type="CSGPolygon3D" parent="world/NavigationRegion3D"]
 transform = Transform3D(-4.37114e-08, 0, -2.02166, 0, 1, 0, 1, 0, -8.83695e-08, -1.58885, 4.11253, -0.751642)
 use_collision = true
 polygon = PackedVector2Array(-2.3, -0.2, -2.3, -0.13, 1.75, 0.388, 1.75, -0.2)
 
-[node name="ground_low" type="StaticBody3D" parent="NavigationRegion3D"]
+[node name="ground_low" type="StaticBody3D" parent="world/NavigationRegion3D"]
 
-[node name="ground1" type="MeshInstance3D" parent="NavigationRegion3D/ground_low"]
+[node name="ground1" type="MeshInstance3D" parent="world/NavigationRegion3D/ground_low"]
 transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 6, 0, 4, -9)
 mesh = SubResource("PlaneMesh_drwop")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="ground_collision_box" type="CollisionShape3D" parent="NavigationRegion3D/ground_low"]
+[node name="ground_collision_box" type="CollisionShape3D" parent="world/NavigationRegion3D/ground_low"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -8.92268)
 shape = SubResource("BoxShape3D_jso3b")
 
-[node name="riverwall1" type="MeshInstance3D" parent="NavigationRegion3D/ground_low"]
+[node name="riverwall1" type="MeshInstance3D" parent="world/NavigationRegion3D/ground_low"]
 transform = Transform3D(-15, 1.50996e-07, -4.95018e-15, 0, -4.37114e-08, -0.75, -2.26494e-06, -1, 3.27835e-08, 0, 3.75, 1)
 mesh = SubResource("PlaneMesh_jmq4b")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="ground_high" type="StaticBody3D" parent="NavigationRegion3D"]
+[node name="ground_high" type="StaticBody3D" parent="world/NavigationRegion3D"]
 
-[node name="ground2" type="MeshInstance3D" parent="NavigationRegion3D/ground_high"]
+[node name="ground2" type="MeshInstance3D" parent="world/NavigationRegion3D/ground_high"]
 transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 7, 0, 4.5, 8)
 mesh = SubResource("PlaneMesh_jmq4b")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_54awe")
 
-[node name="riverwall2" type="MeshInstance3D" parent="NavigationRegion3D/ground_high"]
+[node name="riverwall2" type="MeshInstance3D" parent="world/NavigationRegion3D/ground_high"]
 transform = Transform3D(15, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 0, 3.5, -3)
 mesh = SubResource("PlaneMesh_jmq4b")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="ground_collision_box" type="CollisionShape3D" parent="NavigationRegion3D/ground_high"]
+[node name="ground_collision_box" type="CollisionShape3D" parent="world/NavigationRegion3D/ground_high"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 8)
 shape = SubResource("BoxShape3D_5hre3")
 
-[node name="spawn_area" type="Area3D" parent="."]
+[node name="spawn_area" type="Area3D" parent="world"]
 
-[node name="spawn_collision_area" type="CollisionShape3D" parent="spawn_area"]
+[node name="spawn_collision_area" type="CollisionShape3D" parent="world/spawn_area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 14, -10)
 shape = SubResource("CylinderShape3D_iehip")
 
-[node name="spawn_balls_button" parent="." instance=ExtResource("7_ldgy1")]
+[node name="spawn_balls_button" parent="world" instance=ExtResource("7_ldgy1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0617, 4.0248, 1.24565)
 
-[node name="audio_component" parent="spawn_balls_button" instance=ExtResource("12_vqqr7")]
+[node name="audio_component" parent="world/spawn_balls_button" instance=ExtResource("12_vqqr7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0617, -4.0248, -1.24565)
 
-[node name="dialogue_component" parent="spawn_balls_button" instance=ExtResource("9_vytkr")]
+[node name="dialogue_component" parent="world/spawn_balls_button" instance=ExtResource("9_vytkr")]
 
-[node name="fenceline" type="StaticBody3D" parent="."]
+[node name="fenceline" type="StaticBody3D" parent="world"]
 
-[node name="chain_fence" parent="fenceline" instance=ExtResource("8_jss31")]
+[node name="chain_fence" parent="world/fenceline" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 13.4005)
 
-[node name="chain_fence2" parent="fenceline" instance=ExtResource("8_jss31")]
+[node name="chain_fence2" parent="world/fenceline" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 10.7257)
 
-[node name="chain_fence3" parent="fenceline" instance=ExtResource("8_jss31")]
+[node name="chain_fence3" parent="world/fenceline" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 8.06015)
 
-[node name="chain_fence4" parent="fenceline" instance=ExtResource("8_jss31")]
+[node name="chain_fence4" parent="world/fenceline" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 5.38727)
 
-[node name="chain_fence5" parent="fenceline" instance=ExtResource("8_jss31")]
+[node name="chain_fence5" parent="world/fenceline" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 2.71788)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fenceline"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/fenceline"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6433, 5.01575, 8.05124)
 shape = SubResource("BoxShape3D_1u5or")
 
-[node name="fenceline2" type="StaticBody3D" parent="."]
+[node name="fenceline2" type="StaticBody3D" parent="world"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.0301, 0.00620651, 0.0824795)
 
-[node name="chain_fence" parent="fenceline2" instance=ExtResource("8_jss31")]
+[node name="chain_fence" parent="world/fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 13.4005)
 
-[node name="chain_fence2" parent="fenceline2" instance=ExtResource("8_jss31")]
+[node name="chain_fence2" parent="world/fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 10.7257)
 
-[node name="chain_fence3" parent="fenceline2" instance=ExtResource("8_jss31")]
+[node name="chain_fence3" parent="world/fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 8.06015)
 
-[node name="chain_fence4" parent="fenceline2" instance=ExtResource("8_jss31")]
+[node name="chain_fence4" parent="world/fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 5.38727)
 
-[node name="chain_fence5" parent="fenceline2" instance=ExtResource("8_jss31")]
+[node name="chain_fence5" parent="world/fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 2.71788)
 
-[node name="chain_fence6" parent="fenceline2" instance=ExtResource("8_jss31")]
+[node name="chain_fence6" parent="world/fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 26.7537)
 
-[node name="chain_fence11" parent="fenceline2" instance=ExtResource("8_jss31")]
+[node name="chain_fence11" parent="world/fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 29.4235)
 
-[node name="chain_fence12" parent="fenceline2" instance=ExtResource("8_jss31")]
+[node name="chain_fence12" parent="world/fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 29.4235)
 
-[node name="chain_fence7" parent="fenceline2" instance=ExtResource("8_jss31")]
+[node name="chain_fence7" parent="world/fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 24.0789)
 
-[node name="chain_fence8" parent="fenceline2" instance=ExtResource("8_jss31")]
+[node name="chain_fence8" parent="world/fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 21.4134)
 
-[node name="chain_fence9" parent="fenceline2" instance=ExtResource("8_jss31")]
+[node name="chain_fence9" parent="world/fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 18.7405)
 
-[node name="chain_fence10" parent="fenceline2" instance=ExtResource("8_jss31")]
+[node name="chain_fence10" parent="world/fenceline2" instance=ExtResource("8_jss31")]
 transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.6504, 4.56644, 16.0711)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fenceline2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/fenceline2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.688, 5.00226, 16.0826)
 shape = SubResource("BoxShape3D_1pw1t")
 
-[node name="deathbox" type="Area3D" parent="." groups=["deathbox"]]
+[node name="deathbox" type="Area3D" parent="world" groups=["deathbox"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 script = ExtResource("9_kcvus")
 
-[node name="deathbox_collision" type="CollisionShape3D" parent="deathbox"]
+[node name="deathbox_collision" type="CollisionShape3D" parent="world/deathbox"]
 shape = SubResource("BoxShape3D_q3fim")
 
-[node name="thedavy" parent="." instance=ExtResource("10_0nhif")]
+[node name="thedavy" parent="world" instance=ExtResource("10_0nhif")]
 transform = Transform3D(-0.43675, 0, -0.243412, 0, 0.5, 0, 0.243412, 0, -0.43675, 3.68058, 4.49604, 7.38068)
 
-[node name="computa" parent="." instance=ExtResource("11_bicek")]
+[node name="computa" parent="world" instance=ExtResource("11_bicek")]
 transform = Transform3D(-1.26187, 0, -3.79575, 0, 4, 0, 3.79575, 0, -1.26187, 12.9974, 4.49604, 3.42851)
 
-[node name="monitor" type="CollisionShape3D" parent="computa"]
+[node name="monitor" type="CollisionShape3D" parent="world/computa"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00189131, 0, -0.0012846)
 shape = SubResource("BoxShape3D_vp178")
-
-[node name="Player" parent="." instance=ExtResource("14_2aecg")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 4.5, 0)
