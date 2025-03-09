@@ -12,8 +12,8 @@ func _ready() -> void:
 	var players = get_tree().get_nodes_in_group("player")
 	if players == null:
 		print("Player node not found!")
-	else:
-		player = players[0]
+	#else:
+		#player = players[0]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

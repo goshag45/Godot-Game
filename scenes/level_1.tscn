@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=35 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/visual/textures/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="1_ar1ye"]
@@ -13,7 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://ctpufg7bblye0" path="res://scenes/npc/thedavy.tscn" id="10_0nhif"]
 [ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="11_bicek"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="12_vqqr7"]
-[ext_resource type="PackedScene" uid="uid://bv1850xotwfxt" path="res://scenes/player/player.tscn" id="14_2aecg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_iehip"]
+height = 0.1
+radius = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q3fim"]
+size = Vector3(60, 10, 60)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1ukm2"]
 panorama = ExtResource("1_6aing")
@@ -155,18 +161,11 @@ uv1_world_triplanar = true
 resource_local_to_scene = true
 size = Vector3(30, 1.49207, 14.0079)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_iehip"]
-height = 0.1
-radius = 2.0
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_1u5or"]
 size = Vector3(0.1, 2, 13.3499)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1pw1t"]
 size = Vector3(0.1, 2, 29.3297)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_q3fim"]
-size = Vector3(60, 10, 60)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vp178"]
 size = Vector3(0.463745, 1, 0.470093)
@@ -174,17 +173,35 @@ size = Vector3(0.463745, 1, 0.470093)
 [node name="Level 1" type="Node3D"]
 script = ExtResource("1_oatpt")
 
-[node name="Player" parent="." instance=ExtResource("14_2aecg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
-
 [node name="world" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -10, 0)
 
-[node name="music_audio_stream" type="AudioStreamPlayer" parent="world"]
-stream = ExtResource("5_ds4yb")
-volume_db = -20.0
-autoplay = true
-bus = &"Music"
+[node name="spawn_location_1" type="Node3D" parent="world"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.78523, 2.52409)
+
+[node name="thedavy" parent="world" instance=ExtResource("10_0nhif")]
+transform = Transform3D(-0.43675, 0, -0.243412, 0, 0.5, 0, 0.243412, 0, -0.43675, 3.68058, 4.49604, 7.38068)
+
+[node name="spawn_area" type="Area3D" parent="world"]
+
+[node name="spawn_collision_area" type="CollisionShape3D" parent="world/spawn_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 14, -10)
+shape = SubResource("CylinderShape3D_iehip")
+
+[node name="spawn_balls_button" parent="world" instance=ExtResource("7_ldgy1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0617, 4.0248, 1.24565)
+
+[node name="audio_component" parent="world/spawn_balls_button" instance=ExtResource("12_vqqr7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0617, -4.0248, -1.24565)
+
+[node name="dialogue_component" parent="world/spawn_balls_button" instance=ExtResource("9_vytkr")]
+
+[node name="deathbox" type="Area3D" parent="world" groups=["deathbox"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+script = ExtResource("9_kcvus")
+
+[node name="deathbox_collision" type="CollisionShape3D" parent="world/deathbox"]
+shape = SubResource("BoxShape3D_q3fim")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="world"]
 environment = SubResource("Environment_yx501")
@@ -303,20 +320,6 @@ skeleton = NodePath("../../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 8)
 shape = SubResource("BoxShape3D_5hre3")
 
-[node name="spawn_area" type="Area3D" parent="world"]
-
-[node name="spawn_collision_area" type="CollisionShape3D" parent="world/spawn_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 14, -10)
-shape = SubResource("CylinderShape3D_iehip")
-
-[node name="spawn_balls_button" parent="world" instance=ExtResource("7_ldgy1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0617, 4.0248, 1.24565)
-
-[node name="audio_component" parent="world/spawn_balls_button" instance=ExtResource("12_vqqr7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0617, -4.0248, -1.24565)
-
-[node name="dialogue_component" parent="world/spawn_balls_button" instance=ExtResource("9_vytkr")]
-
 [node name="fenceline" type="StaticBody3D" parent="world"]
 
 [node name="chain_fence" parent="world/fenceline" instance=ExtResource("8_jss31")]
@@ -381,19 +384,15 @@ transform = Transform3D(-4.37114e-08, -1, 0, 0, 0, 1, -1, 4.37114e-08, 0, 14.650
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.688, 5.00226, 16.0826)
 shape = SubResource("BoxShape3D_1pw1t")
 
-[node name="deathbox" type="Area3D" parent="world" groups=["deathbox"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
-script = ExtResource("9_kcvus")
-
-[node name="deathbox_collision" type="CollisionShape3D" parent="world/deathbox"]
-shape = SubResource("BoxShape3D_q3fim")
-
-[node name="thedavy" parent="world" instance=ExtResource("10_0nhif")]
-transform = Transform3D(-0.43675, 0, -0.243412, 0, 0.5, 0, 0.243412, 0, -0.43675, 3.68058, 4.49604, 7.38068)
-
 [node name="computa" parent="world" instance=ExtResource("11_bicek")]
 transform = Transform3D(-1.26187, 0, -3.79575, 0, 4, 0, 3.79575, 0, -1.26187, 12.9974, 4.49604, 3.42851)
 
 [node name="monitor" type="CollisionShape3D" parent="world/computa"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00189131, 0, -0.0012846)
 shape = SubResource("BoxShape3D_vp178")
+
+[node name="music_audio_stream" type="AudioStreamPlayer" parent="world"]
+stream = ExtResource("5_ds4yb")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
