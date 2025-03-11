@@ -8,7 +8,7 @@ extends RigidBody3D
 @export var max_vertical_speed: float = 20.0  # Maximum speed on the Y axis
 @export var turn_speed: float = 5.0  # How quickly the ball can adjust its direction
 
-@onready var nav_agent = $NavigationAgent3D
+@onready var nav_agent = $nav_agent
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var audio_component = $audio_component
 

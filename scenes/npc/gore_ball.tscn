@@ -28,6 +28,6 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5, 0)
 mesh = SubResource("SphereMesh_kp4s4")
 surface_material_override/0 = SubResource("StandardMaterial3D_g4hnq")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="nav_agent" type="NavigationAgent3D" parent="."]
 
 [node name="audio_component" parent="." instance=ExtResource("3_wkq4f")]

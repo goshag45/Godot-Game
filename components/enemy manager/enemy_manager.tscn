@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cahou3f25gi3c"]
+
+[ext_resource type="Script" uid="uid://8a5u51sjhpwh" path="res://components/enemy manager/enemy_manager.gd" id="1_bntdj"]
+[ext_resource type="PackedScene" uid="uid://b3l7mcrwxuwko" path="res://scenes/npc/gore_ball.tscn" id="2_cesns"]
+
+[node name="enemy_manager" type="Node3D"]
+script = ExtResource("1_bntdj")
+gore_ball = ExtResource("2_cesns")
