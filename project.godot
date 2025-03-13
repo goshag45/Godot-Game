@@ -17,7 +17,7 @@ config/icon="res://art/experience.PNG"
 
 [autoload]
 
-global_dialogue="*res://components/dialogue/global_dialogue.gd"
+global_signals="*res://components/global/global_signals.gd"
 
 [display]
 

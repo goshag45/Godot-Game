@@ -1,6 +1,5 @@
 extends Node
 
-#signal dialogue_opened
-#signal dialogue_closed
+signal gore_ball_died
 
 var is_dialogue_open: bool = false
