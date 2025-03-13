@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjicamkrn6qce"]
+[gd_scene load_steps=13 format=3 uid="uid://bjicamkrn6qce"]
 
 [ext_resource type="Script" uid="uid://bkec41hommmd0" path="res://scenes/level 2/level_2.gd" id="1_05f8v"]
 [ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="2_4asmd"]
 [ext_resource type="PackedScene" uid="uid://cahou3f25gi3c" path="res://components/enemy manager/enemy_manager.tscn" id="2_8sing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="2_cqqfn"]
+[ext_resource type="PackedScene" uid="uid://ctpufg7bblye0" path="res://scenes/npc/thedavy.tscn" id="5_gqhrb"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4asmd"]
 vertices = PackedVector3Array(37, 0.253863, 42.75, 38, 0.753863, 42.75, 38, 0.253863, 42, 43.75, 0.253863, 38.25, 45, 0.253863, 38.25, 45.25, 0.253863, 37.75, 49.5, 0.253863, -49.5, 38.25, 0.253863, 46, 38.25, 0.253863, 44.5, 37, 0.253863, 43.5, -49.5, 0.253863, 49.5, 38.75, 0.253863, 42, 40, 0.753863, 43.25, 43.75, 0.753863, 39.5, -49.5, 0.253863, -49.5, 46.5, 0.253863, 37.75, 49.5, 0.253863, 40.75, 41.75, 0.253863, 49.5, 42.25, 5.50386, 48.25, 43.75, 5.50386, 47.75, 42.25, 5.50386, 46.5, 39.25, 5.50386, 45.25, 47, 5.50386, 41.75, 48.25, 5.50386, 43.25, 48.75, 5.50386, 41.75, 45.75, 5.50386, 38.75, 42.25, 5.50386, 45.75, 46.25, 5.50386, 41.75, 49.75, 0.503863, 44.75, 49.75, 0.503863, 46, 50.75, 0.503863, 45.25, 49.5, 0.503863, 42.75, 46.75, 0.253863, 40, 45.75, 0.253863, 41.25, 41.5, 1.00386, 44.25, 45.25, 1.00386, 40.5, 44.75, 1.00386, 40.25, 41, 1.00386, 44, 44.75, 5.50386, 48, 46, 5.50386, 52, 48.5, 5.50386, 44.25, 52.5, 5.50386, 45.5, 43.5, 0.253863, 45.25, 45.75, 0.503863, 47.75, 48.25, 0.503863, 45.5, 46, 0.253863, 43, 43.5, 6.25386, 46, 44.5, 6.00386, 46.75, 47.25, 6.00386, 44, 46.5, 6.25386, 43, 42, 0.253863, 46, 42, 0.253863, 45.25, 39.75, 0.253863, 45.25, 49.5, 0.253863, 48, 49.25, 0.503863, 46.25, 46.5, 0.503863, 49.25, 48, 0.253863, 49.5, 43.75, 0.253863, 49.5, 45.25, 0.503863, 49.25)
@@ -58,6 +59,9 @@ transform = Transform3D(-7.07107, 0, -7.07107, 0, 10, 0, 7.07107, 0, -7.07107, 4
 
 [node name="computa_collision" type="CollisionShape3D" parent="terrain/enemy_traverse_region/computa"]
 shape = SubResource("BoxShape3D_4asmd")
+
+[node name="thedavy" parent="terrain" instance=ExtResource("5_gqhrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.80012)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)

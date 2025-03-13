@@ -9,15 +9,14 @@ signal talk()
 
 #Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var players = get_tree().get_nodes_in_group("player")
-	if players == null:
-		print("Player node not found!")
-	#else:
-		#player = players[0]
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	var players = get_tree().get_nodes_in_group("player")
+	player = players[0]
 	if player:
+		#players = get_tree().get_nodes_in_group("player")
 		var direction = (player.global_transform.origin - global_transform.origin).normalized()
 		direction.y = 0  # Prevent tilting by locking the Y-axis
 		look_at(global_transform.origin - direction, Vector3.UP)
