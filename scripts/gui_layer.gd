@@ -12,9 +12,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	fps_counter.text = str("FPS %d" % Engine.get_frames_per_second())
 	update_ammo_counter()
+	update_points_counter()
 
 func update_ammo_counter():
 	ammo_counter.text = str(player.get_node("player_weapon_component").current_weapon.get_node("hitscan_weapon_component").magazine)
 
 func update_points_counter():
-	points_counter.text = "points"
+	points_counter.text = "points: " + str(player.kill_count)

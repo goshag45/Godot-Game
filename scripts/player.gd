@@ -15,6 +15,8 @@ var SENSITIVITY = sensitivity_input/1000
 @export var speed = walk_speed
 @export var health = 100
 
+var kill_count = 0
+
 # References
 @onready var head = $Head
 @onready var camera = $Head/firstperson_camera
@@ -30,6 +32,7 @@ var jump_sounds = ["jump1", "jump2", "jump3"]
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	global_signals.gore_ball_died.connect(_on_enemy_killed)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -89,4 +92,6 @@ func _on_deathbox_body_entered(_body: Node3D) -> void:
 func die():
 	var spawn_location = Vector3(0,-1,7)
 	player.global_position = spawn_location
-	pass
+
+func _on_enemy_killed():
+	kill_count += 1

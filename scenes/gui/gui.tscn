@@ -101,8 +101,8 @@ horizontal_alignment = 1
 
 [node name="points" type="Label" parent="in_game_gui"]
 layout_mode = 0
-offset_left = 511.0
-offset_right = 639.0
+offset_left = 486.0
+offset_right = 640.0
 offset_bottom = 49.0
 text = "points: "
 label_settings = SubResource("LabelSettings_0jpgx")
