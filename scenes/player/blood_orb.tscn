@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmfjb6nrctan5"]
+
+[ext_resource type="Script" uid="uid://bjnns88te1hgt" path="res://scripts/blood_orb.gd" id="1_jby5f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jby5f"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.423616, 0.490234, 0.656047, 0.160784)
+metallic = 0.8
+roughness = 0.05
+clearcoat_enabled = true
+clearcoat_roughness = 0.0
+refraction_scale = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_lt1ey"]
+material = SubResource("StandardMaterial3D_jby5f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tk211"]
+emission_shape = 1
+emission_sphere_radius = 0.02
+initial_velocity_min = 1.5
+initial_velocity_max = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tk211"]
+transparency = 1
+blend_mode = 4
+albedo_color = Color(0.747391, 0, 0.168026, 1)
+metallic = 0.71
+metallic_specular = 0.22
+roughness = 0.17
+
+[sub_resource type="SphereMesh" id="SphereMesh_jby5f"]
+material = SubResource("StandardMaterial3D_tk211")
+radius = 0.05
+height = 0.1
+
+[node name="glass_orb" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_lt1ey")
+script = ExtResource("1_jby5f")
+
+[node name="blood" type="GPUParticles3D" parent="."]
+visible = false
+amount = 200
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_tk211")
+draw_pass_1 = SubResource("SphereMesh_jby5f")
