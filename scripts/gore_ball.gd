@@ -12,8 +12,6 @@ extends RigidBody3D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var audio_component = $audio_component
 
-signal gore_ball_died
-
 func _ready():
 	# quick fix to pause physics for a frame to wait for navigation server to work
 	set_physics_process(false)
