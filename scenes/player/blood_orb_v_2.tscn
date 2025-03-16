@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgre8edfwhmng"]
+
+[ext_resource type="Script" uid="uid://c7puqvmf71km3" path="res://scripts/blood_orb_v_2.gd" id="1_onv47"]
+[ext_resource type="Shader" uid="uid://cnks0c84vo3sq" path="res://scenes/player/blood_orb_v_2.gdshader" id="2_2d832"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6opv"]
+transparency = 1
+albedo_color = Color(0.423529, 0.490196, 0.654902, 0.160784)
+metallic = 0.8
+roughness = 0.05
+clearcoat_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_dj0lf"]
+material = SubResource("StandardMaterial3D_l6opv")
+
+[sub_resource type="SphereMesh" id="SphereMesh_l6opv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_knavn"]
+render_priority = 0
+shader = ExtResource("2_2d832")
+shader_parameter/fill_amount = 0.0
+shader_parameter/blood_color = Vector4(1, 0, 0, 1)
+
+[node name="blood_orb_v2" type="Node3D"]
+script = ExtResource("1_onv47")
+
+[node name="glass_orb" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_dj0lf")
+
+[node name="blood" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+layers = 3
+mesh = SubResource("SphereMesh_l6opv")
+surface_material_override/0 = SubResource("ShaderMaterial_knavn")
