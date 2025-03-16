@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 # VARIABLES
 @export_category("Player Stats")
-@export var sensitivity_input = 1.3
+@export var sensitivity_input = 1.7 # CANT GO TO 2 OR HIGHER FOR SOME REASON????
 #weird calc - stupid
 var SENSITIVITY = sensitivity_input/1000
 @export var walk_speed = 5.0
@@ -21,10 +21,6 @@ var kill_count = 0
 @onready var head = $Head
 @onready var camera = $Head/firstperson_camera
 @onready var player = $"."
-@onready var viewmodel_camera = $Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera
-@onready var fps_rig = $Head/firstperson_camera/sub_viewport_container/sub_viewport/ViewModelCamera/FPSRig
-@onready var weapon_viewport = $Head/firstperson_camera/sub_viewport_container/sub_viewport
-@onready var hitbox = $player_hitbox
 @onready var audio_component = $audio_component
 
 var direction = Vector3()
@@ -87,7 +83,6 @@ func jump():
 
 func _on_deathbox_body_entered(_body: Node3D) -> void:
 	die()
-	pass # Replace with function body.
 
 func die():
 	var spawn_location = Vector3(0,-1,7)
