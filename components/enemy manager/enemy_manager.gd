@@ -8,6 +8,7 @@ extends Node3D
 
 var spawn_rate: float
 var spawn_timer: float = 0.0
+var spawn_flag = false
 
 func _ready():
 	spawn_rate = initial_spawn_rate
@@ -18,10 +19,11 @@ func _ready():
 
 func _process(delta):
 	spawn_timer -= delta
-	if spawn_timer <= 0:
-		spawn_enemy()
-		spawn_timer = spawn_rate
-		spawn_rate *= acceleration # Reduce time interval to speed up spawning
+	if spawn_flag:
+		if spawn_timer <= 0:
+			spawn_enemy()
+			spawn_timer = spawn_rate
+			spawn_rate *= acceleration # Reduce time interval to speed up spawning
 
 func spawn_enemy():
 	if not player:
