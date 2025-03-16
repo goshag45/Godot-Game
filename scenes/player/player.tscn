@@ -56,4 +56,8 @@ visible = false
 
 [node name="player_spawn_component" parent="." instance=ExtResource("9_5gtgg")]
 
+[editable path="Head/firstperson_camera/fps_viewport_container"]
+[editable path="Head/firstperson_camera/fps_viewport_container/fps_viewport/view_model_camera"]
+[editable path="Head/firstperson_camera/fps_viewport_container/fps_viewport/view_model_camera/fps_rig/smg"]
+[editable path="Head/firstperson_camera/fps_viewport_container/fps_viewport/view_model_camera/blood_orb_v2"]
 [editable path="gui_layer"]

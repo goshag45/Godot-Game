@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 	pass
 "
 
-[node name="ViewModelCamera" type="Camera3D"]
+[node name="view_model_camera" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 cull_mask = 2
 fov = 50.0

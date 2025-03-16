@@ -4,8 +4,8 @@ extends Node3D
 @onready var aim_ray = $"../Head/firstperson_camera/aim_ray"
 
 # WEAPONS
-@onready var smg = $"../Head/firstperson_camera/fps_viewport_container/fps_viewport/ViewModelCamera/fps_rig/smg"
-@onready var revolver = $"../Head/firstperson_camera/fps_viewport_container/fps_viewport/ViewModelCamera/fps_rig/revolver"
+@onready var smg = $"../Head/firstperson_camera/fps_viewport_container/fps_viewport/view_model_camera/fps_rig/smg"
+@onready var revolver = $"../Head/firstperson_camera/fps_viewport_container/fps_viewport/view_model_camera/fps_rig/revolver"
 
 @onready var current_weapon = smg
 
