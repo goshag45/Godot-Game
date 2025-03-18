@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bv1850xotwfxt"]
+[gd_scene load_steps=13 format=3 uid="uid://bv1850xotwfxt"]
 
 [ext_resource type="Script" uid="uid://b2qi5iytvy0ht" path="res://scripts/firstperson_camera.gd" id="2_hj430"]
 [ext_resource type="Script" uid="uid://mrpvw15gjya0" path="res://scripts/player.gd" id="2_kooth"]
@@ -15,6 +15,8 @@
 radius = 0.225678
 height = 1.97294
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h17s1"]
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("2_kooth")
 jump_velocity = 5.0
@@ -23,6 +25,10 @@ gravity = 20.0
 [node name="player_hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.982355, 0)
 shape = SubResource("CapsuleShape3D_engiy")
+
+[node name="temp_player_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_h17s1")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -0.111936)
