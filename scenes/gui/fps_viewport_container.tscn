@@ -1,7 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbdummmh0maqu"]
+[gd_scene load_steps=4 format=3 uid="uid://cbdummmh0maqu"]
 
 [ext_resource type="PackedScene" uid="uid://bivh5hg55epm3" path="res://scenes/player/view_model.tscn" id="1_acd5i"]
 [ext_resource type="PackedScene" uid="uid://bgre8edfwhmng" path="res://scenes/player/blood_orb_v_2.tscn" id="2_3g4fb"]
+
+[sub_resource type="GDScript" id="GDScript_3g4fb"]
+script/source = "extends SubViewport
+
+@onready var subviewport_camera = $view_model/view_model_camera  # Adjust path as needed
+
+func _ready():
+	find_and_clone_light()
+
+func find_and_clone_light():
+	var root = get_tree().current_scene  # The main level scene
+	if root:
+		var light = root.find_child(\"main_light\", true, false)  # Change name/type if needed
+		if light:
+			clone_light(light)
+
+func clone_light(original_light: DirectionalLight3D):
+	var new_light = original_light.duplicate()  # Duplicates the light node
+	new_light.set_owner(subviewport_camera)  # Ensures it's saved properly in the scene tree
+	subviewport_camera.add_child(new_light)
+
+	# Ensure the camera renders layer 2 (the viewmodel's layer)
+	subviewport_camera.cull_mask = 2  # Enables layer 2
+	print(\"Light cloned and camera cull_mask set to:\", subviewport_camera.cull_mask)
+"
 
 [node name="fps_viewport_container" type="SubViewportContainer"]
 anchors_preset = 15
@@ -20,16 +45,12 @@ mesh_lod_threshold = 0.0
 size = Vector2i(640, 480)
 size_2d_override_stretch = true
 render_target_update_mode = 4
+script = SubResource("GDScript_3g4fb")
 
-[node name="view_model_camera" parent="fps_viewport" instance=ExtResource("1_acd5i")]
+[node name="view_model" parent="fps_viewport" instance=ExtResource("1_acd5i")]
 
-[node name="blood_orb_v2" parent="fps_viewport/view_model_camera" instance=ExtResource("2_3g4fb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.615816, 0.640648, -2.1731)
+[node name="blood_orb_v2" parent="fps_viewport" instance=ExtResource("2_3g4fb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07335, 2.32679, -2.2046)
 
-[node name="glass_orb" parent="fps_viewport/view_model_camera/blood_orb_v2" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.165799, 0, 0)
-layers = 2
-
-[editable path="fps_viewport/view_model_camera"]
-[editable path="fps_viewport/view_model_camera/fps_rig/smg"]
-[editable path="fps_viewport/view_model_camera/blood_orb_v2"]
+[editable path="fps_viewport/view_model"]
+[editable path="fps_viewport/view_model/view_model_camera/fps_rig/smg"]

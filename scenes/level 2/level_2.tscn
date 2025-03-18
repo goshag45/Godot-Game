@@ -152,7 +152,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_1hhpv")
 
 [node name="ramp?" type="MeshInstance3D" parent="terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.07, 1, -40.732)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.755365, 1, -14.1451)
 mesh = SubResource("PrismMesh_76ow5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="terrain/ramp?"]
@@ -168,6 +168,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.63964, 0, 0)
 [node name="dialogue_component" parent="terrain/spawn_balls_button" instance=ExtResource("9_1hhpv")]
 
 [node name="arch" type="Node3D" parent="terrain"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -14.0549)
 
 [node name="thing1" type="MeshInstance3D" parent="terrain/arch"]
 transform = Transform3D(3, 0, 0, 0, 5, 0, 0, 0, 3, 21, 2.5, 4)
@@ -199,10 +200,10 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/arch/thing3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_obv6w")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.811796, -0.505708, 0.291969, -1.64376e-08, 0.499998, 0.866026, -0.583941, 0.703037, -0.405897, 0, 0, 0)
+[node name="main_light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.574027, -0.711142, -0.40592, 0.415474, -0.680127, 0.603994, -0.705602, 0.178059, 0.685872, 0, 9.38333, 0)
 layers = 31
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="skybox" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4asmd")

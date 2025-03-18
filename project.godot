@@ -148,6 +148,11 @@ num3={
 ]
 }
 
+[layer_names]
+
+3d_render/layer_1="world"
+3d_render/layer_2="viewmodel"
+
 [physics]
 
 common/physics_interpolation=true

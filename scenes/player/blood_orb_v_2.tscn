@@ -18,5 +18,5 @@ material = SubResource("ShaderMaterial_2d832")
 script = ExtResource("1_onv47")
 
 [node name="glass_orb" type="MeshInstance3D" parent="."]
-layers = 4
+layers = 2
 mesh = SubResource("SphereMesh_knavn")
