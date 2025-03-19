@@ -28,8 +28,8 @@ radius = 0.3
 height = 1.6
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bp1iw"]
-metallic = 1.0
-metallic_specular = 1.0
+metallic = 0.8
+metallic_specular = 0.7
 roughness = 0.1
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.05
@@ -40,8 +40,8 @@ inner_radius = 0.6
 outer_radius = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odklo"]
-metallic = 1.0
-metallic_specular = 1.0
+metallic = 0.8
+metallic_specular = 0.7
 roughness = 0.1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0veg4"]

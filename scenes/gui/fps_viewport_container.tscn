@@ -49,6 +49,9 @@ script = SubResource("GDScript_3g4fb")
 
 [node name="view_model" parent="fps_viewport" instance=ExtResource("1_acd5i")]
 
+[node name="model" parent="fps_viewport/view_model/view_model_camera/fps_rig/smg" index="0"]
+transform = Transform3D(1, 0, 0, 0, -3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 0, 0)
+
 [node name="blood_orb_v2" parent="fps_viewport" instance=ExtResource("2_3g4fb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07335, 2.32679, -2.2046)
 

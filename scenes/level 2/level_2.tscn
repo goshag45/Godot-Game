@@ -1,16 +1,17 @@
-[gd_scene load_steps=30 format=4 uid="uid://bjicamkrn6qce"]
+[gd_scene load_steps=36 format=4 uid="uid://bjicamkrn6qce"]
 
 [ext_resource type="Script" uid="uid://bkec41hommmd0" path="res://scenes/level 2/level_2.gd" id="1_05f8v"]
 [ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="2_4asmd"]
 [ext_resource type="PackedScene" uid="uid://cahou3f25gi3c" path="res://components/enemy manager/enemy_manager.tscn" id="2_8sing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="2_cqqfn"]
 [ext_resource type="PackedScene" uid="uid://ctpufg7bblye0" path="res://scenes/npc/thedavy.tscn" id="5_gqhrb"]
-[ext_resource type="Texture2D" uid="uid://by5sb6xn6b1wq" path="res://art/visual/autumn_field_puresky_1k.hdr" id="6_31efs"]
 [ext_resource type="Texture2D" uid="uid://c2aig6gl728k" path="res://art/visual/textures/low poly materials/Material.012_diffuse.png" id="6_586tq"]
 [ext_resource type="Texture2D" uid="uid://buxq70kdcrew1" path="res://art/visual/models/industrial exterior/Industrial_exterior_v2_Liquid_reservoir_1.png" id="7_76ow5"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="8_j3kbo"]
 [ext_resource type="PackedScene" uid="uid://dsyohgrfl3bfn" path="res://scenes/interactable_button_1.tscn" id="8_pxin0"]
 [ext_resource type="PackedScene" uid="uid://bemr1hg184ot3" path="res://components/dialogue/dialogue_component.tscn" id="9_1hhpv"]
+[ext_resource type="Shader" uid="uid://c7rushii784b4" path="res://scenes/level 2/level_2_sky.gdshader" id="11_j3kbo"]
+[ext_resource type="Texture2D" uid="uid://bqj6uxmgpc8m8" path="res://art/visual/textures/sun.png" id="12_1hhpv"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4asmd"]
 vertices = PackedVector3Array(37, 0.253863, 42.75, 38, 0.753863, 42.75, 38, 0.253863, 42, 43.75, 0.253863, 38.25, 45, 0.253863, 38.25, 45.25, 0.253863, 37.75, 49.5, 0.253863, -49.5, 38.25, 0.253863, 46, 38.25, 0.253863, 44.5, 37, 0.253863, 43.5, -49.5, 0.253863, 49.5, 38.75, 0.253863, 42, 40, 0.753863, 43.25, 43.75, 0.753863, 39.5, -49.5, 0.253863, -49.5, 46.5, 0.253863, 37.75, 49.5, 0.253863, 40.75, 41.75, 0.253863, 49.5, 42.25, 5.50386, 48.25, 43.75, 5.50386, 47.75, 42.25, 5.50386, 46.5, 39.25, 5.50386, 45.25, 47, 5.50386, 41.75, 48.25, 5.50386, 43.25, 48.75, 5.50386, 41.75, 45.75, 5.50386, 38.75, 42.25, 5.50386, 45.75, 46.25, 5.50386, 41.75, 49.75, 0.503863, 44.75, 49.75, 0.503863, 46, 50.75, 0.503863, 45.25, 49.5, 0.503863, 42.75, 46.75, 0.253863, 40, 45.75, 0.253863, 41.25, 41.5, 1.00386, 44.25, 45.25, 1.00386, 40.5, 44.75, 1.00386, 40.25, 41, 1.00386, 44, 44.75, 5.50386, 48, 46, 5.50386, 52, 48.5, 5.50386, 44.25, 52.5, 5.50386, 45.5, 43.5, 0.253863, 45.25, 45.75, 0.503863, 47.75, 48.25, 0.503863, 45.5, 46, 0.253863, 43, 43.5, 6.25386, 46, 44.5, 6.00386, 46.75, 47.25, 6.00386, 44, 46.5, 6.25386, 43, 42, 0.253863, 46, 42, 0.253863, 45.25, 39.75, 0.253863, 45.25, 49.5, 0.253863, 48, 49.25, 0.503863, 46.25, 46.5, 0.503863, 49.25, 48, 0.253863, 49.5, 43.75, 0.253863, 49.5, 45.25, 0.503863, 49.25)
@@ -95,18 +96,55 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_obv6w"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_586tq"]
-panorama = ExtResource("6_31efs")
-energy_multiplier = 0.3
+[sub_resource type="Curve" id="Curve_j3kbo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.194647, 0.987873), 0.0, 0.0, 0, 0, Vector2(1, 0.830224), 0.0, 0.0, 0, 0]
+point_count = 3
 
-[sub_resource type="Sky" id="Sky_cqqfn"]
-sky_material = SubResource("PanoramaSkyMaterial_586tq")
+[sub_resource type="CurveTexture" id="CurveTexture_1hhpv"]
+curve = SubResource("Curve_j3kbo")
 
-[sub_resource type="Environment" id="Environment_4asmd"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_m17jp"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mmjq2"]
+seamless = true
+noise = SubResource("FastNoiseLite_m17jp")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_58l0g"]
+seamless = true
+noise = SubResource("FastNoiseLite_m17jp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hhpv"]
+shader = ExtResource("11_j3kbo")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_58l0g")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_mmjq2")
+shader_parameter/cloud_curves = SubResource("CurveTexture_1hhpv")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.4
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.035
+shader_parameter/clouds_light_color = Color(0.389544, 0.220972, 0.249687, 1)
+shader_parameter/clouds_shadow_intensity = 1.0
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_58l0g")
+shader_parameter/high_clouds_density = 0.2
+shader_parameter/top_color = Color(0.382975, 0.421309, 0.973219, 1)
+shader_parameter/bottom_color = Color(0.384314, 0.419608, 0.972549, 1)
+shader_parameter/sun_scatter = Color(0.304067, 0.173588, 0.467612, 1)
+shader_parameter/astro_tint = Color(1, 1, 1, 1)
+shader_parameter/astro_sampler = ExtResource("12_1hhpv")
+shader_parameter/astro_scale = 9.0
+shader_parameter/astro_intensity = 2.0
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 0.0
+shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_m17jp"]
+sky_material = SubResource("ShaderMaterial_1hhpv")
+
+[sub_resource type="Environment" id="Environment_mmjq2"]
 background_mode = 2
-sky = SubResource("Sky_cqqfn")
-tonemap_mode = 2
-glow_enabled = true
+sky = SubResource("Sky_m17jp")
 
 [node name="level_2" type="Node3D"]
 script = ExtResource("1_05f8v")
@@ -200,10 +238,11 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/arch/thing3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_obv6w")
 
-[node name="main_light" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.574027, -0.711142, -0.40592, 0.415474, -0.680127, 0.603994, -0.705602, 0.178059, 0.685872, 0, 9.38333, 0)
-layers = 31
-shadow_enabled = true
+[node name="skybox_homebrew" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mmjq2")
 
-[node name="skybox" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_4asmd")
+[node name="da_sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.384027, 0.438258, 0.696398, 1)
+light_energy = 0.6
+shadow_enabled = true
