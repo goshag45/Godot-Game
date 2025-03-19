@@ -10,3 +10,6 @@
  - item pick ups - roguelike?
  - more interesting terrain
  - hp bar and points
+
+
+amazing skybox: https://www.youtube.com/watch?v=bR0v-yoZYZA

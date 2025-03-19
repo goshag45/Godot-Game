@@ -32,7 +32,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_kq6m3")
 text = "game"
-icon_alignment = 1
 
 [node name="exit" type="Button" parent="."]
 z_index = 2
