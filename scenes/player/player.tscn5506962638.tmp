@@ -33,13 +33,11 @@ mesh = SubResource("CapsuleMesh_h17s1")
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -0.111936)
 
-[node name="firstperson_camera" type="Camera3D" parent="Head" node_paths=PackedStringArray("player")]
+[node name="firstperson_camera" type="Camera3D" parent="Head"]
 cull_mask = 1048571
 near = 0.045
 far = 5000.0
 script = ExtResource("2_hj430")
-follow_target = NodePath("..")
-player = NodePath("../..")
 
 [node name="aim_ray" type="RayCast3D" parent="Head/firstperson_camera" groups=["aim_ray"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)

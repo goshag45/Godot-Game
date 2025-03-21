@@ -18,7 +18,7 @@ var SENSITIVITY = sensitivity_input/1000
 var kill_count = 0
 
 # References
-@onready var head = $Head
+#@onready var head = $Head
 @onready var camera = $Head/firstperson_camera
 @onready var player = $"."
 @onready var audio_component = $audio_component

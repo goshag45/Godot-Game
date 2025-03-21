@@ -43,6 +43,8 @@ outer_radius = 0.4
 metallic = 0.8
 metallic_specular = 0.7
 roughness = 0.1
+refraction_enabled = true
+refraction_scale = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0veg4"]
 

@@ -5,8 +5,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_m5pek"]
 font = ExtResource("1_xcsgo")
-font_size = 15
+font_size = 17
 font_color = Color(0.849463, 0.000161334, 0.727718, 1)
+outline_size = 2
 shadow_size = 2
 shadow_color = Color(0.819608, 0.223529, 0.831373, 0.419608)
 
