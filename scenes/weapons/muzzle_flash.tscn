@@ -71,4 +71,5 @@ process_material = SubResource("ParticleProcessMaterial_81ik7")
 draw_pass_1 = SubResource("QuadMesh_f52fa")
 
 [node name="light" type="OmniLight3D" parent="."]
-light_color = Color(0.629675, 0.629675, 0.629675, 1)
+visible = false
+light_color = Color(0.807059, 0.545914, 0, 1)
