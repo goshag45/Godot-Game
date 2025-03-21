@@ -85,7 +85,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("muzzle_flash:emitting")
+tracks/3/path = NodePath("muzzle_flash/particle:emitting")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -143,14 +143,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("muzzle_flash:emitting")
+tracks/2/path = NodePath("muzzle_flash/particle:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.01, 0.07, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.01, 0.07, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true, true, false]
+"values": [true, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_yqaur"]
@@ -186,3 +186,5 @@ libraries = {
 [node name="audio_component" parent="." instance=ExtResource("4_mmgfe")]
 
 [node name="hitscan_weapon_component" parent="." instance=ExtResource("5_p3xak")]
+
+[editable path="muzzle_flash"]

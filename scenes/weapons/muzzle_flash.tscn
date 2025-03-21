@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbff2rt6j18q4"]
+[gd_scene load_steps=12 format=3 uid="uid://bbff2rt6j18q4"]
 
+[ext_resource type="Script" uid="uid://dkpcbe7g8e7g5" path="res://scenes/weapons/muzzle_flash.gd" id="1_iepi1"]
 [ext_resource type="Texture2D" uid="uid://b8n5vabkjilqo" path="res://art/visual/textures/muzzle_06.png" id="1_ro1ea"]
 
 [sub_resource type="Gradient" id="Gradient_3jxdu"]
@@ -29,6 +30,8 @@ curve = SubResource("Curve_xqrs0")
 angle_min = -720.0
 angle_max = 720.0
 gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
 scale_curve = SubResource("CurveTexture_xs8rd")
 color = Color(1, 0.576471, 0, 1)
 color_ramp = SubResource("GradientTexture1D_d5xkg")
@@ -51,7 +54,10 @@ proximity_fade_distance = 0.1
 [sub_resource type="QuadMesh" id="QuadMesh_f52fa"]
 material = SubResource("StandardMaterial3D_23vpa")
 
-[node name="muzzle_flash" type="GPUParticles3D"]
+[node name="muzzle_flash" type="Node3D"]
+script = ExtResource("1_iepi1")
+
+[node name="particle" type="GPUParticles3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 layers = 2
 emitting = false
@@ -63,3 +69,6 @@ fixed_fps = 60
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_81ik7")
 draw_pass_1 = SubResource("QuadMesh_f52fa")
+
+[node name="light" type="OmniLight3D" parent="."]
+light_color = Color(0.629675, 0.629675, 0.629675, 1)
