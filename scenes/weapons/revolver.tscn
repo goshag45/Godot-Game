@@ -372,10 +372,22 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("muzzle_flash:emitting")
+tracks/2/path = NodePath("muzzle_flash/light:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("muzzle_flash/particle:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -430,11 +442,23 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("muzzle_flash:emitting")
+tracks/2/path = NodePath("muzzle_flash/particle:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.01, 0.02),
+"times": PackedFloat32Array(0.01, 0.08, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("muzzle_flash/light:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.01, 0.08, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, false]
@@ -546,6 +570,9 @@ skeleton = NodePath("")
 [node name="muzzle_flash" parent="." instance=ExtResource("3_bjt34")]
 transform = Transform3D(5, 0, -1.7053e-13, 0, 5, 0, 1.7053e-13, 0, 5, -1.05299e-06, 1.94052, 7.97013)
 
+[node name="light" parent="muzzle_flash" index="1"]
+visible = false
+
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_k4a86")
@@ -555,3 +582,5 @@ libraries = {
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0)
 
 [node name="hitscan_weapon_component" parent="." instance=ExtResource("5_u7qng")]
+
+[editable path="muzzle_flash"]
