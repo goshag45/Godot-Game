@@ -13,3 +13,5 @@
 
 
 amazing skybox: https://www.youtube.com/watch?v=bR0v-yoZYZA
+
+if i reload while shooting - light stays
