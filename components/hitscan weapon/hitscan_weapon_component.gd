@@ -8,6 +8,7 @@ var magazine = 0
 var magazine_capacity = 0
 var damage = 0
 var shoot_sound
+var is_reloading = false
 
 var blood_splatter = preload("res://scenes/blood_splatter.tscn")
 
