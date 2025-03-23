@@ -97,7 +97,7 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="Curve" id="Curve_j3kbo"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.194647, 0.987873), 0.0, 0.0, 0, 0, Vector2(1, 0.830224), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.194647, 0.987873), 0.0, 0.0, 0, 0, Vector2(1, 0.599813), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_1hhpv"]
@@ -119,19 +119,19 @@ shader = ExtResource("11_j3kbo")
 shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_58l0g")
 shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_mmjq2")
 shader_parameter/cloud_curves = SubResource("CurveTexture_1hhpv")
-shader_parameter/clouds_samples = 32
+shader_parameter/clouds_samples = 16
 shader_parameter/shadow_sample = 4
 shader_parameter/clouds_density = 0.4
-shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_scale = 0.6
 shader_parameter/clouds_smoothness = 0.06
-shader_parameter/clouds_light_color = Color(0.304154, 0.217475, 0.476629, 1)
-shader_parameter/clouds_shadow_intensity = 1.0
+shader_parameter/clouds_light_color = Color(0, 0, 0, 1)
+shader_parameter/clouds_shadow_intensity = 10.0
 shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_58l0g")
 shader_parameter/high_clouds_density = 0.2
-shader_parameter/top_color = Color(0.382975, 0.421309, 0.973219, 1)
-shader_parameter/bottom_color = Color(0.384314, 0.419608, 0.972549, 1)
-shader_parameter/sun_scatter = Color(0.304067, 0.173588, 0.467612, 1)
-shader_parameter/astro_tint = Color(1, 1, 1, 1)
+shader_parameter/top_color = Color(0.109653, 0.0729068, 0.443075, 1)
+shader_parameter/bottom_color = Color(0.295993, 0.274185, 0.924028, 1)
+shader_parameter/sun_scatter = Color(0.0998924, 0.074244, 0.25799, 1)
+shader_parameter/astro_tint = Color(0.99558, 0.99558, 0.99558, 1)
 shader_parameter/astro_sampler = ExtResource("12_1hhpv")
 shader_parameter/astro_scale = 9.0
 shader_parameter/astro_intensity = 2.0
@@ -243,6 +243,6 @@ environment = SubResource("Environment_mmjq2")
 
 [node name="da_sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-light_color = Color(0.384027, 0.438258, 0.696398, 1)
-light_energy = 0.6
+light_color = Color(0.406761, 0.57886, 1, 1)
+light_energy = 2.0
 shadow_enabled = true
