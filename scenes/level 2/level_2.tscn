@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://bjicamkrn6qce"]
+[gd_scene load_steps=39 format=4 uid="uid://bjicamkrn6qce"]
 
 [ext_resource type="Script" uid="uid://bkec41hommmd0" path="res://scenes/level 2/level_2.gd" id="1_05f8v"]
 [ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="2_4asmd"]
@@ -97,18 +97,26 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="Curve" id="Curve_j3kbo"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.194647, 0.987873), 0.0, 0.0, 0, 0, Vector2(1, 0.599813), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.194647, 0.987873), 0.0, 0.0, 0, 0, Vector2(1, 0.290578), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_1hhpv"]
 curve = SubResource("Curve_j3kbo")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1hhpv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_m17jp"]
+seamless = true
+noise = SubResource("FastNoiseLite_1hhpv")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mmjq2"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ejhwt"]
+seamless = true
+noise = SubResource("FastNoiseLite_mmjq2")
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_m17jp"]
 noise_type = 0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mmjq2"]
-seamless = true
-noise = SubResource("FastNoiseLite_m17jp")
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_58l0g"]
 seamless = true
@@ -116,21 +124,21 @@ noise = SubResource("FastNoiseLite_m17jp")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1hhpv"]
 shader = ExtResource("11_j3kbo")
-shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_58l0g")
-shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_mmjq2")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_ejhwt")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_m17jp")
 shader_parameter/cloud_curves = SubResource("CurveTexture_1hhpv")
 shader_parameter/clouds_samples = 16
 shader_parameter/shadow_sample = 4
 shader_parameter/clouds_density = 0.4
 shader_parameter/clouds_scale = 0.6
-shader_parameter/clouds_smoothness = 0.06
-shader_parameter/clouds_light_color = Color(0, 0, 0, 1)
+shader_parameter/clouds_smoothness = 0.1
+shader_parameter/clouds_light_color = Color(0.60933, 0.60933, 0.60933, 1)
 shader_parameter/clouds_shadow_intensity = 10.0
 shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_58l0g")
 shader_parameter/high_clouds_density = 0.2
-shader_parameter/top_color = Color(0.109653, 0.0729068, 0.443075, 1)
-shader_parameter/bottom_color = Color(0.295993, 0.274185, 0.924028, 1)
-shader_parameter/sun_scatter = Color(0.0998924, 0.074244, 0.25799, 1)
+shader_parameter/top_color = Color(0.0596972, 0.0342307, 0.292015, 1)
+shader_parameter/bottom_color = Color(0.198958, 0.144555, 0.703138, 1)
+shader_parameter/sun_scatter = Color(0.163997, 0.128157, 0.386782, 1)
 shader_parameter/astro_tint = Color(0.99558, 0.99558, 0.99558, 1)
 shader_parameter/astro_sampler = ExtResource("12_1hhpv")
 shader_parameter/astro_scale = 9.0
