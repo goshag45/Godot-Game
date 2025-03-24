@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bv1850xotwfxt"]
+[gd_scene load_steps=14 format=3 uid="uid://bv1850xotwfxt"]
 
 [ext_resource type="Script" uid="uid://b2qi5iytvy0ht" path="res://scripts/firstperson_camera.gd" id="2_hj430"]
 [ext_resource type="Script" uid="uid://mrpvw15gjya0" path="res://scripts/player.gd" id="2_kooth"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bhirdiomdmyiq" path="res://scripts/interact_ray.gd" id="4_fmml5"]
 [ext_resource type="PackedScene" uid="uid://lho0typtmcug" path="res://scenes/weapons/smg.tscn" id="4_h17s1"]
 [ext_resource type="PackedScene" uid="uid://c8ubmcas7d8y3" path="res://scenes/weapons/revolver.tscn" id="5_je7p5"]
+[ext_resource type="PackedScene" uid="uid://bgre8edfwhmng" path="res://scenes/player/blood_orb_v_2.tscn" id="6_je7p5"]
 [ext_resource type="PackedScene" uid="uid://dxe23bdwnwnwo" path="res://components/player weapon/player_weapon_component.tscn" id="8_3qd2d"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="8_38bwj"]
 [ext_resource type="PackedScene" uid="uid://b8hevdfqxmd4g" path="res://scenes/gui/pause_menu.tscn" id="8_baet5"]
@@ -65,11 +66,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00865442, 0.123618, 0.1190
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.324713, -0.334745, -0.652972)
 
 [node name="model" parent="Head/firstperson_camera/view_model/view_model_camera/fps_rig/smg" index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 layers = 1
 
 [node name="revolver" parent="Head/firstperson_camera/view_model/view_model_camera/fps_rig" instance=ExtResource("5_je7p5")]
 transform = Transform3D(-0.035, 0, -3.0598e-09, 0, 0.035, 0, 3.0598e-09, 0, -0.035, 0.31706, -0.209242, -0.738901)
+
+[node name="blood_orb_v2" parent="Head/firstperson_camera/view_model/view_model_camera" instance=ExtResource("6_je7p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01929, 0.377695, -1.27483)
 
 [node name="gui_layer" parent="." instance=ExtResource("4_cds5j")]
 
@@ -87,4 +90,5 @@ visible = false
 
 [editable path="Head/firstperson_camera/view_model/view_model_camera/fps_rig/smg"]
 [editable path="Head/firstperson_camera/view_model/view_model_camera/fps_rig/smg/muzzle_flash"]
+[editable path="Head/firstperson_camera/view_model/view_model_camera/blood_orb_v2"]
 [editable path="gui_layer"]
