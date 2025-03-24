@@ -95,14 +95,17 @@ void fragment() {
 
 	// Calculate fill height in view space (accounts for camera tilt)
     float fill_height = mix(-orb_radius, orb_radius, fill_amount);
-    
+    VIEW_MATRIX;
     // View-space up direction (positive Y in view space)
     vec3 view_up = vec3(0.0, 1.0, 0.0);
     
     // Discard fragments above the fill line (in view space)
-    if (dot(view_pos, view_up) > fill_height) {
-        discard;
-    }
+    //if (dot(view_pos, view_up) > fill_height) {
+        //discard;
+    //}
+	if (VERTEX.y > fill_height) {
+		discard;
+	}
 }"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_knavn"]
