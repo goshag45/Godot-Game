@@ -3,6 +3,7 @@ extends Camera3D
 @export var pixel_margin_x : int = 100  # pixels from left
 @export var pixel_margin_y : int = 100  # pixels from top
 @export var distance : float = 2.0  # meters from camera
+@export var orb_scale : float = 0.5
 @onready var orb = $blood_orb_v2
 
 func _process(_delta):
@@ -19,4 +20,4 @@ func _process(_delta):
 	orb.global_position = project_position(viewport_pos, distance)
 	
 	# Simple fixed scale (adjust multiplier as needed)
-	orb.scale = Vector3.ONE * distance * 0.2
+	orb.scale = Vector3.ONE * distance * orb_scale
