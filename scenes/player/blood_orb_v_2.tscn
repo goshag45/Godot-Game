@@ -16,7 +16,6 @@ material = SubResource("ShaderMaterial_2d832")
 
 [sub_resource type="Shader" id="Shader_onv47"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.4.stable's StandardMaterial3D.
-
 shader_type spatial;
 render_mode blend_mix, depth_draw_always, cull_back, diffuse_burley, specular_schlick_ggx;
 
@@ -50,20 +49,14 @@ uniform vec3 uv2_offset;
 
 // Uniforms
 uniform float fill_amount : hint_range(0.0, 1.0) = 0.5; // 0=empty, 1=full
-uniform float orb_radius = 1.0;
-uniform vec4 blood_color : source_color = vec4(0.8, 0.1, 0.1, 1.0);
-uniform bool use_gravity = true;
-
+uniform float orb_radius = 0.48;
 // Varyings
-varying vec3 vertex_world_pos; // Position in view/camera space
 varying vec3 vertex_model_pos;
 
 
 void vertex() {
 	UV = UV * uv1_scale.xy + uv1_offset.xy;
-	// Calculate world position correctly
-    vertex_world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
-    // Pass through original vertex position
+
     vertex_model_pos = VERTEX;
 }
 
@@ -99,23 +92,12 @@ void fragment() {
 	ALPHA = 1.0;
 
 
-	float fill_height = mix(-orb_radius, orb_radius, fill_amount);
-	if (use_gravity) {
-	    // Get orb's base position in world space (bottom of the orb)
-	    vec3 orb_base_world = (MODEL_MATRIX * vec4(0.0, -orb_radius, 0.0, 1.0)).xyz;
-	    
-	    // Calculate fill height in world space
-	    float world_fill_height = orb_base_world.y + fill_amount * 2.0 * orb_radius;
-	    
-	    // Discard fragments above this world-space height
-	    if (vertex_world_pos.y > world_fill_height) {
-	        discard;
-	    }
-	} else {
-	    if (vertex_model_pos.y > fill_height) {
-	        discard;
-	    }
-	}
+	// 1. Calculate fill height (-radius at bottom, +radius at top)
+    float fill_height = mix(-orb_radius, orb_radius, fill_amount);
+    // 2. Discard anything above fill line
+    if (vertex_model_pos.y > fill_height) {
+        discard;
+    }
 }"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_knavn"]
@@ -135,10 +117,8 @@ shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/fill_amount = 0.443
+shader_parameter/fill_amount = 0.487
 shader_parameter/orb_radius = 1.0
-shader_parameter/blood_color = Color(0.8, 0.1, 0.1, 1)
-shader_parameter/use_gravity = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_2d832"]
 material = SubResource("ShaderMaterial_knavn")
