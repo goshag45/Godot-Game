@@ -17,6 +17,9 @@ script = ExtResource("1_ixeuw")
 [node name="smg" parent="view_model_camera/fps_rig" instance=ExtResource("3_xam3p")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.324713, -0.334745, -0.652972)
 
+[node name="model" parent="view_model_camera/fps_rig/smg" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
 [node name="revolver" parent="view_model_camera/fps_rig" instance=ExtResource("2_h0nb8")]
 transform = Transform3D(-0.035, 0, -3.0598e-09, 0, 0.035, 0, 3.0598e-09, 0, -0.035, 0.31706, -0.209242, -0.738901)
 
