@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://bjicamkrn6qce"]
+[gd_scene load_steps=52 format=4 uid="uid://bjicamkrn6qce"]
 
 [ext_resource type="Script" uid="uid://bkec41hommmd0" path="res://scenes/level 2/level_2.gd" id="1_05f8v"]
 [ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="2_4asmd"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bemr1hg184ot3" path="res://components/dialogue/dialogue_component.tscn" id="9_1hhpv"]
 [ext_resource type="Shader" uid="uid://c7rushii784b4" path="res://scenes/level 2/level_2_sky.gdshader" id="11_j3kbo"]
 [ext_resource type="Texture2D" uid="uid://bqj6uxmgpc8m8" path="res://art/visual/textures/sun.png" id="12_1hhpv"]
+[ext_resource type="Texture2D" uid="uid://010tocmlpv7d" path="res://art/visual/gore_ball/gore_texture.png" id="12_mmjq2"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4asmd"]
 vertices = PackedVector3Array(46.5, 0.5, 40.75, 45.75, 0.5, 41.5, 47.25, 0.5, 41.5, 50, 0.5, 44.25, 49.75, 0.5, 46, 50.75, 0.5, 45.25, 49.5, 0.5, 43.25, 42, 0.5, 46, 42, 0.5, 45.25, 40.75, 0.5, 45.5, 46.5, 0.5, 40, 49.5, 0.5, -49.5, 49.5, 0.5, 49.5, 49.5, 0.5, 46.25, 46.5, 0.5, 49.25, 45.25, 0.5, 49.25, -49.5, 0.5, 49.5, 40.25, 0.75, 44.25, 45, 0.75, 39.25, -49.5, 0.5, -49.5, 41.2, 1, 43.25, 44.05, 1, 40.25, 43.0203, 0.5, 38.4865, 41.5, 1, 44.25, 45.25, 1, 40.5, 40.25, 0.5, 45, 45.75, 0.5, 39.25, 43.5, 6.25, 46, 44.5, 6, 46.75, 47.25, 6, 44, 46.5, 6.25, 43, 46.25, 0.5, 43.5, 44, 0.5, 45.75, 45.5, 0.5, 47.5, 46, 0.5, 47.5, 48, 0.5, 45.5, 48, 0.5, 45, 45.25, 5.5, 47.25, 45.25, 5.5, 47.75, 46, 5.5, 48, 49, 5.5, 45, 48.25, 5.5, 44.25)
@@ -147,6 +148,141 @@ size = Vector3(20, 14, 2)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mmjq2"]
 data = PackedVector3Array(-38, 7, 1, 10, -7, 1, -10, -7, 1, -38, 7, -1, -10, -7, -1, 10, -7, -1, -38, 7, 1, -38, 7, -1, 10, -7, 1, -38, 7, -1, 10, -7, -1, 10, -7, 1, -38, 7, -1, -38, 7, 1, -10, -7, -1, -38, 7, 1, -10, -7, 1, -10, -7, -1, -10, -7, 1, 10, -7, 1, -10, -7, -1, 10, -7, 1, 10, -7, -1, -10, -7, -1)
+
+[sub_resource type="Shader" id="Shader_mmjq2"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_emission : source_color, hint_default_black, filter_linear_mipmap, repeat_enable;
+uniform vec4 emission : source_color;
+uniform float emission_energy : hint_range(0.0, 100.0, 0.01);
+varying vec3 uv1_triplanar_pos;
+
+uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
+varying vec3 uv1_power_normal;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+uniform float speed: hint_range(0.05, 0.5) = 0.1;
+uniform float strength : hint_range(0.05, 0.5) = 0.1;
+uniform sampler2D noise;
+varying vec3 v_normal; // Pass normal to the fragment shader
+
+void vertex() {
+	vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
+	v_normal = normal; // Store normal for fragment shader
+	
+	// Calculate animated noise
+	vec2 noise_uv = VERTEX.xz * 0.5 + TIME * speed;
+	float noise_value = texture(noise, noise_uv).r * 2.0 - 1.0;
+
+	// Apply displacement along normal
+	VERTEX += normal * noise_value * strength;
+
+	// Triplanar Mapping
+	TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
+	TANGENT = inverse(MODEL_NORMAL_MATRIX) * normalize(TANGENT);
+
+	BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
+	BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
+	BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
+	BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
+
+	uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
+	uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset;
+	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
+	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+}
+
+
+vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+	vec4 samp = vec4(0.0);
+	samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+	samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+	samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+	return samp;
+}
+
+void fragment() {
+	// Generate animated noise-based UV distortion
+	vec2 noise_uv = uv1_triplanar_pos.xz * 0.5 + TIME * speed * 0.5;
+	float noise_value = texture(noise, noise_uv).r * 2.0 - 1.0;
+
+	// Apply distortion to the triplanar position using the passed normal
+	vec3 distorted_triplanar_pos = uv1_triplanar_pos + v_normal * noise_value * strength * 0.5;
+
+	// Sample albedo with distorted coordinates
+	vec4 albedo_tex = triplanar_texture(texture_albedo, uv1_power_normal, distorted_triplanar_pos);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	// Sample metallic texture
+	float metallic_tex = dot(triplanar_texture(texture_metallic, uv1_power_normal, distorted_triplanar_pos), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	// Sample roughness texture
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(triplanar_texture(texture_roughness, uv1_power_normal, distorted_triplanar_pos), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+
+	// Sample emission texture
+	vec3 emission_tex = triplanar_texture(texture_emission, uv1_power_normal, distorted_triplanar_pos).rgb;
+	EMISSION = (emission.rgb + emission_tex) * emission_energy;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_58l0g"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rch0k"]
+seamless = true
+noise = SubResource("FastNoiseLite_58l0g")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_58l0g"]
+render_priority = 0
+shader = SubResource("Shader_mmjq2")
+shader_parameter/albedo = Color(0.949438, 0, 0.182166, 1)
+shader_parameter/texture_albedo = ExtResource("12_mmjq2")
+shader_parameter/albedo_texture_size = Vector2i(189, 200)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.61
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.3
+shader_parameter/metallic = 0.6
+shader_parameter/emission = Color(0.85181, 0.0408702, 1.92523e-07, 1)
+shader_parameter/emission_energy = 0.1
+shader_parameter/uv1_blend_sharpness = 3.13834
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/speed = 0.27
+shader_parameter/strength = 0.13
+shader_parameter/noise = SubResource("NoiseTexture2D_rch0k")
+
+[sub_resource type="TorusMesh" id="TorusMesh_mmjq2"]
+material = SubResource("ShaderMaterial_58l0g")
+inner_radius = 10.0
+outer_radius = 8.0
 
 [sub_resource type="Curve" id="Curve_j3kbo"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.194647, 0.987873), 0.0, 0.0, 0, 0, Vector2(1, 0.290578), 0.0, 0.0, 0, 0]
@@ -316,6 +452,10 @@ mesh = SubResource("PrismMesh_m17jp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/arch/ramp/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mmjq2")
+
+[node name="da aura" type="MeshInstance3D" parent="terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.9737, -14.6331)
+mesh = SubResource("TorusMesh_mmjq2")
 
 [node name="skybox_homebrew" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mmjq2")
