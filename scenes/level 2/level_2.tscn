@@ -468,6 +468,17 @@ script = ExtResource("1_05f8v")
 
 [node name="terrain" type="Node3D" parent="."]
 
+[node name="SPOTLIGHT" type="SpotLight3D" parent="terrain"]
+transform = Transform3D(0.73038, -0.105594, -0.67483, 0.006236, -0.986906, 0.161175, -0.683013, -0.121927, -0.720158, -19.655, 8.12772, -49.0838)
+light_color = Color(1, 0.540786, 0.303855, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+shadow_enabled = true
+spot_range = 47.7538
+spot_attenuation = -0.02
+spot_angle = 64.6875
+spot_angle_attenuation = 0.784584
+
 [node name="spawn_location_1" type="Node3D" parent="terrain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78523, 2.52409)
 
@@ -481,6 +492,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_pss02")
 
 [node name="surface_mesh" type="MeshInstance3D" parent="terrain/enemy_traverse_region/surface"]
+gi_mode = 2
 mesh = SubResource("PlaneMesh_05f8v")
 surface_material_override/0 = ExtResource("2_cqqfn")
 
@@ -620,12 +632,3 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 light_color = Color(0.406761, 0.57886, 1, 1)
 light_energy = 2.0
 shadow_enabled = true
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 11.3718, 15.0006, -20.5727)
-light_energy = 10.0
-light_indirect_energy = 10.0
-shadow_enabled = true
-spot_range = 20.0
-spot_attenuation = 4.0
-spot_angle_attenuation = 0.784584
