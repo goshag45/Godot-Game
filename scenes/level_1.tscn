@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cntcml45idub5"]
+[gd_scene load_steps=47 format=3 uid="uid://cntcml45idub5"]
 
 [ext_resource type="Texture2D" uid="uid://dobrrs1k5q6rn" path="res://art/visual/textures/skybleak.jpg" id="1_6aing"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="1_ar1ye"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://ctpufg7bblye0" path="res://scenes/npc/thedavy.tscn" id="10_0nhif"]
 [ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="11_bicek"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="12_vqqr7"]
+[ext_resource type="Shader" uid="uid://c7rushii784b4" path="res://scenes/level 2/level_2_sky.gdshader" id="13_2aecg"]
+[ext_resource type="Texture2D" uid="uid://bqj6uxmgpc8m8" path="res://art/visual/textures/sun.png" id="14_6dial"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_iehip"]
 height = 0.1
@@ -168,6 +170,66 @@ size = Vector3(0.1, 2, 29.3297)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vp178"]
 size = Vector3(0.463745, 1, 0.470093)
+
+[sub_resource type="Curve" id="Curve_7nomh"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.194647, 0.987873), 0.0, 0.0, 0, 0, Vector2(1, 0.290578), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_1hhpv"]
+curve = SubResource("Curve_7nomh")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1s4pk"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_m17jp"]
+seamless = true
+noise = SubResource("FastNoiseLite_1s4pk")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x2xxo"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ejhwt"]
+seamless = true
+noise = SubResource("FastNoiseLite_x2xxo")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2cbcq"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_58l0g"]
+seamless = true
+noise = SubResource("FastNoiseLite_2cbcq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_isj1j"]
+shader = ExtResource("13_2aecg")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_ejhwt")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_m17jp")
+shader_parameter/cloud_curves = SubResource("CurveTexture_1hhpv")
+shader_parameter/clouds_samples = 16
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.4
+shader_parameter/clouds_scale = 0.6
+shader_parameter/clouds_smoothness = 0.1
+shader_parameter/clouds_light_color = Color(0.60933, 0.60933, 0.60933, 1)
+shader_parameter/clouds_shadow_intensity = 10.0
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_58l0g")
+shader_parameter/high_clouds_density = 0.2
+shader_parameter/top_color = Color(0.0596972, 0.0342307, 0.292015, 1)
+shader_parameter/bottom_color = Color(0.198958, 0.144555, 0.703138, 1)
+shader_parameter/sun_scatter = Color(0.163997, 0.128157, 0.386782, 1)
+shader_parameter/astro_tint = Color(0.99558, 0.99558, 0.99558, 1)
+shader_parameter/astro_sampler = ExtResource("14_6dial")
+shader_parameter/astro_scale = 9.0
+shader_parameter/astro_intensity = 2.0
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 0.0
+shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_m17jp"]
+sky_material = SubResource("ShaderMaterial_isj1j")
+
+[sub_resource type="Environment" id="Environment_so66j"]
+background_mode = 2
+background_energy_multiplier = 1.5
+sky = SubResource("Sky_m17jp")
+glow_normalized = true
 
 [node name="Level 1" type="Node3D"]
 script = ExtResource("1_oatpt")
@@ -389,3 +451,13 @@ transform = Transform3D(-1.26187, 0, -3.79575, 0, 4, 0, 3.79575, 0, -1.26187, 12
 [node name="monitor" type="CollisionShape3D" parent="world/computa"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00189131, 0, -0.0012846)
 shape = SubResource("BoxShape3D_vp178")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="world"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.20625, 4.64859, 11.3132)
+shadow_enabled = true
+spot_range = 119.073
+spot_attenuation = -0.72
+spot_angle_attenuation = 1.07177
+
+[node name="skybox_homebrew" type="WorldEnvironment" parent="world"]
+environment = SubResource("Environment_so66j")
