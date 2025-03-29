@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c7puqvmf71km3" path="res://scripts/blood_orb_v_2.gd" id="1_onv47"]
 [ext_resource type="Shader" uid="uid://bfk6ipstl3ogh" path="res://scenes/player/glass_ball.gdshader" id="2_onv47"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2d832"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onv47"]
 render_priority = 0
 shader = ExtResource("2_onv47")
 shader_parameter/albedo = Color(1, 1, 1, 0)
@@ -12,7 +12,7 @@ shader_parameter/normal_strength = 1.0
 shader_parameter/edge_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_knavn"]
-material = SubResource("ShaderMaterial_2d832")
+material = SubResource("ShaderMaterial_onv47")
 
 [sub_resource type="Shader" id="Shader_onv47"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.4.stable's StandardMaterial3D.

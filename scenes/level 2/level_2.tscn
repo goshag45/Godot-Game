@@ -468,17 +468,6 @@ script = ExtResource("1_05f8v")
 
 [node name="terrain" type="Node3D" parent="."]
 
-[node name="SPOTLIGHT" type="SpotLight3D" parent="terrain"]
-transform = Transform3D(0.73038, -0.105594, -0.67483, 0.006236, -0.986906, 0.161175, -0.683013, -0.121927, -0.720158, -19.655, 8.12772, -49.0838)
-light_color = Color(1, 0.540786, 0.303855, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-shadow_enabled = true
-spot_range = 47.7538
-spot_attenuation = -0.02
-spot_angle = 64.6875
-spot_angle_attenuation = 0.784584
-
 [node name="spawn_location_1" type="Node3D" parent="terrain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78523, 2.52409)
 
@@ -623,6 +612,20 @@ mesh = SubResource("TorusMesh_mmjq2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/da aura/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_pbxj0")
+
+[node name="spotlight" type="Node3D" parent="terrain"]
+transform = Transform3D(-4.37114e-08, 1, 0, -0.866025, -3.78552e-08, -0.5, -0.5, -2.18557e-08, 0.866025, 31.268, 7.48682, -1.60844)
+
+[node name="light" type="SpotLight3D" parent="terrain/spotlight"]
+transform = Transform3D(-0.5, -6.55671e-08, -0.866025, -6.55671e-08, 1, -3.78552e-08, 0.866025, 3.78552e-08, -0.5, 0, 0, 0)
+light_color = Color(1, 0.540786, 0.303855, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+shadow_enabled = true
+spot_range = 47.7538
+spot_attenuation = -0.02
+spot_angle = 64.6875
+spot_angle_attenuation = 0.784584
 
 [node name="skybox_homebrew" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mmjq2")
