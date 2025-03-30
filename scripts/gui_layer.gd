@@ -25,7 +25,7 @@ func update_ammo_counter():
 
 @export var action_scale : Vector2 = Vector2(1,1)
 @export var target : Control
-@export var seconds : float = 0.5
+@export var seconds : float = 0.01
 @export var properties : Array = [
 	"scale",
 	"position",
@@ -38,5 +38,5 @@ func update_points_counter():
 	points_counter.text = "points: " + str(player.kill_count)
 	target.pivot_offset = target.size / 2
 	var tween = get_tree().create_tween()
-	for property in properties:
-		tween.tween_property(target, "scale", action_scale, seconds).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	tween.tween_property(target, "scale", action_scale, seconds) #.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	tween.tween_property(target, "scale", Vector2(1,1), seconds)

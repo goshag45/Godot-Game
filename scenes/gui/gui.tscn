@@ -29,9 +29,9 @@ shadow_color = Color(0.818553, 0.00033576, 0.773253, 0.65098)
 
 [node name="gui" type="CanvasLayer" node_paths=PackedStringArray("target")]
 script = ExtResource("1_hxwnm")
-action_scale = Vector2(50, 50)
+action_scale = Vector2(2, 2)
 target = NodePath("in_game_gui/points")
-seconds = 1.0
+seconds = 0.1
 
 [node name="in_game_gui" type="Control" parent="."]
 process_mode = 1
