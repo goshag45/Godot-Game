@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bemr1hg184ot3"]
 
-[ext_resource type="Script" uid="uid://bjqwnjton53ma" path="res://components/dialogue/dialogue_component.gd" id="1_0p32x"]
+[ext_resource type="Script" uid="uid://bjqwnjton53ma" path="res://components/GUI/dialogue/dialogue_component.gd" id="1_0p32x"]
 [ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="1_xcsgo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m5pek"]

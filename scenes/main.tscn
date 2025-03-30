@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6g7wmroe83hu" path="res://scripts/world.gd" id="1_cgmu7"]
 [ext_resource type="AudioStream" uid="uid://cvpjxgsbylkcu" path="res://audio/unatco_conversation.mp3" id="3_sugp2"]
-[ext_resource type="PackedScene" uid="uid://n4j1ug0lm3xm" path="res://components/start_menu/start_menu.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://n4j1ug0lm3xm" path="res://components/GUI/start_menu/start_menu.tscn" id="5_tbgi4"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_cgmu7")

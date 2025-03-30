@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dsyohgrfl3bfn" path="res://scenes/interactable_button_1.tscn" id="7_ldgy1"]
 [ext_resource type="PackedScene" uid="uid://deeo20ak7dxee" path="res://scenes/chain_fence.tscn" id="8_jss31"]
 [ext_resource type="Script" uid="uid://nymyub5bhm5k" path="res://scripts/deathbox.gd" id="9_kcvus"]
-[ext_resource type="PackedScene" uid="uid://bemr1hg184ot3" path="res://components/dialogue/dialogue_component.tscn" id="9_vytkr"]
+[ext_resource type="PackedScene" uid="uid://bemr1hg184ot3" path="res://components/GUI/dialogue/dialogue_component.tscn" id="9_vytkr"]
 [ext_resource type="PackedScene" uid="uid://ctpufg7bblye0" path="res://scenes/npc/thedavy.tscn" id="10_0nhif"]
 [ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="11_bicek"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="12_vqqr7"]

@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://buxq70kdcrew1" path="res://art/visual/models/industrial exterior/Industrial_exterior_v2_Liquid_reservoir_1.png" id="7_76ow5"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="8_j3kbo"]
 [ext_resource type="PackedScene" uid="uid://dsyohgrfl3bfn" path="res://scenes/interactable_button_1.tscn" id="8_pxin0"]
-[ext_resource type="PackedScene" uid="uid://bemr1hg184ot3" path="res://components/dialogue/dialogue_component.tscn" id="9_1hhpv"]
+[ext_resource type="PackedScene" uid="uid://bemr1hg184ot3" path="res://components/GUI/dialogue/dialogue_component.tscn" id="9_1hhpv"]
 [ext_resource type="Texture2D" uid="uid://whp1kaf06n30" path="res://art/visual/models/industrial exterior/Industrial_exterior_v2_Liquid_reservoir_2.png" id="10_rch0k"]
 [ext_resource type="Texture2D" uid="uid://bno80s8jkpt0i" path="res://art/visual/textures/sketchy mats/Brick/Horror_Brick_13-128x128.png" id="11_ccmbp"]
 [ext_resource type="Shader" uid="uid://c7rushii784b4" path="res://scenes/level 2/level_2_sky.gdshader" id="11_j3kbo"]
@@ -606,6 +606,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.63964, 0, 0)
 
 [node name="da aura" type="MeshInstance3D" parent="terrain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.17968, 16.4636, -18.7025)
+visible = false
 mesh = SubResource("TorusMesh_mmjq2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="terrain/da aura"]

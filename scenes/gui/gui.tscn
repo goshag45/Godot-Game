@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://k5r4dq5pg4cv"]
+[gd_scene load_steps=10 format=3 uid="uid://k5r4dq5pg4cv"]
 
 [ext_resource type="Script" uid="uid://bga3fk6y4w3to" path="res://scripts/gui_layer.gd" id="1_hxwnm"]
 [ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="2_u8e3c"]
 [ext_resource type="Texture2D" uid="uid://csmo00k5jd641" path="res://art/visual/textures/crosshair001.png" id="3_ncp0m"]
+[ext_resource type="Script" uid="uid://bv4lcd78k8dtp" path="res://scenes/gui/points.gd" id="4_l6o8f"]
+[ext_resource type="Script" uid="uid://ck6hdrqglkeqs" path="res://components/GUI/gui animation component/gui_animation_component.gd" id="4_lrwm8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3xtde"]
 font = ExtResource("2_u8e3c")
@@ -25,8 +27,11 @@ font_size = 32
 font_color = Color(0.747625, 0.631634, 5.77569e-07, 1)
 shadow_color = Color(0.818553, 0.00033576, 0.773253, 0.65098)
 
-[node name="gui" type="CanvasLayer"]
+[node name="gui" type="CanvasLayer" node_paths=PackedStringArray("target")]
 script = ExtResource("1_hxwnm")
+action_scale = Vector2(50, 50)
+target = NodePath("in_game_gui/points")
+seconds = 1.0
 
 [node name="in_game_gui" type="Control" parent="."]
 process_mode = 1
@@ -82,7 +87,6 @@ stretch_mode = 3
 
 [node name="interactable_message" type="Label" parent="in_game_gui"]
 process_mode = 1
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.306
@@ -107,5 +111,12 @@ anchor_right = 1.0
 offset_left = -154.0
 offset_bottom = 49.0
 grow_horizontal = 0
-text = "points: "
+text = "points: 0"
 label_settings = SubResource("LabelSettings_0jpgx")
+script = ExtResource("4_l6o8f")
+
+[node name="GuiAnimationComponent" type="Node" parent="in_game_gui/points"]
+script = ExtResource("4_lrwm8")
+action_time = 0.5
+action_scale = Vector2(2, 2)
+metadata/_custom_type_script = "uid://ck6hdrqglkeqs"

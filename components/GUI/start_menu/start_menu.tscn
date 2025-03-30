@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://n4j1ug0lm3xm"]
 
 [ext_resource type="Theme" uid="uid://cjxmnb0h8hje7" path="res://art/visual/theme1.tres" id="1_6ts8v"]
-[ext_resource type="Script" uid="uid://crb783cgp4j4v" path="res://components/start_menu/start_menu.gd" id="1_s3lks"]
+[ext_resource type="Script" uid="uid://crb783cgp4j4v" path="res://components/GUI/start_menu/start_menu.gd" id="1_s3lks"]
 [ext_resource type="Texture2D" uid="uid://ckrjy0fnwsg6r" path="res://art/screencap.png" id="3_alcev"]
-[ext_resource type="Script" uid="uid://bfuapyqlidunn" path="res://components/hover sound component/hover_sound.gd" id="3_h36j1"]
+[ext_resource type="Script" uid="uid://bfuapyqlidunn" path="res://components/GUI/hover sound component/hover_sound.gd" id="3_h36j1"]
 [ext_resource type="AudioStream" uid="uid://dabcsogrgdblr" path="res://audio/blood_squelch.mp3" id="5_rsujc"]
 
 [node name="start_menu" type="Control"]
