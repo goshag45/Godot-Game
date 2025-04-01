@@ -55,9 +55,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
 [node name="gui_layer" parent="." instance=ExtResource("4_cds5j")]
 
-[node name="interactable_message" parent="gui_layer/in_game_gui" index="3"]
-visible = true
-
 [node name="pause_menu" parent="." instance=ExtResource("8_baet5")]
 visible = false
 

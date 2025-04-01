@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://lho0typtmcug"]
+[gd_scene load_steps=15 format=4 uid="uid://lho0typtmcug"]
 
 [ext_resource type="Script" uid="uid://8duot2gtwlpp" path="res://scripts/smg.gd" id="1_2iled"]
 [ext_resource type="Texture2D" uid="uid://5ne5hrmmlqg6" path="res://art/visual/models/weapons/smg/luty_low_poly_ps1_0.png" id="2_ixb5l"]
@@ -42,6 +42,14 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8wilt")
+
+[sub_resource type="GDScript" id="GDScript_8w7p4"]
+script/source = "extends Node3D
+
+@export var emit = false
+@onready var particle = $particle
+@onready var light = $light
+"
 
 [sub_resource type="Animation" id="Animation_eux8k"]
 length = 0.001
@@ -152,6 +160,7 @@ skeleton = NodePath("")
 
 [node name="muzzle_flash" parent="." instance=ExtResource("3_8npx7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.587589, -4.02537)
+script = SubResource("GDScript_8w7p4")
 
 [node name="light" parent="muzzle_flash" index="1"]
 visible = false

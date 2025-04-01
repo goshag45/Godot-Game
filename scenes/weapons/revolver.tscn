@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://c8ubmcas7d8y3"]
+[gd_scene load_steps=32 format=4 uid="uid://c8ubmcas7d8y3"]
 
 [ext_resource type="Script" uid="uid://b3qhdijqiw7pu" path="res://scripts/revolver.gd" id="1_tbasm"]
 [ext_resource type="Texture2D" uid="uid://dl2i8h0qctm5i" path="res://art/visual/models/weapons/revolver/ps1_style_revolver_0.png" id="1_xwbb7"]
@@ -343,6 +343,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lctaq")
 
+[sub_resource type="GDScript" id="GDScript_8w7p4"]
+script/source = "extends Node3D
+
+@export var emit = false
+@onready var particle = $particle
+@onready var light = $light
+"
+
 [sub_resource type="Animation" id="Animation_ngj3n"]
 length = 0.001
 tracks/0/type = "value"
@@ -569,6 +577,7 @@ skeleton = NodePath("")
 
 [node name="muzzle_flash" parent="." instance=ExtResource("3_bjt34")]
 transform = Transform3D(5, 0, -1.7053e-13, 0, 5, 0, 1.7053e-13, 0, 5, -1.05299e-06, 1.94052, 7.97013)
+script = SubResource("GDScript_8w7p4")
 
 [node name="light" parent="muzzle_flash" index="1"]
 visible = false

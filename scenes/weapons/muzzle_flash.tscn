@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbff2rt6j18q4"]
+[gd_scene load_steps=11 format=3 uid="uid://bbff2rt6j18q4"]
 
-[ext_resource type="Script" uid="uid://dkpcbe7g8e7g5" path="res://scenes/weapons/muzzle_flash.gd" id="1_iepi1"]
 [ext_resource type="Texture2D" uid="uid://b8n5vabkjilqo" path="res://art/visual/textures/muzzle_06.png" id="1_ro1ea"]
 
 [sub_resource type="Gradient" id="Gradient_3jxdu"]
@@ -55,7 +54,6 @@ proximity_fade_distance = 0.1
 material = SubResource("StandardMaterial3D_23vpa")
 
 [node name="muzzle_flash" type="Node3D"]
-script = ExtResource("1_iepi1")
 
 [node name="particle" type="GPUParticles3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)

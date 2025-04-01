@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bivh5hg55epm3"]
+[gd_scene load_steps=6 format=3 uid="uid://bivh5hg55epm3"]
 
 [ext_resource type="Script" uid="uid://c5clsxff672jh" path="res://scenes/player/view_model_camera.gd" id="1_ixeuw"]
 [ext_resource type="PackedScene" uid="uid://c8ubmcas7d8y3" path="res://scenes/weapons/revolver.tscn" id="2_h0nb8"]
 [ext_resource type="PackedScene" uid="uid://lho0typtmcug" path="res://scenes/weapons/smg.tscn" id="3_xam3p"]
 [ext_resource type="PackedScene" uid="uid://bgre8edfwhmng" path="res://scenes/player/blood_orb_v_2.tscn" id="4_8w7p4"]
+
+[sub_resource type="GDScript" id="GDScript_8w7p4"]
+script/source = "extends Node3D
+
+@export var emit = false
+@onready var particle = $particle
+@onready var light = $light
+"
 
 [node name="view_model" type="Node3D"]
 
@@ -17,8 +25,8 @@ script = ExtResource("1_ixeuw")
 [node name="smg" parent="view_model_camera/fps_rig" instance=ExtResource("3_xam3p")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.324713, -0.334745, -0.652972)
 
-[node name="model" parent="view_model_camera/fps_rig/smg" index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+[node name="muzzle_flash" parent="view_model_camera/fps_rig/smg" index="1"]
+script = SubResource("GDScript_8w7p4")
 
 [node name="revolver" parent="view_model_camera/fps_rig" instance=ExtResource("2_h0nb8")]
 transform = Transform3D(-0.035, 0, -3.0598e-09, 0, 0.035, 0, 3.0598e-09, 0, -0.035, 0.31706, -0.209242, -0.738901)
