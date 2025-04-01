@@ -28,6 +28,7 @@ func _process(_delta: float) -> void:
 
 	var weapon_animation = current_weapon.get_child(2)
 	if Input.is_action_just_pressed("reload"):
+		weapon_animation.stop()
 		weapon_animation.play("reload")
 		current_weapon.get_node("hitscan_weapon_component")._reload()
 
