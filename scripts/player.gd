@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 # VARIABLES
 @export_category("Player Stats")
-@export var sensitivity_input = 1.7 # CANT GO TO 2 OR HIGHER FOR SOME REASON????
+@export var sensitivity_input = 0.8 # CANT GO TO 2 OR HIGHER FOR SOME REASON????
 #weird calc - stupid
 var SENSITIVITY = sensitivity_input/1000
 @export var walk_speed = 5.0
