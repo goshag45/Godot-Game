@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=4 uid="uid://lho0typtmcug"]
 
-[ext_resource type="Script" uid="uid://8duot2gtwlpp" path="res://scripts/smg.gd" id="1_2iled"]
+[ext_resource type="Script" uid="uid://8duot2gtwlpp" path="res://scenes/weapons/smg.gd" id="1_2iled"]
 [ext_resource type="Texture2D" uid="uid://5ne5hrmmlqg6" path="res://art/visual/models/weapons/smg/luty_low_poly_ps1_0.png" id="2_ixb5l"]
 [ext_resource type="PackedScene" uid="uid://bbff2rt6j18q4" path="res://scenes/weapons/muzzle_flash.tscn" id="3_8npx7"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="4_mmgfe"]

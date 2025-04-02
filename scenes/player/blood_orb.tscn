@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmfjb6nrctan5"]
 
-[ext_resource type="Script" uid="uid://bjnns88te1hgt" path="res://scripts/blood_orb.gd" id="1_jby5f"]
+[ext_resource type="Script" uid="uid://bjnns88te1hgt" path="res://scenes/player/blood_orb.gd" id="1_jby5f"]
 [ext_resource type="Shader" uid="uid://bfk6ipstl3ogh" path="res://scenes/player/glass_ball.gdshader" id="2_lt1ey"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lt1ey"]

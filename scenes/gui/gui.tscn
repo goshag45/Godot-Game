@@ -8,7 +8,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_3xtde"]
 font = ExtResource("2_u8e3c")
-font_size = 44
+font_size = 60
 font_color = Color(0.904786, 0, 0.0445938, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lkoow"]
@@ -17,13 +17,13 @@ font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_kfao7"]
 font = ExtResource("2_u8e3c")
-font_size = 26
+font_size = 40
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0jpgx"]
 font = ExtResource("2_u8e3c")
-font_size = 32
+font_size = 60
 font_color = Color(0.747625, 0.631634, 5.77569e-07, 1)
 shadow_color = Color(0.818553, 0.00033576, 0.773253, 0.65098)
 
@@ -108,8 +108,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -154.0
-offset_bottom = 49.0
+offset_left = -345.0
+offset_top = 45.0
+offset_right = -66.0
+offset_bottom = 106.25
 grow_horizontal = 0
 text = "points: 0"
 label_settings = SubResource("LabelSettings_0jpgx")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bgre8edfwhmng"]
 
-[ext_resource type="Script" uid="uid://c7puqvmf71km3" path="res://scripts/blood_orb_v_2.gd" id="1_onv47"]
+[ext_resource type="Script" uid="uid://c7puqvmf71km3" path="res://scenes/player/blood_orb_v_2.gd" id="1_onv47"]
 [ext_resource type="Shader" uid="uid://bfk6ipstl3ogh" path="res://scenes/player/glass_ball.gdshader" id="2_onv47"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_onv47"]
@@ -117,7 +117,7 @@ shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/fill_amount = 0.487
+shader_parameter/fill_amount = 0.556
 shader_parameter/orb_radius = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_2d832"]
