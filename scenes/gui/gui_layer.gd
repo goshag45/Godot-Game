@@ -21,8 +21,7 @@ func _process(_delta: float) -> void:
 func update_ammo_counter():
 	ammo_counter.text = str(player.get_node("player_weapon_component").current_weapon.get_node("hitscan_weapon_component").magazine)
 
-
-
+# tweening
 @export var action_scale : Vector2 = Vector2(1,1)
 @export var target : Control
 @export var seconds : float = 0.01

@@ -5,7 +5,8 @@ extends CharacterBody3D
 @onready var audio_component = $audio_component
 @onready var dialogue_component = $dialogue_component
 
-signal talk()
+signal talk
+signal da_aura
 
 #Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,3 +26,4 @@ func interact():
 	audio_component._play_audio_sfx("icanseeyou", 10.0)
 	dialogue_component._show_dialogue("i can see you")
 	talk.emit()
+	da_aura.emit()

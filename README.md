@@ -9,7 +9,10 @@
  - ~~basic enemy ai~~ -> make them scary
  - item pick ups - roguelike?
  - more interesting terrain
- - hp bar and points
+ - hp bar and ~~points~~
+ - enemy damage to player
+ - interactable level changes by player
+ - fade in/fade out animation for the big circle object
 
 
 amazing skybox: https://www.youtube.com/watch?v=bR0v-yoZYZA
