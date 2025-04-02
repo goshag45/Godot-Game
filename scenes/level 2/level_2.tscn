@@ -636,4 +636,6 @@ light_color = Color(0.406761, 0.57886, 1, 1)
 light_energy = 2.0
 shadow_enabled = true
 
+[node name="audio_component" parent="." instance=ExtResource("8_j3kbo")]
+
 [connection signal="da_aura" from="terrain/thedavy" to="." method="_on_thedavy_da_aura"]

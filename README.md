@@ -5,7 +5,7 @@
  - ~~first person character~~
  - ~~movement tech, sprinting, jumping~~
  - ~~shooting~~ -> projectile weapon after
- - experiment with graphics
+ - experiment with graphics -> not sure if low res or high res
  - ~~basic enemy ai~~ -> make them scary
  - item pick ups - roguelike?
  - more interesting terrain

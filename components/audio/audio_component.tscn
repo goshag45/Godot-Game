@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://deb1g2jo3cojt" path="res://components/audio/audio_component.gd" id="1_3g22k"]
 
-[node name="AudioComponent" type="Node3D"]
+[node name="audio_component" type="Node3D"]
 script = ExtResource("1_3g22k")
