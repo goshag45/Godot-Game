@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ohbjhqce10qs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4url0"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_n6lr6"]
+material = SubResource("StandardMaterial3D_4url0")
+size = Vector2(0.1, 0.1)
+center_offset = Vector3(0, 0, 0.02)
+
+[node name="bullet_decal" type="Node3D"]
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = SubResource("QuadMesh_n6lr6")

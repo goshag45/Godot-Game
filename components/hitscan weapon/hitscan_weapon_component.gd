@@ -11,8 +11,11 @@ var shoot_sound
 var is_reloading = false
 
 var blood_splatter = preload("res://scenes/blood_splatter.tscn")
+var bullet_decal = preload("res://scenes/bullet_decal.tscn")
+var aim_ray: Node
 
 func _ready() -> void:
+	aim_ray = get_tree().get_nodes_in_group("aim_ray")[0]
 	magazine = weapon.magazine_capacity
 	magazine_capacity = weapon.magazine_capacity
 	damage = weapon.damage
@@ -30,6 +33,8 @@ func _shoot(target, hit_point):
 		if target != null && target.is_in_group("enemy"):
 			target.health -= damage
 			_emit_blood_splatter(hit_point)
+		elif target != null:
+			_draw_bullet_decals(hit_point)
 
 func _reload():
 	# you can spam the reload audio for now - not major issue
@@ -39,17 +44,19 @@ func _reload():
 
 func _emit_blood_splatter(hit_pos):
 	var blood_splatter_instance = blood_splatter.instantiate()
-
 	# Add to world
 	var world_node = get_tree().current_scene
 	world_node.add_child(blood_splatter_instance)
-	var player = get_tree().get_nodes_in_group("aim_ray")[0]
 	# Correct positioning
 	blood_splatter_instance.global_position = hit_pos
 	# Set blood splatter's rotation to face opposite the bullet's direction
-	blood_splatter_instance.look_at(player.global_position)
+	blood_splatter_instance.look_at(aim_ray.global_position)
 	# Enable emission
 	blood_splatter_instance.emitting = true
 
-func _draw_bullet_decals():
-	pass
+func _draw_bullet_decals(hit_pos):
+	var bullet_decal_instance = bullet_decal.instantiate()
+	var world_node = get_tree().current_scene
+	world_node.add_child(bullet_decal_instance)
+	bullet_decal_instance.global_position = hit_pos
+	bullet_decal_instance.look_at(aim_ray.get_collision_point() + aim_ray.get_collision_normal(), Vector3.UP)

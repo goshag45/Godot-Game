@@ -506,7 +506,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_1hhpv")
 
 [node name="warehouse" type="MeshInstance3D" parent="terrain/enemy_traverse_region"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.7857, -0.24443, -2.02396)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.786, 0, -2.024)
 mesh = SubResource("ArrayMesh_mmjq2")
 skeleton = NodePath("")
 

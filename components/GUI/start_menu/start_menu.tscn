@@ -47,7 +47,7 @@ theme = ExtResource("1_6ts8v")
 text = "play"
 script = ExtResource("3_h36j1")
 hover_sound = ExtResource("5_rsujc")
-volume_db = -10.0
+volume_db = -23.0
 
 [node name="options" type="Button" parent="button_container"]
 layout_mode = 2
@@ -55,7 +55,7 @@ theme = ExtResource("1_6ts8v")
 text = "options"
 script = ExtResource("3_h36j1")
 hover_sound = ExtResource("5_rsujc")
-volume_db = -10.0
+volume_db = -23.0
 
 [node name="exit" type="Button" parent="button_container"]
 layout_mode = 2
@@ -63,7 +63,7 @@ theme = ExtResource("1_6ts8v")
 text = "quit"
 script = ExtResource("3_h36j1")
 hover_sound = ExtResource("5_rsujc")
-volume_db = -10.0
+volume_db = -23.0
 
 [connection signal="pressed" from="button_container/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="button_container/options" to="." method="_on_options_pressed"]
