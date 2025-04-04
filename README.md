@@ -13,6 +13,7 @@
  - enemy damage to player
  - interactable level changes by player
  - fade in/fade out animation for the big circle object
+ - enemy idea because FUCK animating -> big cube, it moves by rotation around, falls to pieces when dead
 
 
 amazing skybox: https://www.youtube.com/watch?v=bR0v-yoZYZA
