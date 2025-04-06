@@ -39,14 +39,14 @@ size = Vector3(4, 4, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wb1dp"]
 size = Vector3(4, 4, 4)
 
-[node name="guck_cube" type="RigidBody3D"]
+[node name="guck_cube" type="RigidBody3D" groups=["enemy"]]
 script = ExtResource("1_ishrq")
 
-[node name="skin" type="MeshInstance3D" parent="."]
+[node name="skin" type="MeshInstance3D" parent="." groups=["enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 mesh = SubResource("BoxMesh_rt3iu")
 
-[node name="collision" type="CollisionShape3D" parent="."]
+[node name="hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_wb1dp")
 

@@ -24,5 +24,5 @@ func _process(_delta):
 
 func die():
 	global_signals.guck_cube_died.emit()
-	audio_component._play_audio_sfx("blood_squelch", 3)
+	audio_component._play_audio_sfx("fart", 3)
 	queue_free()
