@@ -17,6 +17,10 @@ func _ready():
 	call_deferred("setup")
 	nav_agent.target_position = player.global_position
 
+func setup():
+	await get_tree().physics_frame
+	set_physics_process(true)
+
 func _physics_process(_delta: float) -> void:
 	if nav_agent and player:
 		# Update the target position for pathfinding
@@ -49,10 +53,6 @@ func _physics_process(_delta: float) -> void:
 func _process(_delta):
 	if health <= 0:
 		die()
-
-func setup():
-	await get_tree().physics_frame
-	set_physics_process(true)
 
 func die():
 	global_signals.gore_ball_died.emit()

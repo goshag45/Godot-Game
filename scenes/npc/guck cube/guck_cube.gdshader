@@ -31,7 +31,7 @@ uniform sampler2D noise;
 varying vec3 v_normal; // Pass normal to the fragment shader
 
 void vertex() {
-	vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
+	vec3 normal = normalize(NORMAL);
 
 	v_normal = normal;
 
@@ -46,8 +46,9 @@ void vertex() {
 	BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
 
 	// UV1 Triplanar: Enabled (with World Triplanar)
-	uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
-	uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset;
+	uv1_power_normal = pow(abs(v_normal), vec3(uv1_blend_sharpness));
+	uv1_triplanar_pos = uv1_triplanar_pos = VERTEX * uv1_scale + uv1_offset;
+
 	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
 	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
 }
@@ -91,4 +92,5 @@ void fragment() {
 	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
 	float roughness_tex = dot(triplanar_texture(texture_roughness, uv1_power_normal, distorted_pos), roughness_texture_channel);
 	ROUGHNESS = roughness_tex * roughness;
+
 }
