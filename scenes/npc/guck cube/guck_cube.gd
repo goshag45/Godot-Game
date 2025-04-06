@@ -1,6 +1,7 @@
 extends RigidBody3D
 
 @export var health = 300
+@export var blood_color : Color = Color.GREEN
 
 @export var acceleration_force: float = 5.0
 

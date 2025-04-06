@@ -25,7 +25,7 @@ scale_curve = SubResource("CurveTexture_btktr")
 radius = 0.04
 height = 0.08
 
-[node name="BloodSplatter" type="GPUParticles3D"]
+[node name="blood_splatter" type="GPUParticles3D"]
 material_override = SubResource("StandardMaterial3D_fol11")
 emitting = false
 amount = 12

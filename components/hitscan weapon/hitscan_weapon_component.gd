@@ -32,7 +32,7 @@ func _shoot(target, hit_point):
 		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume)
 		if target != null && target.is_in_group("enemy"):
 			target.health -= damage
-			_emit_blood_splatter(hit_point)
+			_emit_blood_splatter(hit_point, target)
 		elif target != null:
 			_draw_bullet_decals(hit_point)
 
@@ -42,8 +42,9 @@ func _reload():
 	animation.play("reload")
 	magazine = magazine_capacity
 
-func _emit_blood_splatter(hit_pos):
+func _emit_blood_splatter(hit_pos, target):
 	var blood_splatter_instance = blood_splatter.instantiate()
+	blood_splatter_instance.material_override.albedo_color = target.blood_color
 	# Add to world
 	var world_node = get_tree().current_scene
 	world_node.add_child(blood_splatter_instance)

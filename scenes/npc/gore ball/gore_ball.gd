@@ -1,6 +1,7 @@
 extends RigidBody3D
 
 @export var health = 100
+@export var blood_color : Color = Color.RED
 
 @export var acceleration_force: float = 2.0  # Force applied for acceleration
 @export var max_horizontal_speed: float = 10.0  # Maximum speed on the XZ plane
