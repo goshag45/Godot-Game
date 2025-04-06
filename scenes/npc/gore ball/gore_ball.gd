@@ -1,7 +1,6 @@
 extends RigidBody3D
 
 @export var health = 100
-@export var player_path  : NodePath #NEED TO REFERENCE PLAYER SOMEHOW
 
 @export var acceleration_force: float = 2.0  # Force applied for acceleration
 @export var max_horizontal_speed: float = 10.0  # Maximum speed on the XZ plane

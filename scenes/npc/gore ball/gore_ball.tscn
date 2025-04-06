@@ -1,21 +1,21 @@
 [gd_scene load_steps=7 format=3 uid="uid://b3l7mcrwxuwko"]
 
-[ext_resource type="Texture2D" uid="uid://010tocmlpv7d" path="res://art/visual/gore_ball/gore_texture.png" id="1_8uafp"]
-[ext_resource type="Script" uid="uid://cynhhgy8ufh7u" path="res://scenes/npc/gore_ball.gd" id="1_61dgt"]
-[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="3_wkq4f"]
+[ext_resource type="Script" uid="uid://cynhhgy8ufh7u" path="res://scenes/npc/gore ball/gore_ball.gd" id="1_5sirm"]
+[ext_resource type="Texture2D" uid="uid://010tocmlpv7d" path="res://art/visual/gore_ball/gore_texture.png" id="2_388md"]
+[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="3_v8moq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dkjwh"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_kp4s4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4hnq"]
-albedo_texture = ExtResource("1_8uafp")
+albedo_texture = ExtResource("2_388md")
 roughness = 0.2
 uv1_triplanar = true
 
 [node name="gore_ball" type="RigidBody3D" groups=["enemy"]]
 mass = 0.2
-script = ExtResource("1_61dgt")
+script = ExtResource("1_5sirm")
 acceleration_force = 6.0
 max_horizontal_speed = 6.0
 
@@ -23,11 +23,11 @@ max_horizontal_speed = 6.0
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_dkjwh")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="skin" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5, 0)
 mesh = SubResource("SphereMesh_kp4s4")
 surface_material_override/0 = SubResource("StandardMaterial3D_g4hnq")
 
 [node name="nav_agent" type="NavigationAgent3D" parent="."]
 
-[node name="audio_component" parent="." instance=ExtResource("3_wkq4f")]
+[node name="audio_component" parent="." instance=ExtResource("3_v8moq")]

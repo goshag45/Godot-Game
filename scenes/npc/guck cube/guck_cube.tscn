@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpw4lojutiti"]
+[gd_scene load_steps=10 format=3 uid="uid://cpw4lojutiti"]
 
+[ext_resource type="Script" uid="uid://c8ue66kdpi8lt" path="res://scenes/npc/guck cube/guck_cube.gd" id="1_ishrq"]
 [ext_resource type="Texture2D" uid="uid://cbnkhwcg8sr2p" path="res://art/visual/textures/green_guck.png" id="1_q1tal"]
-[ext_resource type="Shader" uid="uid://e08kt45xaikw" path="res://scenes/npc/guck_cube.gdshader" id="1_wb1dp"]
+[ext_resource type="Shader" uid="uid://e08kt45xaikw" path="res://scenes/npc/guck cube/guck_cube.gdshader" id="1_wb1dp"]
+[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="4_43o6c"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ishrq"]
-frequency = 0.0026
+frequency = 0.0131
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4os5s"]
 seamless = true
@@ -26,16 +28,28 @@ shader_parameter/uv1_scale = Vector3(0.5, 0.5, 0.5)
 shader_parameter/uv1_offset = Vector3(0.5, 0, 0.5)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/speed = 0.075
-shader_parameter/strength = 0.075
+shader_parameter/speed = 0.071
+shader_parameter/strength = 0.026
 shader_parameter/noise = SubResource("NoiseTexture2D_4os5s")
 
 [sub_resource type="BoxMesh" id="BoxMesh_rt3iu"]
 material = SubResource("ShaderMaterial_wb1dp")
 size = Vector3(2, 2, 2)
 
-[node name="guck_cube" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wb1dp"]
+size = Vector3(2, 2, 2)
+
+[node name="guck_cube" type="RigidBody3D"]
+script = ExtResource("1_ishrq")
 
 [node name="skin" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_rt3iu")
+
+[node name="collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_wb1dp")
+
+[node name="nav_agent" type="NavigationAgent3D" parent="."]
+
+[node name="audio_component" parent="." instance=ExtResource("4_43o6c")]

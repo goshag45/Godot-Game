@@ -25,8 +25,8 @@ uniform vec3 uv1_offset;
 uniform vec3 uv2_scale;
 uniform vec3 uv2_offset;
 
-uniform float speed: hint_range(0.05, 0.5) = 0.1;
-uniform float strength : hint_range(0.05, 0.5) = 0.1;
+uniform float speed: hint_range(0.005, 0.5) = 0.1;
+uniform float strength : hint_range(0.005, 0.5) = 0.1;
 uniform sampler2D noise;
 varying vec3 v_normal; // Pass normal to the fragment shader
 
