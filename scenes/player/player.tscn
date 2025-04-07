@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://bv1850xotwfxt"]
+[gd_scene load_steps=13 format=3 uid="uid://bv1850xotwfxt"]
 
 [ext_resource type="Script" uid="uid://b2qi5iytvy0ht" path="res://scenes/player/firstperson_camera.gd" id="2_hj430"]
 [ext_resource type="Script" uid="uid://mrpvw15gjya0" path="res://scenes/player/player.gd" id="2_kooth"]
 [ext_resource type="PackedScene" uid="uid://bivh5hg55epm3" path="res://scenes/player/view_model.tscn" id="4_5gtgg"]
 [ext_resource type="PackedScene" uid="uid://k5r4dq5pg4cv" path="res://scenes/gui/gui.tscn" id="4_cds5j"]
 [ext_resource type="Script" uid="uid://bhirdiomdmyiq" path="res://scenes/player/interact_ray.gd" id="4_fmml5"]
-[ext_resource type="PackedScene" uid="uid://dxe23bdwnwnwo" path="res://components/player weapon/player_weapon_component.tscn" id="8_3qd2d"]
+[ext_resource type="PackedScene" uid="uid://dxe23bdwnwnwo" path="res://components/PLAYER/player weapon/player_weapon_component.tscn" id="8_3qd2d"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="8_38bwj"]
 [ext_resource type="PackedScene" uid="uid://b8hevdfqxmd4g" path="res://scenes/gui/pause_menu.tscn" id="8_baet5"]
-[ext_resource type="PackedScene" uid="uid://bddhhkoovn5gv" path="res://components/player spawn component/player_spawn_component.tscn" id="9_5gtgg"]
+[ext_resource type="PackedScene" uid="uid://bddhhkoovn5gv" path="res://components/PLAYER/player spawn component/player_spawn_component.tscn" id="9_5gtgg"]
+[ext_resource type="PackedScene" uid="uid://d1wejbsb4rlel" path="res://components/PLAYER/player movement/player_movement_component.tscn" id="10_h17s1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_engiy"]
 radius = 0.225678
@@ -53,6 +54,9 @@ script = ExtResource("4_fmml5")
 [node name="view_model" parent="head/firstperson_camera" instance=ExtResource("4_5gtgg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
+[node name="model" parent="head/firstperson_camera/view_model/view_model_camera/fps_rig/smg" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
 [node name="gui_layer" parent="." instance=ExtResource("4_cds5j")]
 
 [node name="pause_menu" parent="." instance=ExtResource("8_baet5")]
@@ -64,4 +68,12 @@ visible = false
 
 [node name="player_spawn_component" parent="." instance=ExtResource("9_5gtgg")]
 
+[node name="player_movement_component" parent="." node_paths=PackedStringArray("camera", "view_model_camera", "audio_component") instance=ExtResource("10_h17s1")]
+camera = NodePath("../head/firstperson_camera")
+view_model_camera = NodePath("../head/firstperson_camera/view_model/view_model_camera")
+audio_component = NodePath("../audio_component")
+
+[editable path="head/firstperson_camera/view_model"]
+[editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/smg"]
+[editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/smg/muzzle_flash"]
 [editable path="gui_layer"]
