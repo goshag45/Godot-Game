@@ -1,19 +1,25 @@
 extends Camera3D
 
-@export var pixel_margin_x : int = 100  # pixels from left
-@export var pixel_margin_y : int = 100  # pixels from top
-@export var distance : float = 2.0  # meters from camera
+@export var margin_percent_x : float = 15.0
+@export var margin_percent_y : float = 15.0 
+@export var distance : float = 2.0 
 @export var orb_scale : float = 0.5
 @onready var orb = $blood_orb_v2
 
-func _process(_delta):
+func _ready():
+	get_tree().get_root().size_changed.connect(update_orb) 
+	call_deferred("update_orb")
+
+func _physics_process(delta: float) -> void:
+	pass
+
+func update_orb():
 	var viewport := get_viewport()
 	var screen_size = viewport.size
-	
-	# Convert to viewport coordinates (0-1)
+
 	var viewport_pos := Vector2(
-		pixel_margin_x / screen_size.x,
-		pixel_margin_y / screen_size.y
+		screen_size.x * (margin_percent_x / 100),
+		screen_size.y * (margin_percent_y / 100)
 	)
 	
 	# Position orb in 3D space

@@ -9,8 +9,6 @@ extends Node3D
 var direction = Vector3()
 var jump_sounds = ["jump1", "jump2", "jump3"]
 
-var walk_speed : float
-var sprint_speed : float
 var jump_velocity : float
 var base_fov : int
 var fov_scale : float
@@ -19,13 +17,11 @@ var speed : float
 var health : int
 
 func _ready() -> void:
-	walk_speed = player.walk_speed
-	sprint_speed = player.sprint_speed
 	jump_velocity = player.jump_velocity
 	base_fov = player.base_fov
 	fov_scale = player.fov_scale
 	gravity = player.gravity
-	speed = player.walk_speed
+	speed = player.speed
 	health = player.health
 
 func _physics_process(delta: float) -> void:
@@ -39,7 +35,6 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "forward", "back")
 	direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	print(direction)
 	if player.is_on_floor():
 		if direction:
 			player.velocity.x = direction.x * speed

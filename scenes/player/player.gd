@@ -5,13 +5,11 @@ extends CharacterBody3D
 @export var sensitivity_input = 0.8
 #weird calc - stupid
 var SENSITIVITY = sensitivity_input/1000
-@export var walk_speed = 5.0
-@export var sprint_speed = 8.0
 @export var jump_velocity = 4.5
 @export var base_fov = 85
 @export var fov_scale = 1.5
 @export var gravity = 9.8
-@export var speed = walk_speed
+@export var speed = 8.0
 @export var health = 100
 
 var kill_count = 0
@@ -30,7 +28,8 @@ func _ready():
 	global_signals.gore_ball_died.connect(_on_enemy_killed)
 
 func _physics_process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("interact2"):
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _process(_delta):
 	if get_tree().paused:
