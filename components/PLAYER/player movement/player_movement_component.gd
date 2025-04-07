@@ -29,29 +29,12 @@ func _ready() -> void:
 	health = player.health
 
 func _physics_process(delta: float) -> void:
-		# Add the gravity.
 	if not player.is_on_floor():
 		player.velocity += player.get_gravity() * delta
-		# allow for infinite jump
-		if Input.is_action_just_pressed("jump"):
-			audio_component._play_random_sfx(jump_sounds, 6)
-			jump()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and player.is_on_floor():
 		jump()
-		audio_component._play_random_sfx(jump_sounds, 6)
-
-	# Handle Sprint.
-	if Input.is_action_pressed("sprint"):
-		speed = sprint_speed
-		var velocity_clamped = clamp(player.velocity.length(), 0.5, sprint_speed * 2)
-		var target_fov = base_fov + fov_scale * velocity_clamped
-		camera.fov = lerp(camera.fov, target_fov, delta * 2.0)
-	else:
-		var target_fov = 90.0
-		camera.fov = lerp(camera.fov, target_fov, delta * 2.0)
-		speed = walk_speed
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "forward", "back")
@@ -72,3 +55,4 @@ func _physics_process(delta: float) -> void:
 
 func jump():
 	player.velocity.y = jump_velocity
+	audio_component._play_random_sfx(jump_sounds, 6)
