@@ -1,9 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctpufg7bblye0"]
+[gd_scene load_steps=18 format=3 uid="uid://ctpufg7bblye0"]
 
 [ext_resource type="Script" uid="uid://hogwduhv7sjy" path="res://scenes/npc/the davy/thedavy.gd" id="1_q2ggk"]
 [ext_resource type="Texture2D" uid="uid://crriutushpuat" path="res://art/visual/textures/snipface.png" id="1_ydj5c"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="3_3c37e"]
 [ext_resource type="PackedScene" uid="uid://bemr1hg184ot3" path="res://components/GUI/dialogue/dialogue_component.tscn" id="4_y2233"]
+[ext_resource type="Texture2D" uid="uid://cn8w8fpdrqqn3" path="res://art/visual/textures/gore_davy.png" id="5_o105m"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_jtpbr"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bp1iw"]
+metallic = 0.7
+metallic_specular = 0.0
+roughness = 0.65
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.05
+refraction_scale = -0.35
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tl8t0"]
 albedo_texture = ExtResource("1_ydj5c")
@@ -13,10 +26,10 @@ uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_jptqe"]
 material = SubResource("StandardMaterial3D_tl8t0")
-size = Vector3(0.4, 0.4, 0.4)
+size = Vector3(0.3, 0.3, 0.4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vatis"]
-size = Vector3(0.41, 0.41, 0.41)
+size = Vector3(0.31, 0.31, 0.31)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bswrn"]
 metallic = 1.0
@@ -26,14 +39,6 @@ roughness = 0.1
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_n47gn"]
 radius = 0.3
 height = 1.6
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bp1iw"]
-metallic = 0.8
-metallic_specular = 0.7
-roughness = 0.1
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.05
-refraction_scale = 0.02
 
 [sub_resource type="TorusMesh" id="TorusMesh_0bgy4"]
 inner_radius = 0.6
@@ -47,33 +52,57 @@ refraction_enabled = true
 refraction_scale = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0veg4"]
+radius = 0.619328
+height = 1.23866
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cnqla"]
+albedo_texture = ExtResource("5_o105m")
+uv1_scale = Vector3(1.49, 1.49, 1.49)
+uv1_offset = Vector3(-0.215, -0.155, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jdh58"]
+material = SubResource("StandardMaterial3D_cnqla")
 
 [node name="thedavy" type="CharacterBody3D" groups=["interactable_press"]]
 script = ExtResource("1_q2ggk")
 
+[node name="headball" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74346, 0)
+visible = false
+mesh = SubResource("SphereMesh_jtpbr")
+surface_material_override/0 = SubResource("StandardMaterial3D_bp1iw")
+
 [node name="head" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73898, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75531, 0.10183)
+visible = false
 mesh = SubResource("BoxMesh_jptqe")
 
 [node name="head2" type="MeshInstance3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00163472, 0, -0.00729359)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00163472, 0, 0.0423287)
+visible = false
 mesh = SubResource("BoxMesh_vatis")
 surface_material_override/0 = SubResource("StandardMaterial3D_bswrn")
 
 [node name="body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_n47gn")
 surface_material_override/0 = SubResource("StandardMaterial3D_bp1iw")
 
 [node name="the" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 1.33365, -0.0583284)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 1.33365, 0.0242385)
+visible = false
 mesh = SubResource("TorusMesh_0bgy4")
 surface_material_override/0 = SubResource("StandardMaterial3D_odklo")
 
 [node name="hitbox" type="CollisionShape3D" parent="." groups=["interactable_press"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47142, 0)
 shape = SubResource("CapsuleShape3D_0veg4")
 
 [node name="audio_component" parent="." instance=ExtResource("3_3c37e")]
 
 [node name="dialogue_component" parent="." instance=ExtResource("4_y2233")]
+
+[node name="gore_face" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.47856, 0)
+mesh = SubResource("SphereMesh_jdh58")
