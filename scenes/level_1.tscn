@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ctpufg7bblye0" path="res://scenes/npc/the davy/thedavy.tscn" id="10_0nhif"]
 [ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="11_bicek"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="12_vqqr7"]
-[ext_resource type="Shader" uid="uid://c7rushii784b4" path="res://scenes/level 2/level_2_sky.gdshader" id="13_2aecg"]
+[ext_resource type="Shader" uid="uid://c7rushii784b4" path="res://scenes/level 2/level_2_sky_night.gdshader" id="13_2aecg"]
 [ext_resource type="Texture2D" uid="uid://bqj6uxmgpc8m8" path="res://art/visual/textures/sun.png" id="14_6dial"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_iehip"]

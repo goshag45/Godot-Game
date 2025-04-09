@@ -14,11 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://bemr1hg184ot3" path="res://components/GUI/dialogue/dialogue_component.tscn" id="9_1hhpv"]
 [ext_resource type="Texture2D" uid="uid://whp1kaf06n30" path="res://art/visual/models/industrial exterior/Industrial_exterior_v2_Liquid_reservoir_2.png" id="10_rch0k"]
 [ext_resource type="Texture2D" uid="uid://bno80s8jkpt0i" path="res://art/visual/textures/sketchy mats/Brick/Horror_Brick_13-128x128.png" id="11_ccmbp"]
-[ext_resource type="Shader" uid="uid://c7rushii784b4" path="res://scenes/level 2/level_2_sky.gdshader" id="11_j3kbo"]
 [ext_resource type="Texture2D" uid="uid://bqj6uxmgpc8m8" path="res://art/visual/textures/sun.png" id="12_1hhpv"]
 [ext_resource type="Texture2D" uid="uid://010tocmlpv7d" path="res://art/visual/gore_ball/gore_texture.png" id="12_mmjq2"]
 [ext_resource type="Texture2D" uid="uid://dsva6ksnhtvbp" path="res://art/visual/textures/sketchy mats/Brick/Horror_Brick_11-128x128.png" id="13_58l0g"]
 [ext_resource type="Shader" uid="uid://cwqqddiabb5g2" path="res://scenes/level 2/level_2.gdshader" id="16_fd8ks"]
+[ext_resource type="Shader" uid="uid://tuoxjdi3r0j" path="res://scenes/level 2/level_2_sky_day.gdshader" id="19_pbxj0"]
 [ext_resource type="PackedScene" uid="uid://cpw4lojutiti" path="res://scenes/npc/guck cube/guck_cube.tscn" id="20_pbxj0"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4asmd"]
@@ -328,27 +328,27 @@ seamless = true
 noise = SubResource("FastNoiseLite_m17jp")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1hhpv"]
-shader = ExtResource("11_j3kbo")
+shader = ExtResource("19_pbxj0")
 shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_pbxj0")
 shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_fd8ks")
 shader_parameter/cloud_curves = SubResource("CurveTexture_ccmbp")
 shader_parameter/clouds_samples = 16
 shader_parameter/shadow_sample = 4
-shader_parameter/clouds_density = 0.4
+shader_parameter/clouds_density = 0.3
 shader_parameter/clouds_scale = 0.6
 shader_parameter/clouds_smoothness = 0.1
-shader_parameter/clouds_light_color = Color(0.60933, 0.60933, 0.60933, 1)
-shader_parameter/clouds_shadow_intensity = 10.0
+shader_parameter/clouds_light_color = Color(0.597176, 0.597176, 0.597176, 1)
+shader_parameter/clouds_shadow_intensity = 1.5
 shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_ejh53")
 shader_parameter/high_clouds_density = 0.2
-shader_parameter/top_color = Color(0.0596972, 0.0342307, 0.292015, 1)
-shader_parameter/bottom_color = Color(0.198958, 0.144555, 0.703138, 1)
-shader_parameter/sun_scatter = Color(0.163997, 0.128157, 0.386782, 1)
-shader_parameter/astro_tint = Color(0.99558, 0.99558, 0.99558, 1)
+shader_parameter/top_color = Color(0.663986, 0.718418, 0.992782, 1)
+shader_parameter/bottom_color = Color(0.329826, 0.538242, 1, 1)
+shader_parameter/sun_scatter = Color(0.54268, 0.526465, 0.910629, 1)
+shader_parameter/astro_tint = Color(1, 1, 0.403922, 1)
 shader_parameter/astro_sampler = ExtResource("12_1hhpv")
-shader_parameter/astro_scale = 9.0
-shader_parameter/astro_intensity = 2.0
-shader_parameter/stars_intensity = 5.0
+shader_parameter/astro_scale = 4.3
+shader_parameter/astro_intensity = 2.3
+shader_parameter/stars_intensity = 0.0
 shader_parameter/shooting_stars_intensity = 0.0
 shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
 
