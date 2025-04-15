@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://cpw4lojutiti"]
 
 [ext_resource type="Script" uid="uid://c8ue66kdpi8lt" path="res://scenes/npc/guck cube/guck_cube.gd" id="1_ishrq"]
-[ext_resource type="Texture2D" uid="uid://cbnkhwcg8sr2p" path="res://art/visual/textures/green_guck.png" id="1_q1tal"]
 [ext_resource type="Shader" uid="uid://e08kt45xaikw" path="res://scenes/npc/guck cube/guck_cube.gdshader" id="1_wb1dp"]
+[ext_resource type="Texture2D" uid="uid://bp4xknmfepqaa" path="res://art/visual/textures/green_guck_nick.png" id="3_43o6c"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="4_43o6c"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ishrq"]
@@ -16,7 +16,7 @@ noise = SubResource("FastNoiseLite_ishrq")
 render_priority = 0
 shader = ExtResource("1_wb1dp")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("1_q1tal")
+shader_parameter/texture_albedo = ExtResource("3_43o6c")
 shader_parameter/albedo_texture_size = Vector2i(256, 256)
 shader_parameter/point_size = 0.0
 shader_parameter/roughness = 1.0
