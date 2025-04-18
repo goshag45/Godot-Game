@@ -21,7 +21,6 @@ height = 1.97294
 script = ExtResource("2_kooth")
 jump_velocity = 6.0
 gravity = 20.0
-dash_velocity = 10.0
 
 [node name="player_hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.982355, 0)

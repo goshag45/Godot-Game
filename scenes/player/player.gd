@@ -11,7 +11,7 @@ var SENSITIVITY = sensitivity_input/1000
 @export var gravity = 9.8
 @export var speed = 8.0
 @export var health = 100
-@export var dash_velocity = 100.0
+@export var dash_velocity = 20
 
 var kill_count = 0
 

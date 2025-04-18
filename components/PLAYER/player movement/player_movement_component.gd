@@ -16,7 +16,7 @@ var fov_scale : float
 var gravity : float
 var speed : float
 var health : int
-var dash_velocity : float
+var dash_velocity : int
 
 func _ready() -> void:
 	jump_velocity = player.jump_velocity
@@ -59,7 +59,8 @@ func jump():
 	audio_component._play_random_sfx(jump_sounds, 6)
 
 func dash():
+	var direction = -camera.global_basis.z
+	var velocity = dash_velocity * direction
 #	make dash in direction of player camera
-	player.velocity.y += dash_velocity
-	player.velocity.x * 2.0
+	player.velocity += velocity
 	dash_cooldown.start(1.0)
