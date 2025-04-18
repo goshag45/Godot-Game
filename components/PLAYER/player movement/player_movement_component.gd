@@ -1,7 +1,8 @@
 extends Node3D
 
-#@export var player : CharacterBody3D
 @onready var player = $".."
+@onready var dash_cooldown = $dash_cooldown
+
 @export var camera : Camera3D
 @export var view_model_camera = Camera3D
 @export var audio_component = Node3D
@@ -24,6 +25,7 @@ func _ready() -> void:
 	gravity = player.gravity
 	speed = player.speed
 	health = player.health
+	dash_velocity = player.dash_velocity
 
 func _physics_process(delta: float) -> void:
 	if not player.is_on_floor():
@@ -33,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and player.is_on_floor():
 		jump()
 
-	if Input.is_action_just_pressed("sprint"):
+	if Input.is_action_just_pressed("sprint") and dash_cooldown.time_left == 0:
 		dash()
 
 	# Get the input direction and handle the movement/deceleration.
@@ -57,5 +59,7 @@ func jump():
 	audio_component._play_random_sfx(jump_sounds, 6)
 
 func dash():
+#	make dash in direction of player camera
 	player.velocity.y += dash_velocity
-	player.velocity.x += dash_velocity
+	player.velocity.x * 2.0
+	dash_cooldown.start(1.0)
