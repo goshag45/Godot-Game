@@ -365,6 +365,7 @@ glow_normalized = true
 script = ExtResource("1_05f8v")
 
 [node name="enemy_manager" parent="." instance=ExtResource("2_8sing")]
+guck_cube = ExtResource("20_pbxj0")
 
 [node name="terrain" type="Node3D" parent="."]
 

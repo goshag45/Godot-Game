@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var gore_ball: PackedScene
+@export var guck_cube: PackedScene
 @export var player: CharacterBody3D
 @export var spawn_radius: float = 30.0
 @export var initial_spawn_rate: float = 1.5 # seconds between spawns

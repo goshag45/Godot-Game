@@ -15,6 +15,7 @@ var fov_scale : float
 var gravity : float
 var speed : float
 var health : int
+var dash_velocity : float
 
 func _ready() -> void:
 	jump_velocity = player.jump_velocity
@@ -31,6 +32,9 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and player.is_on_floor():
 		jump()
+
+	if Input.is_action_just_pressed("sprint"):
+		dash()
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "forward", "back")
@@ -51,3 +55,7 @@ func _physics_process(delta: float) -> void:
 func jump():
 	player.velocity.y = jump_velocity
 	audio_component._play_random_sfx(jump_sounds, 6)
+
+func dash():
+	player.velocity.y += dash_velocity
+	player.velocity.x += dash_velocity

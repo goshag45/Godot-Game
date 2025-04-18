@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bp4xknmfepqaa" path="res://art/visual/textures/green_guck_nick.png" id="3_43o6c"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="4_43o6c"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wb1dp"]
+size = Vector3(4, 4, 4)
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ishrq"]
 frequency = 0.0131
 
@@ -36,19 +39,16 @@ shader_parameter/noise = SubResource("NoiseTexture2D_4os5s")
 material = SubResource("ShaderMaterial_wb1dp")
 size = Vector3(4, 4, 4)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wb1dp"]
-size = Vector3(4, 4, 4)
-
 [node name="guck_cube" type="RigidBody3D" groups=["enemy"]]
 script = ExtResource("1_ishrq")
-
-[node name="skin" type="MeshInstance3D" parent="." groups=["enemy"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-mesh = SubResource("BoxMesh_rt3iu")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_wb1dp")
+
+[node name="skin" type="MeshInstance3D" parent="." groups=["enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("BoxMesh_rt3iu")
 
 [node name="nav_agent" type="NavigationAgent3D" parent="."]
 
