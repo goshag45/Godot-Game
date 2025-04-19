@@ -20,7 +20,7 @@ guck cube
  - spit green projectiles
  - movement (jumping? sliding? rolling?)
 
-
+ - sound of bullet casings landing? (awesome)
 
 amazing skybox: https://www.youtube.com/watch?v=bR0v-yoZYZA
 

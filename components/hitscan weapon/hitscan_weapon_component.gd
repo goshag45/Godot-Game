@@ -22,7 +22,7 @@ func _ready() -> void:
 	shoot_sound = weapon.shoot_sound
 
 func _process(_delta: float) -> void:
-	if magazine <= 0:
+	if magazine <= 0 and !animation.is_playing():
 		_reload()
 
 func _shoot(target, hit_point):

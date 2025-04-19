@@ -6,6 +6,7 @@ extends Node3D
 # WEAPONS
 @onready var smg = $"../head/firstperson_camera/view_model/view_model_camera/fps_rig/smg"
 @onready var revolver = $"../head/firstperson_camera/view_model/view_model_camera/fps_rig/revolver"
+@onready var shotgun = $"../head/firstperson_camera/view_model/view_model_camera/fps_rig/winchesta"
 
 @onready var current_weapon = smg
 
@@ -25,6 +26,11 @@ func _process(_delta: float) -> void:
 		current_weapon.hide()
 		current_weapon = revolver
 		revolver.show()
+	if (Input.is_action_just_pressed("num3")):
+		current_weapon.hide()
+		current_weapon = shotgun
+		shotgun.show()
+
 
 	var weapon_animation = current_weapon.get_child(2)
 	if Input.is_action_just_pressed("reload"):
