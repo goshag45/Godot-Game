@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1rhgfglrv3nc"]
+
+[ext_resource type="PackedScene" uid="uid://d2i2w0c5xc51d" path="res://art/visual/models/winchester_double_barrel_-_ps1_low_poly.glb" id="1_ma3og"]
+[ext_resource type="PackedScene" uid="uid://bbff2rt6j18q4" path="res://scenes/weapons/muzzle_flash.tscn" id="2_8pa1i"]
+[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="3_cwc0a"]
+[ext_resource type="PackedScene" uid="uid://cse5l4fku82hu" path="res://components/hitscan weapon/hitscan_weapon_component.tscn" id="4_la2dq"]
+
+[node name="winchesta" type="Node3D"]
+
+[node name="model" parent="." instance=ExtResource("1_ma3og")]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, -0.100834, 0, 0)
+
+[node name="Plane_001_Wood_0" parent="model/Sketchfab_model/88dbb227e958497c817b83cc0d7ede7d_fbx/RootNode/Plane_001" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -3.55271e-15, 1.77636e-15, 1, 0, 0, 0)
+
+[node name="Plane_001_Metal_001_0" parent="model/Sketchfab_model/88dbb227e958497c817b83cc0d7ede7d_fbx/RootNode/Plane_001" index="2"]
+transform = Transform3D(1, 0, 1.42109e-14, 0, 1, -7.10543e-15, -3.55271e-15, 1.77636e-15, 1, 0, 0, 0)
+
+[node name="muzzle_flash" parent="." instance=ExtResource("2_8pa1i")]
+
+[node name="animation" type="AnimationPlayer" parent="."]
+
+[node name="audio_component" parent="." instance=ExtResource("3_cwc0a")]
+
+[node name="hitscan_weapon_component" parent="." instance=ExtResource("4_la2dq")]
+
+[editable path="model"]
