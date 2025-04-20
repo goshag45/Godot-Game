@@ -10,7 +10,7 @@ var SENSITIVITY = sensitivity_input/1000
 @export var fov_scale = 1.5
 @export var gravity = 9.8
 @export var speed = 8.0
-@export var health = 100
+@export var health = 10.0
 @export var dash_velocity = 20
 
 var kill_count = 0
@@ -20,6 +20,7 @@ var kill_count = 0
 @onready var view_model_camera = $head/firstperson_camera/view_model/view_model_camera
 @onready var player = $"."
 @onready var audio_component = $audio_component
+@onready var blood_orb = $head/firstperson_camera/view_model/view_model_camera/blood_orb_v2
 
 var direction = Vector3()
 var jump_sounds = ["jump1", "jump2", "jump3"]
@@ -38,7 +39,9 @@ func _process(_delta):
 		return  # Prevent player input while paused
 	if health <= 0:
 		die()
-	pass
+	
+	var mat = blood_orb.find_child("blood").get_active_material(0)
+	mat.set_shader_parameter('fill_amount', health/100.0 * 0.5 + 0.26)
 
 func _on_deathbox_body_entered(_body: Node3D) -> void:
 	die()

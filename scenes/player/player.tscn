@@ -72,4 +72,7 @@ audio_component = NodePath("../audio_component")
 [node name="dash_cooldown" type="Timer" parent="player_movement_component"]
 one_shot = true
 
+[editable path="head/firstperson_camera/view_model"]
+[editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/smg"]
+[editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/smg/muzzle_flash"]
 [editable path="gui_layer"]
