@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpw4lojutiti"]
+[gd_scene load_steps=13 format=3 uid="uid://cpw4lojutiti"]
 
 [ext_resource type="Script" uid="uid://c8ue66kdpi8lt" path="res://scenes/npc/guck cube/guck_cube.gd" id="1_ishrq"]
 [ext_resource type="Shader" uid="uid://e08kt45xaikw" path="res://scenes/npc/guck cube/guck_cube.gdshader" id="1_wb1dp"]
@@ -39,6 +39,15 @@ shader_parameter/noise = SubResource("NoiseTexture2D_4os5s")
 material = SubResource("ShaderMaterial_wb1dp")
 size = Vector3(4, 4, 4)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_43o6c"]
+albedo_color = Color(0.366279, 0.569199, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uaydo"]
+material = SubResource("StandardMaterial3D_43o6c")
+size = Vector3(10, 0.1, 0.1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_43o6c"]
+
 [node name="guck_cube" type="RigidBody3D" groups=["enemy"]]
 script = ExtResource("1_ishrq")
 
@@ -53,3 +62,11 @@ mesh = SubResource("BoxMesh_rt3iu")
 [node name="nav_agent" type="NavigationAgent3D" parent="."]
 
 [node name="audio_component" parent="." instance=ExtResource("4_43o6c")]
+
+[node name="aiming_debug_pointer" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("BoxMesh_uaydo")
+
+[node name="bal" type="MeshInstance3D" parent="aiming_debug_pointer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+mesh = SubResource("SphereMesh_43o6c")
