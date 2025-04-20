@@ -8,14 +8,20 @@ var state: State = State.IDLE
 var topple_timer := 0.0
 @export var topple_delay := 0.3  # seconds to wait before next topple
 @export var min_angular_velocity := 0.05  # cube is considered "landed" 
-@export var torque_strength: float = 20.0
+@export var torque_strength: float = 25.0
 
 @onready var nav_agent = $nav_agent
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var audio_component = $audio_component
 @onready var hitbox = $hitbox
 
+var next_position: Vector3
+var direction: Vector3
+var torque_axis: Vector3
+
 func _ready():
+	nav_agent.path_desired_distance = 2.0
+	angular_damp = 1.0
 	# quick fix to pause physics for a frame to wait for navigation server to work
 	set_physics_process(false)
 	call_deferred("setup")
@@ -28,11 +34,35 @@ func _physics_process(delta: float) -> void:
 	if not player:
 		player = get_tree().get_first_node_in_group("player")
 	if not player:
+		print("no player")
 		return
 
-	if nav_agent and player:
-		nav_agent.target_position = player.global_transform.origin
-		var next_position: Vector3 = nav_agent.get_next_path_position()
+	# Update target destination
+	nav_agent.target_position = player.global_transform.origin
+
+	# Only update path if there's something to follow
+	if nav_agent.is_navigation_finished():
+		print("reached!")
+		return
+
+	next_position = nav_agent.get_next_path_position()
+
+	# Defensive check: is it a different position?
+	if next_position.distance_to(global_transform.origin) < 0.1:
+		print("distance too low")
+		return
+
+	direction = next_position - global_transform.origin
+	direction.y = 0
+	direction = direction.normalized()
+
+	torque_axis = Vector3.UP.cross(direction).normalized()
+
+	# Debug Draw
+	#DebugDraw3D.draw_arrow(global_transform.origin, global_transform.origin + direction * 2.0, Color.GREEN, 0.2)
+	#DebugDraw3D.draw_arrow(global_transform.origin, global_transform.origin + torque_axis * 2.0, Color.BLUE, 0.2)
+	#DebugDraw3D.draw_arrow(global_transform.origin, player.global_position, Color.RED, 0.1)
+	#DebugDraw3D.draw_sphere(next_position, 1.0, Color.RED)
 
 	match state:
 		State.IDLE:
@@ -43,26 +73,12 @@ func _physics_process(delta: float) -> void:
 
 		State.TOPPLING:
 			if angular_velocity.length() < min_angular_velocity:
-				# Landed
 				state = State.IDLE
 				topple_timer = topple_delay
 
 func start_topple():
-	var next_position = nav_agent.get_next_path_position()
-	print(next_position)
-	var direction = (next_position - global_transform.origin)
-	print(global_transform.origin)
-	direction.y = 0
-	direction = direction.normalized()
-
-	var torque_axis = Vector3.UP.cross(direction).normalized()
 	apply_torque_impulse(torque_axis * torque_strength)
 	state = State.TOPPLING
-	# DEBUG DRAW
-	DebugDraw3D.draw_arrow(global_transform.origin, global_transform.origin + direction * 2.0, Color.GREEN, 10.0)
-	#print(direction)
-	DebugDraw3D.draw_arrow(global_transform.origin, global_transform.origin + torque_axis * 2.0, Color.BLUE, 10.0)
-	#print(torque_axis)
 
 func _process(_delta):
 	if health <= 0:

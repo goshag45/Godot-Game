@@ -43,11 +43,9 @@ size = Vector3(4, 4, 4)
 script = ExtResource("1_ishrq")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_wb1dp")
 
 [node name="skin" type="MeshInstance3D" parent="." groups=["enemy"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 mesh = SubResource("BoxMesh_rt3iu")
 
 [node name="nav_agent" type="NavigationAgent3D" parent="."]
