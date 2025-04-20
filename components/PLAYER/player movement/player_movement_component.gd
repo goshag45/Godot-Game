@@ -59,8 +59,8 @@ func jump():
 	audio_component._play_random_sfx(jump_sounds, 6)
 
 func dash():
-	var direction = -camera.global_basis.z
-	var velocity = dash_velocity * direction
+	var dash_direction = -camera.global_basis.z
+	var velocity = dash_velocity * dash_direction
 #	make dash in direction of player camera
 	player.velocity += velocity
 	dash_cooldown.start(1.0)
