@@ -8,7 +8,7 @@ var state: State = State.IDLE
 var topple_timer := 0.0
 @export var topple_delay := 0.3  # seconds to wait before next topple
 @export var min_angular_velocity := 0.05  # cube is considered "landed" 
-@export var torque_strength: float = 25.0
+@export var torque_strength: float
 
 @onready var nav_agent = $nav_agent
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -18,6 +18,8 @@ var topple_timer := 0.0
 var next_position: Vector3
 var direction: Vector3
 var torque_axis: Vector3
+
+var augh_sounds = ["augh1", "augh2", "augh3"]
 
 func _ready():
 	nav_agent.path_desired_distance = 2.0
@@ -31,6 +33,7 @@ func setup():
 	set_physics_process(true)
 
 func _physics_process(delta: float) -> void:
+	torque_strength = randf_range(22.0, 28.0)
 	if not player:
 		player = get_tree().get_first_node_in_group("player")
 	if not player:
@@ -77,6 +80,7 @@ func _physics_process(delta: float) -> void:
 				topple_timer = topple_delay
 
 func start_topple():
+	audio_component._play_random_sfx(augh_sounds, 6)
 	apply_torque_impulse(torque_axis * torque_strength)
 	state = State.TOPPLING
 
