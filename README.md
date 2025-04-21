@@ -1,7 +1,16 @@
 # Godot Game
  experimenting with godot
 
-## Goals
+## Major Idea - Guck and Ball torture (GNBT)
+ - waves of gore balls, physics everything (need to optimise)
+ - emergent gameplay from fun physics
+ - bouncing, jump pads, ice patches (skating)
+ - more movement
+ - points awarded based on coolness (no clamp on camera rotation)
+ - balls coalescing into something, more balls, other stuff
+ - open playground type levels
+
+## Goals (old)
  - ~~first person character~~
  - ~~movement tech, sprinting, jumping~~
  - ~~shooting~~ -> projectile weapon after
@@ -16,12 +25,15 @@
  - enemy idea because FUCK animating -> big cube, it moves by rotation around, falls to pieces when dead
  - smoke cigarettes
 
-guck cube
- - spit green projectiles
- - movement (jumping? sliding? rolling?)
-
+Weapons
+ - flamethrower
+ - gravity gun
+ - laser
+ - rocket launcher
  - sound of bullet casings landing? (awesome)
 
-amazing skybox: https://www.youtube.com/watch?v=bR0v-yoZYZA
+guck cube
+ - spit green projectiles
+ - ~movement (jumping? sliding? rolling?)~
 
-if i reload while shooting - light stays
+amazing skybox: https://www.youtube.com/watch?v=bR0v-yoZYZA
