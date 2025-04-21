@@ -10,7 +10,7 @@ func _ready():
 	get_tree().get_root().size_changed.connect(update_orb) 
 	call_deferred("update_orb")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pass
 
 func update_orb():
