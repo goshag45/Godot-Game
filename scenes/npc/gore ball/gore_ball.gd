@@ -12,6 +12,8 @@ extends RigidBody3D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var audio_component = $audio_component
 
+var frame_counter : int = 0
+
 func _ready():
 	# quick fix to pause physics for a frame to wait for navigation server to work
 	set_physics_process(false)

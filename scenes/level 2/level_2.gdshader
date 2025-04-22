@@ -37,7 +37,7 @@ varying vec3 v_normal; // Pass normal to the fragment shader
 void vertex() {
 	vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
 	v_normal = normal; // Store normal for fragment shader
-	
+
 	// Calculate animated noise
 	vec2 noise_uv = VERTEX.xz * 0.5 + TIME * speed;
 	float noise_value = texture(noise, noise_uv).r * 2.0 - 1.0;
