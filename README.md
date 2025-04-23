@@ -36,4 +36,7 @@ guck cube
  - spit green projectiles
  - ~movement (jumping? sliding? rolling?)~
 
+inverted color text?
+https://godotforums.org/d/23079-inverted-blend-on-text/6
+
 amazing skybox: https://www.youtube.com/watch?v=bR0v-yoZYZA

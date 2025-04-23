@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bv1850xotwfxt"]
+[gd_scene load_steps=14 format=3 uid="uid://bv1850xotwfxt"]
 
 [ext_resource type="Script" uid="uid://b2qi5iytvy0ht" path="res://scenes/player/firstperson_camera.gd" id="2_hj430"]
 [ext_resource type="Script" uid="uid://mrpvw15gjya0" path="res://scenes/player/player.gd" id="2_kooth"]
@@ -16,6 +16,9 @@ radius = 0.225678
 height = 1.97294
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_h17s1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h17s1"]
+radius = 1.1
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("2_kooth")
@@ -65,12 +68,19 @@ visible = false
 
 [node name="player_spawn_component" parent="." instance=ExtResource("9_5gtgg")]
 
-[node name="player_movement_component" parent="." node_paths=PackedStringArray("camera", "audio_component") instance=ExtResource("10_h17s1")]
+[node name="player_movement_component" parent="." node_paths=PackedStringArray("camera", "audio_component", "dash_area_collision") instance=ExtResource("10_h17s1")]
 camera = NodePath("../head/firstperson_camera")
 audio_component = NodePath("../audio_component")
+dash_area_collision = NodePath("../dash_area_3d")
 
 [node name="dash_cooldown" type="Timer" parent="player_movement_component"]
 one_shot = true
+
+[node name="dash_area_3d" type="Area3D" parent="."]
+
+[node name="dash_area_collision" type="CollisionShape3D" parent="dash_area_3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_h17s1")
 
 [editable path="head/firstperson_camera/view_model"]
 [editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/smg"]

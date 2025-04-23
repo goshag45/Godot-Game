@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3l7mcrwxuwko"]
+[gd_scene load_steps=8 format=3 uid="uid://b3l7mcrwxuwko"]
 
 [ext_resource type="Script" uid="uid://cynhhgy8ufh7u" path="res://scenes/npc/gore ball/gore_ball.gd" id="1_5sirm"]
 [ext_resource type="Texture2D" uid="uid://010tocmlpv7d" path="res://art/visual/gore_ball/gore_texture.png" id="2_388md"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="3_v8moq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5sirm"]
+bounce = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dkjwh"]
 
@@ -15,6 +18,7 @@ uv1_triplanar = true
 
 [node name="gore_ball" type="RigidBody3D" groups=["enemy"]]
 mass = 0.2
+physics_material_override = SubResource("PhysicsMaterial_5sirm")
 script = ExtResource("1_5sirm")
 acceleration_force = 6.0
 max_horizontal_speed = 6.0

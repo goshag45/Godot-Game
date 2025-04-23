@@ -2,7 +2,7 @@ extends Node3D
 
 @export_category("Weapon Stats")
 @export var magazine_capacity = 2
-@export var damage = 80
+@export var damage = 100
 @export var fire_mode = 1
 @export var shoot_sound = "shotgun_shoot"
 @export var reload = "reload"

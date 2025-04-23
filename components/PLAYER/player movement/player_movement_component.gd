@@ -4,8 +4,9 @@ extends Node3D
 @onready var dash_cooldown = $dash_cooldown
 
 @export var camera : Camera3D
-@export var view_model_camera = Camera3D
-@export var audio_component = Node3D
+@export var view_model_camera : Camera3D
+@export var audio_component : Node3D
+@export var dash_area_collision: Area3D
 
 var direction = Vector3()
 var jump_sounds = ["jump1", "jump2", "jump3"]
@@ -59,8 +60,16 @@ func jump():
 	audio_component._play_random_sfx(jump_sounds, 6)
 
 func dash():
+	apply_dash_impulse()
 	var dash_direction = -camera.global_basis.z
 	var velocity = dash_velocity * dash_direction
 #	make dash in direction of player camera
 	player.velocity += velocity
 	dash_cooldown.start(1.0)
+
+func apply_dash_impulse():
+	var bodies = dash_area_collision.get_overlapping_bodies()  # assuming you're using an Area3D
+	for body in bodies:
+		if body is RigidBody3D:
+			var dir = (body.global_transform.origin - global_transform.origin).normalized()
+			body.apply_impulse(dir * 10.0)
