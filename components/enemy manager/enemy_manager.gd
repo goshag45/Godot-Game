@@ -16,6 +16,7 @@ func _ready():
 	spawn_rate = initial_spawn_rate
 	await get_tree().process_frame # Ensure all nodes are added first
 	player = get_tree().get_first_node_in_group("player")
+	global_signals.gore_ball_died.connect(gore_ball_died)
 	if not player:
 		print("Player not found!")
 
@@ -49,3 +50,6 @@ func get_random_spawn_position() -> Vector3:
 	var spawn_position = player.global_position + offset
 	spawn_position.y += 2.0 # Ensure it's above the ground
 	return spawn_position
+
+func gore_ball_died():
+	gore_ball_counter -= 1
