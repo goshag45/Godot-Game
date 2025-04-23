@@ -5,11 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="3_v8moq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dkjwh"]
-radius = 0.35
 
 [sub_resource type="SphereMesh" id="SphereMesh_kp4s4"]
-radius = 0.35
-height = 0.7
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4hnq"]
 albedo_texture = ExtResource("2_388md")

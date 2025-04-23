@@ -12,19 +12,20 @@ extends RigidBody3D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var audio_component = $audio_component
 
-var frame_counter : int = 0
-
 func _ready():
 	# quick fix to pause physics for a frame to wait for navigation server to work
 	set_physics_process(false)
 	call_deferred("setup")
 	nav_agent.target_position = player.global_position
+	nav_agent.path_desired_distance = 0.8
 
 func setup():
 	await get_tree().physics_frame
 	set_physics_process(true)
 
 func _physics_process(_delta: float) -> void:
+	if Engine.get_physics_frames() % 4 != self.get_instance_id() % 4:
+		return  # Skip update 3/4 frames
 	if nav_agent and player:
 		# Update the target position for pathfinding
 		nav_agent.target_position = player.global_transform.origin

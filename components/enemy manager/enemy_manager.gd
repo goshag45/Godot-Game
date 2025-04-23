@@ -10,6 +10,7 @@ extends Node3D
 var spawn_rate: float
 var spawn_timer: float = 0.0
 var spawn_flag = false
+var gore_ball_counter = 0
 
 func _ready():
 	spawn_rate = initial_spawn_rate
@@ -24,7 +25,8 @@ func _process(delta):
 		if spawn_timer <= 0:
 			spawn_enemy()
 			spawn_timer = spawn_rate
-			spawn_rate *= acceleration # Reduce time interval to speed up spawning
+			if spawn_timer >= 0.3:
+				spawn_rate *= acceleration # Reduce time interval to speed up spawning
 
 func spawn_enemy():
 	if not player:
@@ -35,6 +37,7 @@ func spawn_enemy():
 	var spawn_position = get_random_spawn_position()
 	var enemy = gore_ball.instantiate()
 	add_child(enemy)
+	gore_ball_counter += 1
 	enemy.global_position = spawn_position # Moved this line outside the check
 
 
