@@ -22,3 +22,9 @@ func spawn_balls():
 
 func _on_thedavy_da_aura() -> void:
 	da_aura.show()
+
+func _on_deathbox_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		get_tree().reload_current_scene()
+	if body.is_in_group("enemy"):
+		body.die()

@@ -24,6 +24,8 @@
  - fade in/fade out animation for the big circle object
  - enemy idea because FUCK animating -> big cube, it moves by rotation around, falls to pieces when dead
  - smoke cigarettes
+ - speed counter
+ - ~deathbox~
 
 Weapons
  - flamethrower

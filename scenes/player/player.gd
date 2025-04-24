@@ -43,9 +43,6 @@ func _process(_delta):
 	var mat = blood_orb.find_child("blood").get_active_material(0)
 	mat.set_shader_parameter('fill_amount', health/100.0 * 0.5 + 0.26)
 
-func _on_deathbox_body_entered(_body: Node3D) -> void:
-	die()
-
 func die():
 	var spawn_location = Vector3(0,-1,7)
 	player.global_position = spawn_location
