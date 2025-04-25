@@ -11,6 +11,8 @@
  - open playground type levels
 
 PHYSICS INTERPOLATION MANUAL VS INBUILT IDK
+WEIRD ROCKET DAMAGE
+ADD VELOCITY METER ASAP
 
 ## Goals (old)
  - ~~first person character~~

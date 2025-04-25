@@ -1,9 +1,9 @@
 extends Area3D
 
 @export var radius: float = 4.0
-@export var damage: int = 100
+@export var damage: float = 30.0
 @export var force: float = 50.0
-@export var lifetime: float = 2.0  # time before it's freed
+@export var lifetime: float = 0.2  # time before it's freed
 
 var origin: Vector3
 
