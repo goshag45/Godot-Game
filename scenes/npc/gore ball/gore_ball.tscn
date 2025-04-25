@@ -17,6 +17,7 @@ roughness = 0.2
 uv1_triplanar = true
 
 [node name="gore_ball" type="RigidBody3D" groups=["enemy"]]
+collision_mask = 5
 mass = 0.2
 physics_material_override = SubResource("PhysicsMaterial_5sirm")
 script = ExtResource("1_5sirm")

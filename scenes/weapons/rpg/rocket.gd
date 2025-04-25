@@ -8,8 +8,6 @@ var velocity: Vector3
 var armed := false
 
 func _ready():
-	await get_tree().create_timer(0.05).timeout
-	armed = true
 	# Schedule auto-despawn
 	await get_tree().create_timer(lifetime).timeout
 	queue_free()
@@ -22,12 +20,11 @@ func _on_collision_area_area_entered(area: Area3D) -> void:
 	explode()
 
 func _on_collision_area_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		return
 	explode()
 
 func explode():
-	if not armed:
-		return
-
 	var explosion_instance = explosion.instantiate()
 	explosion_instance.origin = global_transform.origin
 	explosion_instance.global_transform.origin = global_transform.origin

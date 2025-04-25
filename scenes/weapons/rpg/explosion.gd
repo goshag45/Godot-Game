@@ -3,7 +3,7 @@ extends Area3D
 @export var radius: float = 4.0
 @export var damage: int = 100
 @export var force: float = 50.0
-@export var lifetime: float = 0.2  # time before it's freed
+@export var lifetime: float = 2.0  # time before it's freed
 
 var origin: Vector3
 
@@ -29,7 +29,7 @@ func apply_force() -> void:
 		var body_pos = body.global_position
 		var force_div = 400.0
 		if body is CharacterBody3D:
-			body_pos.y =+ 0.5
+			body_pos.y =+ 1.0
 			force_div = 150.0
 		elif body is RigidBody3D:
 			force_div = max(0.01, body.mass)
