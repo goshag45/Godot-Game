@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq7cq72r0yr"]
+
+[ext_resource type="Script" uid="uid://cdn0xf4xclhkl" path="res://scenes/weapons/rpg/explosion.gd" id="1_ip0j3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_i6nfn"]
+
+[node name="explosion" type="Area3D"]
+script = ExtResource("1_ip0j3")
+
+[node name="explosion_radius" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_i6nfn")
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

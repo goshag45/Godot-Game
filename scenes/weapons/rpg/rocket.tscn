@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://5rsf5pvt3inl"]
+[gd_scene load_steps=8 format=4 uid="uid://5rsf5pvt3inl"]
 
 [ext_resource type="Texture2D" uid="uid://c3g0ni1pxah03" path="res://art/visual/models/weapons/ps1_-_rocket_launcher_0.png" id="1_6gyb8"]
-[ext_resource type="Script" uid="uid://sator2asp8gt" path="res://scenes/weapons/rocket.gd" id="1_kjqmh"]
+[ext_resource type="Script" uid="uid://sator2asp8gt" path="res://scenes/weapons/rpg/rocket.gd" id="1_kjqmh"]
+[ext_resource type="PackedScene" uid="uid://bq7cq72r0yr" path="res://scenes/weapons/rpg/explosion.tscn" id="2_sxdxr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7b2xm"]
 resource_name = "Material_26"
@@ -50,6 +51,7 @@ height = 29.0193
 
 [node name="rocket" type="Node3D"]
 script = ExtResource("1_kjqmh")
+explosion = ExtResource("2_sxdxr")
 
 [node name="rocket_material" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.05, 0, -4.37114e-09, 0, 0.05, 0, 4.37114e-09, 0, -0.05, 0, 0, 2)

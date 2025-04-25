@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://lho0typtmcug" path="res://scenes/weapons/smg.tscn" id="3_xam3p"]
 [ext_resource type="PackedScene" uid="uid://bgre8edfwhmng" path="res://scenes/player/blood_orb_v_2.tscn" id="4_8w7p4"]
 [ext_resource type="PackedScene" uid="uid://d1rhgfglrv3nc" path="res://scenes/weapons/winchesta.tscn" id="4_sa57l"]
-[ext_resource type="PackedScene" uid="uid://bgtkpm6db2akx" path="res://scenes/weapons/rpg.tscn" id="5_djgkn"]
+[ext_resource type="PackedScene" uid="uid://bgtkpm6db2akx" path="res://scenes/weapons/rpg/rpg.tscn" id="5_djgkn"]
 
 [sub_resource type="GDScript" id="GDScript_8w7p4"]
 script/source = "extends Node3D
