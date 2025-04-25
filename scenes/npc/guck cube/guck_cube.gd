@@ -22,6 +22,7 @@ var torque_axis: Vector3
 var augh_sounds = ["augh1", "augh2", "augh3"]
 
 func _ready():
+	mass = 5.0
 	nav_agent.path_desired_distance = 2.0
 	angular_damp = 1.0
 	# quick fix to pause physics for a frame to wait for navigation server to work
@@ -33,7 +34,7 @@ func setup():
 	set_physics_process(true)
 
 func _physics_process(delta: float) -> void:
-	torque_strength = randf_range(22.0, 28.0)
+	torque_strength = randf_range(120.0, 140.0)
 	if not player:
 		player = get_tree().get_first_node_in_group("player")
 	if not player:

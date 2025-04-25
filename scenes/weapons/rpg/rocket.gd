@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var speed: float = 40.0
+@export var speed: float = 25.0
 @export var lifetime: float = 5.0
 @export var explosion : PackedScene
 
