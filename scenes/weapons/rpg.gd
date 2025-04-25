@@ -7,7 +7,7 @@ var magazine
 @export var fire_mode = 1
 @export var shoot_sound = "rpg_shoot"
 @export var reload = "reload"
-@export var shoot_volume = 8
+@export var shoot_volume = 5
 @export var projectile : PackedScene
 
 func _ready() -> void:
