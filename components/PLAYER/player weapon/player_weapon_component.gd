@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("num4")):
 		current_weapon.hide()
 		current_weapon = rpg
-		shotgun.show()
+		rpg.show()
 
 	var weapon_animation = current_weapon.get_child(2)
 	if Input.is_action_just_pressed("reload"):

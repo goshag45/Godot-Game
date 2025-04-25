@@ -98,7 +98,7 @@ _data = {
 &"shotgun_shoot": SubResource("Animation_8pa1i")
 }
 
-[node name="winchesta" type="Node3D"]
+[node name="winchesta" type="Node3D" groups=["hitscan"]]
 script = ExtResource("1_cwc0a")
 
 [node name="model" parent="." instance=ExtResource("1_ma3og")]

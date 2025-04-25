@@ -479,7 +479,7 @@ _data = {
 &"revolver_shoot": SubResource("Animation_as0g5")
 }
 
-[node name="revolver" type="Node3D"]
+[node name="revolver" type="Node3D" groups=["hitscan"]]
 script = ExtResource("1_tbasm")
 
 [node name="model" type="MeshInstance3D" parent="."]

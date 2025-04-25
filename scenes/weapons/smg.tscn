@@ -149,7 +149,7 @@ _data = {
 &"weapon_bob": SubResource("Animation_yqaur")
 }
 
-[node name="smg" type="Node3D"]
+[node name="smg" type="Node3D" groups=["hitscan"]]
 script = ExtResource("1_2iled")
 
 [node name="model" type="MeshInstance3D" parent="."]

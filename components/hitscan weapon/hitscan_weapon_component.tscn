@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://qnvdq63fpjyy" path="res://components/hitscan weapon/hitscan_weapon_component.gd" id="1_rhgb1"]
 
-[node name="hitscan_weapon_component" type="Node3D"]
+[node name="hitscan_weapon_component" type="Node3D" groups=["weapon_component"]]
 script = ExtResource("1_rhgb1")
