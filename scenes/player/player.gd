@@ -6,11 +6,9 @@ extends CharacterBody3D
 #weird calc - stupid
 var SENSITIVITY = sensitivity_input/1000
 @export var jump_velocity = 4.5
-@export var base_fov = 85
-@export var fov_scale = 1.5
 @export var gravity = 9.8
 @export var speed = 8.0
-@export var health = 10.0
+@export var health = 100.0
 @export var dash_velocity = 20
 
 var kill_count = 0

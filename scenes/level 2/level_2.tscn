@@ -539,7 +539,7 @@ spot_angle = 64.6875
 spot_angle_attenuation = 0.784584
 
 [node name="guck_cube" parent="terrain" instance=ExtResource("20_pbxj0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32672, 0, -25.4372)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32672, 3, -25.4372)
 
 [node name="deathbox" type="Area3D" parent="." groups=["deathbox"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -29.2741, 0)

@@ -12,8 +12,6 @@ var direction = Vector3()
 var jump_sounds = ["jump1", "jump2", "jump3"]
 
 var jump_velocity : float
-var base_fov : int
-var fov_scale : float
 var gravity : float
 var speed : float
 var health : int
@@ -21,8 +19,6 @@ var dash_velocity : int
 
 func _ready() -> void:
 	jump_velocity = player.jump_velocity
-	base_fov = player.base_fov
-	fov_scale = player.fov_scale
 	gravity = player.gravity
 	speed = player.speed
 	health = player.health

@@ -7,6 +7,7 @@ extends Node3D
 @onready var smg = $"../head/firstperson_camera/view_model/view_model_camera/fps_rig/smg"
 @onready var revolver = $"../head/firstperson_camera/view_model/view_model_camera/fps_rig/revolver"
 @onready var shotgun = $"../head/firstperson_camera/view_model/view_model_camera/fps_rig/winchesta"
+@onready var rpg = $"../head/firstperson_camera/view_model/view_model_camera/fps_rig/rpg"
 
 @onready var current_weapon = smg
 
@@ -30,7 +31,10 @@ func _process(_delta: float) -> void:
 		current_weapon.hide()
 		current_weapon = shotgun
 		shotgun.show()
-
+	if (Input.is_action_just_pressed("num4")):
+		current_weapon.hide()
+		current_weapon = rpg
+		shotgun.show()
 
 	var weapon_animation = current_weapon.get_child(2)
 	if Input.is_action_just_pressed("reload"):
@@ -40,7 +44,6 @@ func _process(_delta: float) -> void:
 
 	var hit_point = aim_ray.get_collision_point()
 	shoot(fire_mode, hit_point)
-
 
 # im sure i can clean this up
 func shoot(fire_mode, hit_point):
