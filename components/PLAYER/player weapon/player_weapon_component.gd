@@ -36,27 +36,38 @@ func _process(_delta: float) -> void:
 		current_weapon = rpg
 		rpg.show()
 
-	var weapon_animation = current_weapon.get_child(2)
+	var weapon_animation = current_weapon.find_child("animation")
 	if Input.is_action_just_pressed("reload"):
 		weapon_animation.stop()
 		weapon_animation.play("reload")
-		current_weapon.get_node("hitscan_weapon_component")._reload()
+		var weapon_component = utils.get_child_in_group(current_weapon, "weapon_component")
+		weapon_component._reload()
 
 	var hit_point = aim_ray.get_collision_point()
 	shoot(fire_mode, hit_point)
 
 # im sure i can clean this up
-func shoot(fire_mode, hit_point):
-	if (fire_mode == 1):
-		if Input.is_action_just_pressed("fire"):
-			var target
-			if aim_ray.is_colliding():
-				target = aim_ray.get_collider()
-			player.get_node("player_weapon_component").current_weapon.get_node("hitscan_weapon_component")._shoot(target, hit_point)
+func shoot(fire_mode: int, hit_point: Vector3) -> void:
+	var should_fire := (
+		(fire_mode == 1 and Input.is_action_just_pressed("fire")) or
+		(fire_mode == 2 and Input.is_action_pressed("fire"))
+	)
+
+	if not should_fire:
+		return
+
+	var current_weapon = player.get_node("player_weapon_component").current_weapon
+	if current_weapon == null:
+		print("No current weapon equipped")
+		return
+
+	var weapon_component = utils.get_child_in_group(current_weapon, "weapon_component")
+	var is_hitscan = false
+	is_hitscan = current_weapon.is_in_group("hitscan")
+
+	var target = null
+	if is_hitscan and aim_ray.is_colliding():
+		target = aim_ray.get_collider()
 	
-	if (fire_mode == 2):
-		if Input.is_action_pressed("fire"):
-			var target
-			if aim_ray.is_colliding():
-				target = aim_ray.get_collider()
-			player.get_node("player_weapon_component").current_weapon.get_node("hitscan_weapon_component")._shoot(target, hit_point)
+	print(target)
+	weapon_component._shoot(target, hit_point)

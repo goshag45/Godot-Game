@@ -25,8 +25,6 @@ func _process(_delta: float) -> void:
 func update_ammo_counter():
 	var current_weapon = player.get_node("player_weapon_component").current_weapon
 	var weapon_component = utils.get_child_in_group(current_weapon, "weapon_component")
-	#var projectile = utils.get_child_in_group(current_weapon, "projectile")
-	print(weapon_component)
 	ammo_counter.text = str(weapon_component.magazine)
 
 func update_cooldown():
