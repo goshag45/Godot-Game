@@ -10,6 +10,8 @@
  - balls coalescing into something, more balls, other stuff
  - open playground type levels
 
+PHYSICS INTERPOLATION MANUAL VS INBUILT IDK
+
 ## Goals (old)
  - ~~first person character~~
  - ~~movement tech, sprinting, jumping~~

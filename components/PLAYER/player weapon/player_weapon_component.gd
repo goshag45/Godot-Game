@@ -69,5 +69,4 @@ func shoot(fire_mode: int, hit_point: Vector3) -> void:
 	if is_hitscan and aim_ray.is_colliding():
 		target = aim_ray.get_collider()
 	
-	print(target)
 	weapon_component._shoot(target, hit_point)

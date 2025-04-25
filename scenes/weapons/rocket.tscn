@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://5rsf5pvt3inl"]
+[gd_scene load_steps=7 format=4 uid="uid://5rsf5pvt3inl"]
 
 [ext_resource type="Texture2D" uid="uid://c3g0ni1pxah03" path="res://art/visual/models/weapons/ps1_-_rocket_launcher_0.png" id="1_6gyb8"]
+[ext_resource type="Script" uid="uid://sator2asp8gt" path="res://scenes/weapons/rocket.gd" id="1_kjqmh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7b2xm"]
 resource_name = "Material_26"
@@ -47,13 +48,17 @@ shadow_mesh = SubResource("ArrayMesh_2o3pm")
 radius = 4.99067
 height = 29.0193
 
-[node name="rocket" type="RigidBody3D"]
+[node name="rocket" type="Node3D"]
+script = ExtResource("1_kjqmh")
 
 [node name="rocket_material" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.05, 0, -4.37114e-09, 0, 0.05, 0, 4.37114e-09, 0, -0.05, 0, 0, 2)
 layers = 2
 mesh = SubResource("ArrayMesh_p5c3s")
 skeleton = NodePath("")
 
-[node name="collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 37.5187)
+[node name="collision_area" type="Area3D" parent="."]
+
+[node name="collision" type="CollisionShape3D" parent="collision_area"]
+transform = Transform3D(0.05, 0, 0, 0, -2.18557e-09, -0.05, 0, 0.05, -2.18557e-09, 0, 0, 0.00507808)
 shape = SubResource("CapsuleShape3D_6gyb8")
