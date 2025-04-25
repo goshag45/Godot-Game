@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cjxmnb0h8hje7" path="res://art/visual/theme1.tres" id="1_6ts8v"]
 [ext_resource type="Script" uid="uid://crb783cgp4j4v" path="res://components/GUI/start_menu/start_menu.gd" id="1_s3lks"]
-[ext_resource type="Texture2D" uid="uid://ckrjy0fnwsg6r" path="res://art/screencap.png" id="3_alcev"]
+[ext_resource type="Texture2D" uid="uid://010tocmlpv7d" path="res://art/visual/gore_ball/gore_texture.png" id="2_ni1cp"]
 [ext_resource type="Script" uid="uid://bfuapyqlidunn" path="res://components/GUI/hover sound component/hover_sound.gd" id="3_h36j1"]
 [ext_resource type="AudioStream" uid="uid://dabcsogrgdblr" path="res://audio/blood_squelch.mp3" id="5_rsujc"]
 
@@ -24,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("3_alcev")
+texture = ExtResource("2_ni1cp")
 expand_mode = 1
 
 [node name="button_container" type="VBoxContainer" parent="."]
@@ -34,10 +34,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -258.0
-offset_top = -169.0
-offset_right = 258.0
-offset_bottom = 169.0
+offset_left = -179.0
+offset_top = -95.5
+offset_right = 179.0
+offset_bottom = 95.5
 grow_horizontal = 2
 grow_vertical = 2
 

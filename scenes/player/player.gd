@@ -31,7 +31,8 @@ func _ready():
 	global_signals.guck_cube_died.connect(_on_enemy_killed)
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("interact2"):
+	# fullscreen keybind for now
+	if Input.is_action_just_pressed("interact2") and DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _process(_delta):
