@@ -30,7 +30,10 @@ func update_ammo_counter():
 func update_cooldown():
 	var countdown_time = player.get_node("player_movement_component").get_node("dash_cooldown").time_left
 	var truncated_time = snapped(countdown_time, 0.01)
-	cooldown_counter.text = str(truncated_time)
+	#cooldown_counter.text = str(truncated_time)
+	var speed = player.velocity.length()
+	var trim = snapped(speed, 0.01)
+	cooldown_counter.text = str(trim)
 
 func update_orb_counter():
 	balls_counter.text = "BALLS: " + str(player.get_tree().root.get_node("level_2").get_node("enemy_manager").gore_ball_counter)
