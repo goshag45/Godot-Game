@@ -3,10 +3,9 @@ extends RigidBody3D
 @export var health = 100
 @export var blood_color : Color = Color.RED
 
-@export var acceleration_force: float = 2.0  # Force applied for acceleration
+@export var acceleration_force: float = 30.0  # Force applied for acceleration
 @export var max_horizontal_speed: float = 10.0  # Maximum speed on the XZ plane
-@export var max_vertical_speed: float = 20.0  # Maximum speed on the Y axis
-@export var turn_speed: float = 5.0  # How quickly the ball can adjust its direction
+#@export var max_vertical_speed: float = 20.0  # Maximum speed on the Y axis
 
 @onready var nav_agent = $nav_agent
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -14,6 +13,9 @@ extends RigidBody3D
 # default mass is 0.2 
 
 func _ready():
+	linear_damp = 0.1
+	angular_damp = 0.05
+	mass = 1.0
 	# quick fix to pause physics for a frame to wait for navigation server to work
 	set_physics_process(false)
 	call_deferred("setup")
@@ -50,9 +52,9 @@ func _physics_process(_delta: float) -> void:
 			linear_velocity.x = horizontal_velocity.x
 			linear_velocity.z = horizontal_velocity.z
 
-		# Enforce vertical speed limit (Y axis)
-		if abs(linear_velocity.y) > max_vertical_speed:
-			linear_velocity.y = sign(linear_velocity.y) * max_vertical_speed
+		## Enforce vertical speed limit (Y axis)
+		#if abs(linear_velocity.y) > max_vertical_speed:
+			#linear_velocity.y = sign(linear_velocity.y) * max_vertical_speed
 
 
 func _process(_delta):

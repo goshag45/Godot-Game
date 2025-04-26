@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="3_v8moq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5sirm"]
-bounce = 0.1
+bounce = 0.21
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dkjwh"]
 
@@ -18,11 +18,8 @@ uv1_triplanar = true
 
 [node name="gore_ball" type="RigidBody3D" groups=["enemy"]]
 collision_mask = 5
-mass = 0.2
 physics_material_override = SubResource("PhysicsMaterial_5sirm")
 script = ExtResource("1_5sirm")
-acceleration_force = 6.0
-max_horizontal_speed = 6.0
 
 [node name="hitbox" type="CollisionShape3D" parent="." groups=["enemy"]]
 shape = SubResource("SphereShape3D_dkjwh")

@@ -14,7 +14,14 @@ func _ready():
 
 func _physics_process(delta):
 	position += velocity * delta
-	look_at(position + velocity.normalized(), Vector3.UP)
+
+	var target_position = position + velocity.normalized()
+	var up = Vector3.UP
+
+	if abs(velocity.normalized().dot(up)) > 0.99:
+		up = Vector3.FORWARD  # Pick another up vector if too parallel
+
+	look_at(target_position, up)
 
 func _on_collision_area_area_entered(area: Area3D) -> void:
 	explode()

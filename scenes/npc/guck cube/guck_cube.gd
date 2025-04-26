@@ -37,20 +37,13 @@ func _physics_process(delta: float) -> void:
 	torque_strength = randf_range(120.0, 140.0)
 	if not player:
 		player = get_tree().get_first_node_in_group("player")
-	if not player:
-		print("no player")
-		return
-
 	# Update target destination
 	nav_agent.target_position = player.global_transform.origin
-
 	# Only update path if there's something to follow
 	if nav_agent.is_navigation_finished():
-		print("reached!")
 		return
 
 	next_position = nav_agent.get_next_path_position()
-
 	# Defensive check: is it a different position?
 	if next_position.distance_to(global_transform.origin) < 0.1:
 		print("distance too low")
