@@ -11,8 +11,9 @@
  - open playground type levels
 
 PHYSICS INTERPOLATION MANUAL VS INBUILT IDK
-WEIRD ROCKET DAMAGE
-ADD VELOCITY METER ASAP
+WEIRD ROCKET DAMAGE ✔️
+ADD VELOCITY METER ASAP ✔️
+enemies hit player and velocity goes bananas
 
 ## Goals (old)
  - ~~first person character~~
@@ -28,7 +29,7 @@ ADD VELOCITY METER ASAP
  - fade in/fade out animation for the big circle object
  - enemy idea because FUCK animating -> big cube, it moves by rotation around, falls to pieces when dead
  - smoke cigarettes
- - speed counter
+ - ~speed counter~
  - ~deathbox~
 
 Weapons
