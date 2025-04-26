@@ -5,7 +5,7 @@ extends Node3D
 @export var explosion : PackedScene
 
 var velocity: Vector3
-var armed := false
+var exploded
 
 func _ready():
 	# Schedule auto-despawn
@@ -32,8 +32,15 @@ func _on_collision_area_body_entered(body: Node3D) -> void:
 	explode()
 
 func explode():
+#	this didnt do dick
+	if exploded:
+		return
+	exploded = true
+	
+	var spawn_position = global_transform.origin
+	
 	var explosion_instance = explosion.instantiate()
-	explosion_instance.origin = global_transform.origin
-	explosion_instance.global_transform.origin = global_transform.origin
 	get_tree().current_scene.add_child(explosion_instance)
+	explosion_instance.origin = spawn_position
+	explosion_instance.global_transform.origin = spawn_position
 	queue_free()
