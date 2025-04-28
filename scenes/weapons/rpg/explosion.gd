@@ -1,20 +1,26 @@
 extends Area3D
 
-@export var radius: float = 4.0
+@export var radius: float = 6.0
 @export var damage: float = 30.0
 @export var force: float = 100.0
 @export var lifetime: float = 0.05  # time before it's freed
 
 var origin: Vector3
+var explosion_vfx = preload("res://scenes/weapons/rpg/simple_explosion_vfx.tscn")
 
 func _ready():
-	#DebugDraw3D.draw_sphere(global_transform.origin, radius, Color.RED)
 	$explosion_radius.shape.radius = radius
 	$timer.wait_time = lifetime
 	$timer.start()
 	connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _on_body_entered(body: Node):
+	var spawn_position = global_transform.origin
+	var vfx_instance = explosion_vfx.instantiate()
+	get_tree().current_scene.add_child(vfx_instance)
+	vfx_instance.global_transform.origin = spawn_position
+	vfx_instance.get_node("animation").play("explode")
+	
 	if body.is_in_group("enemy"):
 		body.health -= damage
 	await get_tree().physics_frame
@@ -39,4 +45,4 @@ func apply_force():
 		if body is RigidBody3D:
 			body.apply_impulse(impulse)
 		elif body is CharacterBody3D:
-			body.velocity += impulse /8
+			body.velocity += impulse /5

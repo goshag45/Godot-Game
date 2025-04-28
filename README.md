@@ -32,16 +32,23 @@ enemies hit player and velocity goes bananas
  - ~speed counter~
  - ~deathbox~
 
+Movement
+ - lerp over with velocity
+ - chromatic aberation with velocity
+ - camera shake?
+ - zoom effect
+
 Weapons
  - flamethrower
  - gravity gun
  - laser
- - rocket launcher
+ - ~rocket launcher~
  - sound of bullet casings landing? (awesome)
 
 guck cube
  - spit green projectiles
  - ~movement (jumping? sliding? rolling?)~
+
 
 inverted color text?
 https://godotforums.org/d/23079-inverted-blend-on-text/6

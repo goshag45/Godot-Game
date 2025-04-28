@@ -32,7 +32,6 @@ func _on_collision_area_body_entered(body: Node3D) -> void:
 	explode()
 
 func explode():
-#	this didnt do dick
 	if exploded:
 		return
 	exploded = true
