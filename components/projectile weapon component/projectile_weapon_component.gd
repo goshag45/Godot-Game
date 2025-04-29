@@ -11,7 +11,7 @@ var damage = 0
 var shoot_sound
 var is_reloading = false
 
-var blood_splatter = preload("res://scenes/blood_splatter.tscn")
+var blood_splatter = preload("res://scenes/weapons/blood_splatter.tscn")
 var aim_ray: Node
 
 func _ready() -> void:
