@@ -11,8 +11,11 @@
  - open playground type levels
 
 PHYSICS INTERPOLATION MANUAL VS INBUILT IDK
+
 WEIRD ROCKET DAMAGE ✔️
+
 ADD VELOCITY METER ASAP ✔️
+
 enemies hit player and velocity goes bananas
 
 ## Goals (old)
@@ -48,7 +51,6 @@ Weapons
 guck cube
  - spit green projectiles
  - ~movement (jumping? sliding? rolling?)~
-
 
 inverted color text?
 https://godotforums.org/d/23079-inverted-blend-on-text/6

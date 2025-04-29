@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq32jw1gxsv35"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fol11"]
+albedo_color = Color(0.753908, 0.150736, 0.190397, 1)
+roughness = 0.1
+emission_enabled = true
+emission = Color(0.752941, 0.14902, 0.192157, 1)
+emission_energy_multiplier = 0.4
+
+[sub_resource type="Curve" id="Curve_fjpxi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_btktr"]
+curve = SubResource("Curve_fjpxi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_owu83"]
+direction = Vector3(0, 0, -1)
+spread = 10.0
+initial_velocity_min = 8.0
+initial_velocity_max = 10.0
+scale_curve = SubResource("CurveTexture_btktr")
+
+[sub_resource type="SphereMesh" id="SphereMesh_4yy5d"]
+radius = 0.04
+height = 0.08
+
+[node name="blood_splatter" type="GPUParticles3D"]
+material_override = SubResource("StandardMaterial3D_fol11")
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_owu83")
+draw_pass_1 = SubResource("SphereMesh_4yy5d")
