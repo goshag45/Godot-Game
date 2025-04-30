@@ -28,8 +28,8 @@ func update_ammo_counter():
 	ammo_counter.text = str(weapon_component.magazine)
 
 func update_cooldown():
-	var countdown_time = player.get_node("player_movement_component").get_node("dash_cooldown").time_left
-	var truncated_time = snapped(countdown_time, 0.01)
+	#var countdown_time = player.get_node("player_movement_component").get_node("dash_cooldown").time_left
+	#var truncated_time = snapped(countdown_time, 0.01)
 	#cooldown_counter.text = str(truncated_time)
 	var speed = player.velocity.length()
 	var trim = snapped(speed, 0.01)

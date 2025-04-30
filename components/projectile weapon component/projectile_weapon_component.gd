@@ -25,7 +25,7 @@ func _process(_delta: float) -> void:
 	if magazine <= 0 and !animation.is_playing():
 		_reload()
 
-func _shoot(target, hit_point):
+func _shoot():
 	if !animation.is_playing():
 		magazine -= 1
 		animation.play(shoot_sound)

@@ -56,7 +56,7 @@ func shoot(fire_mode: int, hit_point: Vector3) -> void:
 	if not should_fire:
 		return
 
-	var current_weapon = player.get_node("player_weapon_component").current_weapon
+	current_weapon = player.get_node("player_weapon_component").current_weapon
 	if current_weapon == null:
 		print("No current weapon equipped")
 		return
@@ -64,6 +64,9 @@ func shoot(fire_mode: int, hit_point: Vector3) -> void:
 	var weapon_component = utils.get_child_in_group(current_weapon, "weapon_component")
 	var is_hitscan = false
 	is_hitscan = current_weapon.is_in_group("hitscan")
+	if !is_hitscan:
+		weapon_component._shoot()
+		return
 
 	var target = null
 	if is_hitscan and aim_ray.is_colliding():
