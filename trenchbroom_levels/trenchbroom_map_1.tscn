@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=4 uid="uid://j0mg6qu0gkmp"]
+
+[ext_resource type="Script" uid="uid://barfabdro4umh" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_vn5d2"]
+[ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_yoxgc"]
+[ext_resource type="Script" uid="uid://dut2afq6lquid" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_4f0wl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqs71"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgyi4"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lcgag"]
+_surfaces = [{
+"aabb": AABB(-22.5, -11.9, -22.5, 45, 29, 45),
+"attribute_data": PackedByteArray("AACwQwAAwP8AALBDAACAfwAAuMMAAIB/AAC4wwAAwP8AAID/AACA/wAAgH8AAIB/AACAfwAAgH8AAID/AACAfwAAgP8AAID/AACA/wAAgH8AAIB/AACAfwAAgH8AAID/AACA/wAAgP8AAIB/AACA/wAAgH8AAIB/AACA/wAAgH8AAID/AACAfwAAgP8AAIB/AACAfwAAgH8AAIB/AACA/wAAsMMAAMD/AAC4QwAAwP8AALhDAACAfwAAsMMAAIB/AACwQwAAgP8AALBDAACAfwAAqEMAAIB/AACoQwAAgP8AAID/AACA/wAAgH8AAID/AACAfwAAgH8AAID/AACAfwAAgP8AAIB/AACA/wAAgH8AAIB/AACAfwAAgH8AAIB/AACA/wAAgH8AAIB/AACAfwAAgH8AAIB/AACA/wAAgH8AAID/AACA/wAAgP8AAIB/AACAfwAAgH8AAIB/AACA/wAAsMMAAID/AACowwAAgP8AAKjDAACAfwAAsMMAAIB/AACoQwAAgP8AAKhDAADA/wAAuMMAAMD/AAC4wwAAgP8AAID/AACA/wAAgP8AAID/AACA/wAAgP8AAID/AACA/wAAgP8AAID/AACA/wAAgH8AAID/AACAfwAAgP8AAID/AACA/wAAgP8AAID/AACA/wAAgP8AAIB/AACA/wAAgH8AAID/AACA/wAAgP8AAIB/AACA/wAAgH8AAID/AACA/wAAqMMAAID/AAC4QwAAgP8AALhDAADA/wAAqMMAAMD/AACwwwAAgP8AALDDAACAfwAAuMMAAIB/AAC4wwAAgP8AAID/AACA/wAAgH8AAID/AACAfwAAgH8AAID/AACAfwAAgP8AAID/AACA/wAAgP8AAIB/AACA/wAAgH8AAID/AACA/wAAgP8AAIB/AACA/wAAgH8AAID/AACA/wAAgP8AAID/AACA/wAAgP8AAIB/AACAfwAAgH8AAIB/AACA/wAAsEMAAID/AAC4QwAAgP8AALhDAACAfwAAsEMAAIB/AACwQwAAgP8AALBDAADA/wAAsMMAAMD/AACwwwAAgP8AAIB/AACA/wAAgH8AAID/AACAfwAAgH8AAIB/AACAfwAAgH8AAID/AACAfwAAgH8AAIB/AACAfwAAgH8AAID/AACAfwAAgP8AAIB/AACA/wAAgH8AAIB/AACAfwAAgH8AAIB/AACA/wAAgH8AAID/AACAfwAAgP8AAIB/AACA/wAAsMMAAID/AACwQwAAgP8AALBDAADA/wAAsMMAAMD/"),
+"format": 34359742487,
+"index_count": 180,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAiACMAJAAlACYAJAAmACcAKAApACoAKAAqACsALAAtAC4ALAAuAC8AMAAxADIAMAAyADMANAA1ADYANAA2ADcAOAA5ADoAOAA6ADsAPAA9AD4APAA+AD8AQABBAEIAQABCAEMARABFAEYARABGAEcASABJAEoASABKAEsATABNAE4ATABOAE8AUABRAFIAUABSAFMAVABVAFYAVABWAFcAWABZAFoAWABaAFsAXABdAF4AXABeAF8AYABhAGIAYABiAGMAZABlAGYAZABmAGcAaABpAGoAaABqAGsAbABtAG4AbABuAG8AcABxAHIAcAByAHMAdAB1AHYAdAB2AHcA"),
+"material": SubResource("StandardMaterial3D_cgyi4"),
+"name": "\"sketchy",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 120,
+"vertex_data": PackedByteArray("AAC0wWZmLsEAALTBAAC0wWZmPsEAALTBAAC0QWZmPsEAALTBAAC0QWZmLsEAALTBAAC0wWZmLsEAALTBAAC0wWZmLsEAALRBAAC0wWZmPsEAALRBAAC0wWZmPsEAALTBAAC0QWZmPsEAALTBAAC0wWZmPsEAALTBAAC0wWZmPsEAALRBAAC0QWZmPsEAALRBAAC0QWZmLsEAALTBAAC0QWZmLsEAALRBAAC0wWZmLsEAALRBAAC0wWZmLsEAALTBAAC0QWZmLsEAALTBAAC0QWZmPsEAALTBAAC0QWZmPsEAALRBAAC0QWZmLsEAALRBAAC0wWZmLsEAALRBAAC0QWZmLsEAALRBAAC0QWZmPsEAALRBAAC0wWZmPsEAALRBAAC0wc3MiEEAALTBAAC0wWZmPsEAALTBAACswWZmPsEAALTBAACswc3MiEEAALTBAAC0wc3MiEEAALTBAAC0wc3MiEEAAKxBAAC0wWZmPsEAAKxBAAC0wWZmPsEAALTBAACswWZmPsEAALTBAAC0wWZmPsEAALTBAAC0wWZmPsEAAKxBAACswWZmPsEAAKxBAACswc3MiEEAALTBAACswc3MiEEAAKxBAAC0wc3MiEEAAKxBAAC0wc3MiEEAALTBAACswc3MiEEAALTBAACswWZmPsEAALTBAACswWZmPsEAAKxBAACswc3MiEEAAKxBAAC0wc3MiEEAAKxBAACswc3MiEEAAKxBAACswWZmPsEAAKxBAAC0wWZmPsEAAKxBAACswc3MiEEAALTBAACswWZmLsEAALTBAAC0QWZmLsEAALTBAAC0Qc3MiEEAALTBAACswc3MiEEAALTBAACswc3MiEEAAKzBAACswWZmLsEAAKzBAACswWZmLsEAALTBAAC0QWZmLsEAALTBAACswWZmLsEAALTBAACswWZmLsEAAKzBAAC0QWZmLsEAAKzBAAC0Qc3MiEEAALTBAAC0Qc3MiEEAAKzBAACswc3MiEEAAKzBAACswc3MiEEAALTBAAC0Qc3MiEEAALTBAAC0QWZmLsEAALTBAAC0QWZmLsEAAKzBAAC0Qc3MiEEAAKzBAACswc3MiEEAAKzBAAC0Qc3MiEEAAKzBAAC0QWZmLsEAAKzBAACswWZmLsEAAKzBAACsQc3MiEEAAKzBAACsQWZmPsEAAKzBAAC0QWZmPsEAAKzBAAC0Qc3MiEEAAKzBAACsQc3MiEEAAKzBAACsQc3MiEEAALRBAACsQWZmPsEAALRBAACsQWZmPsEAAKzBAAC0QWZmPsEAAKzBAACsQWZmPsEAAKzBAACsQWZmPsEAALRBAAC0QWZmPsEAALRBAAC0Qc3MiEEAAKzBAAC0Qc3MiEEAALRBAACsQc3MiEEAALRBAACsQc3MiEEAAKzBAAC0Qc3MiEEAAKzBAAC0QWZmPsEAAKzBAAC0QWZmPsEAALRBAAC0Qc3MiEEAALRBAACsQc3MiEEAALRBAAC0Qc3MiEEAALRBAAC0QWZmPsEAALRBAACsQWZmPsEAALRBAAC0wc3MiEEAAKxBAAC0wWZmLsEAAKxBAACsQWZmLsEAAKxBAACsQc3MiEEAAKxBAAC0wc3MiEEAAKxBAAC0wc3MiEEAALRBAAC0wWZmLsEAALRBAAC0wWZmLsEAAKxBAACsQWZmLsEAAKxBAAC0wWZmLsEAAKxBAAC0wWZmLsEAALRBAACsQWZmLsEAALRBAACsQc3MiEEAAKxBAACsQc3MiEEAALRBAAC0wc3MiEEAALRBAAC0wc3MiEEAAKxBAACsQc3MiEEAAKxBAACsQWZmLsEAAKxBAACsQWZmLsEAALRBAACsQc3MiEEAALRBAAC0wc3MiEEAALRBAACsQc3MiEEAALRBAACsQWZmLsEAALRBAAC0wWZmLsEAALRB/////////7//////////v/////////+//////////78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD/f/+//38AAP9//7//fwAA/3//v/9/AAD/f/+//3////9//7//f////3//v/9/////f/+//3////9//7////9//3//v////3//f/+/////f/9//7////9//3//v/9//3////+//3//f////7//f/9/////v/9//3////+//////////7//////////v/////////+//////////78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD/f/+//38AAP9//7//fwAA/3//v/9/AAD/f/+//3////9//7//f////3//v/9/////f/+//3////9//7////9//3//v////3//f/+/////f/9//7////9//3//v/9//3////+//3//f////7//f/9/////v/9//3////+//////////7//////////v/////////+//////////78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD/f/+//38AAP9//7//fwAA/3//v/9/AAD/f/+//3////9//7//f////3//v/9/////f/+//3////9//7////9//3//v////3//f/+/////f/9//7////9//3//v/9//3////+//3//f////7//f/9/////v/9//3////+//////////7//////////v/////////+//////////78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD/f/+//38AAP9//7//fwAA/3//v/9/AAD/f/+//3////9//7//f////3//v/9/////f/+//3////9//7////9//3//v////3//f/+/////f/9//7////9//3//v/9//3////+//3//f////7//f/9/////v/9//3////+//////////7//////////v/////////+//////////78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD/f/+//38AAP9//7//fwAA/3//v/9/AAD/f/+//3////9//7//f////3//v/9/////f/+//3////9//7////9//3//v////3//f/+/////f/9//7////9//3//v/9//3////+//3//f////7//f/9/////v/9//3////+/")
+}]
+
+[node name="trenchbroom_map_1" type="Node3D"]
+
+[node name="QodotMap" type="Node3D" parent="."]
+script = ExtResource("1_vn5d2")
+map_file = "C:/Users/George/Documents/_game/Godot-Game/trenchbroom_levels/trenchbroom_testmap_1.map"
+entity_fgd = ExtResource("2_yoxgc")
+base_texture_dir = "res://art/visual/textures"
+texture_file_extensions = PackedStringArray("png", "jpg", "jpeg", "bmp")
+default_material = SubResource("StandardMaterial3D_bqs71")
+metadata/_custom_type_script = "uid://barfabdro4umh"
+
+[node name="entity_0_worldspawn" type="Node3D" parent="QodotMap"]
+script = ExtResource("3_4f0wl")
+properties = {
+"_tb_mod": "textures",
+"_tb_textures": "textures;textures\\low poly materials;textures\\sketchy mats;textures\\sketchy mats\\Brick;textures\\sketchy mats\\Floor;textures\\sketchy mats\\Metal;textures\\sketchy mats\\Misc;textures\\sketchy mats\\Stains;textures\\sketchy mats\\Stone;textures\\sketchy mats\\Wall",
+"classname": "worldspawn",
+"mapversion": "220"
+}
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="QodotMap/entity_0_worldspawn"]
+cast_shadow = 2
+gi_mode = 0
+mesh = SubResource("ArrayMesh_lcgag")

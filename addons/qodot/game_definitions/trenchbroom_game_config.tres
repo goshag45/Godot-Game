@@ -11,7 +11,7 @@
 [resource]
 script = ExtResource("3_8vw40")
 export_file = false
-trenchbroom_games_folder = "C:/Users/George/Documents/_game/TrenchBroom-Win64-AMD64-v2025.3-RC4-Release/games"
+trenchbroom_games_folder = "C:/Users/George/Documents/_game/TrenchBroom-Win64-v2024.1-RC2-Release/games"
 game_name = "Guck and Ball Torture"
 icon = ExtResource("6_wypt7")
 map_formats = Array[Dictionary]([{
