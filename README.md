@@ -47,6 +47,9 @@ Weapons
  - laser
  - ~rocket launcher~
  - sound of bullet casings landing? (awesome)
+ - SHOTGUN IMPULSE? 
+ - SHOTGUN MUZZLE FLASH
+ - ROCKET GLOW EMISSION
 
 guck cube
  - spit green projectiles
