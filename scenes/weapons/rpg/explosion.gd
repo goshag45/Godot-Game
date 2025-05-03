@@ -36,6 +36,7 @@ func apply_force():
 			continue
 		var body_pos = body.global_position
 		if body is CharacterBody3D:
+#			i cant remove this and its bugging me!
 			body_pos.y += 1.0
 		var direction = self.global_position.direction_to(body_pos)
 		var distance = (body_pos - self.global_position).length()
@@ -45,4 +46,6 @@ func apply_force():
 		if body is RigidBody3D:
 			body.apply_impulse(impulse)
 		elif body is CharacterBody3D:
+			print("IMPULSE: ", impulse)
 			body.velocity += impulse /5
+			print("VELOCITY: ", body.velocity)

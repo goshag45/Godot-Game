@@ -61,7 +61,7 @@ func _handle_mouse_input(event: InputEventMouseMotion) -> void:
 	player.rotate_y(-event.relative.x * player.SENSITIVITY)
 
 	pitch -= event.relative.y * player.SENSITIVITY
-	#pitch = clamp(pitch, deg_to_rad(-pitch_limit), deg_to_rad(pitch_limit))
+	pitch = clamp(pitch, deg_to_rad(-pitch_limit), deg_to_rad(pitch_limit))
 
 func _physics_process(_delta: float) -> void:
 	if target:
