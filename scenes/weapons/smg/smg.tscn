@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://lho0typtmcug"]
+[gd_scene load_steps=14 format=4 uid="uid://lho0typtmcug"]
 
 [ext_resource type="Script" uid="uid://8duot2gtwlpp" path="res://scenes/weapons/smg/smg.gd" id="1_2iled"]
 [ext_resource type="Texture2D" uid="uid://5ne5hrmmlqg6" path="res://art/visual/models/weapons/smg/luty_low_poly_ps1_0.png" id="2_ixb5l"]
@@ -136,24 +136,18 @@ tracks/3/keys = {
 "values": [false, true, true, false]
 }
 
-[sub_resource type="Animation" id="Animation_yqaur"]
-resource_name = "weapon_bob"
-length = 0.4
-loop_mode = 1
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j2gj3"]
 _data = {
 &"RESET": SubResource("Animation_eux8k"),
 &"reload": SubResource("Animation_sa3dv"),
-&"smg_shoot": SubResource("Animation_vniw1"),
-&"weapon_bob": SubResource("Animation_yqaur")
+&"smg_shoot": SubResource("Animation_vniw1")
 }
 
 [node name="smg" type="Node3D" groups=["hitscan"]]
 script = ExtResource("1_2iled")
 
 [node name="model" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 0, 0)
 layers = 2
 mesh = SubResource("ArrayMesh_bapo5")
 skeleton = NodePath("")
