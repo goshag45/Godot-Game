@@ -166,6 +166,9 @@ layers = 2
 [node name="muzzle_flash" parent="." instance=ExtResource("2_8pa1i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.745561)
 
+[node name="particle" parent="muzzle_flash" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
 [node name="light" parent="muzzle_flash" index="1"]
 visible = false
 

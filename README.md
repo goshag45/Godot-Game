@@ -18,6 +18,8 @@ ADD VELOCITY METER ASAP ✔️
 
 enemies hit player and velocity goes bananas
 
+ADD SLOWER MOVEMENT ACCEL
+
 ## Goals (old)
  - ~~first person character~~
  - ~~movement tech, sprinting, jumping~~
@@ -36,7 +38,7 @@ enemies hit player and velocity goes bananas
  - ~deathbox~
 
 Movement
- - lerp over with velocity
+ - ~lerp over with velocity~
  - chromatic aberation with velocity
  - camera shake?
  - zoom effect
