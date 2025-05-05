@@ -9,14 +9,21 @@ extends Camera3D
 @onready var fps_rig = $fps_rig
 @onready var gun_sway_hand = $gun_sway_hand
 @onready var view_model = $".."
+@onready var player = get_tree().get_first_node_in_group("player")
 
 # more sway = less sway
 var SWAY : float = 100.0
+
+# bob
+var start_y
+@export var bob_speed = 100.0
+@export var bob_amount = 150.0
 
 func _ready():
 	fps_rig.set_as_top_level(true)
 	get_tree().get_root().size_changed.connect(update_orb) 
 	call_deferred("update_orb")
+	start_y = fps_rig.position.y
 
 func _physics_process(_delta: float) -> void:
 	pass
@@ -25,6 +32,11 @@ func _process(delta: float) -> void:
 	fps_rig.global_transform.origin = gun_sway_hand.global_transform.origin
 	fps_rig.rotation.y = lerp_angle(fps_rig.rotation.y, view_model.global_rotation.y, SWAY * delta)
 	fps_rig.rotation.x = lerp_angle(fps_rig.rotation.x, view_model.global_rotation.x, SWAY * delta)
+	
+	if player.is_on_floor():
+		var time = float(Time.get_ticks_msec())
+		var magic_number = 1000.0
+		fps_rig.position.y = start_y + sin(time / bob_speed) / bob_amount * player.velocity.length()
 
 func update_orb():
 	var viewport := get_viewport()

@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	next_position = nav_agent.get_next_path_position()
 	# Defensive check: is it a different position?
 	if next_position.distance_to(global_transform.origin) < 0.1:
-		print("distance too low")
+		#print("distance too low")
 		return
 
 	direction = next_position - global_transform.origin
