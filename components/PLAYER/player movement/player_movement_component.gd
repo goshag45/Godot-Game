@@ -7,6 +7,7 @@ extends Node3D
 @export var view_model_camera : Camera3D
 @export var audio_component : Node3D
 @export var dash_area_collision: Area3D
+@export var effect : ColorRect
 
 var direction = Vector3()
 var jump_sounds = ["jump1", "jump2", "jump3"]
@@ -25,6 +26,7 @@ func _ready() -> void:
 	dash_velocity = player.dash_velocity
 
 func _physics_process(delta: float) -> void:
+	apply_aberration()
 	if not player.is_on_floor():
 		player.velocity += player.get_gravity() * delta
 
@@ -71,3 +73,9 @@ func apply_dash_impulse():
 		if body is RigidBody3D:
 			var dir = (body.global_transform.origin - global_transform.origin).normalized()
 			body.apply_impulse(dir * 10.0)
+
+func apply_aberration():
+	var initial_strength = effect.material.get_shader_parameter("initial_strength")
+	var final_strength = initial_strength * player.velocity.length() / 10
+	effect.material.set_shader_parameter("final_strength", final_strength)
+	print(final_strength)

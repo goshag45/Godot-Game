@@ -21,7 +21,8 @@ height = 1.97294
 shader = ExtResource("3_je7p5")
 shader_parameter/offset_texture = ExtResource("4_fm80t")
 shader_parameter/aberration = 0.5
-shader_parameter/strength = 0.351
+shader_parameter/initial_strength = 0.1
+shader_parameter/final_strength = 0.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h17s1"]
 radius = 1.1
@@ -85,10 +86,11 @@ visible = false
 
 [node name="player_spawn_component" parent="." instance=ExtResource("9_5gtgg")]
 
-[node name="player_movement_component" parent="." node_paths=PackedStringArray("camera", "audio_component", "dash_area_collision") instance=ExtResource("10_h17s1")]
+[node name="player_movement_component" parent="." node_paths=PackedStringArray("camera", "audio_component", "dash_area_collision", "effect") instance=ExtResource("10_h17s1")]
 camera = NodePath("../head/firstperson_camera")
 audio_component = NodePath("../audio_component")
 dash_area_collision = NodePath("../dash_area_3d")
+effect = NodePath("../head/firstperson_camera/chromatic_aberration/effect")
 
 [node name="dash_cooldown" type="Timer" parent="player_movement_component"]
 one_shot = true
