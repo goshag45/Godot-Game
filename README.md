@@ -18,7 +18,7 @@ ADD VELOCITY METER ASAP ✔️
 
 enemies hit player and velocity goes bananas
 
-ADD SLOWER MOVEMENT ACCEL
+~ADD SLOWER MOVEMENT ACCEL~
 
 ## Goals (old)
  - ~~first person character~~
