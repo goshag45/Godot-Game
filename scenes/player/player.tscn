@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://bjx7f5k3r21n8" path="res://scenes/player/chromatic_aberration.gdshader" id="3_je7p5"]
 [ext_resource type="PackedScene" uid="uid://bivh5hg55epm3" path="res://scenes/player/view_model.tscn" id="4_5gtgg"]
 [ext_resource type="PackedScene" uid="uid://k5r4dq5pg4cv" path="res://scenes/gui/gui.tscn" id="4_cds5j"]
-[ext_resource type="Texture2D" uid="uid://1e8a0p4kcuwu" path="res://art/chromatic_aberration_template.png" id="4_fm80t"]
+[ext_resource type="Texture2D" uid="uid://s3wyu12vla47" path="res://art/chromatic_aberration_template_2.png" id="4_fm80t"]
 [ext_resource type="Script" uid="uid://bhirdiomdmyiq" path="res://scenes/player/interact_ray.gd" id="4_fmml5"]
 [ext_resource type="PackedScene" uid="uid://dxe23bdwnwnwo" path="res://components/PLAYER/player weapon/player_weapon_component.tscn" id="8_3qd2d"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="8_38bwj"]
