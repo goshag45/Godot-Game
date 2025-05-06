@@ -21,7 +21,7 @@ height = 1.97294
 shader = ExtResource("3_je7p5")
 shader_parameter/offset_texture = ExtResource("4_fm80t")
 shader_parameter/aberration = 0.5
-shader_parameter/strength = 0.1
+shader_parameter/strength = 0.351
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h17s1"]
 radius = 1.1
