@@ -50,7 +50,7 @@ Weapons
  - ~rocket launcher~
  - sound of bullet casings landing? (awesome)
  - SHOTGUN IMPULSE? 
- - SHOTGUN MUZZLE FLASH
+ - ~SHOTGUN MUZZLE FLASH~
  - ROCKET GLOW EMISSION
 
 guck cube

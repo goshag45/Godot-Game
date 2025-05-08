@@ -18,6 +18,8 @@ var speed : float
 var health : int
 var dash_velocity : int
 
+var player_velocity_length : float
+
 func _ready() -> void:
 	jump_velocity = player.jump_velocity
 	gravity = player.gravity
@@ -26,7 +28,10 @@ func _ready() -> void:
 	dash_velocity = player.dash_velocity
 
 func _physics_process(delta: float) -> void:
+	player_velocity_length = player.velocity.length()
 	apply_aberration()
+	apply_fov_zoom()
+	
 	if not player.is_on_floor():
 		player.velocity += player.get_gravity() * delta
 
@@ -78,4 +83,9 @@ func apply_aberration():
 	var initial_strength = effect.material.get_shader_parameter("initial_strength")
 	var final_strength = initial_strength * player.velocity.length() / 10
 	effect.material.set_shader_parameter("final_strength", final_strength)
-	print(final_strength)
+
+func apply_fov_zoom():
+	var velocity_factor = player_velocity_length / 7.5
+	var new_fov = clamp(camera.fov * velocity_factor, 70.0, 90.0)
+	camera.fov = lerp(camera.fov, new_fov, 0.2)
+	#print(velocity_factor)
