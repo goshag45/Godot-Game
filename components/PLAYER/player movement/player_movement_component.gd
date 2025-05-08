@@ -32,7 +32,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	player_velocity_length = player.velocity.length()
 	if player_velocity_length > 0:
-		var velocity_factor = player_velocity_length / 7.6
+		var velocity_factor = clamp(player_velocity_length / 7.6, 1.0, 1.4)
 		target_velocity_fov = clamp(default_fov * velocity_factor, 70.0, 100.0)
 		camera.fov = lerp(camera.fov, target_velocity_fov, 0.1)
 		print(target_velocity_fov)

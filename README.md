@@ -10,6 +10,8 @@
  - balls coalescing into something, more balls, other stuff
  - open playground type levels
 
+WHY IS MY GUN NOT CONNECTED TO MY BODY UNLESS IM ON THE GROUND OR FLYING????
+
 PHYSICS INTERPOLATION MANUAL VS INBUILT IDK
 
 WEIRD ROCKET DAMAGE ✔️
