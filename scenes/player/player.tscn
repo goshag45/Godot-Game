@@ -48,6 +48,18 @@ follow_target = NodePath("..")
 player = NodePath("../..")
 pitch_limit = 90.0
 
+[node name="view_model" parent="head/firstperson_camera" instance=ExtResource("4_5gtgg")]
+
+[node name="aim_ray" type="RayCast3D" parent="head/firstperson_camera" groups=["aim_ray"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+visible = false
+target_position = Vector3(0, -200, 0)
+
+[node name="interact_ray" type="RayCast3D" parent="head/firstperson_camera"]
+visible = false
+target_position = Vector3(0, 0, -3)
+script = ExtResource("4_fmml5")
+
 [node name="chromatic_aberration" type="CanvasLayer" parent="head/firstperson_camera"]
 
 [node name="effect" type="ColorRect" parent="head/firstperson_camera/chromatic_aberration"]
@@ -61,22 +73,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
-
-[node name="aim_ray" type="RayCast3D" parent="head/firstperson_camera" groups=["aim_ray"]]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-visible = false
-target_position = Vector3(0, -200, 0)
-
-[node name="interact_ray" type="RayCast3D" parent="head/firstperson_camera"]
-visible = false
-target_position = Vector3(0, 0, -3)
-script = ExtResource("4_fmml5")
-
-[node name="view_model" parent="head/firstperson_camera" instance=ExtResource("4_5gtgg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
-
-[node name="model" parent="head/firstperson_camera/view_model/view_model_camera/fps_rig/smg" index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="gui_layer" parent="." instance=ExtResource("4_cds5j")]
 
@@ -107,7 +103,4 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_h17s1")
 
-[editable path="head/firstperson_camera/view_model"]
-[editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/smg"]
-[editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/smg/muzzle_flash"]
 [editable path="gui_layer"]
