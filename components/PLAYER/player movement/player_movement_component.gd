@@ -1,8 +1,7 @@
 extends Node3D
 
-@onready var player = $".."
+@export var player : CharacterBody3D
 @onready var dash_cooldown = $dash_cooldown
-
 @export var camera : Camera3D
 @export var view_model_camera : Camera3D
 @export var audio_component : Node3D
@@ -18,9 +17,12 @@ var speed : float
 var health : int
 var dash_velocity : int
 
+var default_fov : float
 var player_velocity_length : float
+var target_velocity_fov : float
 
 func _ready() -> void:
+	default_fov = player.default_fov
 	jump_velocity = player.jump_velocity
 	gravity = player.gravity
 	speed = player.speed
@@ -29,8 +31,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	player_velocity_length = player.velocity.length()
+	if player_velocity_length > 0:
+		var velocity_factor = player_velocity_length / 7.6
+		target_velocity_fov = clamp(default_fov * velocity_factor, 70.0, 100.0)
+		camera.fov = lerp(camera.fov, target_velocity_fov, 0.1)
+		print(target_velocity_fov)
+	
 	apply_aberration()
-	apply_fov_zoom()
 	
 	if not player.is_on_floor():
 		player.velocity += player.get_gravity() * delta
@@ -83,9 +90,3 @@ func apply_aberration():
 	var initial_strength = effect.material.get_shader_parameter("initial_strength")
 	var final_strength = initial_strength * player.velocity.length() / 10
 	effect.material.set_shader_parameter("final_strength", final_strength)
-
-func apply_fov_zoom():
-	var velocity_factor = player_velocity_length / 7.5
-	var new_fov = clamp(camera.fov * velocity_factor, 70.0, 90.0)
-	camera.fov = lerp(camera.fov, new_fov, 0.2)
-	#print(velocity_factor)

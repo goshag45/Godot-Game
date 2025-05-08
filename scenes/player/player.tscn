@@ -89,7 +89,8 @@ visible = false
 
 [node name="player_spawn_component" parent="." instance=ExtResource("9_5gtgg")]
 
-[node name="player_movement_component" parent="." node_paths=PackedStringArray("camera", "audio_component", "dash_area_collision", "effect") instance=ExtResource("10_h17s1")]
+[node name="player_movement_component" parent="." node_paths=PackedStringArray("player", "camera", "audio_component", "dash_area_collision", "effect") instance=ExtResource("10_h17s1")]
+player = NodePath("..")
 camera = NodePath("../head/firstperson_camera")
 audio_component = NodePath("../audio_component")
 dash_area_collision = NodePath("../dash_area_3d")

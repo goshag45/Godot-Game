@@ -10,6 +10,7 @@ var SENSITIVITY = sensitivity_input/1000
 @export var speed = 8.0
 @export var health = 100.0
 @export var dash_velocity = 20
+@export var default_fov = 70.0
 
 var kill_count = 0
 
