@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://k5r4dq5pg4cv"]
+[gd_scene load_steps=15 format=3 uid="uid://k5r4dq5pg4cv"]
 
 [ext_resource type="Script" uid="uid://bga3fk6y4w3to" path="res://scenes/gui/gui_layer.gd" id="1_hxwnm"]
 [ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="2_u8e3c"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ck6hdrqglkeqs" path="res://components/GUI/gui animation component/gui_animation_component.gd" id="4_lrwm8"]
 [ext_resource type="FontFile" uid="uid://cafko5yowfta4" path="res://art/digital-7.ttf" id="6_lk2wq"]
 [ext_resource type="FontFile" uid="uid://erdgllynwqkw" path="res://examples_dd3d/Roboto-Bold.ttf" id="7_g05bf"]
+[ext_resource type="Script" uid="uid://vmpd15ssciwq" path="res://scenes/gui/debug_menu.gd" id="7_ort37"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3xtde"]
 font = ExtResource("2_u8e3c")
@@ -29,17 +30,17 @@ font_size = 60
 font_color = Color(0.747625, 0.631634, 5.77569e-07, 1)
 shadow_color = Color(0.818553, 0.00033576, 0.773253, 0.65098)
 
+[sub_resource type="LabelSettings" id="LabelSettings_ort37"]
+font = ExtResource("7_g05bf")
+font_size = 50
+font_color = Color(0.911239, 0.247365, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_g05bf"]
 font = ExtResource("6_lk2wq")
 font_size = 100
 font_color = Color(0.934571, 0, 0.193983, 1)
 shadow_size = 10
 shadow_color = Color(1, 0.175042, 0.744348, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ort37"]
-font = ExtResource("7_g05bf")
-font_size = 50
-font_color = Color(0.911239, 0.247365, 0, 1)
 
 [node name="gui" type="CanvasLayer" node_paths=PackedStringArray("target")]
 script = ExtResource("1_hxwnm")
@@ -133,28 +134,11 @@ text = "points: 0"
 label_settings = SubResource("LabelSettings_0jpgx")
 script = ExtResource("4_l6o8f")
 
-[node name="GuiAnimationComponent" type="Node" parent="in_game_gui/points"]
+[node name="gui_animation_component" type="Node" parent="in_game_gui/points"]
 script = ExtResource("4_lrwm8")
 action_time = 0.5
 action_scale = Vector2(2, 2)
 metadata/_custom_type_script = "uid://ck6hdrqglkeqs"
-
-[node name="cooldown" type="Label" parent="in_game_gui"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -56.0
-offset_top = -392.0
-offset_right = 55.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "0.0"
-label_settings = SubResource("LabelSettings_g05bf")
-vertical_alignment = 1
 
 [node name="balls" type="Label" parent="in_game_gui"]
 layout_mode = 1
@@ -169,4 +153,27 @@ grow_horizontal = 2
 text = "BALLS: 0"
 label_settings = SubResource("LabelSettings_ort37")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="debug_menu" type="Control" parent="in_game_gui"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_ort37")
+
+[node name="speedometer" type="Label" parent="in_game_gui/debug_menu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 884.0
+offset_top = 648.0
+offset_right = 995.0
+offset_bottom = 1042.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0.0"
+label_settings = SubResource("LabelSettings_g05bf")
 vertical_alignment = 1
