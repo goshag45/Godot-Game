@@ -88,4 +88,3 @@ func apply_aberration():
 	var initial_strength = effect.material.get_shader_parameter("initial_strength")
 	var final_strength = clamp(initial_strength * player.velocity.length() / 10, 0.0, 1.0)
 	effect.material.set_shader_parameter("final_strength", final_strength)
-	print(final_strength)

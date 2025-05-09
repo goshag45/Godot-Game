@@ -3,6 +3,7 @@ extends Node3D
 @onready var weapon = $".."
 @onready var animation = $"../animation"
 @onready var audio_component = $"../audio_component"
+@onready var muzzle_flash = $"../muzzle_flash"
 
 var magazine = 0
 var magazine_capacity = 0
@@ -12,6 +13,7 @@ var is_reloading = false
 
 var blood_splatter = preload("res://scenes/weapons/blood_splatter.tscn")
 var bullet_decal = preload("res://scenes/weapons/bullet_decal.tscn")
+var bullet_tracer = preload("res://scenes/weapons/bullet_tracer.tscn")
 var aim_ray: Node
 
 func _ready() -> void:
@@ -30,6 +32,7 @@ func _shoot(target, hit_point):
 		magazine -= 1
 		animation.play(shoot_sound)
 		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume)
+		spawn_bullet_tracer(hit_point)
 		if target != null && target.is_in_group("enemy"):
 			target.health -= damage
 			_emit_blood_splatter(hit_point, target)
@@ -42,7 +45,7 @@ func _reload():
 	animation.play("reload")
 	magazine = magazine_capacity
 
-func _emit_blood_splatter(hit_pos, target):
+func _emit_blood_splatter(hit_pos : Vector3, target):
 	var blood_splatter_instance = blood_splatter.instantiate()
 	blood_splatter_instance.material_override.albedo_color = target.blood_color
 	# Add to world
@@ -55,9 +58,17 @@ func _emit_blood_splatter(hit_pos, target):
 	# Enable emission
 	blood_splatter_instance.emitting = true
 
-func _draw_bullet_decals(hit_pos):
+func _draw_bullet_decals(hit_pos : Vector3):
 	var bullet_decal_instance = bullet_decal.instantiate()
 	var world_node = get_tree().current_scene
 	world_node.add_child(bullet_decal_instance)
 	bullet_decal_instance.global_position = hit_pos
 	bullet_decal_instance.look_at(aim_ray.get_collision_point() + aim_ray.get_collision_normal(), Vector3.UP)
+
+func spawn_bullet_tracer(target_pos : Vector3):
+	var tracer_instance = bullet_tracer.instantiate()
+	var world_node = get_tree().current_scene
+	world_node.add_child(tracer_instance)
+	tracer_instance.target_pos = target_pos
+	tracer_instance.global_position = muzzle_flash.global_position
+	tracer_instance.look_at(target_pos)
