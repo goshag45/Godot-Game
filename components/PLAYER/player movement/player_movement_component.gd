@@ -32,10 +32,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	player_velocity_length = player.velocity.length()
 	if player_velocity_length > 0:
-		#var velocity_factor = player_velocity_length / 7.6
-		#target_velocity_fov = clamp(default_fov * velocity_factor, 70.0, 100.0)
-		
-		target_velocity_fov = default_fov + player_velocity_length
+		target_velocity_fov = clamp(default_fov + player_velocity_length, 70.0, 150.0)
 		camera.fov = lerp(camera.fov, target_velocity_fov, 0.1)
 	
 	apply_aberration()
@@ -85,9 +82,10 @@ func apply_dash_impulse():
 	for body in bodies:
 		if body is RigidBody3D:
 			var dir = (body.global_transform.origin - global_transform.origin).normalized()
-			body.apply_impulse(dir * 10.0)
+			body.apply_impulse(dir * 100.0)
 
 func apply_aberration():
 	var initial_strength = effect.material.get_shader_parameter("initial_strength")
-	var final_strength = initial_strength * player.velocity.length() / 10
+	var final_strength = clamp(initial_strength * player.velocity.length() / 10, 0.0, 1.0)
 	effect.material.set_shader_parameter("final_strength", final_strength)
+	print(final_strength)

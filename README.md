@@ -14,6 +14,8 @@ PHYSICS INTERPOLATION MANUAL VS INBUILT IDK
 
 enemies hit player and velocity goes bananas
 
+getting trapped in pile of balls causes endlessly increasing velocity
+
 ## Goals (old)
  - ~~first person character~~
  - ~~movement tech, sprinting, jumping~~

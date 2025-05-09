@@ -5,7 +5,6 @@ extends CanvasLayer
 @onready var fps_counter = $in_game_gui/FPS
 @onready var points_counter = $in_game_gui/points
 @onready var interactable_message = $in_game_gui/interactable_message
-@onready var balls_counter = $in_game_gui/balls
 
 var points_count : int = 0
 
@@ -15,7 +14,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	fps_counter.text = str("FPS %d" % Engine.get_frames_per_second())
 	update_ammo_counter()
-	update_orb_counter()
 	if points_count < player.kill_count:
 		points_count = player.kill_count
 		update_points_counter()
@@ -24,9 +22,6 @@ func update_ammo_counter():
 	var current_weapon = player.get_node("player_weapon_component").current_weapon
 	var weapon_component = utils.get_child_in_group(current_weapon, "weapon_component")
 	ammo_counter.text = str(weapon_component.magazine)
-
-func update_orb_counter():
-	balls_counter.text = "BALLS: " + str(player.get_tree().root.get_node("level_2").get_node("enemy_manager").gore_ball_counter)
 
 # tweening
 @export var action_scale : Vector2 = Vector2(1,1)
