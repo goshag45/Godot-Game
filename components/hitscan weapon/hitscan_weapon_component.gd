@@ -9,7 +9,6 @@ var magazine = 0
 var magazine_capacity = 0
 var damage = 0
 var shoot_sound
-var is_reloading = false
 
 var blood_splatter = preload("res://scenes/weapons/blood_splatter.tscn")
 var bullet_decal = preload("res://scenes/weapons/bullet_decal.tscn")
@@ -48,14 +47,10 @@ func _reload():
 func _emit_blood_splatter(hit_pos : Vector3, target):
 	var blood_splatter_instance = blood_splatter.instantiate()
 	blood_splatter_instance.material_override.albedo_color = target.blood_color
-	# Add to world
 	var world_node = get_tree().current_scene
 	world_node.add_child(blood_splatter_instance)
-	# Correct positioning
 	blood_splatter_instance.global_position = hit_pos
-	# Set blood splatter's rotation to face opposite the bullet's direction
 	blood_splatter_instance.look_at(aim_ray.global_position)
-	# Enable emission
 	blood_splatter_instance.emitting = true
 
 func _draw_bullet_decals(hit_pos : Vector3):

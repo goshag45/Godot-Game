@@ -1,10 +1,11 @@
 extends Node3D
 # code stolen as hell https://github.com/majikayogames/SimpleFPSController/blob/main/FPSController/weapon_manager/bullet_tracer.tscn
 @export var target_pos = Vector3(0,0,0)
-@export var speed = 75.0 # m/s
+@export var target_direction : Vector3 = Vector3(0,0,0)
+@export var speed = 100.0 # m/s
 @export var tracer_length = 1
 
-const MAX_LIFETIME_MS = 5000
+const MAX_LIFETIME_MS = 3000
 
 @onready var spawn_time = Time.get_ticks_msec()
 
