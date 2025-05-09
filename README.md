@@ -10,17 +10,9 @@
  - balls coalescing into something, more balls, other stuff
  - open playground type levels
 
-WHY IS MY GUN NOT CONNECTED TO MY BODY UNLESS IM ON THE GROUND OR FLYING????
-
 PHYSICS INTERPOLATION MANUAL VS INBUILT IDK
 
-WEIRD ROCKET DAMAGE ✔️
-
-ADD VELOCITY METER ASAP ✔️
-
 enemies hit player and velocity goes bananas
-
-~ADD SLOWER MOVEMENT ACCEL~
 
 ## Goals (old)
  - ~~first person character~~
@@ -38,6 +30,8 @@ enemies hit player and velocity goes bananas
  - smoke cigarettes
  - ~speed counter~
  - ~deathbox~
+ - bullet trails
+ - shotgun spread
 
 Movement
  - ~lerp over with velocity~
