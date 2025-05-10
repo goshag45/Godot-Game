@@ -34,7 +34,7 @@ func shoot(target, hit_point):
 		process_embelishments(target, damage, hit_point)
 
 func process_embelishments(target, damage, hit_point):
-	#spawn_bullet_tracer(hit_point)
+	spawn_bullet_tracer(hit_point)
 	if target != null && target.is_in_group("enemy"):
 		target.health -= damage
 		emit_blood_splatter(hit_point, target)
@@ -47,32 +47,24 @@ func shoot_with_spread():
 		magazine -= 1
 		animation.play(shoot_sound)
 		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume)
-		
-		var half = (weapon.pellet_grid_size - 1) / 2.0
+
 		for i in range(weapon.pellet_count):
-			var row = i / weapon.pellet_grid_size
-			var col = i % weapon.pellet_grid_size
+			var direction = -global_transform.basis.z.normalized() # forward
+			var spread_angle = deg_to_rad(weapon.spread_angle_degrees) # e.g. 5–10 degrees
+			var spread_dir = direction + (
+				global_transform.basis.x * randf_range(-1.0, 1.0) +
+				global_transform.basis.y * randf_range(-1.0, 1.0)
+			) * tan(spread_angle)
 
-			var offset_x = (col - half) * weapon.pellet_spacing
-			var offset_y = (row - half) * weapon.pellet_spacing
-
-			var spread_dir = (-global_transform.basis.z.normalized() + global_transform.basis.x * offset_x + global_transform.basis.y * offset_y).normalized()
+			spread_dir = spread_dir.normalized()
 			var ray_length = 100.0
 			var to = origin + spread_dir * ray_length
 
-			# Cast a ray for each pellet
 			var space_state = get_world_3d().direct_space_state
 			var result = space_state.intersect_ray(
-				PhysicsRayQueryParameters3D.create(origin, to)
-			)
-
-			DebugDraw3D.draw_line(origin, to, Color.RED)
-
+				PhysicsRayQueryParameters3D.create(origin, to))
 			if result:
-				var target = result.collider
-				var hit_point = result.position
-				process_embelishments(target, damage, hit_point)
-				spawn_bullet_tracer(hit_point)
+				process_embelishments(result.collider, damage, result.position)
 
 func reload():
 	# you can spam the reload audio for now - not major issue
