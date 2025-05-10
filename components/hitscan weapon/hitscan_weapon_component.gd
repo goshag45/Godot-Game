@@ -24,46 +24,79 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if magazine <= 0 and !animation.is_playing():
-		_reload()
+		reload()
 
-func _shoot(target, hit_point):
+func shoot(target, hit_point):
 	if !animation.is_playing():
 		magazine -= 1
 		animation.play(shoot_sound)
 		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume)
-		spawn_bullet_tracer(hit_point)
-		if target != null && target.is_in_group("enemy"):
-			target.health -= damage
-			_emit_blood_splatter(hit_point, target)
-		elif target != null:
-			_draw_bullet_decals(hit_point)
+		process_embelishments(target, damage, hit_point)
 
-func _reload():
+func process_embelishments(target, damage, hit_point):
+	#spawn_bullet_tracer(hit_point)
+	if target != null && target.is_in_group("enemy"):
+		target.health -= damage
+		emit_blood_splatter(hit_point, target)
+	elif target != null:
+		draw_bullet_decals(hit_point)
+
+func shoot_with_spread():
+	var origin = global_position
+	if !animation.is_playing():
+		magazine -= 1
+		animation.play(shoot_sound)
+		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume)
+		
+		var half = (weapon.pellet_grid_size - 1) / 2.0
+		for i in range(weapon.pellet_count):
+			var row = i / weapon.pellet_grid_size
+			var col = i % weapon.pellet_grid_size
+
+			var offset_x = (col - half) * weapon.pellet_spacing
+			var offset_y = (row - half) * weapon.pellet_spacing
+
+			var spread_dir = (-global_transform.basis.z.normalized() + global_transform.basis.x * offset_x + global_transform.basis.y * offset_y).normalized()
+			var ray_length = 100.0
+			var to = origin + spread_dir * ray_length
+
+			# Cast a ray for each pellet
+			var space_state = get_world_3d().direct_space_state
+			var result = space_state.intersect_ray(
+				PhysicsRayQueryParameters3D.create(origin, to)
+			)
+
+			DebugDraw3D.draw_line(origin, to, Color.RED)
+
+			if result:
+				var target = result.collider
+				var hit_point = result.position
+				process_embelishments(target, damage, hit_point)
+				spawn_bullet_tracer(hit_point)
+
+func reload():
 	# you can spam the reload audio for now - not major issue
 	audio_component._play_audio_sfx("reload", 3)
 	animation.play("reload")
 	magazine = magazine_capacity
 
-func _emit_blood_splatter(hit_pos : Vector3, target):
+func emit_blood_splatter(hit_pos : Vector3, target):
 	var blood_splatter_instance = blood_splatter.instantiate()
 	blood_splatter_instance.material_override.albedo_color = target.blood_color
-	var world_node = get_tree().current_scene
-	world_node.add_child(blood_splatter_instance)
+	get_tree().current_scene.add_child(blood_splatter_instance)
 	blood_splatter_instance.global_position = hit_pos
 	blood_splatter_instance.look_at(aim_ray.global_position)
 	blood_splatter_instance.emitting = true
 
-func _draw_bullet_decals(hit_pos : Vector3):
+func draw_bullet_decals(hit_pos : Vector3):
 	var bullet_decal_instance = bullet_decal.instantiate()
-	var world_node = get_tree().current_scene
-	world_node.add_child(bullet_decal_instance)
+	get_tree().current_scene.add_child(bullet_decal_instance)
 	bullet_decal_instance.global_position = hit_pos
 	bullet_decal_instance.look_at(aim_ray.get_collision_point() + aim_ray.get_collision_normal(), Vector3.UP)
 
 func spawn_bullet_tracer(target_pos : Vector3):
 	var tracer_instance = bullet_tracer.instantiate()
-	var world_node = get_tree().current_scene
-	world_node.add_child(tracer_instance)
+	get_tree().current_scene.add_child(tracer_instance)
 	tracer_instance.target_pos = target_pos
 	tracer_instance.global_position = muzzle_flash.global_position
 	tracer_instance.look_at(target_pos)

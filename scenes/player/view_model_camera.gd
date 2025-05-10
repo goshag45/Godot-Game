@@ -13,7 +13,7 @@ extends Camera3D
 @onready var player = get_tree().get_first_node_in_group("player")
 
 # more sway = less sway
-var SWAY : float = 100.0
+var SWAY : float = 150.0
 
 # bob
 @export var bob_speed = 100.0

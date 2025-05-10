@@ -40,22 +40,18 @@ func _physics_process(delta: float) -> void:
 	if not player.is_on_floor():
 		player.velocity += player.get_gravity() * delta
 
-	# Handle jump.
 	if Input.is_action_just_pressed("jump") and player.is_on_floor():
 		jump()
 
 	if Input.is_action_just_pressed("sprint") and dash_cooldown.time_left == 0:
 		dash()
 
-	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "forward", "back")
 	direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if player.is_on_floor():
 		if direction:
 			player.velocity.x = lerp(player.velocity.x, direction.x * speed, delta * 10.0)
 			player.velocity.z = lerp(player.velocity.z, direction.z * speed, delta * 10.0)
-			#player.velocity.x = direction.x * speed
-			#player.velocity.z = direction.z * speed
 		else:
 			player.velocity.x = 0.0
 			player.velocity.z = 0.0
@@ -78,7 +74,7 @@ func dash():
 	dash_cooldown.start(1.0)
 
 func apply_dash_impulse():
-	var bodies = dash_area_collision.get_overlapping_bodies()  # assuming you're using an Area3D
+	var bodies = dash_area_collision.get_overlapping_bodies()
 	for body in bodies:
 		if body is RigidBody3D:
 			var dir = (body.global_transform.origin - global_transform.origin).normalized()

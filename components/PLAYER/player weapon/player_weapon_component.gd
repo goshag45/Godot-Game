@@ -41,12 +41,11 @@ func _process(_delta: float) -> void:
 		weapon_animation.stop()
 		weapon_animation.play("reload")
 		var weapon_component = utils.get_child_in_group(current_weapon, "weapon_component")
-		weapon_component._reload()
+		weapon_component.reload()
 
 	var hit_point = aim_ray.get_collision_point()
 	if !aim_ray.is_colliding():
 		hit_point = aim_ray.global_transform * aim_ray.target_position
-	print(hit_point)
 	shoot(fire_mode, hit_point)
 
 # im sure i can clean this up
@@ -75,4 +74,7 @@ func shoot(fire_mode: int, hit_point: Vector3) -> void:
 	if is_hitscan and aim_ray.is_colliding():
 		target = aim_ray.get_collider()
 
-	weapon_component._shoot(target, hit_point)
+	if current_weapon.name == "winchesta":
+		weapon_component.shoot_with_spread()
+	else:
+		weapon_component.shoot(target, hit_point)

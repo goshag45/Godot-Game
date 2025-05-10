@@ -8,6 +8,10 @@ extends Node3D
 @export var reload = "reload"
 @export var shoot_volume = 8
 
+@export var pellet_count: int = 9
+@export var pellet_grid_size: int = 3
+@export var pellet_spacing: float = 0.025
+
 func _ready() -> void:
 	$".".hide()
 	pass

@@ -32,8 +32,9 @@ getting trapped in pile of balls causes endlessly increasing velocity
  - smoke cigarettes
  - ~speed counter~
  - ~deathbox~
- - bullet trails
+ - ~bullet trails~
  - shotgun spread
+ - ENVIRONMENTAL HAZARDS
 
 Movement
  - ~lerp over with velocity~
