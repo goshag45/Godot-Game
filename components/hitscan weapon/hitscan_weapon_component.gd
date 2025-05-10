@@ -31,10 +31,10 @@ func shoot(target, hit_point):
 		magazine -= 1
 		animation.play(shoot_sound)
 		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume)
+		spawn_bullet_tracer(hit_point)
 		process_embelishments(target, damage, hit_point)
 
 func process_embelishments(target, damage, hit_point):
-	spawn_bullet_tracer(hit_point)
 	if target != null && target.is_in_group("enemy"):
 		target.health -= damage
 		emit_blood_splatter(hit_point, target)
@@ -58,11 +58,13 @@ func shoot_with_spread():
 
 			spread_dir = spread_dir.normalized()
 			var ray_length = 100.0
-			var to = origin + spread_dir * ray_length
+			var destination = origin + spread_dir * ray_length
 
 			var space_state = get_world_3d().direct_space_state
 			var result = space_state.intersect_ray(
-				PhysicsRayQueryParameters3D.create(origin, to))
+				PhysicsRayQueryParameters3D.create(origin, destination))
+				
+			spawn_bullet_tracer(result.position if result else destination)
 			if result:
 				process_embelishments(result.collider, damage, result.position)
 

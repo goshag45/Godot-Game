@@ -67,7 +67,7 @@ func shoot(fire_mode: int, hit_point: Vector3) -> void:
 	var is_hitscan = false
 	is_hitscan = current_weapon.is_in_group("hitscan")
 	if !is_hitscan:
-		weapon_component._shoot()
+		weapon_component.shoot()
 		return
 
 	var target = null

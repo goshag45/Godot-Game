@@ -23,9 +23,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if magazine <= 0 and !animation.is_playing():
-		_reload()
+		reload()
 
-func _shoot():
+func shoot():
 	if !animation.is_playing():
 		magazine -= 1
 		animation.play(shoot_sound)
@@ -36,7 +36,7 @@ func _shoot():
 		projectile_instance.global_transform = spawn_marker.global_transform
 		projectile_instance.velocity = spawn_marker.global_transform.basis.z * projectile_instance.speed
 
-func _reload():
+func reload():
 	# you can spam the reload audio for now - not major issue
 	audio_component._play_audio_sfx("reload", 3)
 	animation.play("reload")
