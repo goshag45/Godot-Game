@@ -37,7 +37,6 @@ func explode():
 	exploded = true
 	
 	var spawn_position = global_transform.origin
-	
 	var explosion_instance = explosion.instantiate()
 	get_tree().current_scene.add_child(explosion_instance)
 	explosion_instance.origin = spawn_position

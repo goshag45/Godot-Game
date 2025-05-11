@@ -17,4 +17,6 @@ one_shot = true
 
 [node name="simple_explosion_vfx" parent="." instance=ExtResource("2_cnpv7")]
 
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+
 [editable path="simple_explosion_vfx"]

@@ -3,14 +3,13 @@ extends Area3D
 @export var radius: float = 6.0
 @export var damage: float = 30.0
 @export var force: float = 50.0
-@export var lifetime: float = 0.05  # time before it's freed
+@export var lifetime: float = 0.05
 
 var origin: Vector3
 var explosion_vfx = preload("res://scenes/weapons/rpg/simple_explosion_vfx.tscn")
 var vfx_instance
 
 func _ready():
-	$timer.timeout.connect(_on_timer_timeout)
 	$explosion_radius.shape.radius = radius
 	$timer.wait_time = lifetime
 	$timer.start()
@@ -28,7 +27,9 @@ func _on_body_entered(body: Node):
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	apply_force()
-	await $timer.timeout
+	
+	var vfx_timer = utils.start_and_wait_timer(self, 0.1, true) 
+	await vfx_timer.timeout
 	vfx_instance.queue_free()
 
 func _on_timer_timeout() -> void:
