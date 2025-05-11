@@ -1,11 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://k5r4dq5pg4cv"]
+[gd_scene load_steps=26 format=3 uid="uid://k5r4dq5pg4cv"]
 
 [ext_resource type="Script" uid="uid://bga3fk6y4w3to" path="res://scenes/gui/gui_layer.gd" id="1_hxwnm"]
 [ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="2_u8e3c"]
 [ext_resource type="Texture2D" uid="uid://csmo00k5jd641" path="res://art/visual/textures/crosshair001.png" id="3_ncp0m"]
 [ext_resource type="Script" uid="uid://bv4lcd78k8dtp" path="res://scenes/gui/points.gd" id="4_l6o8f"]
 [ext_resource type="Script" uid="uid://ck6hdrqglkeqs" path="res://components/GUI/gui animation component/gui_animation_component.gd" id="4_lrwm8"]
+[ext_resource type="Texture2D" uid="uid://b6sspcpkkg7lp" path="res://art/visual/fire_01.png" id="6_gv5p5"]
 [ext_resource type="FontFile" uid="uid://cafko5yowfta4" path="res://art/digital-7.ttf" id="6_lk2wq"]
+[ext_resource type="Texture2D" uid="uid://cpmqy07obar68" path="res://art/visual/fire_02.png" id="7_6qyx7"]
+[ext_resource type="Texture2D" uid="uid://cq12nl4f5ny7o" path="res://art/visual/smoke_01.png" id="7_453fe"]
 [ext_resource type="Script" uid="uid://vmpd15ssciwq" path="res://scenes/gui/debug_menu.gd" id="7_ort37"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3xtde"]
@@ -28,6 +31,71 @@ font = ExtResource("2_u8e3c")
 font_size = 100
 font_color = Color(0.747625, 0.631634, 5.77569e-07, 1)
 shadow_color = Color(0.818553, 0.00033576, 0.773253, 0.65098)
+
+[sub_resource type="Gradient" id="Gradient_453fe"]
+offsets = PackedFloat32Array(0, 0.770609, 1)
+colors = PackedColorArray(0.74214, 0.400681, 0, 1, 0.987426, 0.759971, 0, 1, 0.929412, 0.796078, 0, 0.0117647)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7x5n5"]
+gradient = SubResource("Gradient_453fe")
+
+[sub_resource type="Curve" id="Curve_bsuq1"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.43686, 3), 0.0, 0.0, 0, 0, Vector2(1, 3), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8tpq0"]
+curve = SubResource("Curve_bsuq1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3brio"]
+lifetime_randomness = 0.25
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 35.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = 32.0
+angular_velocity_max = 32.0
+gravity = Vector3(0, -300, 0)
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+scale_min = 0.2
+scale_max = 0.2
+scale_over_velocity_curve = SubResource("CurveTexture_8tpq0")
+color_ramp = SubResource("GradientTexture1D_7x5n5")
+
+[sub_resource type="Gradient" id="Gradient_7x5n5"]
+offsets = PackedFloat32Array(0.344086, 1)
+colors = PackedColorArray(0.987426, 0.759971, 0, 1, 0.929412, 0.796078, 0, 0.0117647)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bsuq1"]
+gradient = SubResource("Gradient_7x5n5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8tpq0"]
+lifetime_randomness = 0.25
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = 32.0
+angular_velocity_max = 32.0
+gravity = Vector3(0, -300, 0)
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+scale_min = 0.2
+scale_max = 0.2
+scale_over_velocity_curve = SubResource("CurveTexture_8tpq0")
+color_ramp = SubResource("GradientTexture1D_bsuq1")
+
+[sub_resource type="Environment" id="Environment_3brio"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_g05bf"]
 font = ExtResource("6_lk2wq")
@@ -125,10 +193,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -384.0
-offset_top = 82.0
-offset_right = -105.0
-offset_bottom = 143.25
+offset_left = -727.0
+offset_top = 317.0
+offset_right = -277.0
+offset_bottom = 419.083
 grow_horizontal = 0
 text = "points: 0"
 label_settings = SubResource("LabelSettings_0jpgx")
@@ -139,6 +207,33 @@ script = ExtResource("4_lrwm8")
 action_time = 0.5
 action_scale = Vector2(2, 2)
 metadata/_custom_type_script = "uid://ck6hdrqglkeqs"
+
+[node name="fire" type="Node2D" parent="in_game_gui/points"]
+position = Vector2(384, 23)
+
+[node name="fire1" type="GPUParticles2D" parent="in_game_gui/points/fire"]
+modulate = Color(3, 1, 1, 1)
+position = Vector2(39, 36)
+amount = 15
+texture = ExtResource("6_gv5p5")
+process_material = SubResource("ParticleProcessMaterial_3brio")
+
+[node name="smoke" type="GPUParticles2D" parent="in_game_gui/points/fire"]
+position = Vector2(39, 36)
+amount = 15
+texture = ExtResource("7_453fe")
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_8tpq0")
+
+[node name="fire2" type="GPUParticles2D" parent="in_game_gui/points/fire"]
+modulate = Color(2.5, 1.5, 1, 1)
+position = Vector2(39, 36)
+amount = 15
+texture = ExtResource("7_6qyx7")
+process_material = SubResource("ParticleProcessMaterial_3brio")
+
+[node name="glow" type="WorldEnvironment" parent="in_game_gui/points/fire"]
+environment = SubResource("Environment_3brio")
 
 [node name="debug_menu" type="Control" parent="in_game_gui"]
 anchors_preset = 0
