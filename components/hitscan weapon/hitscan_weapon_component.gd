@@ -81,12 +81,17 @@ func emit_blood_splatter(hit_pos : Vector3, target):
 	blood_splatter_instance.global_position = hit_pos
 	blood_splatter_instance.look_at(aim_ray.global_position)
 	blood_splatter_instance.emitting = true
+	blood_splatter_instance.queue_free()
 
 func draw_bullet_decals(hit_pos : Vector3):
 	var bullet_decal_instance = bullet_decal.instantiate()
 	get_tree().current_scene.add_child(bullet_decal_instance)
 	bullet_decal_instance.global_position = hit_pos
 	bullet_decal_instance.look_at(aim_ray.get_collision_point() + aim_ray.get_collision_normal(), Vector3.UP)
+	
+	var timer = utils.start_and_wait_timer(self, 2.0, true)
+	await timer.timeout
+	bullet_decal_instance.queue_free()
 
 func spawn_bullet_tracer(target_pos : Vector3):
 	var tracer_instance = bullet_tracer.instantiate()

@@ -7,8 +7,10 @@ extends Area3D
 
 var origin: Vector3
 var explosion_vfx = preload("res://scenes/weapons/rpg/simple_explosion_vfx.tscn")
+var vfx_instance
 
 func _ready():
+	$timer.timeout.connect(_on_timer_timeout)
 	$explosion_radius.shape.radius = radius
 	$timer.wait_time = lifetime
 	$timer.start()
@@ -16,7 +18,7 @@ func _ready():
 
 func _on_body_entered(body: Node):
 	var spawn_position = global_transform.origin
-	var vfx_instance = explosion_vfx.instantiate()
+	vfx_instance = explosion_vfx.instantiate()
 	get_tree().current_scene.add_child(vfx_instance)
 	vfx_instance.global_transform.origin = spawn_position
 	vfx_instance.get_node("animation").play("explode")
@@ -26,9 +28,11 @@ func _on_body_entered(body: Node):
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	apply_force()
+	await $timer.timeout
+	vfx_instance.queue_free()
 
 func _on_timer_timeout() -> void:
-	queue_free()
+	self.queue_free()
 
 func apply_force():
 	for body in get_overlapping_bodies():

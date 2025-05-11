@@ -37,29 +37,16 @@ func _physics_process(delta: float) -> void:
 	torque_strength = randf_range(120.0, 140.0)
 	if not player:
 		player = get_tree().get_first_node_in_group("player")
-	# Update target destination
 	nav_agent.target_position = player.global_transform.origin
-	# Only update path if there's something to follow
 	if nav_agent.is_navigation_finished():
 		return
 
 	next_position = nav_agent.get_next_path_position()
-	# Defensive check: is it a different position?
-	if next_position.distance_to(global_transform.origin) < 0.1:
-		#print("distance too low")
-		return
-
 	direction = next_position - global_transform.origin
 	direction.y = 0
 	direction = direction.normalized()
 
 	torque_axis = Vector3.UP.cross(direction).normalized()
-
-	# Debug Draw
-	#DebugDraw3D.draw_arrow(global_transform.origin, global_transform.origin + direction * 2.0, Color.GREEN, 0.2)
-	#DebugDraw3D.draw_arrow(global_transform.origin, global_transform.origin + torque_axis * 2.0, Color.BLUE, 0.2)
-	#DebugDraw3D.draw_arrow(global_transform.origin, player.global_position, Color.RED, 0.1)
-	#DebugDraw3D.draw_sphere(next_position, 1.0, Color.RED)
 
 	match state:
 		State.IDLE:
@@ -74,7 +61,7 @@ func _physics_process(delta: float) -> void:
 				topple_timer = topple_delay
 
 func start_topple():
-	audio_component._play_random_sfx(augh_sounds, 6)
+	#audio_component._play_random_sfx(augh_sounds, 6)
 	apply_torque_impulse(torque_axis * torque_strength)
 	state = State.TOPPLING
 

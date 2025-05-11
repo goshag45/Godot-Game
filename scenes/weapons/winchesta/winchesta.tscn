@@ -121,10 +121,10 @@ tracks/2/path = NodePath("muzzle_flash/particle:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.02),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.01, 0.04, 0.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true, true, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -133,10 +133,10 @@ tracks/3/path = NodePath("muzzle_flash/light:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.02),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.01, 0.04, 0.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vb0pj"]
