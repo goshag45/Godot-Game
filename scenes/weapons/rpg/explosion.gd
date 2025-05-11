@@ -28,7 +28,7 @@ func _on_body_entered(body: Node):
 	await get_tree().physics_frame
 	apply_force()
 	
-	var vfx_timer = utils.start_and_wait_timer(self, 0.1, true) 
+	var vfx_timer = utils.start_and_wait_timer(self, 1.0, true) 
 	await vfx_timer.timeout
 	vfx_instance.queue_free()
 

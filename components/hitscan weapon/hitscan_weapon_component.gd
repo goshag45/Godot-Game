@@ -13,7 +13,8 @@ var shoot_sound
 var blood_splatter = preload("res://scenes/weapons/blood_splatter.tscn")
 var bullet_decal = preload("res://scenes/weapons/bullet_decal.tscn")
 var bullet_tracer = preload("res://scenes/weapons/bullet_tracer.tscn")
-var aim_ray: Node
+@export var aim_ray: RayCast3D
+@export var player : CharacterBody3D
 
 func _ready() -> void:
 	aim_ray = get_tree().get_nodes_in_group("aim_ray")[0]
@@ -47,6 +48,8 @@ func shoot_with_spread():
 		magazine -= 1
 		animation.play(shoot_sound)
 		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume)
+		if !player.is_on_floor():
+			physics_impulse()
 
 		for i in range(weapon.pellet_count):
 			var direction = -global_transform.basis.z.normalized() # forward
@@ -67,6 +70,12 @@ func shoot_with_spread():
 			spawn_bullet_tracer(result.position if result else destination)
 			if result:
 				process_embelishments(result.collider, damage, result.position)
+
+func physics_impulse():
+	var force: float = 10.0
+	var direction = -global_transform.basis.z.normalized()
+	var impulse = -direction * force
+	player.velocity += impulse
 
 func reload():
 	# you can spam the reload audio for now - not major issue
