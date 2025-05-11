@@ -22,19 +22,17 @@ getting trapped in pile of balls causes endlessly increasing velocity
  - ~~shooting~~ -> projectile weapon after
  - experiment with graphics -> not sure if low res or high res
  - ~~basic enemy ai~~ -> make them scary
- - item pick ups - roguelike?
  - more interesting terrain
  - hp bar and ~~points~~
  - enemy damage to player
  - interactable level changes by player
- - fade in/fade out animation for the big circle object
- - enemy idea because FUCK animating -> big cube, it moves by rotation around, falls to pieces when dead
  - smoke cigarettes
  - ~speed counter~
  - ~deathbox~
  - ~bullet trails~
  - shotgun spread
  - ENVIRONMENTAL HAZARDS
+ - MORE AUDIO + ambience?
 
 Movement
  - ~lerp over with velocity~
@@ -48,7 +46,7 @@ Weapons
  - laser
  - ~rocket launcher~
  - sound of bullet casings landing? (awesome)
- - SHOTGUN IMPULSE? 
+ - ~SHOTGUN IMPULSE?~
  - ~SHOTGUN MUZZLE FLASH~
  - ROCKET GLOW EMISSION
 

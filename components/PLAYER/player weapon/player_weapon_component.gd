@@ -1,13 +1,13 @@
 extends Node3D
 
 @onready var player = $".."
-@onready var aim_ray = $"../head/firstperson_camera/aim_ray"
+@export var aim_ray: RayCast3D
 
 # WEAPONS
-@onready var smg = $"../head/firstperson_camera/view_model/view_model_camera/fps_rig/smg"
-@onready var revolver = $"../head/firstperson_camera/view_model/view_model_camera/fps_rig/revolver"
-@onready var shotgun = $"../head/firstperson_camera/view_model/view_model_camera/fps_rig/winchesta"
-@onready var rpg = $"../head/firstperson_camera/view_model/view_model_camera/fps_rig/rpg"
+@export var smg: Node3D
+@export var revolver: Node3D
+@export var shotgun: Node3D
+@export var rpg: Node3D
 
 @onready var current_weapon = smg
 

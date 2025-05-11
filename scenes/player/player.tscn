@@ -13,10 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bddhhkoovn5gv" path="res://components/PLAYER/player spawn component/player_spawn_component.tscn" id="9_5gtgg"]
 [ext_resource type="PackedScene" uid="uid://d1wejbsb4rlel" path="res://components/PLAYER/player movement/player_movement_component.tscn" id="10_h17s1"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_engiy"]
-radius = 0.225678
-height = 1.97294
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fm80t"]
 shader = ExtResource("3_je7p5")
 shader_parameter/offset_texture = ExtResource("4_fm80t")
@@ -24,17 +20,21 @@ shader_parameter/aberration = 0.5
 shader_parameter/initial_strength = 0.1
 shader_parameter/final_strength = 0.0
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_engiy"]
+radius = 0.225678
+height = 1.97294
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_h17s1"]
 radius = 1.1
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "view_model_camera", "audio_component", "blood_orb") groups=["player"]]
 script = ExtResource("2_kooth")
 jump_velocity = 6.0
 gravity = 20.0
-
-[node name="player_hitbox" type="CollisionShape3D" parent="." groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.982355, 0)
-shape = SubResource("CapsuleShape3D_engiy")
+camera = NodePath("head/firstperson_camera")
+view_model_camera = NodePath("head/firstperson_camera/view_model/view_model_camera")
+audio_component = NodePath("audio_component")
+blood_orb = NodePath("head/firstperson_camera/view_model/view_model_camera/blood_orb_v2")
 
 [node name="head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -0.111936)
@@ -61,10 +61,11 @@ player = NodePath("../../../../../../..")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, -100, 0)
 
-[node name="interact_ray" type="RayCast3D" parent="head/firstperson_camera"]
+[node name="interact_ray" type="RayCast3D" parent="head/firstperson_camera" node_paths=PackedStringArray("interact_popup")]
 visible = false
 target_position = Vector3(0, 0, -3)
 script = ExtResource("4_fmml5")
+interact_popup = NodePath("../../../gui_layer/in_game_gui/interactable_message")
 
 [node name="chromatic_aberration" type="CanvasLayer" parent="head/firstperson_camera"]
 
@@ -80,6 +81,10 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
+[node name="player_hitbox" type="CollisionShape3D" parent="." groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.982355, 0)
+shape = SubResource("CapsuleShape3D_engiy")
+
 [node name="gui_layer" parent="." instance=ExtResource("4_cds5j")]
 
 [node name="pause_menu" parent="." instance=ExtResource("8_baet5")]
@@ -87,7 +92,12 @@ visible = false
 
 [node name="audio_component" parent="." instance=ExtResource("8_38bwj")]
 
-[node name="player_weapon_component" parent="." instance=ExtResource("8_3qd2d")]
+[node name="player_weapon_component" parent="." node_paths=PackedStringArray("aim_ray", "smg", "revolver", "shotgun", "rpg") instance=ExtResource("8_3qd2d")]
+aim_ray = NodePath("../head/firstperson_camera/aim_ray")
+smg = NodePath("../head/firstperson_camera/view_model/view_model_camera/fps_rig/smg")
+revolver = NodePath("../head/firstperson_camera/view_model/view_model_camera/fps_rig/revolver")
+shotgun = NodePath("../head/firstperson_camera/view_model/view_model_camera/fps_rig/winchesta")
+rpg = NodePath("../head/firstperson_camera/view_model/view_model_camera/fps_rig/rpg")
 
 [node name="player_spawn_component" parent="." instance=ExtResource("9_5gtgg")]
 

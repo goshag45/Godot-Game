@@ -15,11 +15,11 @@ var SENSITIVITY = sensitivity_input/1000
 var kill_count = 0
 
 # References
-@onready var camera = $head/firstperson_camera
-@onready var view_model_camera = $head/firstperson_camera/view_model/view_model_camera
+@export var camera: Camera3D
+@export var view_model_camera: Camera3D
 @onready var player = $"."
-@onready var audio_component = $audio_component
-@onready var blood_orb = $head/firstperson_camera/view_model/view_model_camera/blood_orb_v2
+@export var audio_component: Node3D
+@export var blood_orb: Node3D
 
 var direction = Vector3()
 var jump_sounds = ["jump1", "jump2", "jump3"]

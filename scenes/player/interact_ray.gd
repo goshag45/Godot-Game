@@ -1,6 +1,6 @@
 extends RayCast3D
 
-@onready var interact_popup = $"../../../gui_layer/in_game_gui/interactable_message"
+@export var interact_popup: Label
 
 func _process(_delta: float) -> void:
 	var collider = self.get_collider()
