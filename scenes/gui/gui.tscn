@@ -189,6 +189,7 @@ label_settings = SubResource("LabelSettings_kfao7")
 horizontal_alignment = 1
 
 [node name="points" type="Label" parent="in_game_gui"]
+z_index = 1
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -209,6 +210,7 @@ action_scale = Vector2(2, 2)
 metadata/_custom_type_script = "uid://ck6hdrqglkeqs"
 
 [node name="fire" type="Node2D" parent="in_game_gui/points"]
+z_index = -1
 position = Vector2(384, 23)
 
 [node name="fire1" type="GPUParticles2D" parent="in_game_gui/points/fire"]

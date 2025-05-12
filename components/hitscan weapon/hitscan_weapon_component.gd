@@ -35,13 +35,6 @@ func shoot(target, hit_point):
 		spawn_bullet_tracer(hit_point)
 		process_embelishments(target, damage, hit_point)
 
-func process_embelishments(target, damage, hit_point):
-	if target != null && target.is_in_group("enemy"):
-		target.health -= damage
-		emit_blood_splatter(hit_point, target)
-	elif target != null:
-		draw_bullet_decals(hit_point)
-
 func shoot_with_spread():
 	var origin = global_position
 	if !animation.is_playing():
@@ -64,9 +57,7 @@ func shoot_with_spread():
 			var destination = origin + spread_dir * ray_length
 
 			var space_state = get_world_3d().direct_space_state
-			var result = space_state.intersect_ray(
-				PhysicsRayQueryParameters3D.create(origin, destination))
-				
+			var result = space_state.intersect_ray(PhysicsRayQueryParameters3D.create(origin, destination))
 			spawn_bullet_tracer(result.position if result else destination)
 			if result:
 				process_embelishments(result.collider, damage, result.position)
@@ -84,13 +75,13 @@ func reload():
 	magazine = magazine_capacity
 
 func emit_blood_splatter(hit_pos : Vector3, target):
+	print("blah")
 	var blood_splatter_instance = blood_splatter.instantiate()
 	blood_splatter_instance.material_override.albedo_color = target.blood_color
 	get_tree().current_scene.add_child(blood_splatter_instance)
 	blood_splatter_instance.global_position = hit_pos
 	blood_splatter_instance.look_at(aim_ray.global_position)
 	blood_splatter_instance.emitting = true
-	blood_splatter_instance.queue_free()
 
 func draw_bullet_decals(hit_pos : Vector3):
 	var bullet_decal_instance = bullet_decal.instantiate()
@@ -108,3 +99,10 @@ func spawn_bullet_tracer(target_pos : Vector3):
 	tracer_instance.target_pos = target_pos
 	tracer_instance.global_position = muzzle_flash.global_position
 	tracer_instance.look_at(target_pos)
+
+func process_embelishments(target, damage, hit_point):
+	if target != null && target.is_in_group("enemy"):
+		target.health -= damage
+		emit_blood_splatter(hit_point, target)
+	elif target != null:
+		draw_bullet_decals(hit_point)
