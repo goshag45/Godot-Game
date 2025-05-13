@@ -1,8 +1,10 @@
 extends CharacterBody3D
 
-@export var health = 300
+@export var health = 50
 @export var blood_color : Color = Color.FLORAL_WHITE
+
 @export var audio_component : Node3D
+@export var hitbox = CollisionShape3D
 
 @onready var player = get_tree().get_first_node_in_group("player")
 

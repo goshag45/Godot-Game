@@ -75,7 +75,6 @@ func reload():
 	magazine = magazine_capacity
 
 func emit_blood_splatter(hit_pos : Vector3, target):
-	print("blah")
 	var blood_splatter_instance = blood_splatter.instantiate()
 	blood_splatter_instance.material_override.albedo_color = target.blood_color
 	get_tree().current_scene.add_child(blood_splatter_instance)
