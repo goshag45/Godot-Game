@@ -15,6 +15,7 @@
 font = ExtResource("2_u8e3c")
 font_size = 60
 font_color = Color(0.904786, 0, 0.0445938, 1)
+shadow_color = Color(0.819608, 0, 0.772549, 0.65098)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lkoow"]
 font = ExtResource("2_u8e3c")
@@ -29,7 +30,7 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_0jpgx"]
 font = ExtResource("2_u8e3c")
 font_size = 100
-font_color = Color(0.747625, 0.631634, 5.77569e-07, 1)
+font_color = Color(0.938091, 0.0224636, 3.85046e-07, 1)
 shadow_color = Color(0.818553, 0.00033576, 0.773253, 0.65098)
 
 [sub_resource type="Gradient" id="Gradient_453fe"]
@@ -61,8 +62,8 @@ angular_velocity_max = 32.0
 gravity = Vector3(0, -300, 0)
 linear_accel_min = 100.0
 linear_accel_max = 100.0
-scale_min = 0.2
-scale_max = 0.2
+scale_min = 0.1
+scale_max = 0.1
 scale_over_velocity_curve = SubResource("CurveTexture_8tpq0")
 color_ramp = SubResource("GradientTexture1D_7x5n5")
 
@@ -87,8 +88,8 @@ angular_velocity_max = 32.0
 gravity = Vector3(0, -300, 0)
 linear_accel_min = 100.0
 linear_accel_max = 100.0
-scale_min = 0.2
-scale_max = 0.2
+scale_min = 0.1
+scale_max = 0.1
 scale_over_velocity_curve = SubResource("CurveTexture_8tpq0")
 color_ramp = SubResource("GradientTexture1D_bsuq1")
 
@@ -194,10 +195,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -727.0
-offset_top = 317.0
-offset_right = -277.0
-offset_bottom = 419.083
+offset_left = -603.0
+offset_top = 140.0
+offset_right = -153.0
+offset_bottom = 242.083
 grow_horizontal = 0
 text = "points: 0"
 label_settings = SubResource("LabelSettings_0jpgx")
@@ -211,7 +212,7 @@ metadata/_custom_type_script = "uid://ck6hdrqglkeqs"
 
 [node name="fire" type="Node2D" parent="in_game_gui/points"]
 z_index = -1
-position = Vector2(384, 23)
+position = Vector2(392, 39)
 
 [node name="fire1" type="GPUParticles2D" parent="in_game_gui/points/fire"]
 modulate = Color(3, 1, 1, 1)
