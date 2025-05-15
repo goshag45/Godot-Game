@@ -14,7 +14,7 @@ extends CharacterBody3D
 func _ready():
 	nav_agent.path_desired_distance = 1.0
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not player:
 		player = get_tree().get_first_node_in_group("player")
 	nav_agent.target_position = player.global_transform.origin
@@ -24,10 +24,13 @@ func _physics_process(_delta: float) -> void:
 	var direction = local_destination.normalized()
 
 	velocity = direction * speed
+	velocity.z = lerp(velocity.z, direction.z * speed, delta * 10.0)
 	look_at(player.global_position)
 	rotation.x = 0
 	rotation.z = 0
 	move_and_slide()
+	animate()
+
 
 func _process(_delta):
 	if health <= 0:
@@ -40,4 +43,5 @@ func die():
 	queue_free()
 
 func animate():
-	pass
+	if velocity.length() > 0:
+		animation.play("cockroach_walk")
