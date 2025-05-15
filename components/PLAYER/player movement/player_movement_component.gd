@@ -53,8 +53,8 @@ func _physics_process(delta: float) -> void:
 			player.velocity.x = lerp(player.velocity.x, direction.x * speed, delta * 10.0)
 			player.velocity.z = lerp(player.velocity.z, direction.z * speed, delta * 10.0)
 		else:
-			player.velocity.x = 0.0
-			player.velocity.z = 0.0
+			player.velocity.x = lerp(player.velocity.x, 0.0 * speed, delta * 10.0)
+			player.velocity.z = lerp(player.velocity.z, 0.0 * speed, delta * 10.0)
 	else:
 		player.velocity.x = lerp(player.velocity.x, direction.x * speed, delta * 4.0)
 		player.velocity.z = lerp(player.velocity.z, direction.z * speed, delta * 4.0)
