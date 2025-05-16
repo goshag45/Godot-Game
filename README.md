@@ -12,11 +12,7 @@
 
 PHYSICS INTERPOLATION MANUAL VS INBUILT IDK
 
-enemies hit player and velocity goes bananas
-
-getting trapped in pile of balls causes endlessly increasing velocity
-
-## Goals (old)
+## Goals 
  - ~~first person character~~
  - ~~movement tech, sprinting, jumping~~
  - ~~shooting~~ -> projectile weapon after
@@ -49,6 +45,14 @@ Weapons
  - ~SHOTGUN IMPULSE?~
  - ~SHOTGUN MUZZLE FLASH~
  - ROCKET GLOW EMISSION
+
+## Issues
+ - weapon models spaz out
+ - BAD optmiisation
+ - many enemies = many lag
+ - occlusion culling is on however enemies running individual scripts is the issue
+ - enemies hit player and velocity goes bananas
+ -  getting trapped in pile of balls causes endlessly increasing velocity
 
 guck cube
  - spit green projectiles
