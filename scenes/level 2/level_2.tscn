@@ -529,6 +529,7 @@ script = ExtResource("19_ejh53")
 spawn_area = NodePath("spawn_area")
 aura_collision = NodePath("spawn_area/aura_collision")
 gore_ball = ExtResource("20_5i01k")
+cockroach = ExtResource("20_axweg")
 enemy_manager = NodePath("../../enemy_manager")
 
 [node name="spawn_area" type="Area3D" parent="terrain/da aura"]
@@ -554,7 +555,7 @@ spot_angle_attenuation = 0.164939
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32672, 3, -25.4372)
 
 [node name="cockroach" parent="terrain" instance=ExtResource("20_axweg")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.1722, 13.6555, -19.6986)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 16.1722, 13.6555, -19.6986)
 
 [node name="deathbox" type="Area3D" parent="." groups=["deathbox"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -29.2741, 0)
