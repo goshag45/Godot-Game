@@ -15,6 +15,9 @@ func _ready():
 	$timer.start()
 	connect("body_entered", Callable(self, "_on_body_entered"))
 
+func _process(float) -> void:
+	print("im alive fucker!")
+
 func _on_body_entered(body: Node):
 	var spawn_position = global_transform.origin
 	vfx_instance = explosion_vfx.instantiate()
@@ -28,8 +31,9 @@ func _on_body_entered(body: Node):
 	await get_tree().physics_frame
 	apply_force()
 	
-	var vfx_timer = utils.start_and_wait_timer(self, 1.0, true) 
-	await vfx_timer.timeout
+	#var vfx_timer = utils.start_and_wait_timer(self, 1.0, true) 
+	#await vfx_timer.timeout
+	await get_tree().create_timer(3).timeout
 	vfx_instance.queue_free()
 
 func _on_timer_timeout() -> void:
