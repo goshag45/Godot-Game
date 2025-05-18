@@ -2,6 +2,7 @@ extends RigidBody3D
 
 @export var health = 100
 @export var blood_color : Color = Color.RED
+@export var pieces : PackedScene
 
 @export var acceleration_force: float = 30.0  # Force applied for acceleration
 @export var max_horizontal_speed: float = 10.0  # Maximum speed on the XZ plane
@@ -64,4 +65,9 @@ func _process(_delta):
 func die():
 	global_signals.gore_ball_died.emit()
 	audio_component._play_audio_sfx("blood_squelch", 3)
-	queue_free()
+	var pieces_instance = pieces.instantiate()
+	get_tree().current_scene.add_child(pieces_instance)
+	print(pieces_instance)
+	pieces_instance.print_tree_pretty()
+	pieces_instance.call_deferred("set_global_position", global_position)
+	call_deferred("queue_free")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3l7mcrwxuwko"]
+[gd_scene load_steps=10 format=3 uid="uid://b3l7mcrwxuwko"]
 
 [ext_resource type="Script" uid="uid://cynhhgy8ufh7u" path="res://scenes/npc/gore ball/gore_ball.gd" id="1_5sirm"]
 [ext_resource type="Texture2D" uid="uid://010tocmlpv7d" path="res://art/visual/textures/gore_texture.png" id="2_388md"]
+[ext_resource type="PackedScene" uid="uid://c8ob2oqy0efe8" path="res://art/visual/models/gore_skull_pieces.tscn" id="2_v8moq"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="3_v8moq"]
+[ext_resource type="PackedScene" uid="uid://mi1lye6vs6d7" path="res://art/visual/models/gore_skull.glb" id="4_388md"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5sirm"]
 bounce = 0.21
@@ -20,14 +22,19 @@ uv1_triplanar = true
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_5sirm")
 script = ExtResource("1_5sirm")
+pieces = ExtResource("2_v8moq")
 
 [node name="hitbox" type="CollisionShape3D" parent="." groups=["enemy"]]
 shape = SubResource("SphereShape3D_dkjwh")
 
 [node name="skin" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("SphereMesh_kp4s4")
 surface_material_override/0 = SubResource("StandardMaterial3D_g4hnq")
 
 [node name="nav_agent" type="NavigationAgent3D" parent="."]
 
 [node name="audio_component" parent="." instance=ExtResource("3_v8moq")]
+
+[node name="gore_skull" parent="." instance=ExtResource("4_388md")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, -0.393498, 0)

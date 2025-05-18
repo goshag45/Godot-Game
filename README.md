@@ -45,6 +45,8 @@ Weapons
  - ~SHOTGUN IMPULSE?~
  - ~SHOTGUN MUZZLE FLASH~
  - ROCKET GLOW EMISSION
+ - SHOTGUN THUNDERCLAP
+ - SHOTGUN LIGHTNING ?
 
 ## Issues
  - weapon models spaz out
@@ -52,7 +54,7 @@ Weapons
  - many enemies = many lag
  - occlusion culling is on however enemies running individual scripts is the issue
  - enemies hit player and velocity goes bananas
- -  getting trapped in pile of balls causes endlessly increasing velocity
+ - getting trapped in pile of balls causes endlessly increasing velocity
 
 guck cube
  - spit green projectiles
