@@ -1,46 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpw4lojutiti"]
+[gd_scene load_steps=8 format=3 uid="uid://cpw4lojutiti"]
 
 [ext_resource type="Script" uid="uid://c8ue66kdpi8lt" path="res://scenes/npc/guck cube/guck_cube.gd" id="1_ishrq"]
-[ext_resource type="Shader" uid="uid://e08kt45xaikw" path="res://scenes/npc/guck cube/guck_cube.gdshader" id="1_wb1dp"]
+[ext_resource type="PackedScene" uid="uid://b3a0el7xjb72" path="res://scenes/npc/guck cube/guck_cube_pieces.tscn" id="2_43o6c"]
 [ext_resource type="Texture2D" uid="uid://bp4xknmfepqaa" path="res://art/visual/textures/green_guck_nick.png" id="3_43o6c"]
 [ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="4_43o6c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wb1dp"]
 size = Vector3(4, 4, 4)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ishrq"]
-frequency = 0.0131
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4os5s"]
-seamless = true
-noise = SubResource("FastNoiseLite_ishrq")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wb1dp"]
-render_priority = 0
-shader = ExtResource("1_wb1dp")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("3_43o6c")
-shader_parameter/albedo_texture_size = Vector2i(256, 256)
-shader_parameter/point_size = 0.0
-shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/specular = 0.0
-shader_parameter/metallic = 0.0
-shader_parameter/uv1_blend_sharpness = 1.0
-shader_parameter/uv1_scale = Vector3(0.25, 0.25, 0.25)
-shader_parameter/uv1_offset = Vector3(0.5, 0.5, 0.5)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/speed = 0.071
-shader_parameter/strength = 0.026
-shader_parameter/noise = SubResource("NoiseTexture2D_4os5s")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ay7b0"]
+albedo_texture = ExtResource("3_43o6c")
+uv1_scale = Vector3(3, 2, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rt3iu"]
-material = SubResource("ShaderMaterial_wb1dp")
+material = SubResource("StandardMaterial3D_ay7b0")
 size = Vector3(4, 4, 4)
 
 [node name="guck_cube" type="RigidBody3D" groups=["enemy"]]
 script = ExtResource("1_ishrq")
+pieces = ExtResource("2_43o6c")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_wb1dp")

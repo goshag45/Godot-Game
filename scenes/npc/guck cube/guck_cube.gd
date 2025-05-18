@@ -2,6 +2,7 @@ extends RigidBody3D
 
 @export var health = 300
 @export var blood_color : Color = Color.GREEN
+@export var pieces : PackedScene 
 
 enum State { IDLE, TOPPLING }
 var state: State = State.IDLE
@@ -72,4 +73,10 @@ func _process(_delta):
 func die():
 	global_signals.guck_cube_died.emit()
 	audio_component._play_audio_sfx("fart", 3)
-	queue_free()
+	explode()
+	call_deferred("queue_free")
+
+func explode():
+	var pieces_instance = pieces.instantiate()
+	get_tree().current_scene.add_child(pieces_instance)
+	pieces_instance.call_deferred("set_global_position", global_position)
