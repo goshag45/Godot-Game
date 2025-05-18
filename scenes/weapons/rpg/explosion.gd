@@ -1,7 +1,7 @@
 extends Area3D
 
 @export var radius: float = 6.0
-@export var damage: float = 30.0
+@export var damage: float = 100.0
 @export var force: float = 50.0
 @export var lifetime: float = 0.05
 

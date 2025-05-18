@@ -65,9 +65,10 @@ func _process(_delta):
 func die():
 	global_signals.gore_ball_died.emit()
 	audio_component._play_audio_sfx("blood_squelch", 3)
+	explode()
+	call_deferred("queue_free")
+
+func explode():
 	var pieces_instance = pieces.instantiate()
 	get_tree().current_scene.add_child(pieces_instance)
-	print(pieces_instance)
-	pieces_instance.print_tree_pretty()
 	pieces_instance.call_deferred("set_global_position", global_position)
-	call_deferred("queue_free")

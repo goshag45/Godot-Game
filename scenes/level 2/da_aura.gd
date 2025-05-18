@@ -19,7 +19,7 @@ func _physics_process(_delta: float) -> void:
 func _on_thedavy_da_aura() -> void:
 	for x in ball_count:
 		spawn_pos = get_random_point_in_torus(torus_centre, 40.0, 25.0)
-		var enemy = cockroach.instantiate()
+		var enemy = gore_ball.instantiate()
 		get_parent().get_parent().add_child(enemy)
 		enemy_manager.gore_ball_counter += 1
 		enemy.global_position = spawn_pos
