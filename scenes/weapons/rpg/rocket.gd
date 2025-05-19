@@ -27,8 +27,8 @@ func _on_collision_area_area_entered(_area: Area3D) -> void:
 	explode()
 
 func _on_collision_area_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		return
+	#if body.is_in_group("player"):
+		#return
 	explode()
 
 func explode():

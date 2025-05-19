@@ -26,7 +26,7 @@ PHYSICS INTERPOLATION MANUAL VS INBUILT IDK
  - ~speed counter~
  - ~deathbox~
  - ~bullet trails~
- - shotgun spread
+ - ~shotgun spread~
  - ENVIRONMENTAL HAZARDS
  - MORE AUDIO + ambience?
 
@@ -57,6 +57,7 @@ Weapons
  - getting trapped in pile of balls causes endlessly increasing velocity
  - OPTMIISE DUPLICATE SOUNDS
  - OPTIMISE NODE LEAKS (lots of memory loss, nodes not getting freed)
+ - immortal simple explosion vfx twins
 
 guck cube
  - spit green projectiles
