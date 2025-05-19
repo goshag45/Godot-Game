@@ -16,7 +16,7 @@ func _ready():
 	spawn_rate = initial_spawn_rate
 	await get_tree().process_frame # Ensure all nodes are added first
 	player = get_tree().get_first_node_in_group("player")
-	global_signals.gore_ball_died.connect(gore_ball_died)
+	global_signals._gore_ball_died.connect(gore_ball_died)
 	if not player:
 		print("Player not found!")
 

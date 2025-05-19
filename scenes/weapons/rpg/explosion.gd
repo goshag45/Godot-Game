@@ -15,8 +15,9 @@ func _ready():
 	$timer.start()
 	connect("body_entered", Callable(self, "_on_body_entered"))
 
-func _process(float) -> void:
-	print("im alive fucker!")
+func _process(_delta: float) -> void:
+	#print("im alive fucker!")
+	pass
 
 func _on_body_entered(body: Node):
 	var spawn_position = global_transform.origin

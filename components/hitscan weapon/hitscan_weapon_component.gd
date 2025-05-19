@@ -33,7 +33,7 @@ func shoot(target, hit_point):
 		animation.play(shoot_sound)
 		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume)
 		spawn_bullet_tracer(hit_point)
-		process_embelishments(target, damage, hit_point)
+		process_embelishments(target, hit_point)
 
 func shoot_with_spread():
 	var origin = global_position
@@ -60,7 +60,7 @@ func shoot_with_spread():
 			var result = space_state.intersect_ray(PhysicsRayQueryParameters3D.create(origin, destination))
 			spawn_bullet_tracer(result.position if result else destination)
 			if result:
-				process_embelishments(result.collider, damage, result.position)
+				process_embelishments(result.collider, result.position)
 
 func physics_impulse():
 	var force: float = 10.0
@@ -100,7 +100,7 @@ func spawn_bullet_tracer(target_pos : Vector3):
 	tracer_instance.global_position = muzzle_flash.global_position
 	tracer_instance.look_at(target_pos)
 
-func process_embelishments(target, damage, hit_point):
+func process_embelishments(target, hit_point):
 	if target != null && target.is_in_group("enemy"):
 		target.health -= damage
 		emit_blood_splatter(hit_point, target)

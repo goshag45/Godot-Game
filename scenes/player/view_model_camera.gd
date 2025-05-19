@@ -34,7 +34,6 @@ func _process(delta: float) -> void:
 	
 	if player.is_on_floor():
 		var time = float(Time.get_ticks_msec())
-		var magic_number = 1000.0
 		fps_rig.position.y = fps_rig.position.y + sin(time / bob_speed) / bob_amount * player.velocity.length()
 
 func update_orb():

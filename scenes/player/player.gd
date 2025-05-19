@@ -26,8 +26,8 @@ var jump_sounds = ["jump1", "jump2", "jump3"]
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	global_signals.gore_ball_died.connect(_on_enemy_killed)
-	global_signals.guck_cube_died.connect(_on_enemy_killed)
+	global_signals._gore_ball_died.connect(_on_enemy_killed)
+	global_signals._guck_cube_died.connect(_on_enemy_killed)
 
 func _physics_process(_delta: float) -> void:
 	# fullscreen keybind for now

@@ -63,7 +63,7 @@ func _process(_delta):
 		die()
 
 func die():
-	global_signals.gore_ball_died.emit()
+	global_signals._gore_ball_died.emit()
 	audio_component._play_audio_sfx("blood_squelch", 3)
 	explode()
 	call_deferred("queue_free")

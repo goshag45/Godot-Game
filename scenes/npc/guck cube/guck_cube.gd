@@ -71,7 +71,7 @@ func _process(_delta):
 		die()
 
 func die():
-	global_signals.guck_cube_died.emit()
+	global_signals._guck_cube_died.emit()
 	audio_component._play_audio_sfx("fart", 3)
 	explode()
 	call_deferred("queue_free")
