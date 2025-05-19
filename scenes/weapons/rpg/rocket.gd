@@ -3,6 +3,7 @@ extends Node3D
 @export var speed: float = 25.0
 @export var lifetime: float = 5.0
 @export var explosion : PackedScene
+@export var collision_ray : RayCast3D
 
 var velocity: Vector3
 var exploded
@@ -13,7 +14,7 @@ func _ready():
 	queue_free()
 
 func _physics_process(delta):
-	position += velocity * delta
+	global_position += velocity * delta
 
 	var target_position = position + velocity.normalized()
 	var up = Vector3.UP
@@ -22,14 +23,18 @@ func _physics_process(delta):
 		up = Vector3.FORWARD  # Pick another up vector if too parallel
 
 	look_at(target_position, up)
+	
+	collision_ray.force_raycast_update()
+	if collision_ray.is_colliding():
+		explode()
 
-func _on_collision_area_area_entered(_area: Area3D) -> void:
-	print(_area)
-	explode()
+#func _on_collision_area_area_entered(_area: Area3D) -> void:
+	#print(_area)
+	#explode()
 
-func _on_collision_area_body_entered(_body: Node3D) -> void:
-	print(_body)
-	explode()
+#func _on_collision_area_body_entered(_body: Node3D) -> void:
+	#print(_body)
+	#explode()
 
 func explode():
 	if exploded:
