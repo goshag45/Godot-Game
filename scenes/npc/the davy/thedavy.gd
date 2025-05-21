@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 		look_at(global_transform.origin - direction, Vector3.UP)
 
 func interact():
-	audio_component._play_audio_sfx("as_you_wish", 15.0)
+	audio_component._play_audio_sfx("as_you_wish", 15.0, false)
 	dialogue_component._show_dialogue_timeout("as you wish", 1.5)
 	talk.emit()
 	da_aura.emit()

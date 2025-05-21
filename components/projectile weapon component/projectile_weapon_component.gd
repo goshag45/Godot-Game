@@ -29,7 +29,7 @@ func shoot():
 	if !animation.is_playing():
 		magazine -= 1
 		animation.play(shoot_sound)
-		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume)
+		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume, false)
 
 		var projectile_instance = weapon.projectile.instantiate()
 		get_tree().current_scene.add_child(projectile_instance)
@@ -38,6 +38,6 @@ func shoot():
 
 func reload():
 	# you can spam the reload audio for now - not major issue
-	audio_component._play_audio_sfx("reload", 3)
+	audio_component._play_audio_sfx("reload", 3, false)
 	animation.play("reload")
 	magazine = magazine_capacity

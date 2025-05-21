@@ -13,6 +13,9 @@ extends RigidBody3D
 @onready var audio_component = $audio_component
 # default mass is 0.2 
 
+@export var max_death_sounds : int =  5
+var death_sounds : int =  0
+
 func _ready():
 	linear_damp = 0.1
 	angular_damp = 0.05
@@ -64,7 +67,7 @@ func _process(_delta):
 
 func die():
 	global_signals._gore_ball_died.emit()
-	audio_component._play_audio_sfx("blood_squelch", 3)
+	audio_component._play_audio_sfx("blood_squelch", 3, true)
 	explode()
 	call_deferred("queue_free")
 

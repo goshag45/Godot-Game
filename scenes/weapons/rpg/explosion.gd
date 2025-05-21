@@ -58,4 +58,4 @@ func apply_force():
 		elif body is CharacterBody3D and body.is_in_group("enemy"):
 			body.velocity += impulse 
 		elif body is CharacterBody3D:
-			body.velocity += impulse /5
+			body.velocity += impulse / 3

@@ -14,7 +14,7 @@ func _ready() -> void:
 	var player_instance = player_scene.instantiate()
 	add_child(player_instance)
 	player_instance.get_node("player_spawn_component").spawn_at(player_spawn_location_1)
-	player_instance.audio_component._play_audio_sfx("vine_boom", 8.0)
+	player_instance.audio_component._play_audio_sfx("vine_boom", 8.0, false)
 
 func spawn_balls():
 	#doesnt turn off, fine for now

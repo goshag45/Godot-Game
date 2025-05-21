@@ -43,7 +43,7 @@ func _process(_delta):
 func die():
 	global_signals._cockroach_died.emit()
 	#make this a bug squash sound
-	audio_component._play_audio_sfx("fart", 3)
+	audio_component._play_audio_sfx("fart", 3, false)
 	queue_free()
 
 func animate():

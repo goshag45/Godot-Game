@@ -31,7 +31,7 @@ func shoot(target, hit_point):
 	if !animation.is_playing():
 		magazine -= 1
 		animation.play(shoot_sound)
-		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume)
+		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume, false)
 		spawn_bullet_tracer(hit_point)
 		process_embelishments(target, hit_point)
 
@@ -40,7 +40,7 @@ func shoot_with_spread():
 	if !animation.is_playing():
 		magazine -= 1
 		animation.play(shoot_sound)
-		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume)
+		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume, false)
 		if !player.is_on_floor():
 			physics_impulse()
 
@@ -70,7 +70,7 @@ func physics_impulse():
 
 func reload():
 	# you can spam the reload audio for now - not major issue
-	audio_component._play_audio_sfx("reload", 3)
+	audio_component._play_audio_sfx("reload", 3, false)
 	animation.play("reload")
 	magazine = magazine_capacity
 

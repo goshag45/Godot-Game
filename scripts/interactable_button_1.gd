@@ -9,5 +9,5 @@ func _process(_delta: float) -> void:
 
 func interact():
 	press.emit()
-	audio_component._play_audio_sfx("woom", 8)
+	audio_component._play_audio_sfx("woom", 8, false)
 	dialogue_component._show_dialogue_timeout("woom...", 0.5)
