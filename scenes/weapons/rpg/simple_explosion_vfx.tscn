@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c87t3denxaxsx"]
+[gd_scene load_steps=7 format=3 uid="uid://c87t3denxaxsx"]
+
+[ext_resource type="Script" uid="uid://cpc8tjk86xb5w" path="res://scenes/weapons/rpg/simple_explosion_vfx.gd" id="1_clnaw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2jays"]
 transparency = 1
@@ -60,6 +62,7 @@ _data = {
 }
 
 [node name="simple_explosion_vfx" type="Node3D"]
+script = ExtResource("1_clnaw")
 
 [node name="explosion_radius" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

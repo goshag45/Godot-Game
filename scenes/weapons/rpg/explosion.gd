@@ -11,31 +11,17 @@ var vfx_instance
 
 func _ready():
 	$explosion_radius.shape.radius = radius
-	$timer.wait_time = lifetime
-	$timer.start()
-	connect("body_entered", Callable(self, "_on_body_entered"))
-
-func _process(_delta: float) -> void:
-	#print("im alive fucker!")
-	pass
-
-func _on_body_entered(body: Node):
+	
+	await get_tree().process_frame # god what the hell man
 	var spawn_position = global_transform.origin
 	vfx_instance = explosion_vfx.instantiate()
 	get_tree().current_scene.add_child(vfx_instance)
 	vfx_instance.global_transform.origin = spawn_position
 	vfx_instance.get_node("animation").play("explode")
 	
-	if body.is_in_group("enemy"):
-		body.health -= damage
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	apply_force()
-	
-	#var vfx_timer = utils.start_and_wait_timer(self, 1.0, true) 
-	#await vfx_timer.timeout
-	await get_tree().create_timer(3).timeout
-	vfx_instance.queue_free()
 
 func _on_timer_timeout() -> void:
 	self.queue_free()
@@ -52,10 +38,11 @@ func apply_force():
 		var distance = (body_pos - self.global_position).length()
 		var falloff = clamp(1.0 - (distance / radius), 0.1, 1.0)
 		var impulse = direction.normalized() * force * falloff
-		
+		if body.is_in_group("enemy"):
+			body.health -= damage
 		if body is RigidBody3D:
 			body.apply_impulse(impulse)
 		elif body is CharacterBody3D and body.is_in_group("enemy"):
 			body.velocity += impulse 
 		elif body is CharacterBody3D:
-			body.velocity += impulse / 3
+			body.velocity += impulse / 2

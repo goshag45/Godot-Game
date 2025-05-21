@@ -28,14 +28,6 @@ func _physics_process(delta):
 	if collision_ray.is_colliding():
 		explode()
 
-#func _on_collision_area_area_entered(_area: Area3D) -> void:
-	#print(_area)
-	#explode()
-
-#func _on_collision_area_body_entered(_body: Node3D) -> void:
-	#print(_body)
-	#explode()
-
 func explode():
 	if exploded:
 		return
@@ -44,6 +36,5 @@ func explode():
 	var spawn_position = global_transform.origin
 	var explosion_instance = explosion.instantiate()
 	get_tree().current_scene.add_child(explosion_instance)
-	explosion_instance.origin = spawn_position
 	explosion_instance.global_transform.origin = spawn_position
 	queue_free()
