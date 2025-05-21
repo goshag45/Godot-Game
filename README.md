@@ -55,11 +55,11 @@ Weapons
  - occlusion culling is on however enemies running individual scripts is the issue
  - enemies hit player and velocity goes bananas
  - getting trapped in pile of balls causes endlessly increasing velocity
- - OPTMIISE DUPLICATE SOUNDS
- - OPTIMISE NODE LEAKS (lots of memory loss, nodes not getting freed)
- - immortal simple explosion vfx ~twins~ (no longer twins but still immortal)
+ - ~OPTMIISE DUPLICATE SOUNDS~ mostly
+ - ~OPTIMISE NODE LEAKS (lots of memory loss, nodes not getting freed)~ mostly
+ - ~immortal simple explosion vfx ~twins~ (no longer twins but still immortal)~
  - ~FIX AUDIO OVERLAP ASAP~ partly fixed - limited to 4 death sounds at once
- - EXPLOSION IMPULSE FORCE DEPENDS ON WORLD SPACE COORDINATES?????
+ - ~EXPLOSION IMPULSE FORCE DEPENDS ON WORLD SPACE COORDINATES?????~
 
 guck cube
  - spit green projectiles
