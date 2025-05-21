@@ -39,19 +39,13 @@ blood_orb = NodePath("head/firstperson_camera/view_model/view_model_camera/blood
 [node name="head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -0.111936)
 
-[node name="firstperson_camera" type="Camera3D" parent="head" node_paths=PackedStringArray("player")]
+[node name="firstperson_camera" type="Camera3D" parent="head"]
 cull_mask = 1048571
 near = 0.045
 far = 5000.0
 script = ExtResource("2_hj430")
-follow_target = NodePath("..")
-player = NodePath("../..")
-pitch_limit = 90.0
 
 [node name="view_model" parent="head/firstperson_camera" instance=ExtResource("4_5gtgg")]
-
-[node name="model" parent="head/firstperson_camera/view_model/view_model_camera/fps_rig/smg" index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="hitscan_weapon_component" parent="head/firstperson_camera/view_model/view_model_camera/fps_rig/winchesta" index="4" node_paths=PackedStringArray("aim_ray", "player")]
 aim_ray = NodePath("../../../../../aim_ray")

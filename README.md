@@ -10,7 +10,7 @@
  - balls coalescing into something, more balls, other stuff
  - open playground type levels
 
-PHYSICS INTERPOLATION MANUAL VS INBUILT IDK
+~PHYSICS INTERPOLATION MANUAL VS INBUILT IDK~ inbuilt now enabled, mostly fine
 
 ## Goals 
  - ~~first person character~~
@@ -60,6 +60,7 @@ Weapons
  - ~immortal simple explosion vfx ~twins~ (no longer twins but still immortal)~
  - ~FIX AUDIO OVERLAP ASAP~ partly fixed - limited to 4 death sounds at once
  - ~EXPLOSION IMPULSE FORCE DEPENDS ON WORLD SPACE COORDINATES?????~
+ - when rocket spawns it goes to the right then gets teleported
 
 guck cube
  - spit green projectiles

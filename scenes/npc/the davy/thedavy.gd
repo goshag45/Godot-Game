@@ -12,8 +12,7 @@ signal da_aura
 func _ready() -> void:
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var players = get_tree().get_nodes_in_group("player")
 	player = players[0]
 	if player:
