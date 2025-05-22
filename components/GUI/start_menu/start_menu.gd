@@ -10,6 +10,7 @@ func ready():
 func _on_play_pressed() -> void:
 	start_menu.hide()
 	get_tree().change_scene_to_file("res://scenes/level 2/level_2.tscn")
+	#get_tree().change_scene_to_file("res://trenchbroom_levels/trenchbroom_map_1.tscn")
 
 func _on_options_pressed() -> void:
 	pass # Replace with function body.

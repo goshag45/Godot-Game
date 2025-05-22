@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=4 uid="uid://j0mg6qu0gkmp"]
+[gd_scene load_steps=24 format=4 uid="uid://j0mg6qu0gkmp"]
 
+[ext_resource type="Script" uid="uid://0sdoisxi8fa5" path="res://trenchbroom_levels/trenchbroom_map_1.gd" id="1_lcgag"]
 [ext_resource type="Script" uid="uid://barfabdro4umh" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_vn5d2"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_yoxgc"]
 [ext_resource type="Script" uid="uid://dut2afq6lquid" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_4f0wl"]
@@ -104,6 +105,7 @@ sky = SubResource("Sky_5i01k")
 glow_normalized = true
 
 [node name="trenchbroom_map_1" type="Node3D"]
+script = ExtResource("1_lcgag")
 
 [node name="QodotMap" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18.5817, 0)
