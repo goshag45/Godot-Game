@@ -61,6 +61,7 @@ Weapons
  - ~FIX AUDIO OVERLAP ASAP~ partly fixed - limited to 4 death sounds at once
  - ~EXPLOSION IMPULSE FORCE DEPENDS ON WORLD SPACE COORDINATES?????~
  - when rocket spawns it goes to the right then gets teleported
+ - blood orb simply not getting moved anymore
 
 guck cube
  - spit green projectiles

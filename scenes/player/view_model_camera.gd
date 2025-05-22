@@ -22,7 +22,10 @@ var SWAY : float = 150.0
 func _ready():
 	fps_rig.set_as_top_level(true)
 	get_tree().get_root().size_changed.connect(update_orb) 
-	call_deferred("update_orb")
+	
+	await get_tree().process_frame
+	await get_tree().process_frame
+	update_orb()
 
 func _physics_process(_delta: float) -> void:
 	pass
