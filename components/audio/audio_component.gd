@@ -1,6 +1,6 @@
 extends Node3D
 
-const MAX_CONCURRENT_SFX := 4
+const MAX_CONCURRENT_SFX := 1
 const DEATH_SOUND_COOLDOWN := 0.2 # seconds
 var active_sfx_count: int = 0
 var last_death_sound_time := 0.0
@@ -12,6 +12,7 @@ func _play_audio_sfx(sound_name: String, volume: float, use_limit := false):
 		if now - last_death_sound_time < DEATH_SOUND_COOLDOWN:
 			return
 		last_death_sound_time = now
+		print(active_sfx_count)
 		if active_sfx_count >= MAX_CONCURRENT_SFX:
 			return
 	

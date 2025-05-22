@@ -18,6 +18,7 @@ config/icon="res://art/experience.PNG"
 [autoload]
 
 global_signals="*res://components/global/global_signals.gd"
+audio_manager="*res://autoload/audio_manager.gd"
 
 [debug]
 
@@ -40,6 +41,7 @@ folder_colors={
 "res://addons/": "gray",
 "res://art/": "yellow",
 "res://audio/": "blue",
+"res://autoload/": "pink",
 "res://components/": "purple",
 "res://scenes/": "red",
 "res://scripts/": "green"
