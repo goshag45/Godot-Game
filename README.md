@@ -55,13 +55,13 @@ Weapons
  - occlusion culling is on however enemies running individual scripts is the issue
  - enemies hit player and velocity goes bananas
  - getting trapped in pile of balls causes endlessly increasing velocity
- - ~OPTMIISE DUPLICATE SOUNDS~ mostly
+ - ~OPTMIISE DUPLICATE SOUNDS~ 
  - ~OPTIMISE NODE LEAKS (lots of memory loss, nodes not getting freed)~ mostly
  - ~immortal simple explosion vfx ~twins~ (no longer twins but still immortal)~
- - ~FIX AUDIO OVERLAP ASAP~ partly fixed - limited to 4 death sounds at once
+ - ~FIX AUDIO OVERLAP ASAP~ 
  - ~EXPLOSION IMPULSE FORCE DEPENDS ON WORLD SPACE COORDINATES?????~
  - when rocket spawns it goes to the right then gets teleported
- - blood orb simply not getting moved anymore
+ - ~blood orb simply not getting moved anymore~
 
 guck cube
  - spit green projectiles
