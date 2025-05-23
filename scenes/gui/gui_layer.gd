@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 	update_ammo_counter()
 	if points_count < player.kill_count:
 		points_count = player.kill_count
-		update_points_counter()
+	update_points_counter()
 
 func update_ammo_counter():
 	var current_weapon = player.get_node("player_weapon_component").current_weapon
@@ -36,8 +36,9 @@ func update_ammo_counter():
 ]
 
 func update_points_counter():
-	points_counter.text = "points: " + str(player.kill_count)
-	target.pivot_offset = target.size / 2
-	var tween = get_tree().create_tween()
-	tween.tween_property(target, "scale", action_scale, seconds) #.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
-	tween.tween_property(target, "scale", Vector2(1,1), seconds)
+	var p = str(points_count)
+	points_counter.text = "[font=res://art/mingliu.TTF][font_size=60]points: [shake rate=20 level=%s]%s[/shake]" % [points_count, p]
+	#target.pivot_offset = target.size / 2
+	#var tween = get_tree().create_tween()
+	#tween.tween_property(target, "scale", action_scale, seconds) #.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	#tween.tween_property(target, "scale", Vector2(1,1), seconds)

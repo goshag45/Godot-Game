@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=4 uid="uid://j0mg6qu0gkmp"]
+[gd_scene load_steps=23 format=4 uid="uid://j0mg6qu0gkmp"]
 
 [ext_resource type="Script" uid="uid://0sdoisxi8fa5" path="res://trenchbroom_levels/trenchbroom_map_1.gd" id="1_lcgag"]
 [ext_resource type="Script" uid="uid://barfabdro4umh" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_vn5d2"]
+[ext_resource type="PackedScene" uid="uid://bddhhkoovn5gv" path="res://components/PLAYER/player spawn component/player_spawn_component.tscn" id="2_lcgag"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_yoxgc"]
 [ext_resource type="Script" uid="uid://dut2afq6lquid" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_4f0wl"]
 [ext_resource type="Texture2D" uid="uid://c86wh8tbud17b" path="res://textures/Horror_Floor_14-128x128.png" id="5_4f0wl"]
@@ -91,8 +92,11 @@ glow_normalized = true
 [node name="trenchbroom_map_1" type="Node3D"]
 script = ExtResource("1_lcgag")
 
+[node name="player_spawn_component" parent="." instance=ExtResource("2_lcgag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17)
+
 [node name="QodotMap" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18.5817, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17, 0)
 script = ExtResource("1_vn5d2")
 map_file = "C:/Users/George/Documents/_game/Godot-Game/trenchbroom_levels/trenchbroom_testmap_1.map"
 entity_fgd = ExtResource("2_yoxgc")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://k5r4dq5pg4cv"]
+[gd_scene load_steps=25 format=3 uid="uid://k5r4dq5pg4cv"]
 
 [ext_resource type="Script" uid="uid://bga3fk6y4w3to" path="res://scenes/gui/gui_layer.gd" id="1_hxwnm"]
 [ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="2_u8e3c"]
@@ -26,12 +26,6 @@ font = ExtResource("2_u8e3c")
 font_size = 40
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_0jpgx"]
-font = ExtResource("2_u8e3c")
-font_size = 100
-font_color = Color(0.938091, 0.0224636, 3.85046e-07, 1)
-shadow_color = Color(0.818553, 0.00033576, 0.773253, 0.65098)
 
 [sub_resource type="Gradient" id="Gradient_453fe"]
 offsets = PackedFloat32Array(0, 0.770609, 1)
@@ -114,7 +108,7 @@ outline_size = 10
 [node name="gui" type="CanvasLayer" node_paths=PackedStringArray("target")]
 script = ExtResource("1_hxwnm")
 action_scale = Vector2(2, 2)
-target = NodePath("in_game_gui/points")
+target = NodePath("")
 seconds = 0.1
 
 [node name="in_game_gui" type="Control" parent="."]
@@ -189,19 +183,20 @@ text = "press e to interact"
 label_settings = SubResource("LabelSettings_kfao7")
 horizontal_alignment = 1
 
-[node name="points" type="Label" parent="in_game_gui"]
+[node name="points" type="RichTextLabel" parent="in_game_gui"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -603.0
-offset_top = 140.0
-offset_right = -153.0
-offset_bottom = 242.083
+offset_left = -439.0
+offset_top = 181.0
+offset_right = 6.0
+offset_bottom = 276.0
 grow_horizontal = 0
-text = "points: 0"
-label_settings = SubResource("LabelSettings_0jpgx")
+bbcode_enabled = true
+text = "[font=res://art/mingliu.TTF][font_size=60]points: [shake rate=20 level=20]%s[/shake]"
+fit_content = true
 script = ExtResource("4_l6o8f")
 
 [node name="gui_animation_component" type="Node" parent="in_game_gui/points"]
@@ -210,32 +205,32 @@ action_time = 0.5
 action_scale = Vector2(2, 2)
 metadata/_custom_type_script = "uid://ck6hdrqglkeqs"
 
-[node name="fire" type="Node2D" parent="in_game_gui/points"]
+[node name="fire" type="Node2D" parent="in_game_gui"]
 z_index = -1
-position = Vector2(392, 39)
+position = Vector2(1709, 179)
 
-[node name="fire1" type="GPUParticles2D" parent="in_game_gui/points/fire"]
+[node name="fire1" type="GPUParticles2D" parent="in_game_gui/fire"]
 modulate = Color(3, 1, 1, 1)
 position = Vector2(39, 36)
 amount = 15
 texture = ExtResource("6_gv5p5")
 process_material = SubResource("ParticleProcessMaterial_3brio")
 
-[node name="smoke" type="GPUParticles2D" parent="in_game_gui/points/fire"]
+[node name="smoke" type="GPUParticles2D" parent="in_game_gui/fire"]
 position = Vector2(39, 36)
 amount = 15
 texture = ExtResource("7_453fe")
 lifetime = 1.5
 process_material = SubResource("ParticleProcessMaterial_8tpq0")
 
-[node name="fire2" type="GPUParticles2D" parent="in_game_gui/points/fire"]
+[node name="fire2" type="GPUParticles2D" parent="in_game_gui/fire"]
 modulate = Color(2.5, 1.5, 1, 1)
 position = Vector2(39, 36)
 amount = 15
 texture = ExtResource("7_6qyx7")
 process_material = SubResource("ParticleProcessMaterial_3brio")
 
-[node name="glow" type="WorldEnvironment" parent="in_game_gui/points/fire"]
+[node name="glow" type="WorldEnvironment" parent="in_game_gui/fire"]
 environment = SubResource("Environment_3brio")
 
 [node name="debug_menu" type="Control" parent="in_game_gui"]

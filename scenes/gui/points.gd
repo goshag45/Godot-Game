@@ -1,3 +1,3 @@
-extends Label
+extends RichTextLabel
 
 signal _action
