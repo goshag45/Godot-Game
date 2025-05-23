@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://k5r4dq5pg4cv"]
+[gd_scene load_steps=26 format=3 uid="uid://k5r4dq5pg4cv"]
 
 [ext_resource type="Script" uid="uid://bga3fk6y4w3to" path="res://scenes/gui/gui_layer.gd" id="1_hxwnm"]
 [ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="2_u8e3c"]
@@ -26,6 +26,8 @@ font = ExtResource("2_u8e3c")
 font_size = 40
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7x5n5"]
 
 [sub_resource type="Gradient" id="Gradient_453fe"]
 offsets = PackedFloat32Array(0, 0.770609, 1)
@@ -185,6 +187,7 @@ horizontal_alignment = 1
 
 [node name="points" type="RichTextLabel" parent="in_game_gui"]
 z_index = 1
+material = SubResource("ShaderMaterial_7x5n5")
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
