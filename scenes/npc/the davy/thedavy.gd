@@ -14,7 +14,8 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var players = get_tree().get_nodes_in_group("player")
-	player = players[0]
+	#utils.get_child_in_group("player")
+	#player = players[0]
 	if player:
 		#players = get_tree().get_nodes_in_group("player")
 		var direction = (player.global_transform.origin - global_transform.origin).normalized()

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://n4j1ug0lm3xm"]
+[gd_scene load_steps=5 format=3 uid="uid://n4j1ug0lm3xm"]
 
 [ext_resource type="Theme" uid="uid://cjxmnb0h8hje7" path="res://art/visual/theme1.tres" id="1_6ts8v"]
 [ext_resource type="Script" uid="uid://crb783cgp4j4v" path="res://components/GUI/start_menu/start_menu.gd" id="1_s3lks"]
-[ext_resource type="Texture2D" uid="uid://010tocmlpv7d" path="res://art/visual/textures/gore_texture.png" id="2_ni1cp"]
 [ext_resource type="Script" uid="uid://bfuapyqlidunn" path="res://components/GUI/hover sound component/hover_sound.gd" id="3_h36j1"]
 [ext_resource type="AudioStream" uid="uid://dabcsogrgdblr" path="res://audio/blood_squelch.mp3" id="5_rsujc"]
 
@@ -14,18 +13,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s3lks")
-
-[node name="background" type="TextureRect" parent="."]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("2_ni1cp")
-expand_mode = 1
 
 [node name="button_container" type="VBoxContainer" parent="."]
 layout_mode = 1

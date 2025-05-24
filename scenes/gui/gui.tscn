@@ -107,10 +107,9 @@ font_size = 60
 font_color = Color(0, 0, 0, 1)
 outline_size = 10
 
-[node name="gui" type="CanvasLayer" node_paths=PackedStringArray("target")]
+[node name="gui" type="CanvasLayer"]
 script = ExtResource("1_hxwnm")
 action_scale = Vector2(2, 2)
-target = NodePath("")
 seconds = 0.1
 
 [node name="in_game_gui" type="Control" parent="."]

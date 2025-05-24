@@ -6,7 +6,7 @@ extends CanvasLayer
 @onready var points_counter = $in_game_gui/points
 @onready var interactable_message = $in_game_gui/interactable_message
 
-var points_count : int = 0
+var points : int = 0
 
 func _ready() -> void:
 	interactable_message.hide()
@@ -14,8 +14,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	fps_counter.text = str("FPS %d" % Engine.get_frames_per_second())
 	update_ammo_counter()
-	if points_count < player.kill_count:
-		points_count = player.kill_count
+	if points < player.kill_count:
+		points = player.kill_count
 	update_points_counter()
 
 func update_ammo_counter():
@@ -36,8 +36,9 @@ func update_ammo_counter():
 ]
 
 func update_points_counter():
-	var p = str(points_count)
-	points_counter.text = "[font=res://art/mingliu.TTF][font_size=60]points: [shake rate=20 level=%s]%s[/shake]" % [points_count, p]
+	var points_string = str(points)
+	var shake_level = clamp(points, 0, 100)
+	points_counter.text = "[font=res://art/mingliu.TTF][font_size=60]points: [shake rate=20 level=%s]%s[/shake]" % [shake_level, points_string]
 	#target.pivot_offset = target.size / 2
 	#var tween = get_tree().create_tween()
 	#tween.tween_property(target, "scale", action_scale, seconds) #.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
