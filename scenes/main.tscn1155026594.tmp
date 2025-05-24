@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cvpjxgsbylkcu" path="res://audio/unatco_conversation.mp3" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://n4j1ug0lm3xm" path="res://components/GUI/start_menu/start_menu.tscn" id="5_tbgi4"]
 
-[node name="game" type="Node3D"]
+[node name="World" type="Node3D"]
 script = ExtResource("1_cgmu7")
 
 [node name="level_2" parent="." instance=ExtResource("2_jyhfs")]

@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://n4j1ug0lm3xm"]
+[gd_scene load_steps=6 format=3 uid="uid://n4j1ug0lm3xm"]
 
 [ext_resource type="Theme" uid="uid://cjxmnb0h8hje7" path="res://art/visual/theme1.tres" id="1_6ts8v"]
 [ext_resource type="Script" uid="uid://crb783cgp4j4v" path="res://components/GUI/start_menu/start_menu.gd" id="1_s3lks"]
 [ext_resource type="Script" uid="uid://bfuapyqlidunn" path="res://components/GUI/hover sound component/hover_sound.gd" id="3_h36j1"]
 [ext_resource type="AudioStream" uid="uid://dabcsogrgdblr" path="res://audio/blood_squelch.mp3" id="5_rsujc"]
 
-[node name="start_menu" type="Control"]
+[sub_resource type="GDScript" id="GDScript_ixp40"]
+script/source = "extends Control
+
+
+func _on_back_pressed() -> void:
+	pass # Replace with function body.
+"
+
+[node name="menu" type="Control" node_paths=PackedStringArray("start_menu", "level_select")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,22 +21,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s3lks")
+start_menu = NodePath("start_menu")
+level_select = NodePath("level_select")
 
-[node name="button_container" type="VBoxContainer" parent="."]
+[node name="level_select" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_ixp40")
+
+[node name="back" type="Button" parent="level_select"]
+z_index = 1
+layout_mode = 0
+offset_left = 1385.0
+offset_top = 945.0
+offset_right = 1816.0
+offset_bottom = 1005.0
+theme = ExtResource("1_6ts8v")
+text = "back"
+script = ExtResource("3_h36j1")
+
+[node name="start_menu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="button_container" type="VBoxContainer" parent="start_menu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -179.0
-offset_top = -95.5
-offset_right = 179.0
-offset_bottom = 95.5
+offset_left = 761.0
+offset_top = 424.5
+offset_right = 1119.0
+offset_bottom = 615.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="play" type="Button" parent="button_container"]
+[node name="play" type="Button" parent="start_menu/button_container"]
 layout_mode = 2
 theme = ExtResource("1_6ts8v")
 text = "play"
@@ -36,7 +72,7 @@ script = ExtResource("3_h36j1")
 hover_sound = ExtResource("5_rsujc")
 volume_db = -23.0
 
-[node name="options" type="Button" parent="button_container"]
+[node name="options" type="Button" parent="start_menu/button_container"]
 layout_mode = 2
 theme = ExtResource("1_6ts8v")
 text = "options"
@@ -44,7 +80,7 @@ script = ExtResource("3_h36j1")
 hover_sound = ExtResource("5_rsujc")
 volume_db = -23.0
 
-[node name="exit" type="Button" parent="button_container"]
+[node name="exit" type="Button" parent="start_menu/button_container"]
 layout_mode = 2
 theme = ExtResource("1_6ts8v")
 text = "quit"
@@ -52,6 +88,7 @@ script = ExtResource("3_h36j1")
 hover_sound = ExtResource("5_rsujc")
 volume_db = -23.0
 
-[connection signal="pressed" from="button_container/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="button_container/options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="button_container/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="level_select/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="start_menu/button_container/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="start_menu/button_container/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="start_menu/button_container/exit" to="." method="_on_exit_pressed"]
