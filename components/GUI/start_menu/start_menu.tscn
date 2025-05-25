@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://n4j1ug0lm3xm"]
+[gd_scene load_steps=7 format=3 uid="uid://n4j1ug0lm3xm"]
 
 [ext_resource type="Theme" uid="uid://cjxmnb0h8hje7" path="res://art/visual/theme1.tres" id="1_6ts8v"]
 [ext_resource type="Script" uid="uid://crb783cgp4j4v" path="res://components/GUI/start_menu/start_menu.gd" id="1_s3lks"]
 [ext_resource type="Script" uid="uid://bfuapyqlidunn" path="res://components/GUI/hover sound component/hover_sound.gd" id="3_h36j1"]
+[ext_resource type="Texture2D" uid="uid://b1267we5srihx" path="res://art/visual/level_1.png" id="4_ni1cp"]
 [ext_resource type="AudioStream" uid="uid://dabcsogrgdblr" path="res://audio/blood_squelch.mp3" id="5_rsujc"]
 
 [sub_resource type="GDScript" id="GDScript_ixp40"]
@@ -43,6 +44,17 @@ offset_right = 1816.0
 offset_bottom = 1005.0
 theme = ExtResource("1_6ts8v")
 text = "back"
+script = ExtResource("3_h36j1")
+
+[node name="level_1" type="TextureButton" parent="level_select"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 243.0
+offset_right = 719.0
+offset_bottom = 461.0
+texture_normal = ExtResource("4_ni1cp")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("3_h36j1")
 
 [node name="start_menu" type="Control" parent="."]
@@ -89,6 +101,7 @@ hover_sound = ExtResource("5_rsujc")
 volume_db = -23.0
 
 [connection signal="pressed" from="level_select/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="level_select/level_1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="start_menu/button_container/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="start_menu/button_container/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="start_menu/button_container/exit" to="." method="_on_exit_pressed"]

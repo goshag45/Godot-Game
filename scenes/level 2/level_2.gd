@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var player_spawn_location_1 = $terrain/spawn_location_1
+@export var player_spawn_location_1 : Node3D
 @onready var spawn_button = $terrain/spawn_balls_button
 @onready var enemy_manager = $enemy_manager
 @onready var da_aura = $"terrain/da aura"
@@ -11,7 +11,7 @@ var player_scene = preload("res://scenes/player/player.tscn")
 func _ready() -> void:
 	da_aura.hide()
 	spawn_button.press.connect(spawn_balls)
-	#add_player()
+	add_player()
 
 func spawn_balls():
 	#doesnt turn off, fine for now

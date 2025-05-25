@@ -372,8 +372,9 @@ background_energy_multiplier = 1.5
 sky = SubResource("Sky_0k10p")
 glow_normalized = true
 
-[node name="level_2" type="Node3D"]
+[node name="level_2" type="Node3D" node_paths=PackedStringArray("player_spawn_location_1")]
 script = ExtResource("1_05f8v")
+player_spawn_location_1 = NodePath("terrain/spawn_location_1")
 
 [node name="enemy_manager" parent="." instance=ExtResource("2_8sing")]
 guck_cube = ExtResource("20_pbxj0")
@@ -581,11 +582,6 @@ light_energy = 2.0
 shadow_enabled = true
 
 [node name="audio_component" parent="." instance=ExtResource("8_j3kbo")]
-
-[node name="menu_camera" type="Camera3D" parent="."]
-transform = Transform3D(0.792596, -0.421108, -0.440977, 0.0516262, 0.766961, -0.639614, 0.607558, 0.484189, 0.62963, 0.132037, 1.65366, 36.2862)
-current = true
-fov = 50.0
 
 [connection signal="da_aura" from="terrain/thedavy" to="." method="_on_thedavy_da_aura"]
 [connection signal="da_aura" from="terrain/thedavy" to="terrain/da aura" method="_on_thedavy_da_aura"]
