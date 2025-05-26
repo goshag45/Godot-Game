@@ -47,6 +47,7 @@ text = "back"
 script = ExtResource("3_h36j1")
 
 [node name="level_1" type="TextureButton" parent="level_select"]
+z_index = 1
 layout_mode = 0
 offset_left = 400.0
 offset_top = 243.0
@@ -56,6 +57,27 @@ texture_normal = ExtResource("4_ni1cp")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_h36j1")
+
+[node name="background" type="ColorRect" parent="level_select/level_1"]
+z_index = -1
+layout_mode = 0
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 328.0
+offset_bottom = 225.0
+mouse_filter = 2
+color = Color(1, 0.0886674, 0.591715, 1)
+
+[node name="title" type="RichTextLabel" parent="level_select/level_1"]
+z_index = -1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 234.0
+offset_right = 269.0
+offset_bottom = 307.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font=res://art/mingliu.TTF][font_size=60][color=hotpink][shake rate=20 level=20]level_1[/shake]"
 
 [node name="start_menu" type="Control" parent="."]
 anchors_preset = 0
@@ -75,6 +97,7 @@ offset_right = 1119.0
 offset_bottom = 615.5
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="play" type="Button" parent="start_menu/button_container"]
 layout_mode = 2

@@ -9,7 +9,6 @@
 script = ExtResource("1_cgmu7")
 
 [node name="menu_background" parent="." instance=ExtResource("2_jyhfs")]
-script = null
 
 [node name="start_menu" parent="." instance=ExtResource("5_tbgi4")]
 
