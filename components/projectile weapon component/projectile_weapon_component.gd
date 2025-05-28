@@ -13,9 +13,11 @@ var is_reloading = false
 
 var blood_splatter = preload("res://scenes/weapons/blood_splatter.tscn")
 var aim_ray: Node
+var player
 
 func _ready() -> void:
 	aim_ray = get_tree().get_nodes_in_group("aim_ray")[0]
+	player = get_tree().get_nodes_in_group("player")[0]
 	magazine = weapon.magazine_capacity
 	magazine_capacity = weapon.magazine_capacity
 	damage = weapon.damage
@@ -33,8 +35,15 @@ func shoot():
 
 		var projectile_instance = weapon.projectile.instantiate()
 		get_tree().current_scene.add_child(projectile_instance)
-		projectile_instance.global_transform = spawn_marker.global_transform
-		projectile_instance.velocity = spawn_marker.global_transform.basis.z * projectile_instance.speed
+		projectile_instance.visible = false
+		
+		# this is getting the first person camera
+		var fps_cam = player.get_child(0).get_child(0)
+		projectile_instance.global_transform = fps_cam.global_transform
+		projectile_instance.velocity = -fps_cam.global_transform.basis.z * projectile_instance.speed
+		await get_tree().create_timer(0.1).timeout
+		if projectile_instance:
+			projectile_instance.visible = true
 
 func reload():
 	# you can spam the reload audio for now - not major issue
