@@ -53,8 +53,8 @@ Weapons
  - BAD optmiisation
  - many enemies = many lag
  - occlusion culling is on however enemies running individual scripts is the issue
- - enemies hit player and velocity goes bananas
- - getting trapped in pile of balls causes endlessly increasing velocity
+ - ~enemies hit player and velocity goes bananas~
+ - ~getting trapped in pile of balls causes endlessly increasing velocity~
  - ~OPTMIISE DUPLICATE SOUNDS~ 
  - ~OPTIMISE NODE LEAKS (lots of memory loss, nodes not getting freed)~ mostly
  - ~immortal simple explosion vfx ~twins~ (no longer twins but still immortal)~

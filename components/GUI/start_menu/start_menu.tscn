@@ -80,9 +80,12 @@ bbcode_enabled = true
 text = "[font=res://art/mingliu.TTF][font_size=60][color=hotpink][shake rate=20 level=20]level_1[/shake]"
 
 [node name="start_menu" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="button_container" type="VBoxContainer" parent="start_menu"]
 layout_mode = 1
@@ -91,10 +94,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 761.0
-offset_top = 424.5
-offset_right = 1119.0
-offset_bottom = 615.5
+offset_left = -121.5
+offset_top = -95.5
+offset_right = 121.5
+offset_bottom = 95.5
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
