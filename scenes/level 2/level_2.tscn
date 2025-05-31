@@ -381,6 +381,12 @@ guck_cube = ExtResource("20_pbxj0")
 
 [node name="terrain" type="Node3D" parent="."]
 
+[node name="guck_cube" parent="terrain" instance=ExtResource("20_pbxj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5157, 2, 31.1567)
+
+[node name="guck_cube2" parent="terrain" instance=ExtResource("20_pbxj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.262, 2, 22.9586)
+
 [node name="spawn_location_1" type="Node3D" parent="terrain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78523, 2.52409)
 

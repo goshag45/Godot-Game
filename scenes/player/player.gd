@@ -49,3 +49,6 @@ func die():
 
 func _on_enemy_killed():
 	kill_count += 1
+
+func _apply_damage(damage : int):
+	health -= damage

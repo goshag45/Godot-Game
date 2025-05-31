@@ -35,13 +35,14 @@ func shoot():
 
 		var projectile_instance = weapon.projectile.instantiate()
 		get_tree().current_scene.add_child(projectile_instance)
-		projectile_instance.visible = false
 		
+		projectile_instance.visible = false
 		# this is getting the first person camera
 		var fps_cam = player.get_child(0).get_child(0)
 		projectile_instance.global_transform = fps_cam.global_transform
 		projectile_instance.velocity = -fps_cam.global_transform.basis.z * projectile_instance.speed
 		await get_tree().create_timer(0.1).timeout
+		# this is conditional in case of rocket exploding before it becomes visible
 		if projectile_instance:
 			projectile_instance.visible = true
 
