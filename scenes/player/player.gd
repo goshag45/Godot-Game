@@ -53,3 +53,4 @@ func _on_enemy_killed():
 
 func _apply_damage(damage : int):
 	health -= damage
+	audio_component._play_audio_sfx("player_take_damage", 2.0)

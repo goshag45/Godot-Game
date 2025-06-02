@@ -19,6 +19,7 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		player_in_area = true
 		player = body
+		player._apply_damage(20)
 		damage_timer.start()
 
 func _on_body_exited(body):
