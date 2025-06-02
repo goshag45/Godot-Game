@@ -44,9 +44,7 @@ func _process(_delta):
 	mat.set_shader_parameter('fill_amount', health/100.0 * 0.5 + 0.26)
 
 func die():
-	var spawn_location = Vector3(0,0,7)
-	global_position = spawn_location
-	health = 100
+	get_tree().reload_current_scene()
 
 func _on_enemy_killed():
 	kill_count += 1
