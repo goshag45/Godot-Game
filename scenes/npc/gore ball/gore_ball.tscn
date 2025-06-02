@@ -48,6 +48,11 @@ transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, -0.393498, 0)
 [node name="damage_collision" type="CollisionShape3D" parent="damage_area"]
 shape = SubResource("SphereShape3D_v8moq")
 
-[node name="enemy_ai_manager" type="Node3D" parent="." node_paths=PackedStringArray("enemy")]
+[node name="enemy_ai_manager" type="Node3D" parent="." node_paths=PackedStringArray("enemy", "damage_area", "damage_collision", "damage_timer")]
 script = ExtResource("6_d0rny")
 enemy = NodePath("..")
+damage_area = NodePath("../damage_area")
+damage_collision = NodePath("../damage_area/damage_collision")
+damage_timer = NodePath("../damage_timer")
+
+[node name="damage_timer" type="Timer" parent="."]

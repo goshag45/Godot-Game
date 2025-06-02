@@ -17,7 +17,6 @@ var kill_count = 0
 # References
 @export var camera: Camera3D
 @export var view_model_camera: Camera3D
-@onready var player = $"."
 @export var audio_component: Node3D
 @export var blood_orb: Node3D
 
@@ -35,6 +34,7 @@ func _physics_process(_delta: float) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _process(_delta):
+	print(health)
 	if get_tree().paused:
 		return  # Prevent player input while paused
 	if health <= 0:
@@ -44,8 +44,9 @@ func _process(_delta):
 	mat.set_shader_parameter('fill_amount', health/100.0 * 0.5 + 0.26)
 
 func die():
-	var spawn_location = Vector3(0,-1,7)
-	player.global_position = spawn_location
+	var spawn_location = Vector3(0,0,7)
+	global_position = spawn_location
+	health = 100
 
 func _on_enemy_killed():
 	kill_count += 1
