@@ -31,10 +31,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 275.0
-offset_top = 39.0
-offset_right = 275.0
-offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_ixp40")
@@ -54,14 +50,10 @@ script = ExtResource("3_h36j1")
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.143
-anchor_top = -0.036
-anchor_right = -0.143
-anchor_bottom = -0.036
-offset_left = 674.56
-offset_top = 281.88
-offset_right = 994.56
-offset_bottom = 501.88
+offset_left = 400.0
+offset_top = 243.0
+offset_right = 720.0
+offset_bottom = 463.0
 texture_normal = ExtResource("4_ni1cp")
 ignore_texture_size = true
 stretch_mode = 0
@@ -88,20 +80,17 @@ mouse_filter = 2
 bbcode_enabled = true
 text = "[font=res://art/mingliu.TTF][font_size=60][color=hotpink][shake rate=20 level=20]level_1[/shake]"
 
-[node name="level_2" type="TextureRect" parent="level_select"]
+[node name="level_2" type="TextureButton" parent="level_select"]
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.143
-anchor_top = -0.036
-anchor_right = -0.143
-anchor_bottom = -0.036
-offset_left = 1057.56
-offset_top = 282.88
-offset_right = 1377.56
-offset_bottom = 502.88
-texture = ExtResource("6_v438q")
-expand_mode = 1
+offset_left = 783.0
+offset_top = 244.0
+offset_right = 1103.0
+offset_bottom = 464.0
+texture_normal = ExtResource("6_v438q")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="background" type="ColorRect" parent="level_select/level_2"]
 z_index = -1
@@ -114,10 +103,10 @@ color = Color(0.0593961, 0.489191, 1, 1)
 
 [node name="title" type="RichTextLabel" parent="level_select/level_2"]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 223.0
-offset_right = 316.0
-offset_bottom = 355.0
+offset_left = -2.00006
+offset_top = 243.0
+offset_right = 290.0
+offset_bottom = 375.0
 bbcode_enabled = true
 text = "[font=res://art/mingliu.TTF][font_size=60][color=hotpink][shake rate=20 level=20]level_2[/shake]"
 
@@ -171,6 +160,7 @@ volume_db = -23.0
 
 [connection signal="pressed" from="level_select/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="level_select/level_1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="level_select/level_2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="start_menu/button_container/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="start_menu/button_container/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="start_menu/button_container/exit" to="." method="_on_exit_pressed"]
