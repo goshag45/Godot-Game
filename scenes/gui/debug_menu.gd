@@ -17,4 +17,5 @@ func update_speedometer():
 	speedometer.text = str(trim)
 
 func update_orb_counter():
-	balls_counter.text = "BALLS: " + str(player.get_tree().root.get_node("level_2").get_node("enemy_manager").gore_ball_counter)
+	if player.get_tree().root.get_node("level_2"):
+		balls_counter.text = "BALLS: " + str(player.get_tree().root.get_node("level_2").get_node("enemy_manager").gore_ball_counter)

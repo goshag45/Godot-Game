@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://n4j1ug0lm3xm"]
+[gd_scene load_steps=8 format=3 uid="uid://n4j1ug0lm3xm"]
 
 [ext_resource type="Theme" uid="uid://cjxmnb0h8hje7" path="res://art/visual/theme1.tres" id="1_6ts8v"]
 [ext_resource type="Script" uid="uid://crb783cgp4j4v" path="res://components/GUI/start_menu/start_menu.gd" id="1_s3lks"]
 [ext_resource type="Script" uid="uid://bfuapyqlidunn" path="res://components/GUI/hover sound component/hover_sound.gd" id="3_h36j1"]
 [ext_resource type="Texture2D" uid="uid://b1267we5srihx" path="res://art/visual/level_1.png" id="4_ni1cp"]
 [ext_resource type="AudioStream" uid="uid://dabcsogrgdblr" path="res://audio/blood_squelch.mp3" id="5_rsujc"]
+[ext_resource type="Texture2D" uid="uid://bsihf4n6h62yb" path="res://art/visual/level_2.png" id="6_v438q"]
 
 [sub_resource type="GDScript" id="GDScript_ixp40"]
 script/source = "extends Control
@@ -26,11 +27,14 @@ start_menu = NodePath("start_menu")
 level_select = NodePath("level_select")
 
 [node name="level_select" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 275.0
+offset_top = 39.0
+offset_right = 275.0
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_ixp40")
@@ -48,11 +52,16 @@ script = ExtResource("3_h36j1")
 
 [node name="level_1" type="TextureButton" parent="level_select"]
 z_index = 1
-layout_mode = 0
-offset_left = 400.0
-offset_top = 243.0
-offset_right = 719.0
-offset_bottom = 461.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.143
+anchor_top = -0.036
+anchor_right = -0.143
+anchor_bottom = -0.036
+offset_left = 674.56
+offset_top = 281.88
+offset_right = 994.56
+offset_bottom = 501.88
 texture_normal = ExtResource("4_ni1cp")
 ignore_texture_size = true
 stretch_mode = 0
@@ -64,7 +73,7 @@ layout_mode = 0
 offset_left = -7.0
 offset_top = -6.0
 offset_right = 328.0
-offset_bottom = 225.0
+offset_bottom = 226.0
 mouse_filter = 2
 color = Color(1, 0.0886674, 0.591715, 1)
 
@@ -79,7 +88,41 @@ mouse_filter = 2
 bbcode_enabled = true
 text = "[font=res://art/mingliu.TTF][font_size=60][color=hotpink][shake rate=20 level=20]level_1[/shake]"
 
+[node name="level_2" type="TextureRect" parent="level_select"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.143
+anchor_top = -0.036
+anchor_right = -0.143
+anchor_bottom = -0.036
+offset_left = 1057.56
+offset_top = 282.88
+offset_right = 1377.56
+offset_bottom = 502.88
+texture = ExtResource("6_v438q")
+expand_mode = 1
+
+[node name="background" type="ColorRect" parent="level_select/level_2"]
+z_index = -1
+layout_mode = 0
+offset_left = -9.0
+offset_top = -7.0
+offset_right = 326.0
+offset_bottom = 225.0
+color = Color(0.0593961, 0.489191, 1, 1)
+
+[node name="title" type="RichTextLabel" parent="level_select/level_2"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 223.0
+offset_right = 316.0
+offset_bottom = 355.0
+bbcode_enabled = true
+text = "[font=res://art/mingliu.TTF][font_size=60][color=hotpink][shake rate=20 level=20]level_2[/shake]"
+
 [node name="start_menu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
