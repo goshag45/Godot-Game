@@ -42,7 +42,7 @@ transform = Transform3D(-0.035, 0, -3.0598e-09, 0, 0.035, 0, 3.0598e-09, 0, -0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.332571, -0.419253, -1.05289)
 
 [node name="rpg" parent="view_model_camera/fps_rig" instance=ExtResource("5_djgkn")]
-transform = Transform3D(-0.1, 0, -1.50996e-08, 0, 0.1, 0, 1.50996e-08, 0, -0.1, 0, -0.0323714, 0.00400975)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.00902832, -0.443519, -0.372784)
 
 [node name="blood_orb_v2" parent="view_model_camera" instance=ExtResource("4_8w7p4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.640598, 0.4928, -3.60406)
