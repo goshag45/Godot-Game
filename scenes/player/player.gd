@@ -34,7 +34,6 @@ func _physics_process(_delta: float) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _process(_delta):
-	print(health)
 	if get_tree().paused:
 		return  # Prevent player input while paused
 	if health <= 0:
