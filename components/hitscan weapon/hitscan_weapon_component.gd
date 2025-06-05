@@ -87,7 +87,15 @@ func draw_bullet_decals(hit_pos : Vector3):
 	var bullet_decal_instance = bullet_decal.instantiate()
 	get_tree().current_scene.add_child(bullet_decal_instance)
 	bullet_decal_instance.global_position = hit_pos
-	bullet_decal_instance.look_at(aim_ray.get_collision_point() + aim_ray.get_collision_normal(), Vector3.UP)
+
+	var target_pos = aim_ray.get_collision_point() + aim_ray.get_collision_normal()
+	var direction = (target_pos - bullet_decal_instance.global_position).normalized()
+
+	var up = Vector3.UP
+	if abs(direction.dot(up)) > 0.99:
+		up = Vector3.FORWARD  # Pick another up vector if nearly vertical
+
+	bullet_decal_instance.look_at(target_pos, up)
 	
 	var timer = utils.start_and_wait_timer(self, 2.0, true)
 	await timer.timeout
