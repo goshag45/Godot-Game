@@ -60,7 +60,7 @@ Weapons
  - ~immortal simple explosion vfx ~twins~ (no longer twins but still immortal)~
  - ~FIX AUDIO OVERLAP ASAP~ 
  - ~EXPLOSION IMPULSE FORCE DEPENDS ON WORLD SPACE COORDINATES?????~
- - when rocket spawns it goes to the right then gets teleported
+ - when rocket spawns it goes to the right then gets teleported 
  - ~blood orb simply not getting moved anymore~
 
 guck cube
