@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cifw3bu611s1w"
-path.s3tc="res://.godot/imported/Horror_Brick_06-128x128.png-d092ad1df999bafa1870f586fdacf1b4.s3tc.ctex"
+uid="uid://vc6wev520oya"
+path.s3tc="res://.godot/imported/13 rotated.png-f3d2ab05c84fe5e3da8af9542d13d4fc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/Horror_Brick_06-128x128.png"
-dest_files=["res://.godot/imported/Horror_Brick_06-128x128.png-d092ad1df999bafa1870f586fdacf1b4.s3tc.ctex"]
+source_file="res://textures/13 rotated.png"
+dest_files=["res://.godot/imported/13 rotated.png-f3d2ab05c84fe5e3da8af9542d13d4fc.s3tc.ctex"]
 
 [params]
 

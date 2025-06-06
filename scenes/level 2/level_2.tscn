@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=4 uid="uid://bjicamkrn6qce"]
+[gd_scene load_steps=85 format=4 uid="uid://bjicamkrn6qce"]
 
 [ext_resource type="Script" uid="uid://bkec41hommmd0" path="res://scenes/level 2/level_2.gd" id="1_05f8v"]
 [ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="2_4asmd"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://bqj6uxmgpc8m8" path="res://art/visual/textures/sun.png" id="12_1hhpv"]
 [ext_resource type="Texture2D" uid="uid://010tocmlpv7d" path="res://art/visual/textures/gore_texture.png" id="12_mmjq2"]
 [ext_resource type="Texture2D" uid="uid://dsva6ksnhtvbp" path="res://textures/Horror_Brick_11-128x128.png" id="13_58l0g"]
+[ext_resource type="Texture2D" uid="uid://dt0jp45otov7k" path="res://textures/Horror_Brick_12-128x128.png" id="13_inon0"]
+[ext_resource type="Texture2D" uid="uid://vc6wev520oya" path="res://textures/13 rotated.png" id="14_u8ice"]
 [ext_resource type="Shader" uid="uid://cwqqddiabb5g2" path="res://scenes/level 2/level_2.gdshader" id="16_fd8ks"]
 [ext_resource type="Script" uid="uid://bo8or4jma0hmx" path="res://scenes/level 2/da_aura.gd" id="19_ejh53"]
 [ext_resource type="PackedScene" uid="uid://b3l7mcrwxuwko" path="res://scenes/npc/gore ball/gore_ball.tscn" id="20_5i01k"]
@@ -195,10 +197,14 @@ data = PackedVector3Array(-40, 1, 7.5, 40, 1, 7.5, -40, -1, 7.5, 40, 1, 7.5, 40,
 
 [sub_resource type="BoxMesh" id="BoxMesh_5i01k"]
 material = SubResource("StandardMaterial3D_58l0g")
-size = Vector3(95, 2, 9.9)
+size = Vector3(98, 2, 30)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5i01k"]
 data = PackedVector3Array(-47.5, 1, 4.95, 47.5, 1, 4.95, -47.5, -1, 4.95, 47.5, 1, 4.95, 47.5, -1, 4.95, -47.5, -1, 4.95, 47.5, 1, -4.95, -47.5, 1, -4.95, 47.5, -1, -4.95, -47.5, 1, -4.95, -47.5, -1, -4.95, 47.5, -1, -4.95, 47.5, 1, 4.95, 47.5, 1, -4.95, 47.5, -1, 4.95, 47.5, 1, -4.95, 47.5, -1, -4.95, 47.5, -1, 4.95, -47.5, 1, -4.95, -47.5, 1, 4.95, -47.5, -1, -4.95, -47.5, 1, 4.95, -47.5, -1, 4.95, -47.5, -1, -4.95, 47.5, 1, 4.95, -47.5, 1, 4.95, 47.5, 1, -4.95, -47.5, 1, 4.95, -47.5, 1, -4.95, 47.5, 1, -4.95, -47.5, -1, 4.95, 47.5, -1, 4.95, -47.5, -1, -4.95, 47.5, -1, 4.95, 47.5, -1, -4.95, -47.5, -1, -4.95)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u8ice"]
+material = SubResource("StandardMaterial3D_58l0g")
+size = Vector3(30, 1, 30)
 
 [sub_resource type="BoxMesh" id="BoxMesh_inon0"]
 material = SubResource("StandardMaterial3D_58l0g")
@@ -276,6 +282,27 @@ size = Vector3(10, 80, 10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_inon0"]
 data = PackedVector3Array(-5, 40, 5, 5, 40, 5, -5, -40, 5, 5, 40, 5, 5, -40, 5, -5, -40, 5, 5, 40, -5, -5, 40, -5, 5, -40, -5, -5, 40, -5, -5, -40, -5, 5, -40, -5, 5, 40, 5, 5, 40, -5, 5, -40, 5, 5, 40, -5, 5, -40, -5, 5, -40, 5, -5, 40, -5, -5, 40, 5, -5, -40, -5, -5, 40, 5, -5, -40, 5, -5, -40, -5, 5, 40, 5, -5, 40, 5, 5, 40, -5, -5, 40, 5, -5, 40, -5, 5, 40, -5, -5, -40, 5, 5, -40, 5, -5, -40, -5, 5, -40, 5, 5, -40, -5, -5, -40, -5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8ice"]
+albedo_texture = ExtResource("13_inon0")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0k10p"]
+material = SubResource("StandardMaterial3D_u8ice")
+size = Vector3(250, 30, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0k10p"]
+albedo_texture = ExtResource("14_u8ice")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vvjng"]
+material = SubResource("StandardMaterial3D_0k10p")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 10.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_58l0g"]
 
@@ -497,13 +524,23 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_0k10p")
 
 [node name="platform2" type="MeshInstance3D" parent="terrain/enemy_traverse_region"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -44.9782, 22, 0.00993901)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -44.9, 22, 0)
 mesh = SubResource("BoxMesh_5i01k")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="terrain/enemy_traverse_region/platform2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/enemy_traverse_region/platform2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_5i01k")
+
+[node name="platform4" type="MeshInstance3D" parent="terrain/enemy_traverse_region"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -44.9, 11, 10)
+mesh = SubResource("BoxMesh_u8ice")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain/enemy_traverse_region/platform4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/enemy_traverse_region/platform4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_5i01k")
 
 [node name="platform3" type="MeshInstance3D" parent="terrain/enemy_traverse_region"]
@@ -559,6 +596,30 @@ mesh = SubResource("BoxMesh_axweg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/enemy_traverse_region/pillar4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_inon0")
+
+[node name="cube?" type="MeshInstance3D" parent="terrain/enemy_traverse_region"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 121)
+mesh = SubResource("BoxMesh_0k10p")
+
+[node name="pylon" type="MeshInstance3D" parent="terrain/enemy_traverse_region"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 16, -3)
+mesh = SubResource("CylinderMesh_vvjng")
+
+[node name="pylon2" type="MeshInstance3D" parent="terrain/enemy_traverse_region"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 16, 23)
+mesh = SubResource("CylinderMesh_vvjng")
+
+[node name="pylon4" type="MeshInstance3D" parent="terrain/enemy_traverse_region"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 16, -3)
+mesh = SubResource("CylinderMesh_vvjng")
+
+[node name="pylon5" type="MeshInstance3D" parent="terrain/enemy_traverse_region"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 16, -3)
+mesh = SubResource("CylinderMesh_vvjng")
+
+[node name="pylon3" type="MeshInstance3D" parent="terrain/enemy_traverse_region"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 16, 23)
+mesh = SubResource("CylinderMesh_vvjng")
 
 [node name="thedavy" parent="terrain" instance=ExtResource("5_gqhrb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.80012)
