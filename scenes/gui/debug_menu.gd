@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	update_speedometer()
-	update_orb_counter()
+	#update_orb_counter()
 
 func update_speedometer():
 	var speed = player.velocity.length()

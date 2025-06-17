@@ -19,13 +19,14 @@ func _on_options_pressed() -> void:
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 
-
 func _on_back_pressed() -> void:
 	start_menu.visible = true
 	level_select.visible = false
 
 func _on_level_1_pressed() -> void:
+	print("1")
 	get_tree().change_scene_to_file("res://scenes/level 2/level_2.tscn")
 
 func _on_level_2_pressed() -> void:
+	print("pr")
 	get_tree().change_scene_to_file("res://trenchbroom_levels/trenchbroom_map_1.tscn")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://n4j1ug0lm3xm"]
+[gd_scene load_steps=9 format=3 uid="uid://n4j1ug0lm3xm"]
 
 [ext_resource type="Theme" uid="uid://cjxmnb0h8hje7" path="res://art/visual/theme1.tres" id="1_6ts8v"]
 [ext_resource type="Script" uid="uid://crb783cgp4j4v" path="res://components/GUI/start_menu/start_menu.gd" id="1_s3lks"]
 [ext_resource type="Script" uid="uid://bfuapyqlidunn" path="res://components/GUI/hover sound component/hover_sound.gd" id="3_h36j1"]
 [ext_resource type="Texture2D" uid="uid://b1267we5srihx" path="res://art/visual/level_1.png" id="4_ni1cp"]
+[ext_resource type="AudioStream" uid="uid://dthdhs0t08y66" path="res://audio/fart.mp3" id="5_l3qh4"]
 [ext_resource type="AudioStream" uid="uid://dabcsogrgdblr" path="res://audio/blood_squelch.mp3" id="5_rsujc"]
 [ext_resource type="Texture2D" uid="uid://bsihf4n6h62yb" path="res://art/visual/level_2.png" id="6_v438q"]
 
@@ -58,6 +59,8 @@ texture_normal = ExtResource("4_ni1cp")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_h36j1")
+hover_sound = ExtResource("5_l3qh4")
+volume_db = -8.0
 
 [node name="background" type="ColorRect" parent="level_select/level_1"]
 z_index = -1
@@ -91,6 +94,9 @@ offset_bottom = 464.0
 texture_normal = ExtResource("6_v438q")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("3_h36j1")
+hover_sound = ExtResource("5_l3qh4")
+volume_db = -8.0
 
 [node name="background" type="ColorRect" parent="level_select/level_2"]
 z_index = -1
@@ -99,9 +105,11 @@ offset_left = -9.0
 offset_top = -7.0
 offset_right = 326.0
 offset_bottom = 225.0
+mouse_filter = 2
 color = Color(0.0593961, 0.489191, 1, 1)
 
 [node name="title" type="RichTextLabel" parent="level_select/level_2"]
+z_index = -1
 layout_mode = 0
 offset_left = -2.00006
 offset_top = 243.0
@@ -160,6 +168,7 @@ volume_db = -23.0
 
 [connection signal="pressed" from="level_select/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="level_select/level_1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="level_select/level_2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="start_menu/button_container/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="start_menu/button_container/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="start_menu/button_container/exit" to="." method="_on_exit_pressed"]

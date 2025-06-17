@@ -67,7 +67,6 @@ sky_material = SubResource("ShaderMaterial_6hp7n")
 
 [sub_resource type="Environment" id="Environment_3plc8"]
 background_mode = 2
-background_energy_multiplier = 1.5
 sky = SubResource("Sky_5i01k")
 glow_normalized = true
 
@@ -117,7 +116,7 @@ data = PackedVector3Array(-4.4249, -54.8603, -12.5252, 5.5751, -54.8603, -12.525
 script = ExtResource("1_lcgag")
 
 [node name="player_spawn_component" parent="." instance=ExtResource("2_lcgag")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36.9896)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4287, 0, -18.6127)
 
 [node name="thedavy" parent="." instance=ExtResource("8_l3bne")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.3913, 0, -24.6867)
@@ -125,10 +124,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.3913, 0, -24.6867)
 [node name="skybox_homebrew" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3plc8")
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="nav_region" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_l3bne")
 
-[node name="QodotMap" type="Node3D" parent="NavigationRegion3D"]
+[node name="QodotMap" type="Node3D" parent="nav_region"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17, 0)
 script = ExtResource("1_vn5d2")
 map_file = "C:/Users/George/Documents/_game/Godot-Game/trenchbroom_levels/trenchbroom_testmap_1.map"
@@ -137,7 +136,7 @@ texture_file_extensions = PackedStringArray("png", "jpg", "jpeg", "bmp")
 default_material = SubResource("StandardMaterial3D_bqs71")
 metadata/_custom_type_script = "uid://barfabdro4umh"
 
-[node name="entity_0_worldspawn" type="Node3D" parent="NavigationRegion3D/QodotMap"]
+[node name="entity_0_worldspawn" type="Node3D" parent="nav_region/QodotMap"]
 script = ExtResource("3_4f0wl")
 properties = {
 "_tb_mod": "textures",
@@ -146,13 +145,13 @@ properties = {
 "mapversion": "220"
 }
 
-[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/QodotMap/entity_0_worldspawn"]
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="nav_region/QodotMap/entity_0_worldspawn"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.6, 0)
 cast_shadow = 2
 gi_mode = 0
 mesh = SubResource("ArrayMesh_6hp7n")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/QodotMap/entity_0_worldspawn/entity_0_mesh_instance"]
+[node name="StaticBody3D" type="StaticBody3D" parent="nav_region/QodotMap/entity_0_worldspawn/entity_0_mesh_instance"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/QodotMap/entity_0_worldspawn/entity_0_mesh_instance/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="nav_region/QodotMap/entity_0_worldspawn/entity_0_mesh_instance/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_nccob")
