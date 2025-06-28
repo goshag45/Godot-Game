@@ -119,7 +119,12 @@ func process_embelishments(target, hit_point):
 		draw_bullet_decals(hit_point)
 
 func spawn_bullet_casing():
-	print("spawning bullet casing")
 	var casing_instance = bullet_casing_9mm.instantiate()
 	get_tree().current_scene.add_child(casing_instance)
 	casing_instance.global_position = weapon.global_position
+	var rotation_direction = Vector3(0,randf_range(1,10),0)
+	casing_instance.apply_torque_impulse(rotation_direction)
+
+	var timer = utils.start_and_wait_timer(self, 3.0, true)
+	await timer.timeout
+	casing_instance.queue_free()

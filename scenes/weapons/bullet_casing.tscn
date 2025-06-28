@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://1j27lfmb3dye"]
+[gd_scene load_steps=10 format=4 uid="uid://1j27lfmb3dye"]
 
 [ext_resource type="Texture2D" uid="uid://ccsg0llnon2te" path="res://art/visual/models/low_poly_9mm_bullet_0.jpg" id="1_6qel2"]
+[ext_resource type="Script" uid="uid://mq0kmwewi3em" path="res://scenes/weapons/bullet_casing.gd" id="1_mb236"]
 [ext_resource type="Texture2D" uid="uid://cy0es2vw15uvs" path="res://art/visual/models/low_poly_9mm_bullet_1.png" id="2_mb236"]
 [ext_resource type="Texture2D" uid="uid://beski05otattn" path="res://art/visual/models/low_poly_9mm_bullet_2.png" id="3_xopkf"]
+[ext_resource type="PackedScene" uid="uid://c6c78fs4kq5vs" path="res://components/audio/audio_component.tscn" id="5_xopkf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03fu0"]
 resource_name = "Bullet"
@@ -50,17 +52,23 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kbs2k")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6qel2"]
-height = 2.12061
-radius = 0.710449
+height = 0.0555725
+radius = 0.0175781
 
-[node name="casing" type="RigidBody3D"]
+[node name="casing" type="RigidBody3D" node_paths=PackedStringArray("audio_component")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+collision_layer = 0
+contact_monitor = true
+script = ExtResource("1_mb236")
+audio_component = NodePath("audio_component")
 
 [node name="model" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.7, 0, 0, 0, 1.2, 0, 0, 0, 0.7, 0, -1.12798, -2.5831e-07)
+transform = Transform3D(0.018, 0, 0, 0, 0.031, 0, 0, 0, 0.018, 0, -0.0221667, -2.09973e-07)
 mesh = SubResource("ArrayMesh_7dddw")
 skeleton = NodePath("")
 
 [node name="hitbox" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, -7.10543e-15, 0, 0, 1, 0, 0.0413426, -1.09883e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00668991, -1.09883e-08)
 shape = SubResource("CylinderShape3D_6qel2")
+
+[node name="audio_component" parent="." instance=ExtResource("5_xopkf")]
