@@ -13,6 +13,7 @@ var shoot_sound
 var blood_splatter = preload("res://scenes/weapons/blood_splatter.tscn")
 var bullet_decal = preload("res://scenes/weapons/bullet_decal.tscn")
 var bullet_tracer = preload("res://scenes/weapons/bullet_tracer.tscn")
+var bullet_casing_9mm = preload("res://scenes/weapons/bullet_casing.tscn")
 @export var aim_ray: RayCast3D
 @export var player : CharacterBody3D
 
@@ -34,6 +35,8 @@ func shoot(target, hit_point):
 		audio_component._play_audio_sfx(shoot_sound, weapon.shoot_volume, false)
 		spawn_bullet_tracer(hit_point)
 		process_embelishments(target, hit_point)
+		if weapon.name == "smg":
+			spawn_bullet_casing()
 
 func shoot_with_spread():
 	var origin = global_position
@@ -114,3 +117,9 @@ func process_embelishments(target, hit_point):
 		emit_blood_splatter(hit_point, target)
 	elif target != null:
 		draw_bullet_decals(hit_point)
+
+func spawn_bullet_casing():
+	print("spawning bullet casing")
+	var casing_instance = bullet_casing_9mm.instantiate()
+	get_tree().current_scene.add_child(casing_instance)
+	casing_instance.global_position = weapon.global_position
