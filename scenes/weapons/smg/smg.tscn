@@ -234,4 +234,7 @@ libraries = {
 
 [node name="hitscan_weapon_component" parent="." instance=ExtResource("5_p3xak")]
 
+[node name="bullet_casing_spawn_node" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195968, 0.641294, -1.85108)
+
 [editable path="muzzle_flash"]

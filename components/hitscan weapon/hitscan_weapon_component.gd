@@ -4,6 +4,7 @@ extends Node3D
 @onready var animation = $"../animation"
 @onready var audio_component = $"../audio_component"
 @onready var muzzle_flash = $"../muzzle_flash"
+var bullet_casing_spawn_node
 
 var magazine = 0
 var magazine_capacity = 0
@@ -18,6 +19,8 @@ var bullet_casing_9mm = preload("res://scenes/weapons/bullet_casing.tscn")
 @export var player : CharacterBody3D
 
 func _ready() -> void:
+	if get_node_or_null("../bullet_casing_spawn_node"):
+		bullet_casing_spawn_node = $"../bullet_casing_spawn_node"
 	aim_ray = get_tree().get_nodes_in_group("aim_ray")[0]
 	magazine = weapon.magazine_capacity
 	magazine_capacity = weapon.magazine_capacity
@@ -120,9 +123,11 @@ func process_embelishments(target, hit_point):
 func spawn_bullet_casing():
 	var casing_instance = bullet_casing_9mm.instantiate()
 	get_tree().current_scene.add_child(casing_instance)
-	casing_instance.global_position = weapon.global_position
-	var rotation_direction = Vector3(0,randf_range(1,10),0)
-	casing_instance.apply_torque_impulse(rotation_direction)
+	casing_instance.global_position = bullet_casing_spawn_node.global_position
+	casing_instance.apply_impulse(Vector3(randf_range(1,3),randf_range(1,3),0))
+	var rotation_direction = Vector3(randf_range(50,100),randf_range(50,100),randf_range(50,100))
+	#print(rotation_direction)
+	#casing_instance.apply_torque_impulse(rotation_direction)
 
 	var timer = utils.start_and_wait_timer(self, 3.0, true)
 	await timer.timeout
