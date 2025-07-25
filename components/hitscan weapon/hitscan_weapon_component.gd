@@ -124,8 +124,10 @@ func spawn_bullet_casing():
 	var casing_instance = bullet_casing_9mm.instantiate()
 	get_tree().current_scene.add_child(casing_instance)
 	casing_instance.global_position = bullet_casing_spawn_node.global_position
-	casing_instance.apply_impulse(Vector3(randf_range(1,3),randf_range(1,3),0))
-	var rotation_direction = Vector3(randf_range(50,100),randf_range(50,100),randf_range(50,100))
+	# CANT FIGURE OUT FUCKING ROTATION MAN!!!!
+
+	#casing_instance.apply_central_force(Vector3(randf_range(1,3),randf_range(1,3),0))
+	#var rotation_direction = Vector3(randf_range(50,100),randf_range(50,100),randf_range(50,100))
 	#print(rotation_direction)
 	#casing_instance.apply_torque_impulse(rotation_direction)
 
