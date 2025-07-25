@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://j0mg6qu0gkmp"]
+[gd_scene load_steps=30 format=4 uid="uid://j0mg6qu0gkmp"]
 
 [ext_resource type="Script" uid="uid://0sdoisxi8fa5" path="res://trenchbroom_levels/trenchbroom_map_1.gd" id="1_lcgag"]
 [ext_resource type="Script" uid="uid://barfabdro4umh" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_vn5d2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dsva6ksnhtvbp" path="res://textures/Horror_Brick_11-128x128.png" id="7_l3bne"]
 [ext_resource type="Texture2D" uid="uid://bqj6uxmgpc8m8" path="res://art/visual/textures/sun.png" id="7_lcgag"]
 [ext_resource type="PackedScene" uid="uid://ctpufg7bblye0" path="res://scenes/npc/the davy/thedavy.tscn" id="8_l3bne"]
+[ext_resource type="AudioStream" uid="uid://do4pnf5y1b70m" path="res://audio/scary_ambience.mp3" id="12_qvk7u"]
 
 [sub_resource type="Curve" id="Curve_ms6b6"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.194647, 0.987873), 0.0, 0.0, 0, 0, Vector2(1, 0.290578), 0.0, 0.0, 0, 0]
@@ -159,3 +160,8 @@ mesh = SubResource("ArrayMesh_6hp7n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="nav_region/QodotMap/entity_0_worldspawn/entity_0_mesh_instance/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_nccob")
+
+[node name="ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_qvk7u")
+volume_db = -20.0
+autoplay = true

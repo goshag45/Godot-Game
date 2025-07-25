@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dq32jw1gxsv35"]
+[gd_scene load_steps=7 format=3 uid="uid://dq32jw1gxsv35"]
+
+[ext_resource type="Script" uid="uid://bf45ni6rtl7qw" path="res://scenes/weapons/blood_splatter.gd" id="1_lmtxw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fol11"]
 albedo_color = Color(0.753908, 0.150736, 0.190397, 1)
@@ -33,3 +35,4 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_owu83")
 draw_pass_1 = SubResource("SphereMesh_4yy5d")
+script = ExtResource("1_lmtxw")

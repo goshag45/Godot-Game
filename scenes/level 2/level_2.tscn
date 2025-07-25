@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=4 uid="uid://bjicamkrn6qce"]
+[gd_scene load_steps=106 format=4 uid="uid://bjicamkrn6qce"]
 
 [ext_resource type="Script" uid="uid://bkec41hommmd0" path="res://scenes/level 2/level_2.gd" id="1_05f8v"]
 [ext_resource type="PackedScene" uid="uid://c5t5dol1bjbnd" path="res://art/visual/models/low_poly_80s_computer_v3.glb" id="2_4asmd"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://cgtrayb35a3r1" path="res://scenes/npc/cockroach.tscn" id="20_axweg"]
 [ext_resource type="PackedScene" uid="uid://cpw4lojutiti" path="res://scenes/npc/guck cube/guck_cube.tscn" id="20_pbxj0"]
 [ext_resource type="Shader" uid="uid://c7rushii784b4" path="res://scenes/level 2/level_2_sky_night.gdshader" id="21_5i01k"]
+[ext_resource type="AudioStream" uid="uid://dm62egblh6v72" path="res://audio/creepy_ambience.mp3" id="26_0k10p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_axweg"]
 size = Vector3(0.3, 3.87305, 47.019)
@@ -857,6 +858,11 @@ light_energy = 2.0
 shadow_enabled = true
 
 [node name="audio_component" parent="." instance=ExtResource("8_j3kbo")]
+
+[node name="ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_0k10p")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="da_aura" from="terrain/thedavy" to="." method="_on_thedavy_da_aura"]
 [connection signal="da_aura" from="terrain/thedavy" to="terrain/da aura" method="_on_thedavy_da_aura"]
