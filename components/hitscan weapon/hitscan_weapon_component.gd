@@ -28,6 +28,7 @@ func _ready() -> void:
 	shoot_sound = weapon.shoot_sound
 
 func _process(_delta: float) -> void:
+	#_draw_debug_axes(weapon)
 	if magazine <= 0 and !animation.is_playing():
 		reload()
 
@@ -123,14 +124,33 @@ func process_embelishments(target, hit_point):
 func spawn_bullet_casing():
 	var casing_instance = bullet_casing_9mm.instantiate()
 	get_tree().current_scene.add_child(casing_instance)
-	casing_instance.global_position = bullet_casing_spawn_node.global_position
-	# CANT FIGURE OUT FUCKING ROTATION MAN!!!!
 
-	#casing_instance.apply_central_force(Vector3(randf_range(1,3),randf_range(1,3),0))
-	#var rotation_direction = Vector3(randf_range(50,100),randf_range(50,100),randf_range(50,100))
-	#print(rotation_direction)
-	#casing_instance.apply_torque_impulse(rotation_direction)
+	# fuckass chatgpt code kill me
+	var spawn_xform = bullet_casing_spawn_node.global_transform
+	var basis = spawn_xform.basis.orthonormalized()
+	basis = basis.rotated(basis.x, deg_to_rad(-90))  # Rotate around local X
+	casing_instance.global_transform = Transform3D(basis, spawn_xform.origin)
+
+	# EJECTION IMPULSE
+	var eject_dir = basis.x.normalized()  # Right direction from the spawn node's basis
+	var impulse_strength = randf_range(3.0, 5.0)
+	casing_instance.apply_central_impulse(eject_dir * impulse_strength)
+	# spin
+	var torque = Vector3(
+		randf_range(-10, 10),
+		randf_range(20, 50),
+		randf_range(-10, 10)
+	)
+	casing_instance.apply_torque_impulse(torque)
 
 	var timer = utils.start_and_wait_timer(self, 3.0, true)
 	await timer.timeout
 	casing_instance.queue_free()
+
+func _draw_debug_axes(node: Node3D):
+	var origin = node.global_transform.origin
+	var basis = node.global_transform.basis
+
+	DebugDraw3D.draw_line(origin, origin + basis.x * 0.6, Color.RED)   # Right
+	DebugDraw3D.draw_line(origin, origin + basis.y * 0.6, Color.GREEN) # Up
+	DebugDraw3D.draw_line(origin, origin + basis.z * 0.6, Color.BLUE)  # Forward
