@@ -53,6 +53,9 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 [node name="hitscan_weapon_component" parent="head/firstperson_camera/view_model/view_model_camera/fps_rig/smg" index="4" node_paths=PackedStringArray("player")]
 player = NodePath("../../../../../../..")
 
+[node name="hitscan_weapon_component" parent="head/firstperson_camera/view_model/view_model_camera/fps_rig/revolver" index="4" node_paths=PackedStringArray("player")]
+player = NodePath("../../../../../../..")
+
 [node name="hitscan_weapon_component" parent="head/firstperson_camera/view_model/view_model_camera/fps_rig/winchesta" index="4" node_paths=PackedStringArray("aim_ray", "player")]
 aim_ray = NodePath("../../../../../aim_ray")
 player = NodePath("../../../../../../..")
@@ -125,6 +128,8 @@ shape = SubResource("SphereShape3D_h17s1")
 [editable path="head/firstperson_camera/view_model"]
 [editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/smg"]
 [editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/smg/muzzle_flash"]
+[editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/revolver"]
+[editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/revolver/muzzle_flash"]
 [editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/winchesta"]
 [editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/winchesta/model"]
 [editable path="head/firstperson_camera/view_model/view_model_camera/fps_rig/winchesta/muzzle_flash"]

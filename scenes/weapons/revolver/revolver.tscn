@@ -592,4 +592,7 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0)
 
 [node name="hitscan_weapon_component" parent="." instance=ExtResource("5_u7qng")]
 
+[node name="bullet_casing_spawn_node" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195968, 0.641294, -1.85108)
+
 [editable path="muzzle_flash"]

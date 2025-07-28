@@ -47,6 +47,7 @@ Weapons
  - ROCKET GLOW EMISSION
  - SHOTGUN THUNDERCLAP
  - SHOTGUN LIGHTNING ?
+ - i could? add 6 casings on revolver reload
 
 ## Issues
  - weapon models spaz out
