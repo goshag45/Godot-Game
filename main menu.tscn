@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvy3xu67lx26b"]
+
+[ext_resource type="PackedScene" uid="uid://dpjdcry5cgp0g" path="res://scenes/menu background/menu_background.tscn" id="1_f0j1r"]
+[ext_resource type="PackedScene" uid="uid://n4j1ug0lm3xm" path="res://components/GUI/start_menu/start_menu.tscn" id="2_qqwyt"]
+[ext_resource type="AudioStream" uid="uid://cvpjxgsbylkcu" path="res://audio/unatco_conversation.mp3" id="3_iv0vr"]
+
+[node name="main menu" type="Node3D"]
+
+[node name="menu_background" parent="." instance=ExtResource("1_f0j1r")]
+
+[node name="start_menu" parent="." instance=ExtResource("2_qqwyt")]
+
+[node name="music_audio_stream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_iv0vr")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"

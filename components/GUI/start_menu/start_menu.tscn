@@ -28,6 +28,7 @@ start_menu = NodePath("start_menu")
 level_select = NodePath("level_select")
 
 [node name="level_select" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -119,7 +120,6 @@ bbcode_enabled = true
 text = "[font=res://art/mingliu.TTF][font_size=60][color=hotpink][shake rate=20 level=20]level_2[/shake]"
 
 [node name="start_menu" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
