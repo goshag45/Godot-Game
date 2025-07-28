@@ -1,8 +1,104 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8hevdfqxmd4g"]
+[gd_scene load_steps=11 format=3 uid="uid://b8hevdfqxmd4g"]
 
 [ext_resource type="Theme" uid="uid://cjxmnb0h8hje7" path="res://art/visual/theme1.tres" id="1_kq6m3"]
 [ext_resource type="Script" uid="uid://cuv0evp3tt3me" path="res://scenes/gui/pause_menu.gd" id="1_n3n3g"]
 [ext_resource type="PackedScene" uid="uid://b2a2cqgdro7rt" path="res://components/input/input_controller.tscn" id="3_hwtj3"]
+[ext_resource type="FontFile" uid="uid://c5tbkn7w5hay3" path="res://art/mingliu.TTF" id="4_4vp8g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0k4cj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mghpt"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.907683, 6.83457e-05, 0.694409, 0.75)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhbmw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.677862, 0.372798, 1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sh1x7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.835892, 0.300058, 1, 0.34902)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xag4j"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_e3p60"]
+default_font = ExtResource("4_4vp8g")
+default_font_size = 50
+Button/colors/font_color = Color(7.21961e-07, 0.801665, 0.312915, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.183538, 1, 0.429629, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 0.345279, 0.754535, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 0.263014, 0.589134, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 0.439185, 0.82636, 1)
+Button/colors/icon_pressed_color = Color(1, 0.286841, 0.903233, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/fonts/font = ExtResource("4_4vp8g")
+Button/styles/disabled = SubResource("StyleBoxFlat_0k4cj")
+Button/styles/focus = SubResource("StyleBoxFlat_mghpt")
+Button/styles/hover = SubResource("StyleBoxFlat_uhbmw")
+Button/styles/normal = SubResource("StyleBoxFlat_sh1x7")
+Button/styles/pressed = SubResource("StyleBoxFlat_xag4j")
 
 [node name="pause_menu" type="Control"]
 process_mode = 3
@@ -38,6 +134,13 @@ layout_mode = 2
 theme = ExtResource("1_kq6m3")
 text = "game"
 
+[node name="main menu" type="Button" parent="button_container"]
+z_index = 2
+layout_mode = 2
+theme = SubResource("Theme_e3p60")
+text = "main menu
+"
+
 [node name="exit" type="Button" parent="button_container"]
 z_index = 2
 layout_mode = 2
@@ -45,4 +148,5 @@ theme = ExtResource("1_kq6m3")
 text = "exit"
 
 [connection signal="pressed" from="button_container/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="button_container/main menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="button_container/exit" to="." method="_on_exit_pressed"]

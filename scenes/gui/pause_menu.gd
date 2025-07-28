@@ -10,6 +10,9 @@ func ready():
 func _on_play_pressed() -> void:
 	_unpause_game()
 
+func _on_main_menu_pressed() -> void:
+	pass # Replace with function body.
+
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 
