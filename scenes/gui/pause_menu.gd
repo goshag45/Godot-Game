@@ -11,7 +11,7 @@ func _on_play_pressed() -> void:
 	_unpause_game()
 
 func _on_main_menu_pressed() -> void:
-	get_tree().change_scene_to_file("res://main menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
