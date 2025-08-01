@@ -5,8 +5,7 @@ extends Control
 
 func ready():
 	set_process_input(true)
-	pass
-	
+
 func _on_play_pressed() -> void:
 	_unpause_game()
 

@@ -1,5 +1,6 @@
-[gd_scene load_steps=58 format=4 uid="uid://dpjdcry5cgp0g"]
+[gd_scene load_steps=59 format=4 uid="uid://dpjdcry5cgp0g"]
 
+[ext_resource type="Script" uid="uid://bxfggdjy2aaph" path="res://scenes/menu background/menu_background.gd" id="1_14lxw"]
 [ext_resource type="Material" uid="uid://dgxyocpd7ggc2" path="res://art/visual/textures/grey_brick.tres" id="2_djy60"]
 [ext_resource type="Texture2D" uid="uid://cdu77lxwotu4h" path="res://art/visual/models/industrial exterior/Industrial_exterior_v2_Pipes.png" id="3_raqnm"]
 [ext_resource type="Texture2D" uid="uid://buxq70kdcrew1" path="res://art/visual/models/industrial exterior/Industrial_exterior_v2_Liquid_reservoir_1.png" id="4_7jyqk"]
@@ -322,6 +323,7 @@ sky = SubResource("Sky_0k10p")
 glow_normalized = true
 
 [node name="menu_background" type="Node3D"]
+script = ExtResource("1_14lxw")
 
 [node name="terrain" type="Node3D" parent="."]
 
@@ -491,6 +493,6 @@ light_energy = 2.0
 shadow_enabled = true
 
 [node name="menu_camera" type="Camera3D" parent="."]
-transform = Transform3D(0.792596, -0.421108, -0.440977, 0.0516262, 0.766961, -0.639614, 0.607558, 0.484189, 0.62963, 0.132037, 1.65366, 36.2862)
+transform = Transform3D(0.791439, -0.424931, -0.439385, 0.0534366, 0.764178, -0.642788, 0.608909, 0.485247, 0.627507, 0.1, 1.5, 37)
 current = true
 fov = 50.0

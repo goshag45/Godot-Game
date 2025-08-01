@@ -1,9 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://txkplgsfsdnc"]
 
-[ext_resource type="Script" uid="uid://c6g7wmroe83hu" path="res://scripts/world.gd" id="1_cgmu7"]
-[ext_resource type="PackedScene" uid="uid://cvy3xu67lx26b" path="res://main menu.tscn" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://c6g7wmroe83hu" path="res://scripts/main.gd" id="1_cgmu7"]
+[ext_resource type="PackedScene" uid="uid://cvy3xu67lx26b" path="res://scenes/main menu.tscn" id="2_0wfyh"]
 
 [node name="game" type="Node3D"]
 script = ExtResource("1_cgmu7")
 
 [node name="main menu" parent="." instance=ExtResource("2_0wfyh")]
+
+[editable path="main menu"]

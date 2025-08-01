@@ -61,7 +61,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_h36j1")
 hover_sound = ExtResource("5_l3qh4")
-volume_db = -8.0
+volume_db = -17.0
 
 [node name="background" type="ColorRect" parent="level_select/level_1"]
 z_index = -1
@@ -97,7 +97,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_h36j1")
 hover_sound = ExtResource("5_l3qh4")
-volume_db = -8.0
+volume_db = -17.0
 
 [node name="background" type="ColorRect" parent="level_select/level_2"]
 z_index = -1
